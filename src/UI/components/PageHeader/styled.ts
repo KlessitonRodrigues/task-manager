@@ -2,7 +2,8 @@ import theme from '@styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding-left: ${theme.getSize(14)};
+  padding-left: ${theme.getSize(16)};
+  margin-top: ${theme.getSize(1)};
 `;
 
 export const Title = styled.h1``;

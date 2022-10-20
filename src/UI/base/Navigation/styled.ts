@@ -3,5 +3,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: inline-flex;
-  padding: ${theme.getSize(1)};
+  border-radius: ${theme.border.radius['1']};
+  overflow: hidden;
 `;

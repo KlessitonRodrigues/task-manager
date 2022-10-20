@@ -1,18 +1,20 @@
-import ImageContainer from '../IconConainer/index';
 import { Container, IconContainer } from './styled';
 
 interface Props {
   icon?: React.ReactElement;
   label: string;
   value: string;
-  currentIndex: number;
-  index: number;
+  active?: boolean;
+  onChange?: (value: string) => void;
 }
 
-const NavigationTab = (props: Props) => (
-  <Container className="active">
-    <IconContainer>{props.icon}</IconContainer>&nbsp;{props.label}
-  </Container>
-);
+const NavigationTab = ({ label, value, active, icon, onChange }: Props) => {
+  return (
+    <Container className={active && 'active'} onClick={() => onChange && onChange(value)}>
+      <IconContainer>{icon}</IconContainer>&nbsp;{label}
+    </Container>
+  );
+};
 
 export default NavigationTab;
+ 
