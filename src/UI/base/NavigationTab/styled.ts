@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: ${theme.getSize(2)} ${theme.getSize(6)};
-  border-bottom: 2px solid ${theme.colors.colorA['100']};
+  border-bottom: 2px solid ${theme.colors.dynamic().colorA['100']};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -11,12 +11,11 @@ export const Container = styled.div`
   position: relative;
 
   &:hover {
-    color: ${theme.colors.colorA['700']};
+    color: ${theme.colors.dynamic().colorA['700']};
   }
 
   &.active {
-    color: ${theme.colors.colorA['900']};
-    //border-bottom: 2px solid ${theme.colors.colorA['500']};
+    color: ${theme.colors.dynamic().colorA['900']};
   }
 
   &::after {
@@ -25,7 +24,7 @@ export const Container = styled.div`
     display: block;
     width: 0px;
     height: 4px;
-    background-color: ${theme.colors.colorA['500']};
+    background-color: ${theme.colors.dynamic().colorA['500']};
     transition: width 0.3s;
     bottom: -4px;
   }

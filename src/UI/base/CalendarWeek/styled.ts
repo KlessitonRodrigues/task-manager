@@ -3,10 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  padding: ${theme.getSize(4)};
-  border-top: 1px solid ${theme.colors.colorA['300']};
-  border-radius: ${theme.border.radius['1']};
-  margin: ${theme.getSize(8)} 0;
+  margin: ${theme.getSize(2)} 0;
   position: relative;
 `;
 
@@ -14,9 +11,9 @@ export const DaysContainer = styled.div`
   display: flex;
 `;
 
-export const TopLeft = styled.h4`
+export const TopLeft = styled.h6`
   position: absolute;
-  top: -${theme.getSize(6)};
-  left: 0;
-  color: ${theme.colors.colorA['900'] + '88'};
+  top: -${theme.getSize(4)};
+  left: ${theme.getSize(1)};
+  color: ${theme.colors.dynamic().colorA['900'] + '99'};
 `;

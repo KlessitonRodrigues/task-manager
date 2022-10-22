@@ -17,8 +17,8 @@ export default createGlobalStyle`
   }
   html, body {
     font-family: 'Poppins', sans-serif;
-    background-color: ${theme.colors.bg.light};
-    color: ${theme.colors.text.dark};
+    background-color: ${theme.colors.dynamic().bg1};
+    color: ${theme.colors.dynamic().text1};
   }
   h1 {
     font-size: ${theme.fontSize.h1};
@@ -58,6 +58,6 @@ export default createGlobalStyle`
       border-radius: 2px;
   }
   div::-webkit-scrollbar-thumb:hover {
-      background: ${theme.colors.colorA['500']};
+      background: ${theme.colors.dynamic().colorA['500']};
   };
 `;

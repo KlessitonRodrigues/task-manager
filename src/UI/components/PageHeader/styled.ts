@@ -10,11 +10,12 @@ export const Title = styled.h1``;
 
 export const Collapse = styled.div`
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   display: inline-flex;
   align-items: center;
-  background-color: ${theme.colors.colorA['700']};
+  background-color: ${theme.colors.dynamic().colorA['700']};
   border-radius: 0 0 ${theme.border.radius['3']} 0;
   color: ${theme.colors.white};
   padding: ${theme.getSize(2)};

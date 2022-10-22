@@ -1,9 +1,15 @@
-import { Container } from './styled';
+import { Container, Number } from './styled';
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  number: number;
 }
 
-const CalendarDay = (props: Props) => <Container>{props.children}</Container>;
+const CalendarDay = (props: Props) => (
+  <Container>
+    <Number>{props.number}</Number>
+    {props.children}
+  </Container>
+);
 
 export default CalendarDay;
