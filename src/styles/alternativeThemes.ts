@@ -30,18 +30,18 @@ const light = {
   bg1: materialColors.blueGrey['50'],
   bg2: materialColors.blueGrey['100'],
   bg3: materialColors.blueGrey['200'],
-  text1: materialColors.blueGrey['500'],
-  text2: materialColors.blueGrey['800'],
-  text3: materialColors.blueGrey['900'],
+  text1: materialColors.grey['800'],
+  text2: materialColors.grey['700'],
+  text3: materialColors.grey['600'],
 };
 
 const dark = {
-  bg1: materialColors.blueGrey['900'],
-  bg2: materialColors.blueGrey['700'],
-  bg3: materialColors.blueGrey['600'],
-  text1: materialColors.blueGrey['50'],
-  text2: materialColors.blueGrey['200'],
-  text3: materialColors.blueGrey['300'],
+  bg1: materialColors.grey['900'],
+  bg2: materialColors.grey['800'],
+  bg3: materialColors.grey['700'],
+  text1: materialColors.grey['200'],
+  text2: materialColors.grey['200'],
+  text3: materialColors.grey['300'],
 };
 
 const mainColors: Record<string, DynamicTheme> = {

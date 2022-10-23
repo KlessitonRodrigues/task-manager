@@ -9,7 +9,7 @@ export default {
     gray: materialColors.grey['600'],
     yellow: materialColors.yellow['600'],
     red: materialColors.red['700'],
-    green: materialColors.lightGreen['300'],
+    green: materialColors.lightGreen['500'],
     white: materialColors.white,
     black: materialColors.black,
   },
