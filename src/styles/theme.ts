@@ -3,7 +3,7 @@ import materialColors from './materialColor';
 import screenSizes from './screenSizes';
 
 export default {
-  getSize: (n: number) => n * 0.2 + 'rem',
+  getSize: (n: number, n2?: number) => n * 0.2 + 'rem ' + (n2 ? n2 * 0.2 + 'rem' : ''),
   colors: {
     dynamic: () => getCurrentTheme(),
     gray: materialColors.grey['600'],

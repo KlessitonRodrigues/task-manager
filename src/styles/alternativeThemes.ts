@@ -65,16 +65,16 @@ const mainColors: Record<string, DynamicTheme> = {
       900: '#1B394B',
     },
   },
-  salmon: {
+  blueDark: {
     ...dark,
     gradient: '#BF364A,#D26071',
     colorA: {
-      50: '#fcedea',
-      100: '#f09f90',
-      300: '#e5563b',
-      500: '#c7361b',
-      700: '#a42d16',
-      900: '#7b2211',
+      50: '#5BA5D7',
+      100: '#5BA5D7',
+      300: '#5BA5D7',
+      500: '#5BA5D7',
+      700: '#3A94CF',
+      900: '#ADD2EB',
     },
     colorB: {
       50: '#599BC5',

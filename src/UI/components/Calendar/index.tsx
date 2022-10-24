@@ -1,11 +1,13 @@
 import CalendarContainer from '@UI/base/CalendarContainer/index';
 import CalendarDay from '@UI/base/CalendarDay/index';
+import CalendarHeader from '@UI/base/CalendarHeader/index';
 import CalendarTodo from '@UI/base/CalendarTodo/index';
 import CalendarWeek from '@UI/base/CalendarWeek';
 
 export const Calendar = () => {
   return (
     <CalendarContainer>
+      <CalendarHeader />
       <CalendarWeek label="week1">
         <CalendarDay number={1}>
           <CalendarTodo />
