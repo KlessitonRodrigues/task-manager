@@ -6,6 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.h6`
+  padding: ${theme.getSize(1)} 0;
 `;
 
 export const InputField = styled.input`

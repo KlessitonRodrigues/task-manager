@@ -9,7 +9,7 @@ export const Container = styled.div<{ show?: boolean }>`
   position: fixed;
   right: 0;
   bottom: 0;
-  height: 85vh;
+  height: 90vh;
   padding: ${theme.getSize(4)};
   box-shadow: ${theme.shadow['3']};
 

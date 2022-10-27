@@ -1,26 +1,31 @@
 import React from 'react';
-import { BsCheckCircle, BsCheckSquare, BsCircle, BsCircleFill, BsSquare } from 'react-icons/bs';
+import { BsCheckCircle, BsCheckSquare, BsCircle, BsSquare } from 'react-icons/bs';
 import { Checkbox, CheckboxContainer, Container, Label } from './styled';
 
 interface Props {
   label?: string;
   values?: string[];
   options?: { value: string; icon?: React.ReactElement; checkedIcon?: React.ReactElement }[];
-  onChange?: () => void;
+  onChange?: (values: string) => void;
   iconFormat?: 'square' | 'circle';
   iconFontSize?: string;
+  limit?: number;
 }
 
 const CheckboxPanel = (props: Props) => {
   const checkIcon = props.iconFormat === 'circle' ? <BsCircle /> : <BsSquare />;
   const checkedIcon = props.iconFormat === 'circle' ? <BsCheckCircle /> : <BsCheckSquare />;
 
-  const CheckboxRender = props.options?.map(c => {
-    const isChecked = props.values?.includes(c.value);
+  const CheckboxRender = props.options?.map(cb => {
+    const isChecked = props.values?.includes(cb.value);
     return (
-      <Checkbox checked={isChecked} iconSize={props.iconFontSize}>
-        {isChecked ? c.checkedIcon || checkedIcon : c.icon || checkIcon}
-        {c.value}
+      <Checkbox
+        checked={isChecked}
+        iconSize={props.iconFontSize}
+        onClick={() => props.onChange && props.onChange(cb.value)}
+      >
+        {isChecked ? cb.checkedIcon || checkedIcon : cb.icon || checkIcon}
+        {cb.value}
       </Checkbox>
     );
   });

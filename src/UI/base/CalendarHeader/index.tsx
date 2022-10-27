@@ -1,5 +1,4 @@
 import useGlobalContext from '@hooks/useGlobalContext/index';
-import { useState } from 'react';
 import { BsPlus } from 'react-icons/bs';
 import Button from '../Button/index';
 import { Container, HeaderContainer, Weekday, WeekdayContainer } from './styled';

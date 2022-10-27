@@ -12,6 +12,7 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>`
   font-size: ${theme.fontSize['h5']};
   color: ${p => (p.checked ? theme.colors.dynamic().colorA['500'] : theme.colors.dynamic().text2)};
   cursor: pointer;
+  text-transform: capitalize;
 
   & > svg {
     font-size: ${p => p.iconSize || '1rem'};

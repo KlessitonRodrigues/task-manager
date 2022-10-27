@@ -7,7 +7,8 @@ export const Container = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  transition: border 0.3s;
+  justify-content: center;
+  transition: border 0.2s;
   position: relative;
 
   &:hover {
@@ -23,10 +24,10 @@ export const Container = styled.div`
     content: '';
     display: block;
     width: 0px;
-    height: 4px;
+    height: 3px;
     background-color: ${theme.colors.dynamic().colorA['500']};
     transition: width 0.3s;
-    bottom: -4px;
+    bottom: -2px;
   }
 
   &.active::after {

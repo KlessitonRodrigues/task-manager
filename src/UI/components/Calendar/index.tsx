@@ -1,10 +1,19 @@
+import useGlobalContext from '@hooks/useGlobalContext/index';
 import CalendarContainer from '@UI/base/CalendarContainer/index';
 import CalendarDay from '@UI/base/CalendarDay/index';
 import CalendarHeader from '@UI/base/CalendarHeader/index';
 import CalendarTodo from '@UI/base/CalendarTodo/index';
 import CalendarWeek from '@UI/base/CalendarWeek';
+import { setLocalStorage } from '@utils/localStorage';
+import { useEffect } from 'react';
 
 export const Calendar = () => {
+  const [global] = useGlobalContext();
+
+  useEffect(() => {
+    setLocalStorage(global.localData);
+  }, [global.localData.taskEvent.length]);
+
   return (
     <CalendarContainer>
       <CalendarHeader />
