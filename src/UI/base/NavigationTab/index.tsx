@@ -17,4 +17,3 @@ const NavigationTab = ({ label, value, active, icon, onChange }: Props) => {
 };
 
 export default NavigationTab;
- 

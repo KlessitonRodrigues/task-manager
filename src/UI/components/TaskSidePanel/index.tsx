@@ -122,9 +122,7 @@ const TaskSidePanel = () => {
       <Button
         label="Save"
         onClick={() => {
-          const localData = actions.handleSaveFrom(global.localData, taskForm);
-          console.log(localData);
-          setGlobal({ ...global, localData });
+          setGlobal({ ...global, localData: actions.handleSaveFrom(global.localData, taskForm) });
         }}
       />
     </SidePanel>

@@ -2,8 +2,7 @@ import { getLocalStorage } from '@utils/localStorage';
 import { LocalStorage } from 'src/@types/localStorage';
 
 export type GlobalState = {
-  currentMonth: Date;
-  currentWeek: number;
+  currentDate: string;
   AnimationDirection: 'left' | 'right';
   sidePanel: '' | 'settings' | 'tags' | 'task';
   theme: 'cian' | 'cianDark';
@@ -11,8 +10,7 @@ export type GlobalState = {
 };
 
 export const globalState: GlobalState = {
-  currentMonth: new Date(),
-  currentWeek: 0,
+  currentDate: new Date().toISOString(),
   AnimationDirection: 'right',
   sidePanel: '',
   theme: 'cian',
