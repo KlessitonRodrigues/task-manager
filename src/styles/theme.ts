@@ -25,9 +25,9 @@ export default {
     },
     radius: {
       '1': '4px',
-      '2': '8px',
-      '3': '12px',
-      '4': '16px',
+      '2': '6px',
+      '3': '8px',
+      '4': '10px',
     },
   },
   fontSize: {

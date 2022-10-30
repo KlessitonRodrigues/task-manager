@@ -1,7 +1,18 @@
 import useGlobalContext from '@hooks/useGlobalContext/index';
-import { BsPlus } from 'react-icons/bs';
+import { useMemo } from 'react';
+import { BsCaretLeft, BsCaretRight, BsPlus } from 'react-icons/bs';
 import Button from '../Button/index';
-import { Container, HeaderContainer, Weekday, WeekdayContainer } from './styled';
+import {
+  Container,
+  DateButton,
+  DateContainer,
+  DateLabel,
+  DateNumber,
+  HeaderContainer,
+  Weekday,
+  WeekdayContainer,
+} from './styled';
+import * as actions from './actions';
 
 interface Props {
   children?: React.ReactNode;
@@ -9,6 +20,7 @@ interface Props {
 
 const CalendarHeader = (props: Props) => {
   const [global, setGlobal] = useGlobalContext();
+  const date = useMemo(() => new Date(global.currentDate), [global.currentDate]);
 
   return (
     <Container>
@@ -19,6 +31,30 @@ const CalendarHeader = (props: Props) => {
           p="0 1.5rem"
           onClick={() => setGlobal({ ...global, sidePanel: 'task' })}
         />
+        <DateContainer>
+          <DateNumber
+            onClick={() =>
+              setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'today') })
+            }
+          >
+            {date.toLocaleDateString('en', { day: '2-digit' })}
+          </DateNumber>
+          <DateButton
+            onClick={() =>
+              setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'prevMonth') })
+            }
+          >
+            <BsCaretLeft />
+          </DateButton>
+          <DateLabel>{date.toLocaleDateString('en', { month: 'long', year: 'numeric' })}</DateLabel>
+          <DateButton
+            onClick={() =>
+              setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'nextMonth') })
+            }
+          >
+            <BsCaretRight />
+          </DateButton>
+        </DateContainer>
       </HeaderContainer>
       <WeekdayContainer>
         <Weekday>MON</Weekday>

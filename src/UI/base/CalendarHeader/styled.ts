@@ -23,4 +23,38 @@ export const WeekdayContainer = styled.div`
 
 export const HeaderContainer = styled.div`
   padding: ${theme.getSize(1)};
+  display: flex;
+  align-items: center;
+  gap: ${theme.getSize(8)};
+`;
+
+export const DateContainer = styled.div`
+  padding: ${theme.getSize(1)};
+  display: flex;
+  align-items: center;
+  gap: ${theme.getSize(4)};
+`;
+
+export const DateButton = styled.div`
+  display: flex;
+  padding: ${theme.getSize(1)};
+  font-size: ${theme.getSize(8)};
+  background-color: ${theme.colors.dynamic().colorA['700']};
+  box-shadow: ${theme.shadow['1']};
+  color: ${theme.colors.white};
+  border-radius: ${theme.border.radius['2']};
+  cursor: pointer;
+`;
+
+export const DateLabel = styled.h1`
+  padding: ${theme.getSize(1)};
+  color: ${theme.colors.dynamic().colorA['700']};
+  text-transform: uppercase;
+  font-weight: bold;
+`;
+
+export const DateNumber = styled.h1`
+  padding: ${theme.getSize(1)};
+  color: ${theme.colors.dynamic().colorA['700']};
+  font-weight: bold;
 `;

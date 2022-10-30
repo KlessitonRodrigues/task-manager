@@ -19,7 +19,8 @@ const daysOfWeek = (targetDate: Moment): DayData[] => {
 };
 
 export const getCalendarData = (dateStr: string): CalendarData => {
-  const date = moment(dateStr);
+  const date = moment(dateStr).set('day', 1);
+
   return {
     week1: {
       weekOfYear: date.weeks(),
@@ -57,7 +58,7 @@ export const RenderCalendarData = (DateStr: string) => {
         {week.daysISO.map(day => (
           <CalendarDay number={day.dayNumber} key={day.dayMonth + day.dayNumber}>
             {day.dayTasks.map(todo => (
-              <CalendarTodo key={todo.id} />
+              <CalendarTodo key={todo.id} taskEvent={todo} />
             ))}
           </CalendarDay>
         ))}

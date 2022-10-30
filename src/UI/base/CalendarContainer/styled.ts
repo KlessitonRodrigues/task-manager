@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  padding: ${theme.getSize(4)};
+  padding: ${theme.getSize(0, 4)};
 `;
 
 export const DaysContainer = styled.div`

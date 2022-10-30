@@ -1,4 +1,4 @@
-import { Container, Number } from './styled';
+import { Container, Content, Number } from './styled';
 
 interface Props {
   children?: React.ReactNode;
@@ -8,7 +8,7 @@ interface Props {
 const CalendarDay = (props: Props) => (
   <Container>
     <Number>{props.number}</Number>
-    {props.children}
+    <Content>{props.children}</Content>
   </Container>
 );
 
