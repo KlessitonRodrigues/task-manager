@@ -1,8 +1,7 @@
 export type TaskEventGroup = {
   id: string;
-  groupSize: number;
   groupindex: number;
-  repeatBy: 'weekly' | 'monthly' | 'yearly';
+  repeatBy: 'day' | 'week' | 'month' | 'year';
   repeatAt: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
   repeatTimes: number;
 };
@@ -26,10 +25,9 @@ export const taskEventMock: TaskEvent = {
   tags: [],
   group: {
     id: '',
-    groupSize: 1,
     groupindex: 0,
-    repeatBy: 'weekly',
-    repeatAt: [],
+    repeatBy: 'day',
+    repeatAt: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
     repeatTimes: 1,
   },
 };

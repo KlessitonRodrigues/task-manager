@@ -1,5 +1,4 @@
 import apis from '@api/index';
-import { LocalStorage } from 'src/@types/localStorage';
 import { TaskEvent, TaskEventGroup } from 'src/@types/taskEvent';
 
 export const handleDateInput = (value: string, currentDate: string) => {
@@ -35,6 +34,6 @@ export const handleRepeatAt = (
   return arr;
 };
 
-export const handleSaveFrom = (localData: LocalStorage, data: TaskEvent) => {
-  return apis.localApi.tasks.create(localData, data);
+export const handleSaveFrom = (data: TaskEvent) => {
+  return apis.localApi.tasks.CREATE(data);
 };

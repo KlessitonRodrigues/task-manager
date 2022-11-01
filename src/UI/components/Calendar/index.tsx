@@ -10,7 +10,7 @@ export const Calendar = () => {
 
   const calendarData = React.useMemo(
     () => actions.RenderCalendarData(global.currentDate),
-    [global.localData.modified_at, global.currentDate]
+    [global.localData.modifiedAt, global.currentDate]
   );
 
   return (

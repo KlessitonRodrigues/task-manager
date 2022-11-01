@@ -67,22 +67,27 @@ const TaskSidePanel = () => {
           label="By"
           values={[taskForm.group.repeatBy]}
           iconFontSize="1.2rem"
-          onChange={(value: 'weekly' | 'monthly' | 'yearly') =>
+          onChange={(value: 'day' | 'week' | 'month' | 'year') =>
             setTaskForm({ ...taskForm, group: { ...taskForm.group, repeatBy: value } })
           }
           options={[
             {
-              value: 'weekly',
+              value: 'day',
               icon: <BsCalendarWeek />,
               checkedIcon: <BsCalendarWeekFill />,
             },
             {
-              value: 'monthly',
+              value: 'week',
+              icon: <BsCalendarWeek />,
+              checkedIcon: <BsCalendarWeekFill />,
+            },
+            {
+              value: 'month',
               icon: <BsCalendarMonth />,
               checkedIcon: <BsCalendarMonthFill />,
             },
             {
-              value: 'yearly',
+              value: 'year',
               icon: <BsCalendar3 />,
               checkedIcon: <BsCalendar3Fill />,
             },
@@ -122,7 +127,7 @@ const TaskSidePanel = () => {
       <Button
         label="Save"
         onClick={() => {
-          setGlobal({ ...global, localData: actions.handleSaveFrom(global.localData, taskForm) });
+          setGlobal({ ...global, localData: actions.handleSaveFrom(taskForm) });
         }}
       />
     </SidePanel>

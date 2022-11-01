@@ -8,7 +8,7 @@ export const getLocalStorage = (): LocalStorage => {
 };
 
 export const setLocalStorage = (data: LocalStorage) => {
-  data.modified_at = new Date().toISOString();
+  data.modifiedAt = new Date().toISOString();
   localStorage.setItem(storageName, JSON.stringify(data));
   return JSON.parse(localStorage.getItem(storageName) || '');
 };
