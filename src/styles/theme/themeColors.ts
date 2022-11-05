@@ -1,30 +1,4 @@
-import materialColors from './materialColor';
-
-interface DynamicTheme {
-  bg1: string;
-  bg2: string;
-  bg3: string;
-  text1: string;
-  text2: string;
-  text3: string;
-  colorA: {
-    50: string;
-    100: string;
-    300: string;
-    500: string;
-    700: string;
-    900: string;
-  };
-  colorB: {
-    50: string;
-    100: string;
-    300: string;
-    500: string;
-    700: string;
-    900: string;
-  };
-  gradient: string;
-}
+import { materialColors } from './colors';
 
 const light = {
   bg1: materialColors.blueGrey['50'],
@@ -44,7 +18,7 @@ const dark = {
   text3: materialColors.grey['300'],
 };
 
-const mainColors: Record<string, DynamicTheme> = {
+export const themeColors = {
   blue: {
     ...light,
     gradient: '#5BA5D7,#3A94CF',
@@ -87,9 +61,4 @@ const mainColors: Record<string, DynamicTheme> = {
   },
 };
 
-export const getCurrentTheme = () => {
-  const bodyClasses = document.body.classList;
-  const themeOptions = Object.keys(mainColors);
-  const selectedTheme = themeOptions.find(theme => bodyClasses.contains(theme));
-  return mainColors[selectedTheme || 'blue'];
-};
+export type Themes = keyof typeof themeColors;

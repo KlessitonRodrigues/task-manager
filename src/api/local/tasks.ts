@@ -1,14 +1,14 @@
-import { getLocalStorage, setLocalStorage } from '@utils/localStorage';
-import { createUID } from '@utils/uid';
 import moment from 'moment';
-import { LocalStorage } from 'src/@types/localStorage';
-import { TaskEvent } from 'src/@types/taskEvent';
+import { LocalStorage } from 'src/types/localStorage';
+import { newTodoEventMock, TodoEvent } from 'src/types/todoEvent';
+import { getLocalStorage, setLocalStorage } from 'src/utils/localStorage';
+import { createUID } from 'src/utils/uid';
 
 export default {
-  CREATE: (data: TaskEvent) => {
+  CREATE: (data: TodoEvent) => {
     const local = getLocalStorage();
     const groupId = createUID();
-    const newEvents: TaskEvent[] = [];
+    let newEvents: TodoEvent[] = [];
 
     // source-event
     data.id = createUID();
@@ -16,13 +16,14 @@ export default {
     data.group.groupindex = 0;
     newEvents.push(data);
 
-    // repeat-events
+    // repeat-event
     const repeatByArr = Array(data.group.repeatTimes).fill('');
     const repeatByDates = repeatByArr.map((v, i) =>
       moment(data.dateISO)
         .add(i + 1, data.group.repeatBy)
         .toISOString()
     );
+
     repeatByDates.forEach((eventDate, i) => {
       newEvents.push({
         ...data,
@@ -35,13 +36,20 @@ export default {
       });
     });
 
+    // filter-by-selected-weeks
+    newEvents = newEvents.filter(event => {
+      const weekdayindex = moment(event.dateISO).get('weekday');
+      const weekdayName = newTodoEventMock().group.repeatAt[weekdayindex];
+      return data.group.repeatAt.includes(weekdayName);
+    });
+
     if (!local.taskEvent) local.taskEvent = [];
     local.taskEvent.push(...newEvents);
     setLocalStorage(local);
     return local;
   },
 
-  UPDATE: (local: LocalStorage, data: TaskEvent) => {
+  UPDATE: (local: LocalStorage, data: TodoEvent) => {
     local.taskEvent?.some((task, i) => {
       if (task.id === data.id) local.taskEvent[i] = data;
     });
@@ -50,7 +58,7 @@ export default {
     return local;
   },
 
-  REMOVE: (data: TaskEvent) => {
+  REMOVE: (data: TodoEvent) => {
     const local = getLocalStorage();
     setLocalStorage(local);
     return local;

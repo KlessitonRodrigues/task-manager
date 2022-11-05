@@ -1,4 +1,4 @@
-import { LocalStorage } from 'src/@types/localStorage';
+import { LocalStorage } from 'src/types/localStorage';
 
 const storageName = 'TASKMANAGER_APP';
 

@@ -1,9 +1,9 @@
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div<{ show?: boolean }>`
   width: ${theme.getSize(150)};
-  background-color: ${theme.colors.dynamic().bg1};
+  background-color: ${theme.colors.fromTheme().bg1};
   border-top-left-radius: ${theme.border.radius['2']};
   transition: 500ms width;
   position: fixed;

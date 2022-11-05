@@ -1,4 +1,4 @@
-export default {
+export const materialColors = {
   red: {
     '50': '#ffebee',
     '100': '#ffcdd2',
@@ -293,18 +293,4 @@ export default {
   },
   black: '#000000',
   white: '#ffffff',
-  darkText: {
-    primary: 'rgba(0, 0, 0, 0.87)',
-    secondary: 'rgba(0, 0, 0, 0.54)',
-    disabled: 'rgba(0, 0, 0, 0.38)',
-    dividers: 'rgba(0, 0, 0, 0.12)',
-  },
-  lightText: {
-    primary: 'rgba(255, 255, 255, 1)',
-    secondary: 'rgba(255, 255, 255, 0.7)',
-    disabled: 'rgba(255, 255, 255, 0.5)',
-    dividers: 'rgba(255, 255, 255, 0.12)',
-  },
-  darkIcons: { active: 'rgba(0, 0, 0, 0.54)', inactive: 'rgba(0, 0, 0, 0.38)' },
-  lightIcons: { active: 'rgba(255, 255, 255, 1)', inactive: 'rgba(255, 255, 255, 0.5)' },
 };

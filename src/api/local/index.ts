@@ -1,5 +1,5 @@
-import tasks from './tasks';
+import todoAPI from './todos';
 
 export default {
-  tasks,
+  todoAPI,
 };

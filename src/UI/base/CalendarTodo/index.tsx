@@ -1,9 +1,9 @@
-import { TaskEvent } from 'src/@types/taskEvent';
+import { TodoEvent } from 'src/types/todoEvent';
 import { Column, Container, Time, Title } from './styled';
 import * as actions from './actions';
 
 interface Props {
-  taskEvent?: TaskEvent;
+  taskEvent?: TodoEvent;
 }
 
 const CalendarTodo = (props: Props) => {

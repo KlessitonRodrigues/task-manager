@@ -1,4 +1,4 @@
-import useGlobalContext from '@hooks/useGlobalContext/index';
+import useGlobalContext from 'src/hooks/useGlobalContext/index';
 import { useMemo } from 'react';
 import { BsCaretLeft, BsCaretRight, BsPlus } from 'react-icons/bs';
 import Button from '../Button/index';
@@ -57,13 +57,13 @@ const CalendarHeader = (props: Props) => {
         </DateContainer>
       </HeaderContainer>
       <WeekdayContainer>
+        <Weekday>SUN</Weekday>
         <Weekday>MON</Weekday>
         <Weekday>TUE</Weekday>
         <Weekday>WEN</Weekday>
         <Weekday>TUR</Weekday>
         <Weekday>FRI</Weekday>
         <Weekday>SAT</Weekday>
-        <Weekday>SUN</Weekday>
       </WeekdayContainer>
     </Container>
   );

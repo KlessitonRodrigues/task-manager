@@ -1,4 +1,4 @@
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -9,14 +9,16 @@ export const Container = styled.div`
   overflow: hidden;
 `;
 
-export const Number = styled.div`
+export const Header = styled.div<{ outOfMonth?: boolean }>`
   padding: ${theme.getSize(2)};
+  margin-bottom: ${theme.getSize(4)};
   border-radius: ${theme.border.radius['1']};
   color: ${theme.colors.white};
-  background-color: ${theme.colors.dynamic().colorA['700']};
+  background-color: ${theme.colors.fromTheme().colorA['700']};
   box-shadow: ${theme.shadow['2']};
   font-weight: bold;
-  margin-bottom: ${theme.getSize(4)};
+
+  ${p => p.outOfMonth && `background-color: ${theme.colors.gray + '99'};`}
 `;
 
 export const Content = styled.div`

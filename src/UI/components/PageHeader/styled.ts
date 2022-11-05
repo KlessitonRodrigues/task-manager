@@ -1,4 +1,4 @@
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -15,7 +15,7 @@ export const Collapse = styled.div`
   left: 0;
   display: inline-flex;
   align-items: center;
-  background-color: ${theme.colors.dynamic().colorA['700']};
+  background-color: ${theme.colors.fromTheme().colorA['700']};
   border-radius: 0 0 ${theme.border.radius['3']} 0;
   color: ${theme.colors.white};
   padding: ${theme.getSize(2)};

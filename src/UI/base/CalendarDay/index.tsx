@@ -1,15 +1,22 @@
-import { Container, Content, Number } from './styled';
+import { zeroLeft } from 'src/utils/date';
+import { Container, Content, Header } from './styled';
 
 interface Props {
   children?: React.ReactNode;
-  number: number;
+  month: number;
+  day: number;
+  selectedMonth: number;
 }
 
-const CalendarDay = (props: Props) => (
-  <Container>
-    <Number>{props.number}</Number>
-    <Content>{props.children}</Content>
-  </Container>
-);
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+const CalendarDay = (props: Props) => {
+  return (
+    <Container>
+      <Header outOfMonth={props.selectedMonth !== props.month}>{zeroLeft(props.day)}</Header>
+      <Content>{props.children}</Content>
+    </Container>
+  );
+};
 
 export default CalendarDay;

@@ -1,4 +1,4 @@
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -9,7 +9,7 @@ export const Weekday = styled.div`
   display: block;
   width: 100%;
   padding: ${theme.getSize(2)};
-  background-color: ${theme.colors.dynamic().colorA['700']};
+  background-color: ${theme.colors.fromTheme().colorA['700']};
   box-shadow: ${theme.shadow['2']};
   color: ${theme.colors.white};
   margin: 0 ${theme.getSize(1)};
@@ -39,7 +39,7 @@ export const DateButton = styled.div`
   display: flex;
   padding: ${theme.getSize(1)};
   font-size: ${theme.getSize(8)};
-  background-color: ${theme.colors.dynamic().colorA['700']};
+  background-color: ${theme.colors.fromTheme().colorA['700']};
   box-shadow: ${theme.shadow['1']};
   color: ${theme.colors.white};
   border-radius: ${theme.border.radius['2']};
@@ -48,13 +48,13 @@ export const DateButton = styled.div`
 
 export const DateLabel = styled.h1`
   padding: ${theme.getSize(1)};
-  color: ${theme.colors.dynamic().colorA['700']};
+  color: ${theme.colors.fromTheme().colorA['700']};
   text-transform: uppercase;
   font-weight: bold;
 `;
 
 export const DateNumber = styled.h1`
   padding: ${theme.getSize(1)};
-  color: ${theme.colors.dynamic().colorA['700']};
+  color: ${theme.colors.fromTheme().colorA['700']};
   font-weight: bold;
 `;

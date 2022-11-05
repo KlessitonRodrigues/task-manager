@@ -1,5 +1,5 @@
-import { getLocalStorage } from '@utils/localStorage';
-import { LocalStorage } from 'src/@types/localStorage';
+import { getLocalStorage } from 'src/utils/localStorage';
+import { LocalStorage } from 'src/types/localStorage';
 
 export type GlobalState = {
   currentDate: string;

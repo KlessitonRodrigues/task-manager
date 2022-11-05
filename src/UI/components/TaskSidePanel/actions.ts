@@ -1,5 +1,5 @@
-import apis from '@api/index';
-import { TaskEvent, TaskEventGroup } from 'src/@types/taskEvent';
+import apis from 'src/api/index';
+import { TodoEvent, TodoEventGroup } from 'src/types/todoEvent';
 
 export const handleDateInput = (value: string, currentDate: string) => {
   const [yy, mm, dd] = value.split('-');
@@ -22,8 +22,8 @@ export const handleTimeInput = (value: string, currentDate: string) => {
 };
 
 export const handleRepeatAt = (
-  value: TaskEventGroup['repeatAt'][0],
-  arr: TaskEventGroup['repeatAt']
+  value: TodoEventGroup['repeatAt'][0],
+  arr: TodoEventGroup['repeatAt']
 ) => {
   const index = arr.indexOf(value);
   if (index !== -1) {
@@ -34,6 +34,6 @@ export const handleRepeatAt = (
   return arr;
 };
 
-export const handleSaveFrom = (data: TaskEvent) => {
-  return apis.localApi.tasks.CREATE(data);
+export const handleSaveFrom = (data: TodoEvent) => {
+  return apis.localApi.todoAPI.CREATE(data);
 };

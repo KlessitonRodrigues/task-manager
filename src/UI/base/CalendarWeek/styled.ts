@@ -1,4 +1,4 @@
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -15,5 +15,5 @@ export const TopLeft = styled.h6`
   position: absolute;
   top: -${theme.getSize(4)};
   left: ${theme.getSize(1)};
-  color: ${theme.colors.dynamic().colorA['900'] + 'CC'};
+  color: ${theme.colors.fromTheme().colorA['900'] + 'CC'};
 `;

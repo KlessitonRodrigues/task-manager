@@ -1,8 +1,8 @@
 import reactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { GlobalProvider } from '@hooks/useGlobalContext';
-import Router from '@UI/pages';
-import GlobalCSS from '@styles/globalCSS';
+import { GlobalProvider } from 'src/hooks/useGlobalContext';
+import Router from 'src/UI/pages';
+import GlobalCSS from 'src/styles/globalCSS';
 
 const App = () => (
   <GlobalProvider>

@@ -1,8 +1,7 @@
-import useGlobalContext from '@hooks/useGlobalContext/index';
-import CalendarContainer from '@UI/base/CalendarContainer/index';
-import CalendarHeader from '@UI/base/CalendarHeader/index';
 import React from 'react';
-
+import useGlobalContext from 'src/hooks/useGlobalContext/index';
+import CalendarContainer from 'src/UI/base/CalendarContainer/index';
+import CalendarHeader from 'src/UI/base/CalendarHeader/index';
 import * as actions from './actions';
 
 export const Calendar = () => {

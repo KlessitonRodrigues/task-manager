@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 
 export const Container = styled.button<{ padding?: string }>`
   margin: 0;
   padding: ${p => p.padding || '0'};
   min-width: ${theme.getSize(30)};
   min-height: ${theme.getSize(10)};
-  background-color: ${theme.colors.dynamic().colorA['700']};
+  background-color: ${theme.colors.fromTheme().colorA['700']};
   box-shadow: ${theme.shadow['1']};
   color: ${theme.colors.white};
   border-radius: ${theme.border.radius['1']};

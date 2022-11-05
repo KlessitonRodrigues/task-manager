@@ -1,4 +1,4 @@
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -7,7 +7,7 @@ export const Container = styled.div`
   border: 1px solid ${theme.colors.gray + '44'};
   border-left: 5px solid ${theme.colors.gray + '99'};
   border-radius: ${theme.border.radius['1']};
-  background-color: ${theme.colors.dynamic().bg1};
+  background-color: ${theme.colors.fromTheme().bg1};
   cursor: pointer;
 
   &:hover {
@@ -23,7 +23,7 @@ export const Column = styled.div`
 `;
 
 export const Time = styled.h6`
-  color: ${theme.colors.dynamic().colorA['900']};
+  color: ${theme.colors.fromTheme().colorA['900']};
 `;
 
 export const Title = styled.h5`

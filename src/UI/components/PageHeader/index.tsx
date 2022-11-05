@@ -1,10 +1,10 @@
-import { Collapse, Container, Expand, Show, Title } from './styled';
-import { BsCalendarDate, BsClipboardData, BsFileEarmarkText, BsKanban } from 'react-icons/bs';
-import ImageContainer from '@UI/base/IconConainer/index';
-import theme from '@styles/theme';
-import Navigation from '@UI/base/Navigation/index';
-import NavigationTab from '@UI/base/NavigationTab/index';
+import theme from 'src/styles/theme';
+import ImageContainer from 'src/UI/base/IconConainer/index';
+import Navigation from 'src/UI/base/Navigation/index';
+import NavigationTab from 'src/UI/base/NavigationTab/index';
 import { useCallback, useState } from 'react';
+import { BsCalendarDate, BsClipboardData, BsFileEarmarkText, BsKanban } from 'react-icons/bs';
+import { Collapse, Container, Expand, Show, Title } from './styled';
 
 type Tabs = 'home' | 'notes' | 'board';
 

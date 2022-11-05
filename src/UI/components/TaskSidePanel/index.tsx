@@ -1,5 +1,4 @@
-import SidePanel from '@UI/base/SidePanel/index';
-import SidePanelTitle from '@UI/base/SidePanelTitle/index';
+import { useState } from 'react';
 import {
   BsCalendar3,
   BsCalendar3Fill,
@@ -8,19 +7,20 @@ import {
   BsCalendarWeek,
   BsCalendarWeekFill,
 } from 'react-icons/bs';
-import SidePanelSection from '@UI/base/SidePanelSection/index';
-import Input from '@UI/base/Input/index';
-import CheckboxPanel from '@UI/base/CheckboxPanel/index';
-import useGlobalContext from '@hooks/useGlobalContext/index';
-import { useState } from 'react';
+import useGlobalContext from 'src/hooks/useGlobalContext/index';
+import CheckboxPanel from 'src/UI/base/CheckboxPanel/index';
+import Input from 'src/UI/base/Input/index';
+import SidePanel from 'src/UI/base/SidePanel/index';
+import SidePanelSection from 'src/UI/base/SidePanelSection/index';
+import SidePanelTitle from 'src/UI/base/SidePanelTitle/index';
 
+import { TodoEvent, TodoEventGroup, newTodoEventMock } from 'src/types/todoEvent';
+import Button from 'src/UI/base/Button/index';
 import * as actions from './actions';
-import { TaskEvent, TaskEventGroup, taskEventMock } from 'src/@types/taskEvent';
-import Button from '@UI/base/Button/index';
 
 const TaskSidePanel = () => {
   const [global, setGlobal] = useGlobalContext();
-  const [taskForm, setTaskForm] = useState<TaskEvent>(taskEventMock);
+  const [taskForm, setTaskForm] = useState<TodoEvent>(newTodoEventMock());
 
   return (
     <SidePanel show={global.sidePanel === 'task'}>
@@ -97,18 +97,18 @@ const TaskSidePanel = () => {
           label="At"
           values={taskForm.group.repeatAt}
           iconFontSize="1.2rem"
-          onChange={(value: TaskEventGroup['repeatAt'][0]) => {
+          onChange={(value: TodoEventGroup['repeatAt'][0]) => {
             const repeatAt = actions.handleRepeatAt(value, taskForm.group.repeatAt);
             setTaskForm({ ...taskForm, group: { ...taskForm.group, repeatAt } });
           }}
           options={[
+            { value: 'sun' },
             { value: 'mon' },
             { value: 'tue' },
             { value: 'wed' },
             { value: 'thu' },
             { value: 'fri' },
             { value: 'sat' },
-            { value: 'sun' },
           ]}
         />
         <Input
@@ -127,7 +127,7 @@ const TaskSidePanel = () => {
       <Button
         label="Save"
         onClick={() => {
-          setGlobal({ ...global, localData: actions.handleSaveFrom(taskForm) });
+          actions.handleSaveFrom(taskForm);
         }}
       />
     </SidePanel>

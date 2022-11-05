@@ -1,4 +1,4 @@
-export type TaskEventGroup = {
+export type TodoEventGroup = {
   id: string;
   groupindex: number;
   repeatBy: 'day' | 'week' | 'month' | 'year';
@@ -6,17 +6,17 @@ export type TaskEventGroup = {
   repeatTimes: number;
 };
 
-export type TaskEvent = {
+export type TodoEvent = {
   id: string;
   name: string;
   description: string;
   dateISO: string;
   tags: string[];
   note: string;
-  group: TaskEventGroup;
+  group: TodoEventGroup;
 };
 
-export const taskEventMock: TaskEvent = {
+export const newTodoEventMock = (): TodoEvent => ({
   id: '',
   name: '',
   description: '',
@@ -27,7 +27,7 @@ export const taskEventMock: TaskEvent = {
     id: '',
     groupindex: 0,
     repeatBy: 'day',
-    repeatAt: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
+    repeatAt: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
     repeatTimes: 1,
   },
-};
+});

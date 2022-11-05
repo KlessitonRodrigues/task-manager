@@ -1,4 +1,4 @@
-import theme from '@styles/theme';
+import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -10,7 +10,8 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>`
   align-items: center;
   gap: ${theme.getSize(2)};
   font-size: ${theme.fontSize['h5']};
-  color: ${p => (p.checked ? theme.colors.dynamic().colorA['500'] : theme.colors.dynamic().text2)};
+  color: ${p =>
+    p.checked ? theme.colors.fromTheme().colorA['500'] : theme.colors.fromTheme().text2};
   cursor: pointer;
   text-transform: capitalize;
 
@@ -19,14 +20,14 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>`
   }
 
   &:hover {
-    color: ${theme.colors.dynamic().colorA['500']};
+    color: ${theme.colors.fromTheme().colorA['500']};
   }
 `;
 
 export const Label = styled.div`
   padding: ${theme.getSize(2)} 0;
   font-size: ${theme.fontSize['h5']};
-  color: ${theme.colors.dynamic().text3};
+  color: ${theme.colors.fromTheme().text3};
 `;
 
 export const CheckboxContainer = styled.div`
