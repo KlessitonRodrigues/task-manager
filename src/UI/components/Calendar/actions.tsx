@@ -1,4 +1,5 @@
 import moment, { Moment } from 'moment';
+import { useState } from 'react';
 import api from 'src/api/index';
 import { CalendarData, DayData } from 'src/types/calendar';
 import { TodoEvent } from 'src/types/todoEvent';
@@ -58,22 +59,28 @@ export const RenderCalendarData = (DateStr: string) => {
   const calendarData = getCalendarData(DateStr);
   const dateObj = dateObjFrom(DateStr);
 
-  const renderData = Object.entries(calendarData)?.map(([key, week]) => {
+  const renderData = Object.entries(calendarData)?.map(([key, week], i) => {
     return (
-      <CalendarWeek label={`week ${week.weekOfYear}`} key={week.weekOfYear}>
-        {week.daysISO?.map(day => (
-          <CalendarDay
-            selectedMonth={dateObj.month}
-            month={day.dayMonth}
-            day={day.dayNumber}
-            key={day.dayMonth + day.dayNumber}
-          >
-            {day.dayTasks?.map(todo => (
-              <CalendarTodo key={todo.id} taskEvent={todo} />
-            ))}
-          </CalendarDay>
-        ))}
-      </CalendarWeek>
+      <CalendarWeek
+        label={`week ${week.weekOfYear}`}
+        key={week.weekOfYear}
+        weekIndex={key}
+      >
+        {
+          week.daysISO?.map(day => (
+            <CalendarDay
+              selectedMonth={dateObj.month}
+              month={day.dayMonth}
+              day={day.dayNumber}
+              key={day.dayMonth + day.dayNumber}
+            >
+              {day.dayTasks?.map(todo => (
+                <CalendarTodo key={todo.id} taskEvent={todo} />
+              ))}
+            </CalendarDay>
+          ))
+        }
+      </CalendarWeek >
     );
   });
 

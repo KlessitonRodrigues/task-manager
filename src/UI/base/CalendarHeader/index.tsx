@@ -24,13 +24,12 @@ const CalendarHeader = (props: Props) => {
   return (
     <Container>
       <HeaderContainer>
-        <Button
-          iconLeft={<BsPlus fontSize="2rem" />}
-          label="Add"
-          p="0 1.5rem"
-          onClick={() => setGlobal({ ...global, sidePanel: 'task' })}
-        />
         <DateContainer>
+          <Button
+            iconLeft={<BsPlus fontSize="2rem" />}
+            label="Add"
+            onClick={() => setGlobal({ ...global, sidePanel: 'task' })}
+          />
           <Button
             label="Today"
             onClick={() =>
