@@ -15,13 +15,14 @@ export default {
   },
   shadow: {
     '1': '1px 1px 2px 1px #0004',
-    '2': '1px 1px 2px 1px #0004',
-    '3': '1px 1px 3px 1px #0006',
-    '4': '1px 1px 3px 1px #0009',
+    '2': '1px 1px 2px 1px #0004A',
+    '3': '1px 1px 2px 1px #0005',
+    '4': '1px 1px 2px 1px #0006',
   },
   border: {
     type: {
       '1': '1px solid #2222',
+      '2': '2px solid #2221',
     },
     radius: {
       '1': '4px',

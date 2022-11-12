@@ -16,7 +16,7 @@ export default createGlobalStyle`
     font-size: ${theme.fontSize.body};
   }
   html, body {
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
     background-color: ${theme.colors.fromTheme().bg1};
     color: ${theme.colors.fromTheme().text1};
   }

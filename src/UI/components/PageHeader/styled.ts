@@ -2,8 +2,11 @@ import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 ${theme.getSize(6)};
   padding-left: ${theme.getSize(16)};
-  margin-top: ${theme.getSize(1)};
+  border-bottom: ${theme.border.type['2']};
 `;
 
 export const Title = styled.h1``;
@@ -44,4 +47,10 @@ export const Expand = styled.div`
   width: 0;
   height: 0;
   opacity: 0;
+`;
+
+export const RightButtons = styled.div`
+  display: flex;
+  gap: ${theme.getSize(2)};
+  padding: ${theme.getSize(2)};
 `;

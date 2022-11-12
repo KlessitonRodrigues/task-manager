@@ -1,11 +1,16 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from 'src/styles/theme';
 
-export const Container = styled.button<{ padding?: string }>`
-  margin: 0;
-  padding: ${p => p.padding || '0'};
-  min-width: ${theme.getSize(30)};
-  min-height: ${theme.getSize(10)};
+interface ContainerProp {
+  padding?: string;
+  variant?: 'outline';
+}
+
+export const Container = styled.button<ContainerProp>`
+  display: inline-flex;
+  justify-content: center;
+  height: ${theme.getSize(10)};
+  min-width: ${theme.getSize(28)};
   background-color: ${theme.colors.fromTheme().colorA['700']};
   box-shadow: ${theme.shadow['1']};
   color: ${theme.colors.white};
@@ -15,9 +20,23 @@ export const Container = styled.button<{ padding?: string }>`
   align-items: center;
   justify-content: center;
   font-size: ${theme.fontSize.body};
-  transition: box-shadow 0.2s;
+  transition: background-color 0.2s;
 
   &:hover {
-    box-shadow: ${theme.shadow['3']};
+    background-color: ${theme.colors.fromTheme().colorA['900']};
   }
+
+  ${p =>
+    p.variant === 'outline' &&
+    css`
+      background-color: transparent;
+      box-shadow: none;
+      border: none;
+      color: ${theme.colors.fromTheme().colorA['900']};
+      border: 1px solid ${theme.colors.fromTheme().colorA['700']};
+
+      &:hover {
+        background-color: ${theme.colors.fromTheme().colorA['100']};
+      }
+    `}
 `;

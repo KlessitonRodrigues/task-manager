@@ -7,11 +7,11 @@ export const Container = styled.div`
 
 export const Weekday = styled.div`
   display: block;
+  text-align: center;
+  font-weight: bold;
   width: 100%;
   padding: ${theme.getSize(2)};
-  background-color: ${theme.colors.fromTheme().colorA['700']};
-  box-shadow: ${theme.shadow['2']};
-  color: ${theme.colors.white};
+  color: ${theme.colors.fromTheme().colorA['700']};
   margin: 0 ${theme.getSize(1)};
   border-radius: ${theme.border.radius['1']};
 `;

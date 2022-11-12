@@ -1,9 +1,8 @@
 import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ active?: boolean }>`
   padding: ${theme.getSize(2)} ${theme.getSize(6)};
-  border-bottom: 2px solid ${theme.colors.fromTheme().colorA['100']};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -24,7 +23,7 @@ export const Container = styled.div`
     content: '';
     display: block;
     width: 0px;
-    height: 3px;
+    height: 5px;
     background-color: ${theme.colors.fromTheme().colorA['500']};
     transition: width 0.3s;
     bottom: -2px;

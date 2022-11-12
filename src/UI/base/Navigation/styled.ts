@@ -5,4 +5,7 @@ export const Container = styled.div`
   display: inline-flex;
   border-radius: ${theme.border.radius['1']};
   overflow: hidden;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 0;
 `;

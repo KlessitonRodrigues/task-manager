@@ -7,7 +7,6 @@ import {
   DateButton,
   DateContainer,
   DateLabel,
-  DateNumber,
   HeaderContainer,
   Weekday,
   WeekdayContainer,
@@ -32,13 +31,12 @@ const CalendarHeader = (props: Props) => {
           onClick={() => setGlobal({ ...global, sidePanel: 'task' })}
         />
         <DateContainer>
-          <DateNumber
+          <Button
+            label="Today"
             onClick={() =>
               setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'today') })
             }
-          >
-            {date.toLocaleDateString('en', { day: '2-digit' })}
-          </DateNumber>
+          />
           <DateButton
             onClick={() =>
               setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'prevMonth') })

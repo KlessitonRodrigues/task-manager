@@ -1,10 +1,18 @@
+import { useCallback, useState } from 'react';
+import {
+  BsCalendarDate,
+  BsClipboardData,
+  BsFileEarmarkText,
+  BsGear,
+  BsKanban,
+  BsTag,
+} from 'react-icons/bs';
 import theme from 'src/styles/theme';
+import IconButton from 'src/UI/base/IconButton/index';
 import ImageContainer from 'src/UI/base/IconConainer/index';
 import Navigation from 'src/UI/base/Navigation/index';
 import NavigationTab from 'src/UI/base/NavigationTab/index';
-import { useCallback, useState } from 'react';
-import { BsCalendarDate, BsClipboardData, BsFileEarmarkText, BsKanban } from 'react-icons/bs';
-import { Collapse, Container, Expand, Show, Title } from './styled';
+import { Collapse, Container, Expand, RightButtons, Show, Title } from './styled';
 
 type Tabs = 'home' | 'notes' | 'board';
 
@@ -51,6 +59,10 @@ const PageHeader = () => {
           active={currentTab === 'board'}
         />
       </Navigation>
+      <RightButtons>
+        <IconButton icon={<BsTag />} />
+        <IconButton icon={<BsGear />} />
+      </RightButtons>
     </Container>
   );
 };

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  padding: ${theme.getSize(2)} 0;
+  padding: ${theme.getSize(2, 0.5)};
   margin: 0 ${theme.getSize(1)};
   border-radius: ${theme.border.radius['1']};
   overflow: hidden;
@@ -15,7 +15,7 @@ export const Header = styled.div<{ outOfMonth?: boolean }>`
   border-radius: ${theme.border.radius['1']};
   color: ${theme.colors.white};
   background-color: ${theme.colors.fromTheme().colorA['700']};
-  box-shadow: ${theme.shadow['2']};
+  box-shadow: ${theme.shadow['4']};
   font-weight: bold;
 
   ${p => p.outOfMonth && `background-color: ${theme.colors.gray + '99'};`}

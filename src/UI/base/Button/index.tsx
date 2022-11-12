@@ -5,11 +5,16 @@ interface Props {
   iconLeft?: React.ReactElement;
   iconRight?: React.ReactElement;
   p?: string;
+  variant?: 'outline';
   onClick?: () => void;
 }
 
 const Button = (props: Props) => (
-  <Container padding={props.p} onClick={() => props.onClick && props.onClick()}>
+  <Container
+    padding={props.p}
+    variant={props.variant}
+    onClick={() => props.onClick && props.onClick()}
+  >
     {props.iconLeft}
     {props.label}
     {props.iconRight}
