@@ -16,7 +16,7 @@ export default createGlobalStyle`
     font-size: ${theme.fontSize.body};
   }
   html, body {
-    font-family: sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: ${theme.colors.fromTheme().bg1};
     color: ${theme.colors.fromTheme().text1};
   }
@@ -60,4 +60,40 @@ export default createGlobalStyle`
   div::-webkit-scrollbar-thumb:hover {
       background: ${theme.colors.fromTheme().colorA['500']};
   };
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .fadeIn {
+    animation-name: fadeIn
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  .fadeOut {
+    animation-name: fadeOut
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 100%, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+
+  .fadeInUp {
+    animation-name: fadeInUp
+  }
+
+  @keyframes fadeOutDown {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translate3d(0, 100%, 0); }
+  }
+
+  .fadeOutDown {
+    animation-name: fadeOutDown
+  }
 `;

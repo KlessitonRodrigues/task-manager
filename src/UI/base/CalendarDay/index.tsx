@@ -1,5 +1,7 @@
+import { BsPlus } from 'react-icons/bs';
 import { zeroLeft } from 'src/utils/date';
-import { Container, Content, Header } from './styled';
+import IconButton from '../IconButton/index';
+import { AddButtonContainer, Container, Content, Header } from './styled';
 
 interface Props {
   children?: React.ReactNode;
@@ -8,13 +10,14 @@ interface Props {
   selectedMonth: number;
 }
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
 const CalendarDay = (props: Props) => {
   return (
     <Container>
       <Header outOfMonth={props.selectedMonth !== props.month}>{zeroLeft(props.day)}</Header>
       <Content className="calendar-day-content">{props.children}</Content>
+      <AddButtonContainer className='calendar-day-button'>
+        <IconButton variant='outiline' icon={<BsPlus />} />
+      </AddButtonContainer>
     </Container>
   );
 };

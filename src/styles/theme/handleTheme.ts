@@ -1,8 +1,9 @@
 import { Themes, themeColors } from './themeColors';
 
+const themeOptions = Object.keys(themeColors);
+
 export const getCurrentTheme = () => {
   const bodyClasses = document.body.classList;
-  const themeOptions = Object.keys(themeColors);
   const selectedTheme = themeOptions.find(theme =>
     bodyClasses.contains(`--theme-${theme}`)
   ) as Themes;

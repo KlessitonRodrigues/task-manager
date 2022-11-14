@@ -39,7 +39,7 @@ export const themeColors = {
       900: '#1B394B',
     },
   },
-  blueDark: {
+  darkBlue: {
     ...dark,
     gradient: '#BF364A,#D26071',
     colorA: {
@@ -48,7 +48,7 @@ export const themeColors = {
       300: '#5BA5D7',
       500: '#5BA5D7',
       700: '#3A94CF',
-      900: '#ADD2EB',
+      900: '#348cc7',
     },
     colorB: {
       50: '#599BC5',

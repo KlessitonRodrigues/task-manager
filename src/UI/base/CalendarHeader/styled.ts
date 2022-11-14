@@ -48,9 +48,11 @@ export const DateButton = styled.div`
 
 export const DateLabel = styled.h1`
   padding: ${theme.getSize(1)};
+  min-width: ${theme.getSize(80)};
   color: ${theme.colors.fromTheme().colorA['700']};
   text-transform: uppercase;
   font-weight: bold;
+  text-align: center;
 `;
 
 export const DateNumber = styled.h1`

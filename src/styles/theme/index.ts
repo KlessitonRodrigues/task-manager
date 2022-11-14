@@ -14,10 +14,10 @@ export default {
     black: materialColors.black,
   },
   shadow: {
-    '1': '1px 1px 2px 1px #0004',
-    '2': '1px 1px 2px 1px #0004A',
-    '3': '1px 1px 2px 1px #0005',
-    '4': '1px 1px 2px 1px #0006',
+    '1': '1px 1px 4px 0px #0006',
+    '2': '1px 1px 4px 0px #0007',
+    '3': '1px 1px 4px 0px #0009',
+    '4': '1px 1px 4px 0px #000B',
   },
   border: {
     type: {

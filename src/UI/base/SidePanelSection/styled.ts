@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const Label = styled.h5`
   margin: ${theme.getSize(2)} 0;
-  border-bottom: 2px solid ${theme.colors.gray + '88'};
+  border-bottom: 2px solid ${theme.colors.gray + '55'};
   padding: ${theme.getSize(1)} 0;
   color: ${theme.colors.fromTheme().text3};
 `;

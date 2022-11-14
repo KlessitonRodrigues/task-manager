@@ -9,12 +9,17 @@ export const Container = styled.div`
 
 export const DaysContainer = styled.div<{ show?: boolean }>`
   display: flex;
+  overflow: hidden;
 
   .calendar-day-content {
     opacity: 0;
     height: 0;
     transition: height 0.4s, opacity 0.4s;
-    ${p => p.show && 'height: 30vh; opacity: 1;'};
+    ${p => p.show && 'height: 40vh; opacity: 1;'}
+  }
+
+  .calendar-day-button {
+    ${p => !p.show && 'display: none;'}
   }
 `;
 

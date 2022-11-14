@@ -7,6 +7,18 @@ export const Container = styled.div`
   margin: 0 ${theme.getSize(1)};
   border-radius: ${theme.border.radius['1']};
   overflow: hidden;
+  position: relative;
+
+  .calendar-day-button {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    .calendar-day-button {
+      opacity: 1;
+    }
+  }
 `;
 
 export const Header = styled.div<{ outOfMonth?: boolean }>`
@@ -26,4 +38,11 @@ export const Content = styled.div`
   border-radius: ${theme.border.radius['1']};
   padding: 0 ${theme.getSize(1)};
   height: 100%;
+`;
+
+export const AddButtonContainer = styled.div`
+  position: absolute;
+  bottom: ${theme.getSize(4)};
+  right: ${theme.getSize(4)};
+  font-size: ${theme.getSize(10)};
 `;
