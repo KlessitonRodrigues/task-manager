@@ -72,11 +72,6 @@ const TaskSidePanel = () => {
           }
           options={[
             {
-              value: 'day',
-              icon: <BsCalendarWeek />,
-              checkedIcon: <BsCalendarWeekFill />,
-            },
-            {
               value: 'week',
               icon: <BsCalendarWeek />,
               checkedIcon: <BsCalendarWeekFill />,
@@ -85,11 +80,6 @@ const TaskSidePanel = () => {
               value: 'month',
               icon: <BsCalendarMonth />,
               checkedIcon: <BsCalendarMonthFill />,
-            },
-            {
-              value: 'year',
-              icon: <BsCalendar3 />,
-              checkedIcon: <BsCalendar3Fill />,
             },
           ]}
         />

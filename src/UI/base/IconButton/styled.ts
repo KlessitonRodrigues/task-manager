@@ -30,7 +30,7 @@ export const Container = styled.button<ContainerProps>`
       background-color: ${theme.colors.fromTheme().colorA['500']};
       color: ${theme.colors.white};
       &:hover {
-        background-color: ${theme.colors.fromTheme().colorA['900']};
+        background-color: ${theme.colors.fromTheme().colorA['700']};
       }
     `}
 `;

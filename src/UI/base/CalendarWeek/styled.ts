@@ -27,7 +27,7 @@ export const TopLeft = styled.h5<{ show?: boolean }>`
   position: absolute;
   top: -${theme.getSize(4)};
   left: ${theme.getSize(1)};
-  color: ${theme.colors.fromTheme().colorA['900'] + 'CC'};
+  color: ${theme.colors.fromTheme().colorA['700'] + 'CC'};
   opacity: 0;
   transition: opacity 0.4s;
   ${p => p.show && 'opacity: 1;'}

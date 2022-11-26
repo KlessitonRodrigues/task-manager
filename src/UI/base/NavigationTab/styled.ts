@@ -9,13 +9,14 @@ export const Container = styled.div<{ active?: boolean }>`
   justify-content: center;
   transition: border 0.2s;
   position: relative;
+  font-family: monospace;
 
   &:hover {
     color: ${theme.colors.fromTheme().colorA['700']};
   }
 
   &.active {
-    color: ${theme.colors.fromTheme().colorA['900']};
+    color: ${theme.colors.fromTheme().colorA['700']};
   }
 
   &::after {
@@ -24,7 +25,7 @@ export const Container = styled.div<{ active?: boolean }>`
     display: block;
     width: 0px;
     height: 5px;
-    background-color: ${theme.colors.fromTheme().colorA['500']};
+    background-color: ${theme.colors.fromTheme().colorA['600']};
     transition: width 0.3s;
     bottom: -2px;
   }

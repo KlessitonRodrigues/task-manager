@@ -11,9 +11,9 @@ export const Container = styled.div`
   cursor: pointer;
 
   &:hover {
-    border-top: 1px solid ${theme.colors.gray};
-    border-bottom: 1px solid ${theme.colors.gray};
-    border-right: 1px solid ${theme.colors.gray};
+    border-top: 1px solid ${theme.colors.gray + 'AA'};
+    border-bottom: 1px solid ${theme.colors.gray + 'AA'};
+    border-right: 1px solid ${theme.colors.gray + 'AA'};
   }
 `;
 
@@ -23,7 +23,7 @@ export const Column = styled.div`
 `;
 
 export const Time = styled.h6`
-  color: ${theme.colors.fromTheme().colorA['900']};
+  color: ${theme.colors.fromTheme().colorA['700']};
 `;
 
 export const Title = styled.h5`

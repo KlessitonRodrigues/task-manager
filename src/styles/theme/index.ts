@@ -1,6 +1,6 @@
-import { materialColors } from './colors';
-import { getCurrentTheme } from './handleTheme';
-import screenSizes from './screenSizes';
+import { materialColors } from './lib/palettes';
+import { getCurrentTheme } from './lib/handleTheme';
+import screenSizes from './lib/screenSizes';
 
 export default {
   getSize: (n: number, n2?: number) => n * 0.2 + 'rem ' + (n2 ? n2 * 0.2 + 'rem' : ''),
@@ -14,6 +14,7 @@ export default {
     black: materialColors.black,
   },
   shadow: {
+    '0': 'none',
     '1': '1px 1px 4px 0px #0006',
     '2': '1px 1px 4px 0px #0007',
     '3': '1px 1px 4px 0px #0009',
@@ -21,6 +22,7 @@ export default {
   },
   border: {
     type: {
+      '0': 'none',
       '1': '1px solid #2222',
       '2': '2px solid #2221',
     },

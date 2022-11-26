@@ -17,6 +17,6 @@ export const InputField = styled.input`
   border-bottom: 1px solid ${theme.colors.fromTheme().colorA['500']};
   border-left: 1px solid ${theme.colors.fromTheme().colorA['500']};
   border-bottom-left-radius: 6px;
-  color: ${theme.colors.fromTheme().colorA['900']};
+  color: ${theme.colors.fromTheme().colorA['700']};
   font-size: ${theme.fontSize.h4};
 `;

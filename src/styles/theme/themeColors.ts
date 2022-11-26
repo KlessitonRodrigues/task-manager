@@ -1,63 +1,107 @@
-import { materialColors } from './colors';
+import { materialColors, atlassianColors } from './lib/palettes';
 
 const light = {
   bg1: materialColors.blueGrey['50'],
-  bg2: materialColors.blueGrey['100'],
-  bg3: materialColors.blueGrey['200'],
+  bg2: materialColors.blueGrey['100'] + '44',
+  bg3: materialColors.blueGrey['200'] + '44',
   text1: materialColors.grey['800'],
   text2: materialColors.grey['700'],
   text3: materialColors.grey['600'],
 };
 
 const dark = {
-  bg1: materialColors.grey['900'],
-  bg2: materialColors.grey['800'],
-  bg3: materialColors.grey['700'],
-  text1: materialColors.grey['200'],
-  text2: materialColors.grey['200'],
-  text3: materialColors.grey['300'],
+  bg1: materialColors.black,
+  bg2: materialColors.grey['800'] + '44',
+  bg3: materialColors.grey['700'] + '44',
+  text1: materialColors.grey['400'],
+  text2: materialColors.grey['500'],
+  text3: materialColors.grey['600'],
 };
 
 export const themeColors = {
   blue: {
     ...light,
-    gradient: '#5BA5D7,#3A94CF',
     colorA: {
-      50: '#EFF6FB',
-      100: '#DEEDF7',
-      300: '#ADD2EB',
-      500: '#5BA5D7',
-      700: '#3A94CF',
-      900: '#246794',
+      500: atlassianColors.blue['600'],
+      600: atlassianColors.blue['700'],
+      700: atlassianColors.blue['800'],
     },
     colorB: {
-      50: '#599BC5',
-      100: '#357197',
-      300: '#1B394B',
-      500: '#1B394B',
-      700: '#1B394B',
-      900: '#1B394B',
+      500: '',
+      600: '',
+      700: '',
     },
+    gradient: `${atlassianColors.blue['600']},${atlassianColors.blue['800']}`,
   },
   darkBlue: {
     ...dark,
-    gradient: '#BF364A,#D26071',
     colorA: {
-      50: '#5BA5D7',
-      100: '#5BA5D7',
-      300: '#5BA5D7',
-      500: '#5BA5D7',
-      700: '#3A94CF',
-      900: '#348cc7',
+      500: atlassianColors.blue['900'],
+      600: atlassianColors.blue['600'],
+      700: atlassianColors.blue['300'],
     },
     colorB: {
-      50: '#599BC5',
-      100: '#357197',
-      300: '#1B394B',
-      500: '#1B394B',
-      700: '#1B394B',
-      900: '#1B394B',
+      500: '',
+      600: '',
+      700: '',
     },
+    gradient: `${atlassianColors.blue['600']},${atlassianColors.blue['800']}`,
+  },
+  purple: {
+    ...light,
+    colorA: {
+      500: atlassianColors.purple['600'],
+      600: atlassianColors.purple['700'],
+      700: atlassianColors.purple['800'],
+    },
+    colorB: {
+      500: '',
+      600: '',
+      700: '',
+    },
+    gradient: `${atlassianColors.purple['600']},${atlassianColors.purple['800']}`,
+  },
+  darkPurple: {
+    ...dark,
+    colorA: {
+      500: atlassianColors.purple['900'],
+      600: atlassianColors.purple['600'],
+      700: atlassianColors.purple['400'],
+    },
+    colorB: {
+      500: '',
+      600: '',
+      700: '',
+    },
+    gradient: `${atlassianColors.purple['600']},${atlassianColors.purple['800']}`,
+  },
+  teal: {
+    ...light,
+    colorA: {
+      500: atlassianColors.teal['700'],
+      600: atlassianColors.teal['800'],
+      700: atlassianColors.teal['900'],
+    },
+    colorB: {
+      500: '',
+      600: '',
+      700: '',
+    },
+    gradient: `${atlassianColors.teal['600']},${atlassianColors.teal['800']}`,
+  },
+  darkTeal: {
+    ...dark,
+    colorA: {
+      500: atlassianColors.teal['800'],
+      600: atlassianColors.teal['600'],
+      700: atlassianColors.teal['300'],
+    },
+    colorB: {
+      500: '',
+      600: '',
+      700: '',
+    },
+    gradient: `${atlassianColors.teal['600']},${atlassianColors.teal['800']}`,
   },
 };
 

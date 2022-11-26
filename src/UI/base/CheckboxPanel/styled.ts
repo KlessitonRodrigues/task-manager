@@ -11,7 +11,7 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>`
   gap: ${theme.getSize(2)};
   font-size: ${theme.fontSize['h5']};
   color: ${p =>
-    p.checked ? theme.colors.fromTheme().colorA['500'] : theme.colors.fromTheme().text2};
+    p.checked ? theme.colors.fromTheme().colorA['600'] : theme.colors.fromTheme().text2};
   cursor: pointer;
   text-transform: capitalize;
 
@@ -20,7 +20,7 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>`
   }
 
   &:hover {
-    color: ${theme.colors.fromTheme().colorA['500']};
+    color: ${theme.colors.fromTheme().colorA['700']};
   }
 `;
 

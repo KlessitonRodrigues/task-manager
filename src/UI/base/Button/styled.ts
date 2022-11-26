@@ -11,10 +11,10 @@ export const Container = styled.button<ContainerProp>`
   justify-content: center;
   height: ${theme.getSize(10)};
   min-width: ${theme.getSize(28)};
-  background-color: ${theme.colors.fromTheme().colorA['700']};
-  box-shadow: ${theme.shadow['1']};
+  background-color: ${theme.colors.fromTheme().colorA['500']};
+  box-shadow: ${theme.shadow['0']};
   color: ${theme.colors.white};
-  border-radius: ${theme.border.radius['1']};
+  border-radius: ${theme.border.radius['2']};
   border: none;
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@ export const Container = styled.button<ContainerProp>`
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${theme.colors.fromTheme().colorA['900']};
+    background-color: ${theme.colors.fromTheme().colorA['600']};
   }
 
   ${p =>
@@ -32,11 +32,11 @@ export const Container = styled.button<ContainerProp>`
       background-color: transparent;
       box-shadow: none;
       border: none;
-      color: ${theme.colors.fromTheme().colorA['900']};
+      color: ${theme.colors.fromTheme().colorA['700']};
       border: 1px solid ${theme.colors.fromTheme().colorA['700']};
 
       &:hover {
-        background-color: ${theme.colors.fromTheme().colorA['100']};
+        background-color: ${theme.colors.fromTheme().colorA['500']};
       }
     `}
 `;

@@ -1,4 +1,4 @@
-import { Themes, themeColors } from './themeColors';
+import { Themes, themeColors } from '../themeColors';
 
 const themeOptions = Object.keys(themeColors);
 
