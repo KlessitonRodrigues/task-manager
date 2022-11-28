@@ -27,6 +27,7 @@ const CalendarHeader = (props: Props) => {
         <DateContainer>
           <Button
             iconLeft={<BsPlus fontSize="2rem" />}
+            variant="iconButton"
             label="Add"
             onClick={() => setGlobal({ ...global, sidePanel: 'task' })}
           />

@@ -15,8 +15,8 @@ const CalendarDay = (props: Props) => {
     <Container>
       <Header outOfMonth={props.selectedMonth !== props.month}>{zeroLeft(props.day)}</Header>
       <Content className="calendar-day-content">{props.children}</Content>
-      <AddButtonContainer className='calendar-day-button'>
-        <IconButton variant='outiline' icon={<BsPlus />} />
+      <AddButtonContainer className="calendar-day-button">
+        <IconButton variant="solid" icon={<BsPlus />} />
       </AddButtonContainer>
     </Container>
   );

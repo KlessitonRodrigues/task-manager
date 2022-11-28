@@ -23,7 +23,7 @@ export const Column = styled.div`
 `;
 
 export const Time = styled.h6`
-  color: ${theme.colors.fromTheme().colorA['700']};
+  color: ${theme.colors.fromTheme().colorA.highlight};
 `;
 
 export const Title = styled.h5`

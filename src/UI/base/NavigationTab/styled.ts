@@ -12,11 +12,11 @@ export const Container = styled.div<{ active?: boolean }>`
   font-family: monospace;
 
   &:hover {
-    color: ${theme.colors.fromTheme().colorA['700']};
+    color: ${theme.colors.fromTheme().colorA.highlight};
   }
 
   &.active {
-    color: ${theme.colors.fromTheme().colorA['700']};
+    color: ${theme.colors.fromTheme().colorA.highlight};
   }
 
   &::after {
@@ -25,7 +25,7 @@ export const Container = styled.div<{ active?: boolean }>`
     display: block;
     width: 0px;
     height: 5px;
-    background-color: ${theme.colors.fromTheme().colorA['600']};
+    background-color: ${theme.colors.fromTheme().colorA.highlight};
     transition: width 0.3s;
     bottom: -2px;
   }

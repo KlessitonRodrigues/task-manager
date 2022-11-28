@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PageConainer from 'src/UI/base/PageContainer/index';
 import PageHeader from 'src/UI/components/PageHeader/index';
 
-const NotesPage = () => {
+const BoardPage = () => {
   const [open, setopen] = useState(true);
 
   return (
@@ -14,4 +14,4 @@ const NotesPage = () => {
   );
 };
 
-export default NotesPage;
+export default BoardPage;

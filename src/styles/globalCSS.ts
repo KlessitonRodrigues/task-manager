@@ -58,7 +58,7 @@ export default createGlobalStyle`
       border-radius: 2px;
   }
   div::-webkit-scrollbar-thumb:hover {
-      background: ${theme.colors.fromTheme().colorA['500']};
+      background: ${theme.colors.fromTheme().colorA.normal};
   };
 
   @keyframes fadeIn {

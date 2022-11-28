@@ -20,7 +20,7 @@ export const CloseBtn = styled.div`
   cursor: pointer;
 
   &:hover {
-    color: ${theme.colors.fromTheme().colorA['500']};
+    color: ${theme.colors.fromTheme().colorA.highlight};
     border-radius: 100px;
   }
 `;

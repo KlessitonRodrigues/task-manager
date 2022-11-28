@@ -34,13 +34,13 @@ export default {
     },
   },
   fontSize: {
+    body: '1rem',
     h1: '1.6rem',
     h2: '1.4rem',
     h3: '1.2rem',
-    h4: '1rem',
+    h4: '1.1rem',
     h5: '0.9rem',
     h6: '0.8rem',
-    body: '1rem',
   },
   devices: {
     mobileS: `(max-width: ${screenSizes.mobileS})`,

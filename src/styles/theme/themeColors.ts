@@ -22,86 +22,34 @@ export const themeColors = {
   blue: {
     ...light,
     colorA: {
-      500: atlassianColors.blue['600'],
-      600: atlassianColors.blue['700'],
-      700: atlassianColors.blue['800'],
+      normal: atlassianColors.blue['600'],
+      variant: atlassianColors.blue['700'],
+      highlight: atlassianColors.blue['800'],
     },
-    colorB: {
-      500: '',
-      600: '',
-      700: '',
-    },
-    gradient: `${atlassianColors.blue['600']},${atlassianColors.blue['800']}`,
   },
   darkBlue: {
     ...dark,
     colorA: {
-      500: atlassianColors.blue['900'],
-      600: atlassianColors.blue['600'],
-      700: atlassianColors.blue['300'],
+      normal: atlassianColors.blue['900'],
+      variant: atlassianColors.blue['700'],
+      highlight: atlassianColors.blue['300'],
     },
-    colorB: {
-      500: '',
-      600: '',
-      700: '',
-    },
-    gradient: `${atlassianColors.blue['600']},${atlassianColors.blue['800']}`,
   },
   purple: {
     ...light,
     colorA: {
-      500: atlassianColors.purple['600'],
-      600: atlassianColors.purple['700'],
-      700: atlassianColors.purple['800'],
+      normal: atlassianColors.purple['700'],
+      variant: atlassianColors.purple['500'],
+      highlight: atlassianColors.purple['800'],
     },
-    colorB: {
-      500: '',
-      600: '',
-      700: '',
-    },
-    gradient: `${atlassianColors.purple['600']},${atlassianColors.purple['800']}`,
   },
   darkPurple: {
     ...dark,
     colorA: {
-      500: atlassianColors.purple['900'],
-      600: atlassianColors.purple['600'],
-      700: atlassianColors.purple['400'],
+      normal: atlassianColors.purple['900'],
+      variant: atlassianColors.purple['700'],
+      highlight: atlassianColors.purple['400'],
     },
-    colorB: {
-      500: '',
-      600: '',
-      700: '',
-    },
-    gradient: `${atlassianColors.purple['600']},${atlassianColors.purple['800']}`,
-  },
-  teal: {
-    ...light,
-    colorA: {
-      500: atlassianColors.teal['700'],
-      600: atlassianColors.teal['800'],
-      700: atlassianColors.teal['900'],
-    },
-    colorB: {
-      500: '',
-      600: '',
-      700: '',
-    },
-    gradient: `${atlassianColors.teal['600']},${atlassianColors.teal['800']}`,
-  },
-  darkTeal: {
-    ...dark,
-    colorA: {
-      500: atlassianColors.teal['800'],
-      600: atlassianColors.teal['600'],
-      700: atlassianColors.teal['300'],
-    },
-    colorB: {
-      500: '',
-      600: '',
-      700: '',
-    },
-    gradient: `${atlassianColors.teal['600']},${atlassianColors.teal['800']}`,
   },
 };
 

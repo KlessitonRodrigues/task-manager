@@ -11,7 +11,7 @@ export const Weekday = styled.div`
   font-weight: bold;
   width: 100%;
   padding: ${theme.getSize(2)};
-  color: ${theme.colors.fromTheme().colorA['600']};
+  color: ${theme.colors.fromTheme().colorA.highlight};
   border-radius: ${theme.border.radius['2']};
   background-color: ${theme.colors.fromTheme().bg2};
 `;
@@ -24,14 +24,14 @@ export const WeekdayContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  padding: ${theme.getSize(2)};
+  padding: ${theme.getSize(2, 1)};
   display: flex;
   align-items: center;
   gap: ${theme.getSize(8)};
 `;
 
 export const DateContainer = styled.div`
-  padding: ${theme.getSize(1)};
+  padding: ${theme.getSize(1)} 0;
   display: flex;
   align-items: center;
   gap: ${theme.getSize(4)};
@@ -41,7 +41,7 @@ export const DateButton = styled.div`
   display: flex;
   padding: ${theme.getSize(0.75)};
   font-size: ${theme.getSize(8)};
-  background-color: ${theme.colors.fromTheme().colorA['500']};
+  background-color: ${theme.colors.fromTheme().colorA.normal};
   box-shadow: ${theme.shadow['0']};
   color: ${theme.colors.white};
   border-radius: ${theme.border.radius['2']};
@@ -51,7 +51,7 @@ export const DateButton = styled.div`
 export const DateLabel = styled.h1`
   padding: ${theme.getSize(1)};
   min-width: ${theme.getSize(80)};
-  color: ${theme.colors.fromTheme().colorA['700']};
+  color: ${theme.colors.fromTheme().colorA.highlight};
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
@@ -59,6 +59,6 @@ export const DateLabel = styled.h1`
 
 export const DateNumber = styled.h1`
   padding: ${theme.getSize(1)};
-  color: ${theme.colors.fromTheme().colorA['600']};
+  color: ${theme.colors.fromTheme().colorA.normal};
   font-weight: bold;
 `;

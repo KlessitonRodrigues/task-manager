@@ -2,6 +2,7 @@ import { getLocalStorage } from 'src/utils/localStorage';
 import { LocalStorage } from 'src/types/localStorage';
 
 export type GlobalState = {
+  location: string;
   currentDate: string;
   selectedWeek: string;
   AnimationDirection: 'left' | 'right';
@@ -11,6 +12,7 @@ export type GlobalState = {
 };
 
 export const globalState: GlobalState = {
+  location: '/',
   currentDate: new Date().toISOString(),
   selectedWeek: 'week1',
   AnimationDirection: 'right',

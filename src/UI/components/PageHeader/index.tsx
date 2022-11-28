@@ -7,6 +7,7 @@ import {
   BsKanban,
   BsTag,
 } from 'react-icons/bs';
+import useGlobalContext from 'src/hooks/useGlobalContext/index';
 import theme from 'src/styles/theme';
 import IconButton from 'src/UI/base/IconButton/index';
 import ImageContainer from 'src/UI/base/IconConainer/index';
@@ -14,13 +15,10 @@ import Navigation from 'src/UI/base/Navigation/index';
 import NavigationTab from 'src/UI/base/NavigationTab/index';
 import { Collapse, Container, Expand, RightButtons, Show, Title } from './styled';
 
-type Tabs = 'home' | 'notes' | 'board';
+type Tabs = '/' | '/notes' | '/board';
 
 const PageHeader = () => {
-  const [currentTab, setTab] = useState<Tabs>('home');
-  const handleTabs = useCallback((value: Tabs) => {
-    setTab(value);
-  }, []);
+  const [global, setGlobal] = useGlobalContext();
 
   return (
     <Container>
@@ -39,24 +37,24 @@ const PageHeader = () => {
       <Navigation>
         <NavigationTab
           icon={<BsCalendarDate fontSize="1.3rem" />}
-          value="home"
+          value="/"
           label="Home"
-          onChange={handleTabs}
-          active={currentTab === 'home'}
+          onChange={location => setGlobal({ ...global, location })}
+          active={global.location === '/'}
         />
         <NavigationTab
           icon={<BsFileEarmarkText fontSize="1.3rem" />}
-          value="notes"
+          value="/notes"
           label="Notes"
-          onChange={handleTabs}
-          active={currentTab === 'notes'}
+          onChange={location => setGlobal({ ...global, location })}
+          active={global.location === '/notes'}
         />
         <NavigationTab
           icon={<BsClipboardData fontSize="1.3rem" />}
-          value="board"
+          value="/board"
           label="Board"
-          onChange={handleTabs}
-          active={currentTab === 'board'}
+          onChange={location => setGlobal({ ...global, location })}
+          active={global.location === '/board'}
         />
       </Navigation>
       <RightButtons>

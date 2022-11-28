@@ -26,7 +26,7 @@ export const Header = styled.div<{ outOfMonth?: boolean }>`
   margin-bottom: ${theme.getSize(4)};
   border-radius: ${theme.border.radius['2']};
   color: ${theme.colors.white};
-  background-color: ${theme.colors.fromTheme().colorA['500']};
+  background-color: ${theme.colors.fromTheme().colorA.normal};
   box-shadow: ${theme.shadow['0']};
   font-weight: bold;
 
@@ -35,7 +35,7 @@ export const Header = styled.div<{ outOfMonth?: boolean }>`
 
 export const Content = styled.div`
   background-color: ${theme.colors.fromTheme().bg2};
-  border-radius: ${theme.border.radius['1']};
+  border-radius: ${theme.border.radius['2']};
   height: 100%;
 `;
 

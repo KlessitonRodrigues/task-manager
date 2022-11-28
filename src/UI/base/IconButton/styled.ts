@@ -3,7 +3,7 @@ import theme from 'src/styles/theme';
 
 interface ContainerProps {
   padding?: string;
-  variant?: 'outiline';
+  variant?: 'solid' | 'outiline';
 }
 
 export const Container = styled.button<ContainerProps>`
@@ -20,17 +20,18 @@ export const Container = styled.button<ContainerProps>`
   transition: background-color 0.4s;
   color: ${theme.colors.black};
   &:hover {
-    background-color: ${theme.colors.gray + '22'};
+    color: ${theme.colors.fromTheme().colorA.normal};
   }
 
   ${p =>
-    p.variant === 'outiline' &&
+    p.variant === 'solid' &&
     css`
       border: ${theme.border.type['1']};
-      background-color: ${theme.colors.fromTheme().colorA['500']};
+      background-color: ${theme.colors.fromTheme().colorA.normal};
       color: ${theme.colors.white};
       &:hover {
-        background-color: ${theme.colors.fromTheme().colorA['700']};
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.fromTheme().colorA.variant};
       }
     `}
 `;
