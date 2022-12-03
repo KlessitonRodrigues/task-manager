@@ -6,7 +6,7 @@
     "target": "ES6",
     "allowJs": true,
     "jsx": "react-jsx",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": ".",

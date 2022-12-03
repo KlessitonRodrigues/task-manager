@@ -1,6 +1,6 @@
 import useGlobalContext from 'src/hooks/useGlobalContext/index';
 import { useMemo } from 'react';
-import { BsCaretLeft, BsCaretRight, BsPlus } from 'react-icons/bs';
+import { BsCalendar2Date, BsCaretLeft, BsCaretRight, BsPlusLg } from 'react-icons/bs';
 import Button from '../Button/index';
 import {
   Container,
@@ -26,12 +26,12 @@ const CalendarHeader = (props: Props) => {
       <HeaderContainer>
         <DateContainer>
           <Button
-            iconLeft={<BsPlus fontSize="2rem" />}
-            variant="iconButton"
+            iconLeft={<BsPlusLg />}
             label="Add"
             onClick={() => setGlobal({ ...global, sidePanel: 'task' })}
           />
           <Button
+            iconLeft={<BsCalendar2Date />}
             label="Today"
             onClick={() =>
               setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'today') })

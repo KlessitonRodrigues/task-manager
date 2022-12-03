@@ -3,15 +3,15 @@ import theme from 'src/styles/theme';
 
 interface ContainerProp {
   padding?: string;
-  variant?: 'outline' | 'iconButton';
+  variant?: 'outline';
 }
 
 export const Container = styled.button<ContainerProp>`
   display: inline-flex;
   justify-content: center;
   height: ${theme.getSize(10)};
-  min-width: ${theme.getSize(30)};
-  padding: ${theme.getSize(0, 2)};
+  min-width: ${theme.getSize(28)};
+  padding: 0 ${theme.getSize(4)};
   background-color: ${theme.colors.fromTheme().colorA.normal};
   box-shadow: ${theme.shadow['0']};
   color: ${theme.colors.white};
@@ -20,7 +20,7 @@ export const Container = styled.button<ContainerProp>`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${theme.fontSize.h4};
+  font-size: ${theme.fontSize.h5};
   transition: background-color 0.2s;
 
   &:hover {
@@ -40,26 +40,12 @@ export const Container = styled.button<ContainerProp>`
         background-color: transparent;
       }
     `}
-
-  ${p =>
-    p.variant === 'iconButton' &&
-    css`
-      width: auto;
-      min-width: auto;
-      & span {
-        width: 0px;
-        opacity: 0;
-        transition: width 0.4s, opacity 0.6s;
-        overflow: hidden;
-      }
-      &:hover span {
-        width: 40px;
-        opacity: 1;
-      }
-    `}
 `;
 
-export const Label = styled.span``;
+export const Label = styled.span`
+  padding: 0 ${theme.getSize(4)};
+`;
+
 export const Icon = styled.div`
   display: flex;
   font-size: ${theme.fontSize.h4};

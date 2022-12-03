@@ -3,14 +3,7 @@ import { zeroLeft } from 'src/utils/date';
 import IconButton from '../IconButton/index';
 import { AddButtonContainer, Container, Content, Header } from './styled';
 
-interface Props {
-  children?: React.ReactNode;
-  month: number;
-  day: number;
-  selectedMonth: number;
-}
-
-const CalendarDay = (props: Props) => {
+const CalendarDay = (props: CalendarDayProps) => {
   return (
     <Container>
       <Header outOfMonth={props.selectedMonth !== props.month}>{zeroLeft(props.day)}</Header>

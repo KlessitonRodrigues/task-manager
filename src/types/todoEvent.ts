@@ -31,20 +31,3 @@ export const newTodoEventMock = (): TodoEvent => ({
     repeatTimes: 1,
   },
 });
-
-export type TodoEvent2 = {
-  id: string;
-  name: string;
-  description: string;
-  tagIds: string[];
-  noteId: string;
-};
-
-export type TodoEventDate = {
-  todoEventId: string;
-  status: 'cancelled' | 'todo' | 'doing' | 'done';
-  dateISO: string;
-  dateTime: number;
-  startedAt: number;
-  completedAt: number;
-};

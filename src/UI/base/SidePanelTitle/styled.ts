@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 0 0 ${theme.getSize(2)};
-  color: ${theme.colors.fromTheme().text3};
+  color: ${theme.colors.fromTheme().text2};
   display: flex;
   align-items: center;
   justify-content: space-between;

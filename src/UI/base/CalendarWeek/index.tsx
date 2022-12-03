@@ -1,13 +1,7 @@
 import useGlobalContext from 'src/hooks/useGlobalContext/index';
 import { Container, DaysContainer, TopLeft } from './styled';
 
-interface Props {
-  children: React.ReactNode;
-  label: string;
-  weekIndex: string;
-}
-
-const CalendarWeek = (props: Props) => {
+const CalendarWeek = (props: CalendarWeekProps) => {
   const [global, setGlobal] = useGlobalContext();
   const expanded = global.selectedWeek === props.weekIndex;
 

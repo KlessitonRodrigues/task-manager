@@ -48,7 +48,39 @@ export const themeColors = {
     colorA: {
       normal: atlassianColors.purple['900'],
       variant: atlassianColors.purple['700'],
-      highlight: atlassianColors.purple['400'],
+      highlight: atlassianColors.purple['300'],
+    },
+  },
+  teal: {
+    ...light,
+    colorA: {
+      normal: materialColors.teal['700'],
+      variant: materialColors.teal['500'],
+      highlight: materialColors.teal['800'],
+    },
+  },
+  darkTeal: {
+    ...dark,
+    colorA: {
+      normal: materialColors.teal['900'],
+      variant: materialColors.teal['600'],
+      highlight: materialColors.teal['100'],
+    },
+  },
+  indigo: {
+    ...light,
+    colorA: {
+      normal: materialColors.indigo['500'],
+      variant: materialColors.indigo['700'],
+      highlight: materialColors.indigo['800'],
+    },
+  },
+  darkIndigo: {
+    ...dark,
+    colorA: {
+      normal: materialColors.indigo['800'],
+      variant: materialColors.indigo['500'],
+      highlight: materialColors.indigo['100'],
     },
   },
 };

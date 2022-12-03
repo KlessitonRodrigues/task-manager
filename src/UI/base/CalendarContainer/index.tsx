@@ -1,10 +1,7 @@
+import { PropsWithChildren } from 'react';
 import { Container, DaysContainer } from './styled';
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const CalendarContainer = (props: Props) => (
+const CalendarContainer = (props: PropsWithChildren) => (
   <Container>
     <DaysContainer>{props.children}</DaysContainer>
   </Container>
