@@ -13,11 +13,7 @@ import {
 } from './styled';
 import * as actions from './actions';
 
-interface Props {
-  children?: React.ReactNode;
-}
-
-const CalendarHeader = (props: Props) => {
+const CalendarHeader = () => {
   const [global, setGlobal] = useGlobalContext();
   const date = useMemo(() => new Date(global.currentDate), [global.currentDate]);
 

@@ -19,3 +19,8 @@ type CalendarWeekProps = {
   label: string;
   weekIndex: string;
 };
+
+type IfProps = {
+  when: boolean;
+  render: React.ReactElement;
+};

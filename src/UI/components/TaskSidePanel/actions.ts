@@ -1,5 +1,16 @@
-import apis from 'src/api/index';
-import { TodoEvent, TodoEventGroup } from 'src/types/todoEvent';
+import { apiRoutes } from 'src/data/api';
+import { createUID } from 'src/utils/uid';
+
+export const createEventFormMock = (): CalendarEventForm => ({
+  id: createUID(),
+  name: '',
+  description: '',
+  noteId: '',
+  tagIds: [],
+  dateISO: '',
+  repeatAt: ['mon'],
+  repeatBy: 'week',
+});
 
 export const handleDateInput = (value: string, currentDate: string) => {
   const [yy, mm, dd] = value.split('-');
@@ -22,8 +33,8 @@ export const handleTimeInput = (value: string, currentDate: string) => {
 };
 
 export const handleRepeatAt = (
-  value: TodoEventGroup['repeatAt'][0],
-  arr: TodoEventGroup['repeatAt']
+  value: CalendarEventForm['repeatAt'][0],
+  arr: CalendarEventForm['repeatAt']
 ) => {
   const index = arr.indexOf(value);
   if (index !== -1) {
@@ -34,6 +45,6 @@ export const handleRepeatAt = (
   return arr;
 };
 
-export const handleSaveFrom = (data: TodoEvent) => {
-  return apis.localApi.todoAPI.CREATE(data);
+export const handleSaveFrom = (data: CalendarEventForm) => {
+  return apiRoutes.events.create(data);
 };

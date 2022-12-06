@@ -1,9 +1,8 @@
-import { TodoEvent } from 'src/types/todoEvent';
 import { Column, Container, Time, Title } from './styled';
 import * as actions from './actions';
 
 interface Props {
-  taskEvent?: TodoEvent;
+  taskEvent?: CalendarEventDate;
 }
 
 const CalendarTodo = (props: Props) => {
@@ -12,7 +11,7 @@ const CalendarTodo = (props: Props) => {
     <Container>
       <Column>
         <Time>{actions.formatTime(date)}</Time>
-        <Title>{props.taskEvent.name}</Title>
+        <Title>{'NONE'}</Title>
       </Column>
     </Container>
   );

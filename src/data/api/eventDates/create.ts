@@ -1,8 +1,8 @@
 import { createUID } from 'src/utils/uid';
 
 export default (routes: APIRoutes) => {
-  return (data: Partial<CalendarEvent>) => {
+  return (data: Partial<CalendarEventDate>) => {
     data.id = createUID();
-    return routes['event/create'](data);
+    return routes['event-date/create'](data);
   };
 };

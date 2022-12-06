@@ -16,6 +16,18 @@ type CalendarEventDate = {
   completedAt?: number;
 };
 
+type CalendarEventForm = {
+  id?: string;
+  name?: string;
+  description?: string;
+  tagIds?: string[];
+  noteId?: string;
+  dateISO?: string;
+  repeatBy?: 'week' | 'month';
+  repeatAt?: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
+  repeatTimes?: number;
+};
+
 type EventsAndDates = { events: CalendarEvent[]; dates: CalendarEventDate[] };
 
 type LocalStorage = {
@@ -44,4 +56,31 @@ type APIRoutes = {
   'event-date/create': (data: CalendarEventDate) => APIResponse<boolean>;
   'event-date/update': (data: CalendarEventDate) => APIResponse<boolean>;
   'event-date/delete': (data: CalendarEventDate) => APIResponse<boolean>;
+};
+
+type DayData = {
+  dayNumber: number;
+  dayMonth: number;
+  dayTasks: CalendarEvent[];
+};
+
+type WeekData = {
+  weekOfYear: number;
+  daysISO: DayData[];
+};
+
+type CalendarData = {
+  week1: WeekData;
+  week2: WeekData;
+  week3: WeekData;
+  week4: WeekData;
+  week5: WeekData;
+  week6: WeekData;
+};
+
+type DateObj = {
+  weekDay: number;
+  dayOfMonth: number;
+  month: number;
+  year: number;
 };

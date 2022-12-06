@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   BsCalendar3,
-  BsCalendar3Fill,
   BsCalendarMonth,
   BsCalendarMonthFill,
   BsCalendarWeek,
@@ -14,13 +13,13 @@ import SidePanel from 'src/UI/base/SidePanel/index';
 import SidePanelSection from 'src/UI/base/SidePanelSection/index';
 import SidePanelTitle from 'src/UI/base/SidePanelTitle/index';
 
-import { TodoEvent, TodoEventGroup, newTodoEventMock } from 'src/types/todoEvent';
 import Button from 'src/UI/base/Button/index';
 import * as actions from './actions';
+import If from 'src/UI/base/If';
 
 const TaskSidePanel = () => {
   const [global, setGlobal] = useGlobalContext();
-  const [taskForm, setTaskForm] = useState<TodoEvent>(newTodoEventMock());
+  const [taskForm, setTaskForm] = useState(actions.createEventFormMock());
 
   return (
     <SidePanel show={global.sidePanel === 'task'}>
@@ -65,11 +64,9 @@ const TaskSidePanel = () => {
       <SidePanelSection label="Repeat Task">
         <CheckboxPanel
           label="By"
-          values={[taskForm.group.repeatBy]}
+          values={[taskForm.repeatBy]}
           iconFontSize="1.2rem"
-          onChange={(value: 'day' | 'week' | 'month' | 'year') =>
-            setTaskForm({ ...taskForm, group: { ...taskForm.group, repeatBy: value } })
-          }
+          onChange={(value: 'week' | 'month') => setTaskForm({ ...taskForm, repeatBy: value })}
           options={[
             {
               value: 'week',
@@ -83,32 +80,35 @@ const TaskSidePanel = () => {
             },
           ]}
         />
-        <CheckboxPanel
-          label="At"
-          values={taskForm.group.repeatAt}
-          iconFontSize="1.2rem"
-          onChange={(value: TodoEventGroup['repeatAt'][0]) => {
-            const repeatAt = actions.handleRepeatAt(value, taskForm.group.repeatAt);
-            setTaskForm({ ...taskForm, group: { ...taskForm.group, repeatAt } });
-          }}
-          options={[
-            { value: 'sun' },
-            { value: 'mon' },
-            { value: 'tue' },
-            { value: 'wed' },
-            { value: 'thu' },
-            { value: 'fri' },
-            { value: 'sat' },
-          ]}
+        <If
+          when={taskForm.repeatBy === 'week'}
+          render={
+            <CheckboxPanel
+              label="At"
+              values={taskForm.repeatAt}
+              iconFontSize="1.2rem"
+              onChange={(value: typeof taskForm.repeatAt[0]) => {
+                const repeatAt = actions.handleRepeatAt(value, taskForm.repeatAt);
+                setTaskForm({ ...taskForm, repeatAt });
+              }}
+              options={[
+                { value: 'sun' },
+                { value: 'mon' },
+                { value: 'tue' },
+                { value: 'wed' },
+                { value: 'thu' },
+                { value: 'fri' },
+                { value: 'sat' },
+              ]}
+            />
+          }
         />
         <Input
           label="Repeat times"
           type="number"
           placeHolder="0"
-          value={taskForm.group.repeatTimes}
-          onChange={amount =>
-            setTaskForm({ ...taskForm, group: { ...taskForm.group, repeatTimes: Number(amount) } })
-          }
+          value={taskForm.repeatTimes}
+          onChange={amount => setTaskForm({ ...taskForm, repeatTimes: Number(amount) })}
         />
       </SidePanelSection>
       <SidePanelSection label="Tags"></SidePanelSection>

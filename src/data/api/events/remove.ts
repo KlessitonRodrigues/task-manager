@@ -1,5 +1,5 @@
 export default (routes: APIRoutes) => {
   return (data: CalendarEvent) => {
-    return routes['event/update'](data);
+    return routes['event/delete'](data);
   };
 };

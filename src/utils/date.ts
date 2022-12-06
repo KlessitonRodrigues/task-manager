@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { GetRepeatedEvents } from 'src/types/utils';
 
 export const getWeekOfYear = (dateStr: string) => {
   const date = new Date(dateStr);
@@ -15,8 +14,4 @@ export const dateObjFrom = (from?: string) => {
     month: date.get('month'),
     year: date.get('year'),
   };
-};
-
-export const getRepestedEvents = ({ dateStr, At, By, amount }: GetRepeatedEvents) => {
-  const date = moment(dateStr);
 };
