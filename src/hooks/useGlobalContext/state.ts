@@ -5,6 +5,8 @@ export type GlobalState = {
   AnimationDirection: 'left' | 'right';
   sidePanel: '' | 'settings' | 'tags' | 'task';
   theme: 'cian' | 'cianDark';
+  database: 'local' | 'remote';
+  databaseLastUpdate: number;
 };
 
 export const globalState: GlobalState = {
@@ -14,4 +16,6 @@ export const globalState: GlobalState = {
   AnimationDirection: 'right',
   sidePanel: '',
   theme: 'cian',
+  database: 'local',
+  databaseLastUpdate: 0,
 };

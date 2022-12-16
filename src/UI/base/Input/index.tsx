@@ -1,14 +1,6 @@
 import { Container, InputField, Label } from './styled';
 
-interface Props {
-  label?: string;
-  type?: string;
-  value?: string | number;
-  placeHolder?: string;
-  onChange?: (value: string) => void;
-}
-
-const Input = (props: Props) => (
+const Input = (props: InputProps) => (
   <Container>
     <Label>{props.label}</Label>
     <InputField

@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components';
 import theme from 'src/styles/theme';
 
-interface ContainerProp {
+export const Container = styled.button<{
   padding?: string;
   variant?: 'outline';
-}
-
-export const Container = styled.button<ContainerProp>`
+}>`
   display: inline-flex;
   justify-content: center;
   height: ${theme.getSize(10)};

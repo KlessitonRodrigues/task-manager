@@ -12,10 +12,9 @@ import Input from 'src/UI/base/Input/index';
 import SidePanel from 'src/UI/base/SidePanel/index';
 import SidePanelSection from 'src/UI/base/SidePanelSection/index';
 import SidePanelTitle from 'src/UI/base/SidePanelTitle/index';
-
 import Button from 'src/UI/base/Button/index';
-import * as actions from './actions';
 import If from 'src/UI/base/If';
+import * as actions from './actions';
 
 const TaskSidePanel = () => {
   const [global, setGlobal] = useGlobalContext();
@@ -64,12 +63,14 @@ const TaskSidePanel = () => {
       <SidePanelSection label="Repeat Task">
         <CheckboxPanel
           label="By"
-          values={[taskForm.repeatBy]}
+          values={[taskForm.repeatPeriod]}
           iconFontSize="1.2rem"
-          onChange={(value: 'week' | 'month') => setTaskForm({ ...taskForm, repeatBy: value })}
+          onChange={(value: EventFormRepeatPeriod) =>
+            setTaskForm({ ...taskForm, repeatPeriod: value })
+          }
           options={[
             {
-              value: 'week',
+              value: 'day',
               icon: <BsCalendarWeek />,
               checkedIcon: <BsCalendarWeekFill />,
             },
@@ -81,15 +82,15 @@ const TaskSidePanel = () => {
           ]}
         />
         <If
-          when={taskForm.repeatBy === 'week'}
+          when={taskForm.repeatPeriod === 'day'}
           render={
             <CheckboxPanel
               label="At"
-              values={taskForm.repeatAt}
+              values={taskForm.repeatAtDays}
               iconFontSize="1.2rem"
-              onChange={(value: typeof taskForm.repeatAt[0]) => {
-                const repeatAt = actions.handleRepeatAt(value, taskForm.repeatAt);
-                setTaskForm({ ...taskForm, repeatAt });
+              onChange={(value: typeof taskForm.repeatAtDays[0]) => {
+                const repeatAtDays = actions.handleRepeatAt(value, taskForm.repeatAtDays);
+                setTaskForm({ ...taskForm, repeatAtDays });
               }}
               options={[
                 { value: 'sun' },
@@ -104,11 +105,15 @@ const TaskSidePanel = () => {
           }
         />
         <Input
-          label="Repeat times"
-          type="number"
-          placeHolder="0"
-          value={taskForm.repeatTimes}
-          onChange={amount => setTaskForm({ ...taskForm, repeatTimes: Number(amount) })}
+          label="Repeat util"
+          type="date"
+          value={taskForm.repeatUtilDate}
+          onChange={date =>
+            setTaskForm({
+              ...taskForm,
+              repeatUtilDate: actions.handleDateInput(date, taskForm.repeatUtilDate),
+            })
+          }
         />
       </SidePanelSection>
       <SidePanelSection label="Tags"></SidePanelSection>

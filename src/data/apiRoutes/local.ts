@@ -1,6 +1,10 @@
 const storageName = 'TODO_APP';
 
-const getLocalStorage = (): LocalStorage => JSON.parse(localStorage.getItem(storageName) || '{}');
+const getLocalStorage = (): LocalStorage => {
+  const storage = JSON.parse(localStorage.getItem(storageName) || '{}') as LocalStorage;
+  if (!storage.updateAt) storage.data = { events: [], eventsDate: [] };
+  return storage;
+};
 
 const setLocalStorage = (data: LocalStorage['data']) => {
   localStorage.setItem(storageName, JSON.stringify({ data, updateAt: Date.now() }));
@@ -44,6 +48,7 @@ export const localAPI: APIRoutes = {
   'event-date/read': async (from, to) => {
     const storage = getLocalStorage();
     const dates = storage?.data?.eventsDate?.filter(evDate => {
+      console.log(evDate);
       if (evDate.dateTime > from && evDate.dateTime < to) return true;
       return false;
     });
@@ -66,7 +71,11 @@ export const localAPI: APIRoutes = {
 
   'event-date/create': async data => {
     const storage = getLocalStorage();
-    storage?.data?.events?.push(data);
+
+    if (storage?.data?.eventsDate?.length)
+      storage.data.eventsDate = [...data, ...storage?.data?.eventsDate];
+    else storage.data.eventsDate = data;
+
     setLocalStorage(storage.data);
     return { success: true, message: 'user created', data: true };
   },

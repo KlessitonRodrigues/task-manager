@@ -18,8 +18,8 @@ const daysOfWeek = (weekData: EventsAndDates, targetDate: Moment): DayData[] => 
 
 export const getCalendarData = async (dateStr: string) => {
   const date = moment(dateStr).set('day', 1);
-  const fromTime = moment(dateStr).startOf('month').add(-10, 'day').get('milliseconds');
-  const toTime = moment(dateStr).endOf('months').add(11, 'day').get('milliseconds');
+  const fromTime = moment(dateStr).startOf('month').add(-10, 'day').unix();
+  const toTime = moment(dateStr).endOf('months').add(11, 'day').unix();
   const events = await apiRoutes.eventDates.read(fromTime, toTime);
 
   return {

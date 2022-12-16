@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  margin: 0 0 ${theme.getSize(2)};
+  margin: 0;
   position: relative;
 `;
 
@@ -15,7 +15,7 @@ export const DaysContainer = styled.div<{ show?: boolean }>`
     opacity: 0;
     height: 0;
     transition: height 0.4s, opacity 0.4s;
-    ${p => p.show && 'height: 40vh; opacity: 1;'}
+    ${p => p.show && 'height: 44vh; opacity: 1;'}
   }
 
   .calendar-day-button {

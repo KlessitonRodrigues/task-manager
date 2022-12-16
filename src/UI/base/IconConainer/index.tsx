@@ -1,15 +1,9 @@
 import { Container } from './styled';
 
-interface Props {
-  color?: string;
-  size?: number;
-  icon: React.ReactElement;
-}
-
-const ImageContainer = ({ icon, color, size }: Props) => (
+const IconContainer = ({ icon, color, size }: IconContainerProps) => (
   <Container size={size} color={color}>
     {icon}
   </Container>
 );
 
-export default ImageContainer;
+export default IconContainer;
