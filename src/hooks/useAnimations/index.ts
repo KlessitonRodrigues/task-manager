@@ -1,48 +1,67 @@
-import { CSSProperties, useRef } from 'react';
+import { CSSProperties, RefObject, useRef } from 'react';
 
-type AnimationConfig = {
-  animationIndex?: number;
-  duration?: string;
+export type AnimationConfig = {
+  index?: number;
+  dur?: string;
   delay?: string;
-  interation?: string;
-  direction?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
+  inter?: string;
+  dir?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
   fill?: 'none' | 'forwards' | 'backwards' | 'both';
-  playState?: 'paused' | 'running';
-  afterAnimation?: (el: HTMLElement) => void;
-  afterAnimationStyles?: CSSProperties;
+  state?: 'paused' | 'running';
+  timing?: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' | 'step-start' | 'step-end';
+  after?: (el: HTMLElement) => void;
+  afterStyles?: CSSProperties;
 };
 
-const useAnimations = (animationList: string[]) => {
-  const elRef = useRef<HTMLElement>();
+const setElConfig = (element: HTMLElement, config: AnimationConfig) => {
+  const { style } = element;
+  const { dur, dir, delay, inter, fill, state, timing } = config;
 
-  const play = (config?: AnimationConfig) => {
-    if (!elRef.current) return;
+  style.animationDuration = dur || '1s';
+  style.animationDelay = delay || '0s';
+  style.animationIterationCount = inter || '1';
+  style.animationFillMode = fill || 'none';
+  style.animationDirection = dir || 'normal';
+  style.animationPlayState = state || 'running';
+  style.animationTimingFunction = timing || '';
+};
 
-    if (config?.delay) elRef.current.style.animationDelay = config.delay;
-    if (config?.interation) elRef.current.style.animationIterationCount = config.interation;
-    if (config?.fill) elRef.current.style.animationFillMode = config.fill;
-    if (config?.direction) elRef.current.style.animationDirection = config.direction;
-    if (config?.duration) elRef.current.style.animationDuration = config.duration;
-    if (config?.playState) elRef.current.style.animationPlayState = config.playState;
+const applyCSSProperties = (element: HTMLElement, css: CSSProperties) => {
+  const el = element;
+  Object.keys(css).forEach(key => {
+    // eslint-disable-next-line
+    // @ts-ignore
+    el.style[key] = css[key];
+  });
+};
 
-    elRef.current?.classList?.add(animationList[config.animationIndex || 0]);
-    elRef.current.onanimationend = () => {
-      if (!elRef.current) return;
-      elRef.current?.classList?.remove(animationList[config.animationIndex || 0]);
+const classListHandle = (el: HTMLElement) => ({
+  add: (name: string) => el.classList.add(name),
+  remove: (name: string) => el.classList.remove(name),
+});
 
-      config.afterAnimation && config.afterAnimation(elRef.current);
-
-      Object.entries(config.afterAnimationStyles).forEach(([key, value]: string[]) => {
-        // @ts-ignore
-        elRef.current.style[key] = value;
-      });
-    };
-  };
+export const useAnimations = <T>(animationList: string[]) => {
+  const elRef = useRef() as RefObject<T>;
 
   return {
     elRef,
-    play,
+    play: (config: AnimationConfig) => {
+      if (!elRef.current) Promise.resolve();
+
+      const el = elRef.current as unknown as HTMLElement;
+      const index = config.index || 0;
+
+      setElConfig(el, config);
+      classListHandle(el).remove(animationList[index]);
+      classListHandle(el).add(animationList[index]);
+
+      return new Promise<void>(res => {
+        el.onanimationend = () => {
+          if (config.afterStyles) applyCSSProperties(el, config.afterStyles);
+          classListHandle(el).remove(animationList[index]);
+          setTimeout(() => res(), 1);
+        };
+      });
+    },
   };
 };
-
-export default useAnimations;
