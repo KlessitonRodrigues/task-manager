@@ -7,12 +7,13 @@ import {
   BsKanban,
   BsTag,
 } from 'react-icons/bs';
-import useGlobalContext from 'src/hooks/useGlobalContext/index';
-import theme from 'src/styles/theme';
 import IconButton from 'src/UI/base/IconButton/index';
 import ImageContainer from 'src/UI/base/IconConainer/index';
 import Navigation from 'src/UI/base/Navigation/index';
 import NavigationTab from 'src/UI/base/NavigationTab/index';
+import useGlobalContext from 'src/hooks/useGlobalContext/index';
+import theme from 'src/styles/theme';
+
 import { Collapse, Container, Expand, RightButtons, Show, Title } from './styled';
 
 type Tabs = '/' | '/notes' | '/board';

@@ -1,4 +1,5 @@
 import useGlobalContext from 'src/hooks/useGlobalContext/index';
+
 import { Container, DaysContainer, TopLeft } from './styled';
 
 const CalendarWeek = (props: CalendarWeekProps) => {

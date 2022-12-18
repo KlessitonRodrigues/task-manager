@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Container, Content, Label } from './styled';
 
 interface Props {

@@ -1,5 +1,5 @@
-import { Column, Container, Time, Title } from './styled';
 import * as actions from './actions';
+import { Column, Container, Time, Title } from './styled';
 
 const CalendarTodo = (props: CalendarTodoProps) => {
   const date = new Date(props.taskEvent?.dateISO || '');

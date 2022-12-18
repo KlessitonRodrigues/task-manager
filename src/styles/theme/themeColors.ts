@@ -1,4 +1,4 @@
-import { materialColors, atlassianColors } from './lib/palettes';
+import { atlassianColors, materialColors } from './lib/palettes';
 
 const light = {
   bg1: materialColors.blueGrey['50'],

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import useGlobalContext from 'src/hooks/useGlobalContext';
 import CalendarContainer from 'src/UI/base/CalendarContainer';
 import CalendarHeader from 'src/UI/base/CalendarHeader';
+import useGlobalContext from 'src/hooks/useGlobalContext';
+
 import * as actions from './actions';
 
 export const Calendar = () => {

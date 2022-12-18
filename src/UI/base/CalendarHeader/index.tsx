@@ -1,7 +1,9 @@
-import useGlobalContext from 'src/hooks/useGlobalContext/index';
 import { useMemo } from 'react';
 import { BsCalendar2Date, BsCaretLeft, BsCaretRight, BsPlusLg } from 'react-icons/bs';
+import useGlobalContext from 'src/hooks/useGlobalContext/index';
+
 import Button from '../Button/index';
+import * as actions from './actions';
 import {
   Container,
   DateButton,
@@ -11,7 +13,6 @@ import {
   Weekday,
   WeekdayContainer,
 } from './styled';
-import * as actions from './actions';
 
 const CalendarHeader = () => {
   const [global, setGlobal] = useGlobalContext();

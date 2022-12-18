@@ -1,5 +1,5 @@
-import { materialColors } from './lib/palettes';
 import { getCurrentTheme } from './lib/handleTheme';
+import { materialColors } from './lib/palettes';
 import screenSizes from './lib/screenSizes';
 
 export default {

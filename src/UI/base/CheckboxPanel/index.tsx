@@ -1,4 +1,5 @@
 import { BsCheckCircle, BsCheckSquare, BsCircle, BsSquare } from 'react-icons/bs';
+
 import { Checkbox, CheckboxContainer, Container, Label } from './styled';
 
 const CheckboxPanel = (props: CheckboxPanelProps) => {

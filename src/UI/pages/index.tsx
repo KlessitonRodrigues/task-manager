@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import useGlobalContext from 'src/hooks/useGlobalContext/index';
 
+import BoardPage from './Board';
 import HomePage from './Home';
 import NotesPage from './Notes';
-import BoardPage from './Board';
-import useGlobalContext from 'src/hooks/useGlobalContext/index';
 
 const Router = () => {
   const [global] = useGlobalContext();

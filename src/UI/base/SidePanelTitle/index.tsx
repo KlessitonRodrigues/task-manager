@@ -1,4 +1,5 @@
 import { BsX } from 'react-icons/bs';
+
 import { CloseBtn, Container, Title } from './styled';
 
 interface Props {

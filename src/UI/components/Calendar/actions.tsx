@@ -1,8 +1,8 @@
 import moment, { Moment } from 'moment';
-import { apiRoutes } from 'src/data/api';
 import CalendarDay from 'src/UI/base/CalendarDay/index';
 import CalendarTodo from 'src/UI/base/CalendarTodo/index';
 import CalendarWeek from 'src/UI/base/CalendarWeek/index';
+import { apiRoutes } from 'src/data/api';
 import { dateObjFrom } from 'src/utils/date';
 
 const daysOfWeek = (weekData: EventsAndDates, targetDate: Moment): DayData[] => {
