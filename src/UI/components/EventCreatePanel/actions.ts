@@ -9,6 +9,7 @@ export const createEventFormMock = (): EventForm => ({
   noteId: '',
   tagIds: [],
   dateISO: '',
+  repeatPeriod: 'day',
   repeatAtDays: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
   repeatUtilDate: '',
 });
@@ -41,25 +42,23 @@ export const handleRepeatAt = (value: EventFormRepeatAtDays[0], arr: EventFormRe
 
 const generateEventDates = (data: EventForm): CalendarEventDate[] => {
   const { repeatUtilDate, repeatAtDays, repeatPeriod, id, dateISO } = data;
-  const dates: CalendarEventDate[] = [];
   const startDate = moment(dateISO);
-  const daysUtilEndDate = startDate.diff(repeatUtilDate, 'days');
+  const daysUtilEndDate = startDate.diff(moment(repeatUtilDate), 'days') * -1;
+  const dates: CalendarEventDate[] = [];
+  console.log(dateISO, repeatUtilDate);
 
   for (let i = 0; dates.length < daysUtilEndDate; i++) {
-    const eventDate = startDate.add(i, repeatPeriod);
-    const dayOfWeek = eventDate
-      .format('dddd')
-      .substring(0, 3)
-      .toLocaleLowerCase() as EventFormRepeatAtDays[0];
-
-    if (repeatAtDays.includes(dayOfWeek))
+    const dayOfWeek = startDate.format('dddd').substring(0, 3).toLocaleLowerCase();
+    if (repeatAtDays.includes(dayOfWeek as EventFormRepeatAtDays[0]))
       dates.push({
         id: createUID(),
         eventId: id,
         status: 'todo',
-        dateISO: eventDate.toISOString(),
-        dateTime: eventDate.unix(),
+        dateISO: startDate.toISOString(),
+        dateTime: startDate.unix(),
       });
+
+    startDate.add(1, repeatPeriod);
   }
 
   return dates;
@@ -70,7 +69,6 @@ export const handleSaveFrom = async (data: EventForm) => {
   const CalendarEent: CalendarEvent = { id, name, description, tagIds, noteId };
   const eventDates = generateEventDates(data);
   console.log('SUBMIT', data, CalendarEent, eventDates);
-
   await apiRoutes.events.create(CalendarEent);
   await apiRoutes.eventDates.create(eventDates);
 };

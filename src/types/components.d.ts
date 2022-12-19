@@ -63,3 +63,9 @@ type InputProps = {
   placeHolder?: string;
   onChange?: (value: string) => void;
 };
+
+type DisplayProps = {
+  label?: string;
+  value?: string | number;
+  size?: '25%' | '33%' | '50%' | '75%' | '100%';
+};

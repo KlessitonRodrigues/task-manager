@@ -11,7 +11,7 @@ export const Calendar = () => {
 
   useEffect(() => {
     actions.RenderCalendarData(global.currentDate).then(data => setCalendatData(data));
-  }, []);
+  }, [global.currentDate]);
 
   return (
     <CalendarContainer>

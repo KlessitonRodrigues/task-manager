@@ -1,4 +1,3 @@
-import { useCallback, useState } from 'react';
 import {
   BsCalendarDate,
   BsClipboardData,
@@ -15,8 +14,6 @@ import useGlobalContext from 'src/hooks/useGlobalContext/index';
 import theme from 'src/styles/theme';
 
 import { Collapse, Container, Expand, RightButtons, Show, Title } from './styled';
-
-type Tabs = '/' | '/notes' | '/board';
 
 const PageHeader = () => {
   const [global, setGlobal] = useGlobalContext();

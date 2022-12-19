@@ -17,7 +17,7 @@ import useGlobalContext from 'src/hooks/useGlobalContext/index';
 
 import * as actions from './actions';
 
-const TaskSidePanel = () => {
+const EventCreatePanel = () => {
   const [global, setGlobal] = useGlobalContext();
   const [taskForm, setTaskForm] = useState(actions.createEventFormMock());
 
@@ -108,7 +108,6 @@ const TaskSidePanel = () => {
         <Input
           label="Repeat util"
           type="date"
-          value={taskForm.repeatUtilDate}
           onChange={date =>
             setTaskForm({
               ...taskForm,
@@ -130,4 +129,4 @@ const TaskSidePanel = () => {
   );
 };
 
-export default TaskSidePanel;
+export default EventCreatePanel;

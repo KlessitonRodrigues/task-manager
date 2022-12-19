@@ -48,7 +48,6 @@ export const localAPI: APIRoutes = {
   'event-date/read': async (from, to) => {
     const storage = getLocalStorage();
     const dates = storage?.data?.eventsDate?.filter(evDate => {
-      console.log(evDate);
       if (evDate.dateTime > from && evDate.dateTime < to) return true;
       return false;
     });
