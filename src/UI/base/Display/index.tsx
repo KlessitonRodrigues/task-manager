@@ -1,9 +1,11 @@
 import { Container, Label, Value } from './styled';
 
-const Display = ({ label, value, size }: DisplayProps) => (
-  <Container size={size}>
-    <Label show={!!label}>{label}</Label>
-    <Value show={!!value}>{value}</Value>
+const Display = (props: DisplayProps) => (
+  <Container size={props.size}>
+    <Label show={!!props.label}>{props.label}</Label>
+    <Value show={!!props.value} color={props.color}>
+      {props.value}
+    </Value>
   </Container>
 );
 

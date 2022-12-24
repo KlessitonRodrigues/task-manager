@@ -17,7 +17,7 @@ export default createGlobalStyle`
     font-size: ${theme.fontSize.body};
   }
   html, body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: ${theme.colors.fromTheme().bg1};
     color: ${theme.colors.fromTheme().text1};
   }

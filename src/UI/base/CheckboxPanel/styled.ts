@@ -24,10 +24,12 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>`
   }
 `;
 
-export const Label = styled.div`
+export const Label = styled.div<{ display?: boolean }>`
   padding: ${theme.getSize(2)} 0;
   font-size: ${theme.fontSize['h5']};
   color: ${theme.colors.fromTheme().text3};
+
+  ${p => !p.display && 'display: none;'}
 `;
 
 export const CheckboxContainer = styled.div`

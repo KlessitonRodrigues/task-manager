@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { apiRoutes } from 'src/data/api';
+import { apiRoutes } from 'src/services/api';
 import { createUID } from 'src/utils/uid';
 
 export const createEventFormMock = (): EventForm => ({

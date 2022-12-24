@@ -1,4 +1,4 @@
-import { localAPI } from 'src/data/apiRoutes/local';
+import { localAPI } from 'src/services/database/local';
 
 import { eventDates } from './eventDates';
 import { events } from './events';

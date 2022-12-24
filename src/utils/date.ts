@@ -15,3 +15,10 @@ export const dateObjFrom = (from?: string) => {
     year: date.get('year'),
   };
 };
+
+export const getTimeFormat = (): Intl.DateTimeFormatOptions => ({
+  hour12: true,
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+});

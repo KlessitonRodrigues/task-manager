@@ -2,5 +2,6 @@ import theme from 'src/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: ${theme.getSize(5)};
+  font-family: monospace;
+  padding: ${theme.getSize(2)} 0;
 `;

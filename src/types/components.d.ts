@@ -41,7 +41,6 @@ type CheckboxPanelProps = {
   onChange?: (values: string) => void;
   iconFormat?: 'square' | 'circle';
   iconFontSize?: string;
-  limit?: number;
 };
 
 type IconButtonProps = {
@@ -66,6 +65,13 @@ type InputProps = {
 
 type DisplayProps = {
   label?: string;
-  value?: string | number;
+  value?: any;
+  color?: 'main' | 'none';
   size?: '25%' | '33%' | '50%' | '75%' | '100%';
+};
+
+type TimeProps = {
+  update?: boolean;
+  startTime?: number;
+  endTime?: number;
 };
