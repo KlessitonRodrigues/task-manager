@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 0 ${theme.getSize(6)};
   padding-left: ${theme.getSize(16)};
-  border-bottom: ${theme.border.type['2']};
+  background-color: ${theme.colors.fromTheme().colorA.normal};
 `;
 
 export const Title = styled.h1``;

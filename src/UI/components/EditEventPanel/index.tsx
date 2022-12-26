@@ -5,7 +5,10 @@ import {
   BsClipboardPlus,
   BsClipboardX,
   BsPen,
+  BsSave,
+  BsSdCard,
 } from 'react-icons/bs';
+import Button from 'src/UI/base/Button';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import Display from 'src/UI/base/Display';
 import SidePanel from 'src/UI/base/SidePanel';
@@ -14,13 +17,17 @@ import SidePanelTitle from 'src/UI/base/SidePanelTitle';
 import Time from 'src/UI/base/Time';
 import useGlobalContext from 'src/hooks/useGlobalContext';
 
-const EventEditPanel = () => {
-  const [global] = useGlobalContext();
+const EditEventPanel = (props: EditEventPanelProps) => {
+  const [global, setGlobal] = useGlobalContext();
   const [EditEventFrom, setEditForm] = useState();
 
   return (
-    <SidePanel show>
-      <SidePanelTitle label="Event Edit" icon={<BsPen />} />
+    <SidePanel show={props.show}>
+      <SidePanelTitle
+        label="Event Edit"
+        icon={<BsPen />}
+        onClose={() => setGlobal({ ...global, sidePanel: '' })}
+      />
       <SidePanelSection label="Description">
         <Display label="Name" value="Test Event" size="33%" />
         <Display label="Occurrence" value="4/12" size="33%" />
@@ -43,8 +50,9 @@ const EventEditPanel = () => {
         <Display label="Total time" color="none" value={<Time update startTime={10000000} />} />
       </SidePanelSection>
       <SidePanelSection label="Linked"></SidePanelSection>
+      <Button label="Save" iconLeft={<BsSdCard />} />
     </SidePanel>
   );
 };
 
-export default EventEditPanel;
+export default EditEventPanel;

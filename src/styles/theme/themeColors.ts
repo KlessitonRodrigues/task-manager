@@ -48,7 +48,7 @@ export const themeColors = {
     colorA: {
       normal: atlassianColors.purple['900'],
       variant: atlassianColors.purple['700'],
-      highlight: atlassianColors.purple['300'],
+      highlight: atlassianColors.purple['200'],
     },
   },
   teal: {
@@ -63,7 +63,7 @@ export const themeColors = {
     ...dark,
     colorA: {
       normal: materialColors.teal['900'],
-      variant: materialColors.teal['600'],
+      variant: materialColors.teal['400'],
       highlight: materialColors.teal['100'],
     },
   },

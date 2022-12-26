@@ -13,21 +13,15 @@ import Input from 'src/UI/base/Input/index';
 import SidePanel from 'src/UI/base/SidePanel/index';
 import SidePanelSection from 'src/UI/base/SidePanelSection/index';
 import SidePanelTitle from 'src/UI/base/SidePanelTitle/index';
-import useGlobalContext from 'src/hooks/useGlobalContext/index';
 
 import * as actions from './actions';
 
-const EventCreatePanel = () => {
-  const [global, setGlobal] = useGlobalContext();
+const CreateEventPanel = (props: CreateEventPanelProps) => {
   const [taskForm, setTaskForm] = useState(actions.createEventFormMock());
 
   return (
-    <SidePanel show={global.sidePanel === 'task'}>
-      <SidePanelTitle
-        label="Task"
-        icon={<BsCalendar3 />}
-        onClose={() => setGlobal({ ...global, sidePanel: '' })}
-      />
+    <SidePanel show={props.show}>
+      <SidePanelTitle label="Task" icon={<BsCalendar3 />} onClose={props.onClose} />
       <SidePanelSection label="Information">
         <Input
           label="Name"
@@ -129,4 +123,4 @@ const EventCreatePanel = () => {
   );
 };
 
-export default EventCreatePanel;
+export default CreateEventPanel;

@@ -3,13 +3,14 @@ import useGlobalContext from 'src/hooks/useGlobalContext/index';
 import { Container, DaysContainer, TopLeft } from './styled';
 
 const CalendarWeek = (props: CalendarWeekProps) => {
+  const { children, label, weekIndex } = props;
   const [global, setGlobal] = useGlobalContext();
-  const expanded = global.selectedWeek === props.weekIndex;
+  const expanded = global.selectedWeek === weekIndex;
 
   return (
-    <Container onClick={() => setGlobal({ ...global, selectedWeek: props.weekIndex })}>
-      <TopLeft show={expanded}>{props.label}</TopLeft>
-      <DaysContainer show={expanded}>{props.children}</DaysContainer>
+    <Container onClick={() => setGlobal({ ...global, selectedWeek: weekIndex })}>
+      <TopLeft show={expanded}>{label}</TopLeft>
+      <DaysContainer show={expanded}>{children}</DaysContainer>
     </Container>
   );
 };

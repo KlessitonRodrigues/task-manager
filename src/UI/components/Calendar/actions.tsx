@@ -6,12 +6,18 @@ import { apiRoutes } from 'src/services/api';
 import { dateObjFrom } from 'src/utils/date';
 
 const daysOfWeek = (weekData: EventsAndDates, targetDate: Moment): DayData[] => {
-  const days = new Array(7).fill('');
-  return days.map((v, i): DayData => {
+  return new Array(7).fill('').map((v, i) => {
     return {
       dayNumber: targetDate.weekday(i).get('date'),
       dayMonth: targetDate.get('months'),
-      dayTasks: weekData.dates?.filter(date => targetDate.isSame(date.dateISO, 'date')) || [],
+      dayEvents: weekData.dates.reduce((arr, date) => {
+        if (targetDate.isSame(date.dateISO, 'date'))
+          arr.push({
+            ...date,
+            event: weekData.events.find(ev => ev.id === date.eventId),
+          });
+        return arr;
+      }, []),
     };
   });
 };
@@ -49,30 +55,26 @@ export const getCalendarData = async (dateStr: string) => {
   };
 };
 
-export const RenderCalendarData = async (DateStr: string) => {
+export const RenderCalendarData = async (DateStr: string, edit: (cEv: CalendarEvent) => void) => {
   const calendarData = await getCalendarData(DateStr);
   const dateObj = dateObjFrom(DateStr);
   const weeks = Object.keys(calendarData) as (keyof typeof calendarData)[];
   const WeeksToRender = [];
 
   for (const week of weeks) {
-    const WeekData = calendarData[week];
+    const { weekOfYear, daysISO } = calendarData[week];
 
     WeeksToRender.push(
-      <CalendarWeek
-        label={`week ${WeekData.weekOfYear}`}
-        key={WeekData.weekOfYear}
-        weekIndex={week}
-      >
-        {WeekData.daysISO?.map(day => (
+      <CalendarWeek label={`week ${weekOfYear}`} key={weekOfYear} weekIndex={week}>
+        {daysISO?.map(({ dayMonth, dayNumber, dayEvents }) => (
           <CalendarDay
             selectedMonth={dateObj.month}
-            month={day.dayMonth}
-            day={day.dayNumber}
-            key={day.dayMonth + day.dayNumber}
+            month={dayMonth}
+            day={dayNumber}
+            key={`${dayMonth} ${dayNumber}`}
           >
-            {day.dayTasks?.map(todo => (
-              <CalendarTodo key={todo.id} taskEvent={todo} />
+            {dayEvents?.map(todo => (
+              <CalendarTodo key={todo.id} calendarEvent={todo} onClick={edit} />
             ))}
           </CalendarDay>
         ))}

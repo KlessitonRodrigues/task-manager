@@ -1,12 +1,9 @@
-import React from 'react';
-
 import { Container } from './styled';
 
-interface Props {
-  show?: boolean;
-  children?: React.ReactNode;
-}
+const SidePanel = (props: SidePanelProps) => {
+  const { children, show } = props;
 
-const SidePanel = (props: Props) => <Container show={props.show}>{props.children}</Container>;
+  return <Container show={show}>{children}</Container>;
+};
 
 export default SidePanel;

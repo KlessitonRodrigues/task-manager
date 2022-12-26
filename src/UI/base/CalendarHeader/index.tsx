@@ -1,8 +1,6 @@
-import { useMemo } from 'react';
 import { BsCalendar2Date, BsCaretLeft, BsCaretRight, BsPlusLg } from 'react-icons/bs';
-import useGlobalContext from 'src/hooks/useGlobalContext/index';
+import Button from 'src/UI/base/Button';
 
-import Button from '../Button/index';
 import * as actions from './actions';
 import {
   Container,
@@ -14,9 +12,9 @@ import {
   WeekdayContainer,
 } from './styled';
 
-const CalendarHeader = () => {
-  const [global, setGlobal] = useGlobalContext();
-  const date = useMemo(() => new Date(global.currentDate), [global.currentDate]);
+const CalendarHeader = (props: CalendarHeaderProps) => {
+  const { pageState, setPageState } = props;
+  const date = new Date(pageState.currentDate);
 
   return (
     <Container>
@@ -25,18 +23,21 @@ const CalendarHeader = () => {
           <Button
             iconLeft={<BsPlusLg />}
             label="Add"
-            onClick={() => setGlobal({ ...global, sidePanel: 'task' })}
+            onClick={() => setPageState({ ...pageState, sidePanel: 'createEvent' })}
           />
           <Button
             iconLeft={<BsCalendar2Date />}
             label="Today"
             onClick={() =>
-              setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'today') })
+              setPageState({ ...pageState, currentDate: actions.handleDateChange(date, 'today') })
             }
           />
           <DateButton
             onClick={() =>
-              setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'prevMonth') })
+              setPageState({
+                ...pageState,
+                currentDate: actions.handleDateChange(date, 'prevMonth'),
+              })
             }
           >
             <BsCaretLeft />
@@ -44,7 +45,10 @@ const CalendarHeader = () => {
           <DateLabel>{date.toLocaleDateString('en', { month: 'long', year: 'numeric' })}</DateLabel>
           <DateButton
             onClick={() =>
-              setGlobal({ ...global, currentDate: actions.handleDateChange(date, 'nextMonth') })
+              setPageState({
+                ...pageState,
+                currentDate: actions.handleDateChange(date, 'nextMonth'),
+              })
             }
           >
             <BsCaretRight />

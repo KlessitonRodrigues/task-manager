@@ -5,10 +5,12 @@ import IconButton from '../IconButton/index';
 import { AddButtonContainer, Container, Content, Header } from './styled';
 
 const CalendarDay = (props: CalendarDayProps) => {
+  const { day, month, selectedMonth, children } = props;
+
   return (
     <Container>
-      <Header outOfMonth={props.selectedMonth !== props.month}>{zeroLeft(props.day)}</Header>
-      <Content className="calendar-day-content">{props.children}</Content>
+      <Header outOfMonth={selectedMonth !== month}>{zeroLeft(day)}</Header>
+      <Content className="calendar-day-content">{children}</Content>
       <AddButtonContainer className="calendar-day-button">
         <IconButton variant="solid" icon={<BsPlus />} />
       </AddButtonContainer>

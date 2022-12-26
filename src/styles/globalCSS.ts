@@ -47,6 +47,7 @@ export default createGlobalStyle`
   }
   button {
     cursor: pointer;
+    background-color: transparent;
   }
   div::-webkit-scrollbar {
       width: ${theme.getSize(2)};

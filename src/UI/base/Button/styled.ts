@@ -5,9 +5,10 @@ export const Container = styled.button<{
   padding?: string;
   variant?: 'outline';
 }>`
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  height: ${theme.getSize(10)};
+  height: ${theme.getSize(11)};
   min-width: ${theme.getSize(28)};
   padding: 0 ${theme.getSize(4)};
   background-color: ${theme.colors.fromTheme().colorA.normal};
@@ -15,10 +16,6 @@ export const Container = styled.button<{
   color: ${theme.colors.white};
   border-radius: ${theme.border.radius['2']};
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: ${theme.fontSize.h5};
   transition: background-color 0.2s;
 
   &:hover {
@@ -41,10 +38,13 @@ export const Container = styled.button<{
 `;
 
 export const Label = styled.span`
-  padding: 0 ${theme.getSize(4)};
+  padding: ${theme.getSize(1)} ${theme.getSize(3)} 0;
+  font-size: ${theme.fontSize.h5};
+  text-transform: uppercase;
+  font-family: monospace;
 `;
 
 export const Icon = styled.div`
   display: flex;
-  font-size: ${theme.fontSize.h4};
+  font-size: ${theme.getSize(6)};
 `;

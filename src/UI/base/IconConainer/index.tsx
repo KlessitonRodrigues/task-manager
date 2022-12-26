@@ -1,9 +1,13 @@
 import { Container } from './styled';
 
-const IconContainer = ({ icon, color, size }: IconContainerProps) => (
-  <Container size={size} color={color}>
-    {icon}
-  </Container>
-);
+const IconContainer = (props: IconContainerProps) => {
+  const { icon, color, size } = props;
+
+  return (
+    <Container size={size} color={color}>
+      {icon}
+    </Container>
+  );
+};
 
 export default IconContainer;

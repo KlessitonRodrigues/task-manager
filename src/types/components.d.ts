@@ -26,7 +26,8 @@ type IfProps = {
 };
 
 type CalendarTodoProps = {
-  taskEvent?: CalendarEventDate;
+  calendarEvent?: JoinEventAndDate;
+  onClick?: (calendarEvent: CalendarEventDate) => void;
 };
 
 type CardProps = {
@@ -74,4 +75,48 @@ type TimeProps = {
   update?: boolean;
   startTime?: number;
   endTime?: number;
+};
+
+type CreateEventPanelProps = {
+  show?: boolean;
+  onClose?: () => void;
+};
+
+type EditEventPanelProps = {
+  show?: boolean;
+  onClose?: () => void;
+};
+
+type CalendarProps = {
+  pageState: CalendarPageState;
+  setPageState: (state: CalendarPageState) => void;
+};
+
+type CalendarHeaderProps = {
+  pageState: CalendarPageState;
+  setPageState: (state: CalendarPageState) => void;
+};
+
+type NavigationTabProps = {
+  icon?: React.ReactElement;
+  label: string;
+  value: string;
+  active?: boolean;
+  onChange?: (value: string) => void;
+};
+
+type SidePanelProps = {
+  show?: boolean;
+  children?: React.ReactNode;
+};
+
+type SidePanelSectionProps = {
+  label: string;
+  children?: React.ReactNode;
+};
+
+type SidePanelTitleProps = {
+  label?: string;
+  icon?: React.ReactElement;
+  onClose?: () => void;
 };

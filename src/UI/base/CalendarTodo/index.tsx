@@ -2,12 +2,14 @@ import * as actions from './actions';
 import { Column, Container, Time, Title } from './styled';
 
 const CalendarTodo = (props: CalendarTodoProps) => {
-  const date = new Date(props.taskEvent?.dateISO || '');
+  const { onClick, calendarEvent } = props;
+  const date = new Date(calendarEvent?.dateISO || '');
+
   return (
-    <Container>
+    <Container onClick={() => onClick && onClick(calendarEvent)}>
       <Column>
         <Time>{actions.formatTime(date)}</Time>
-        <Title>{'NONE'}</Title>
+        <Title>{calendarEvent.event.name}</Title>
       </Column>
     </Container>
   );

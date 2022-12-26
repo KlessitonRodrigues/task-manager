@@ -2,7 +2,7 @@ import moment from 'moment';
 import { apiRoutes } from 'src/services/api';
 import { createUID } from 'src/utils/uid';
 
-export const createEventFormMock = (): EventForm => ({
+export const createEventFormMock = (): CreateEventForm => ({
   id: createUID(),
   name: '',
   description: '',
@@ -40,7 +40,7 @@ export const handleRepeatAt = (value: EventFormRepeatAtDays[0], arr: EventFormRe
   return arr;
 };
 
-const generateEventDates = (data: EventForm): CalendarEventDate[] => {
+const generateEventDates = (data: CreateEventForm): CalendarEventDate[] => {
   const { repeatUtilDate, repeatAtDays, repeatPeriod, id, dateISO } = data;
   const startDate = moment(dateISO);
   const daysUtilEndDate = startDate.diff(moment(repeatUtilDate), 'days') * -1;
@@ -64,7 +64,7 @@ const generateEventDates = (data: EventForm): CalendarEventDate[] => {
   return dates;
 };
 
-export const handleSaveFrom = async (data: EventForm) => {
+export const handleSaveFrom = async (data: CreateEventForm) => {
   const { id, name, description, tagIds, noteId } = data;
   const CalendarEent: CalendarEvent = { id, name, description, tagIds, noteId };
   const eventDates = generateEventDates(data);

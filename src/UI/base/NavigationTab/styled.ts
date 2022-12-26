@@ -7,34 +7,25 @@ export const Container = styled.div<{ active?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border 0.2s;
   position: relative;
   font-family: monospace;
+  color: ${theme.colors.white};
+  border-radius: 0.8rem 0.8rem 0 0;
+  transition: color 0.2s, background-color 0.2s;
+  user-select: none;
 
   &:hover {
-    color: ${theme.colors.fromTheme().colorA.highlight};
+    background-color: ${theme.colors.fromTheme().bg1}88;
   }
 
   &.active {
-    color: ${theme.colors.fromTheme().colorA.highlight};
+    background-color: ${theme.colors.fromTheme().bg1};
   }
 
-  &::after {
-    position: absolute;
-    content: '';
-    display: block;
-    width: 0px;
-    height: 5px;
-    background-color: ${theme.colors.fromTheme().colorA.highlight};
-    transition: width 0.3s;
-    bottom: -2px;
-  }
-
-  &.active::after {
-    width: 100%;
+  &:not(.active) {
   }
 `;
 
 export const IconContainer = styled.div`
-  width: ${theme.getSize(7)};
+  width: ${theme.getSize(6)};
 `;

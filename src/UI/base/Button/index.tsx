@@ -1,15 +1,15 @@
 import { Container, Icon, Label } from './styled';
 
-const Button = (props: ButtonProps) => (
-  <Container
-    padding={props.p}
-    variant={props.variant}
-    onClick={() => props.onClick && props.onClick()}
-  >
-    <Icon>{props.iconLeft}</Icon>
-    <Label>{props.label}</Label>
-    <Icon>{props.iconRight}</Icon>
-  </Container>
-);
+const Button = (props: ButtonProps) => {
+  const { label, iconLeft, iconRight, onClick, p, variant } = props;
+
+  return (
+    <Container padding={p} variant={variant} onClick={() => onClick && onClick()}>
+      <Icon>{iconLeft}</Icon>
+      <Label>{label}</Label>
+      <Icon>{iconRight}</Icon>
+    </Container>
+  );
+};
 
 export default Button;
