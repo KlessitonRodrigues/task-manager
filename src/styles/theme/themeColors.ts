@@ -30,8 +30,8 @@ export const themeColors = {
   darkBlue: {
     ...dark,
     colorA: {
-      normal: atlassianColors.blue['900'],
-      variant: atlassianColors.blue['700'],
+      normal: atlassianColors.blue['700'],
+      variant: atlassianColors.blue['600'],
       highlight: atlassianColors.blue['300'],
     },
   },
