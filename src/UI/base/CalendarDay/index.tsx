@@ -8,7 +8,7 @@ const CalendarDay = (props: CalendarDayProps) => {
   const { day, month, selectedMonth, children } = props;
 
   return (
-    <Container>
+    <Container className="calendar-day">
       <Header outOfMonth={selectedMonth !== month}>{zeroLeft(day)}</Header>
       <Content className="calendar-day-content">{children}</Content>
       <AddButtonContainer className="calendar-day-button">

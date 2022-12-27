@@ -55,9 +55,10 @@ export const getCalendarData = async (dateStr: string) => {
   };
 };
 
-export const RenderCalendarData = async (DateStr: string, edit: (cEv: CalendarEvent) => void) => {
-  const calendarData = await getCalendarData(DateStr);
-  const dateObj = dateObjFrom(DateStr);
+export const RenderCalendarData = async (page: CalendarPageStateHook) => {
+  const [pageState, setPage] = page;
+  const calendarData = await getCalendarData(pageState.currentDate);
+  const dateObj = dateObjFrom(pageState.currentDate);
   const weeks = Object.keys(calendarData) as (keyof typeof calendarData)[];
   const WeeksToRender = [];
 
@@ -73,8 +74,14 @@ export const RenderCalendarData = async (DateStr: string, edit: (cEv: CalendarEv
             day={dayNumber}
             key={`${dayMonth} ${dayNumber}`}
           >
-            {dayEvents?.map(todo => (
-              <CalendarTodo key={todo.id} calendarEvent={todo} onClick={edit} />
+            {dayEvents?.map(event => (
+              <CalendarTodo
+                key={event.id}
+                calendarEvent={event}
+                onClick={() =>
+                  setPage({ ...pageState, editingEvent: event, sidePanel: 'editEvent' })
+                }
+              />
             ))}
           </CalendarDay>
         ))}

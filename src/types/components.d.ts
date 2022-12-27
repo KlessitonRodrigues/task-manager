@@ -85,16 +85,15 @@ type CreateEventPanelProps = {
 type EditEventPanelProps = {
   show?: boolean;
   onClose?: () => void;
+  editEvent: JoinEventAndDate;
 };
 
 type CalendarProps = {
-  pageState: CalendarPageState;
-  setPageState: (state: CalendarPageState) => void;
+  page: [CalendarPageState, (state: CalendarPageState) => void];
 };
 
 type CalendarHeaderProps = {
-  pageState: CalendarPageState;
-  setPageState: (state: CalendarPageState) => void;
+  page: [CalendarPageState, (state: CalendarPageState) => void];
 };
 
 type NavigationTabProps = {

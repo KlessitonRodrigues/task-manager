@@ -3,18 +3,18 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  padding: ${theme.getSize(2, 0.5)};
-  margin: 0 ${theme.getSize(1)};
+  padding: ${theme.getSize(0, 1)};
   border-radius: ${theme.border.radius['1']};
   overflow: hidden;
   position: relative;
+  transition: padding-top 0.3s;
 
   .calendar-day-button {
     opacity: 0;
     transition: opacity 0.3s;
   }
 
-  &:hover {
+  :hover {
     .calendar-day-button {
       opacity: 1;
     }

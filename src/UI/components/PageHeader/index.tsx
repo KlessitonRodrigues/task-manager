@@ -1,5 +1,5 @@
 import {
-  BsCalendarDate,
+  BsCalendar4Week,
   BsClipboardData,
   BsFileEarmarkText,
   BsGear,
@@ -34,9 +34,9 @@ const PageHeader = () => {
       </Collapse>
       <Navigation>
         <NavigationTab
-          icon={<BsCalendarDate fontSize="1.3rem" />}
+          icon={<BsCalendar4Week fontSize="1.3rem" />}
           value="/"
-          label="Home"
+          label="Calendar"
           onChange={location => setGlobal({ ...global, location })}
           active={global.location === '/'}
         />

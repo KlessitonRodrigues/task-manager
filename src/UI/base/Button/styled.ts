@@ -8,13 +8,13 @@ export const Container = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${theme.getSize(11)};
+  height: ${theme.getSize(10)};
   min-width: ${theme.getSize(28)};
   padding: 0 ${theme.getSize(4)};
   background-color: ${theme.colors.fromTheme().colorA.normal};
   box-shadow: ${theme.shadow['0']};
   color: ${theme.colors.white};
-  border-radius: ${theme.border.radius['2']};
+  border-radius: ${theme.border.radius.small};
   border: none;
   transition: background-color 0.2s;
 
@@ -38,7 +38,7 @@ export const Container = styled.button<{
 `;
 
 export const Label = styled.span`
-  padding: ${theme.getSize(1)} ${theme.getSize(3)} 0;
+  padding: ${theme.getSize(0.5)} ${theme.getSize(3)} 0;
   font-size: ${theme.fontSize.h5};
   text-transform: uppercase;
   font-family: monospace;
@@ -46,5 +46,5 @@ export const Label = styled.span`
 
 export const Icon = styled.div`
   display: flex;
-  font-size: ${theme.getSize(6)};
+  font-size: ${theme.getSize(5)};
 `;

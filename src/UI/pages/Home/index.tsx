@@ -5,22 +5,26 @@ import EventCreatePanel from 'src/UI/components/CreateEventPanel';
 import EventEditPanel from 'src/UI/components/EditEventPanel';
 import PageHeader from 'src/UI/components/PageHeader/index';
 
+const initialState: CalendarPageState = {
+  sidePanel: '',
+  selectedWeek: 0,
+  currentDate: new Date().toLocaleString(),
+};
+
 const HomePage = () => {
-  const [pageState, setPageState] = useState<CalendarPageState>({
-    sidePanel: '',
-    selectedWeek: 0,
-    currentDate: new Date().toLocaleString(),
-  });
+  const page = useState(initialState);
+  const [pageState, setPageState] = page;
 
   return (
     <PageConainer>
       <PageHeader />
-      <Calendar pageState={pageState} setPageState={setPageState} />
+      <Calendar page={page} />
       <EventCreatePanel
         show={pageState.sidePanel === 'createEvent'}
         onClose={() => setPageState({ ...pageState, sidePanel: '' })}
       />
       <EventEditPanel
+        editEvent={pageState.editingEvent}
         show={pageState.sidePanel === 'editEvent'}
         onClose={() => setPageState({ ...pageState, sidePanel: '' })}
       />

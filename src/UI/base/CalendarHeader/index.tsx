@@ -13,7 +13,8 @@ import {
 } from './styled';
 
 const CalendarHeader = (props: CalendarHeaderProps) => {
-  const { pageState, setPageState } = props;
+  const { page } = props;
+  const [pageState, setPage] = page;
   const date = new Date(pageState.currentDate);
 
   return (
@@ -23,18 +24,18 @@ const CalendarHeader = (props: CalendarHeaderProps) => {
           <Button
             iconLeft={<BsPlusLg />}
             label="Add"
-            onClick={() => setPageState({ ...pageState, sidePanel: 'createEvent' })}
+            onClick={() => setPage({ ...pageState, sidePanel: 'createEvent' })}
           />
           <Button
             iconLeft={<BsCalendar2Date />}
             label="Today"
             onClick={() =>
-              setPageState({ ...pageState, currentDate: actions.handleDateChange(date, 'today') })
+              setPage({ ...pageState, currentDate: actions.handleDateChange(date, 'today') })
             }
           />
           <DateButton
             onClick={() =>
-              setPageState({
+              setPage({
                 ...pageState,
                 currentDate: actions.handleDateChange(date, 'prevMonth'),
               })
@@ -45,7 +46,7 @@ const CalendarHeader = (props: CalendarHeaderProps) => {
           <DateLabel>{date.toLocaleDateString('en', { month: 'long', year: 'numeric' })}</DateLabel>
           <DateButton
             onClick={() =>
-              setPageState({
+              setPage({
                 ...pageState,
                 currentDate: actions.handleDateChange(date, 'nextMonth'),
               })

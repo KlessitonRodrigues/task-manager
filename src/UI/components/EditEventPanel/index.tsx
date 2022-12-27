@@ -5,7 +5,6 @@ import {
   BsClipboardPlus,
   BsClipboardX,
   BsPen,
-  BsSave,
   BsSdCard,
 } from 'react-icons/bs';
 import Button from 'src/UI/base/Button';
@@ -18,8 +17,8 @@ import Time from 'src/UI/base/Time';
 import useGlobalContext from 'src/hooks/useGlobalContext';
 
 const EditEventPanel = (props: EditEventPanelProps) => {
+  const { editEvent } = props;
   const [global, setGlobal] = useGlobalContext();
-  const [EditEventFrom, setEditForm] = useState();
 
   return (
     <SidePanel show={props.show}>
@@ -29,14 +28,14 @@ const EditEventPanel = (props: EditEventPanelProps) => {
         onClose={() => setGlobal({ ...global, sidePanel: '' })}
       />
       <SidePanelSection label="Description">
-        <Display label="Name" value="Test Event" size="33%" />
+        <Display label="Name" value={editEvent?.event?.name} size="33%" />
         <Display label="Occurrence" value="4/12" size="33%" />
-        <Display label="Created at" value="12.10.22" size="33%" />
-        <Display label="Description" value="A test event on calendar" size="100%" />
+        <Display label="Created at" value={editEvent?.dateISO} size="33%" />
+        <Display label="Description" value={editEvent?.event?.description} size="100%" />
       </SidePanelSection>
       <SidePanelSection label="Status">
         <CheckboxPanel
-          values={['Todo']}
+          values={[editEvent?.status]}
           iconFontSize="1.6rem"
           options={[
             { icon: <BsClipboardPlus />, checkedIcon: <BsClipboardPlus />, value: 'Todo' },

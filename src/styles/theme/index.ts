@@ -27,10 +27,14 @@ export default {
       '2': '2px solid #2221',
     },
     radius: {
-      '1': '4px',
-      '2': '6px',
-      '3': '8px',
-      '4': '10px',
+      verySmall: '0.2rem',
+      small: '0.4rem',
+      medium: '0.6rem',
+      large: '0.8rem',
+      '1': '0.2rem',
+      '2': '0.4rem',
+      '3': '0.6rem',
+      '4': '0.8rem',
     },
   },
   fontSize: {
