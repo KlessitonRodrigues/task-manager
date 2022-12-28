@@ -1,11 +1,11 @@
-import { getCurrentTheme } from './lib/handleTheme';
+import { getCurrentColors } from './colors';
 import { materialColors } from './lib/palettes';
 import screenSizes from './lib/screenSizes';
 
 export default {
-  getSize: (n: number, n2?: number) => n * 0.2 + 'rem ' + (n2 ? n2 * 0.2 + 'rem' : ''),
+  size: (n: number, n2?: number) => n * 0.2 + 'rem ' + (n2 ? n2 * 0.2 + 'rem' : ''),
   colors: {
-    fromTheme: () => getCurrentTheme(),
+    current: () => getCurrentColors(),
     gray: materialColors.grey['600'],
     yellow: materialColors.yellow['600'],
     red: materialColors.red['700'],
@@ -31,6 +31,7 @@ export default {
       small: '0.4rem',
       medium: '0.6rem',
       large: '0.8rem',
+      full: '50%',
       '1': '0.2rem',
       '2': '0.4rem',
       '3': '0.6rem',
@@ -51,9 +52,9 @@ export default {
     mobileM: `(max-width: ${screenSizes.mobileM})`,
     mobileL: `(max-width: ${screenSizes.mobileL})`,
     tablet: `(max-width: ${screenSizes.tablet})`,
-    laptop: `(max-width: ${screenSizes.laptop})`,
+    laptop: `(max-width: ${screenSizes.laptopM})`,
     laptopL: `(max-width: ${screenSizes.laptopL})`,
-    desktop: `(max-width: ${screenSizes.desktop})`,
-    desktopL: `(max-width: ${screenSizes.desktop})`,
+    desktop: `(max-width: ${screenSizes.desktopM})`,
+    desktopL: `(max-width: ${screenSizes.desktopL})`,
   },
 };

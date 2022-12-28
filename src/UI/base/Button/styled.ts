@@ -8,10 +8,10 @@ export const Container = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${theme.getSize(10)};
-  min-width: ${theme.getSize(28)};
-  padding: 0 ${theme.getSize(4)};
-  background-color: ${theme.colors.fromTheme().colorA.normal};
+  height: ${theme.size(10)};
+  min-width: ${theme.size(28)};
+  padding: 0 ${theme.size(4)};
+  background-color: ${theme.colors.current().mainBg};
   box-shadow: ${theme.shadow['0']};
   color: ${theme.colors.white};
   border-radius: ${theme.border.radius.small};
@@ -19,7 +19,7 @@ export const Container = styled.button<{
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${theme.colors.fromTheme().colorA.variant};
+    background-color: ${theme.colors.current().mainHover};
   }
 
   ${p =>
@@ -28,8 +28,8 @@ export const Container = styled.button<{
       background-color: transparent;
       box-shadow: none;
       border: none;
-      color: ${theme.colors.fromTheme().colorA.highlight};
-      border: 1px solid ${theme.colors.fromTheme().colorA.normal};
+      color: ${theme.colors.current().main};
+      border: 1px solid ${theme.colors.current().main};
 
       &:hover {
         background-color: transparent;
@@ -38,7 +38,7 @@ export const Container = styled.button<{
 `;
 
 export const Label = styled.span`
-  padding: ${theme.getSize(0.5)} ${theme.getSize(3)} 0;
+  padding: ${theme.size(0.5)} ${theme.size(3)} 0;
   font-size: ${theme.fontSize.h5};
   text-transform: uppercase;
   font-family: monospace;
@@ -46,5 +46,5 @@ export const Label = styled.span`
 
 export const Icon = styled.div`
   display: flex;
-  font-size: ${theme.getSize(5)};
+  font-size: ${theme.size(5)};
 `;

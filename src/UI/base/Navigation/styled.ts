@@ -3,5 +3,5 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: inline-flex;
-  padding-top: ${theme.getSize(1)};
+  padding-top: ${theme.size(1)};
 `;

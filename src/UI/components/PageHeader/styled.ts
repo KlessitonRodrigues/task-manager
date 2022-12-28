@@ -4,9 +4,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 ${theme.getSize(6)};
-  padding-left: ${theme.getSize(16)};
-  background-color: ${theme.colors.fromTheme().colorA.normal};
+  padding: 0 ${theme.size(6)};
+  padding-left: ${theme.size(16)};
+  background-color: ${theme.colors.current().mainBg};
 `;
 
 export const Title = styled.h1``;
@@ -18,10 +18,10 @@ export const Collapse = styled.div`
   left: 0;
   display: inline-flex;
   align-items: center;
-  background-color: ${theme.colors.fromTheme().colorA.normal};
+  background-color: ${theme.colors.current().main};
   border-radius: 0 0 ${theme.border.radius['3']} 0;
   color: ${theme.colors.white};
-  padding: ${theme.getSize(2)};
+  padding: ${theme.size(2)};
 
   &:hover {
     width: 100%;
@@ -31,7 +31,7 @@ export const Collapse = styled.div`
       width: auto;
       height: auto;
       opacity: 1;
-      padding: 0 ${theme.getSize(2)};
+      padding: 0 ${theme.size(2)};
     }
   }
 `;
@@ -51,6 +51,6 @@ export const Expand = styled.div`
 
 export const RightButtons = styled.div`
   display: flex;
-  gap: ${theme.getSize(2)};
-  padding: ${theme.getSize(2)};
+  gap: ${theme.size(2)};
+  padding: ${theme.size(2)};
 `;

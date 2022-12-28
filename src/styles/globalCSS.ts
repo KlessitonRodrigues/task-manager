@@ -18,8 +18,8 @@ export default createGlobalStyle`
   }
   html, body {
     font-family: 'Roboto', sans-serif;
-    background-color: ${theme.colors.fromTheme().bg1};
-    color: ${theme.colors.fromTheme().text1};
+    background-color: ${theme.colors.current().bg1};
+    color: ${theme.colors.current().text1};
   }
   h1 {
     font-size: ${theme.fontSize.h1};
@@ -50,7 +50,7 @@ export default createGlobalStyle`
     background-color: transparent;
   }
   div::-webkit-scrollbar {
-      width: ${theme.getSize(2)};
+      width: ${theme.size(2)};
   }
   div::-webkit-scrollbar-track {
       background: #0000;
@@ -60,7 +60,7 @@ export default createGlobalStyle`
       border-radius: 2px;
   }
   div::-webkit-scrollbar-thumb:hover {
-      background: ${theme.colors.fromTheme().colorA.normal};
+      background: ${theme.colors.current().main};
   };
 
   @keyframes fadeIn {

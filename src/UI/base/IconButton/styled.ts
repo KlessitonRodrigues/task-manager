@@ -6,14 +6,14 @@ export const Container = styled.button<{
   variant?: 'solid' | 'outiline';
 }>`
   margin: 0;
-  min-width: ${theme.getSize(10)};
-  min-height: ${theme.getSize(10)};
+  min-width: ${theme.size(10)};
+  min-height: ${theme.size(10)};
   border-radius: 100%;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${theme.getSize(8)};
+  font-size: ${theme.size(8)};
   color: ${theme.colors.white};
 
   svg {

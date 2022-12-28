@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  padding: ${theme.getSize(0, 1)};
+  padding: ${theme.size(0, 1)};
   border-radius: ${theme.border.radius['1']};
   overflow: hidden;
   position: relative;
@@ -22,11 +22,11 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div<{ outOfMonth?: boolean }>`
-  padding: ${theme.getSize(2)};
-  margin-bottom: ${theme.getSize(4)};
+  padding: ${theme.size(2)};
+  margin-bottom: ${theme.size(4)};
   border-radius: ${theme.border.radius['2']};
   color: ${theme.colors.white};
-  background-color: ${theme.colors.fromTheme().colorA.normal};
+  background-color: ${theme.colors.current().mainBg};
   box-shadow: ${theme.shadow['0']};
   font-weight: bold;
 
@@ -34,14 +34,14 @@ export const Header = styled.div<{ outOfMonth?: boolean }>`
 `;
 
 export const Content = styled.div`
-  background-color: ${theme.colors.fromTheme().bg2};
+  background-color: ${theme.colors.current().bg2};
   border-radius: ${theme.border.radius['2']};
   height: 100%;
 `;
 
 export const AddButtonContainer = styled.div`
   position: absolute;
-  bottom: ${theme.getSize(4)};
-  right: ${theme.getSize(4)};
-  font-size: ${theme.getSize(10)};
+  bottom: ${theme.size(4)};
+  right: ${theme.size(4)};
+  font-size: ${theme.size(10)};
 `;

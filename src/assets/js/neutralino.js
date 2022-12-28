@@ -397,7 +397,7 @@ var Neutralino = (function (e) {
     setSize: function (e) {
       return new Promise((n, i) =>
         t(this, void 0, void 0, function* () {
-          let t = yield Neutralino.window.getSize();
+          let t = yield Neutralino.window.size();
           c('window.setSize', (e = Object.assign(Object.assign({}, t), e)))
             .then(e => {
               n(e);

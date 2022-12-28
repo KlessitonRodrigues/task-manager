@@ -5,5 +5,5 @@ export const Container = styled.div<{ color?: string; size: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${props => theme.getSize(props.size || 7)};
+  padding: ${props => theme.size(props.size || 7)};
 `;

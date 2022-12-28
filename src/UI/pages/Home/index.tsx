@@ -3,7 +3,6 @@ import PageConainer from 'src/UI/base/PageContainer';
 import Calendar from 'src/UI/components/Calendar';
 import EventCreatePanel from 'src/UI/components/CreateEventPanel';
 import EventEditPanel from 'src/UI/components/EditEventPanel';
-import PageHeader from 'src/UI/components/PageHeader/index';
 
 const initialState: CalendarPageState = {
   sidePanel: '',
@@ -17,7 +16,6 @@ const HomePage = () => {
 
   return (
     <PageConainer>
-      <PageHeader />
       <Calendar page={page} />
       <EventCreatePanel
         show={pageState.sidePanel === 'createEvent'}

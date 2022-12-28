@@ -1,9 +1,11 @@
 export default {
   mobileS: '320px',
-  mobileM: '375px',
-  mobileL: '425px',
+  mobileM: '425px',
+  mobileL: '480px',
   tablet: '768px',
-  laptop: '1024px',
-  laptopL: '1440px',
-  desktop: '2560px',
+  laptopM: '1024px',
+  laptopL: '1280px',
+  desktopS: '1440px',
+  desktopM: '1980px',
+  desktopL: '2560px',
 };

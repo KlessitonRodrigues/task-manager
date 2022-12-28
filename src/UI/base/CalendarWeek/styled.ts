@@ -5,21 +5,21 @@ export const Container = styled.div<{ show?: boolean }>`
   width: 100%;
   position: relative;
   cursor: pointer;
-  margin-bottom: ${theme.getSize(1)};
+  margin-bottom: ${theme.size(1)};
 
   ::before {
     content: '';
-    padding: ${theme.getSize(1)};
-    border-left: 3px solid ${theme.colors.fromTheme().colorA.highlight}44;
+    padding: ${theme.size(1)};
+    border-left: 3px solid ${theme.colors.current().main}44;
     position: absolute;
-    left: -${theme.getSize(2)};
-    top: -${theme.getSize(2)};
+    left: -${theme.size(2)};
+    top: -${theme.size(2)};
     height: 80%;
     ${p => p.show && 'height: 98%;'}
   }
 
   :hover::before {
-    border-left: 3px solid ${theme.colors.fromTheme().colorA.highlight};
+    border-left: 3px solid ${theme.colors.current().main};
   }
 `;
 
@@ -28,7 +28,7 @@ export const DaysContainer = styled.div<{ show?: boolean }>`
   overflow: hidden;
 
   .calendar-day {
-    ${p => p.show && ` padding-top: ${theme.getSize(3)}; padding-bottom: ${theme.getSize(2)};    `}
+    ${p => p.show && ` padding-top: ${theme.size(3)}; padding-bottom: ${theme.size(2)};    `}
   }
 
   .calendar-day-content {
@@ -45,9 +45,9 @@ export const DaysContainer = styled.div<{ show?: boolean }>`
 
 export const TopLeft = styled.h5<{ show?: boolean }>`
   position: absolute;
-  top: -${theme.getSize(3)};
-  left: ${theme.getSize(1)};
-  color: ${theme.colors.fromTheme().colorA.highlight};
+  top: -${theme.size(3)};
+  left: ${theme.size(1)};
+  color: ${theme.colors.current().main};
   opacity: 0;
   transition: opacity 0.4s;
   ${p => p.show && 'opacity: 1;'}

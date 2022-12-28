@@ -56,8 +56,8 @@ const PageHeader = () => {
         />
       </Navigation>
       <RightButtons>
-        <IconButton icon={<BsTag />} />
-        <IconButton icon={<BsGear />} />
+        <IconButton icon={<BsTag fontSize="1.5rem" />} />
+        <IconButton icon={<BsGear fontSize="1.5rem" />} />
       </RightButtons>
     </Container>
   );
