@@ -1,5 +1,5 @@
 export default (routes: APIRoutes) => {
-  return (data: CalendarEventDate[]) => {
+  return (data: CalendarEventDay[]) => {
     return routes['event-date/create'](data);
   };
 };

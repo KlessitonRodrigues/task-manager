@@ -3,7 +3,7 @@ import { Column, Container, Time, Title } from './styled';
 
 const CalendarTodo = (props: CalendarTodoProps) => {
   const { onClick, calendarEvent } = props;
-  const date = new Date(calendarEvent?.dateISO || '');
+  const date = new Date(calendarEvent?.date?.iso || '');
 
   return (
     <Container onClick={() => onClick && onClick(calendarEvent)}>

@@ -30,7 +30,7 @@ const EditEventPanel = (props: EditEventPanelProps) => {
       <SidePanelSection label="Description">
         <Display label="Name" value={editEvent?.event?.name} size="33%" />
         <Display label="Occurrence" value="4/12" size="33%" />
-        <Display label="Created at" value={editEvent?.dateISO} size="33%" />
+        <Display label="Created at" value={editEvent?.date?.iso} size="33%" />
         <Display label="Description" value={editEvent?.event?.description} size="100%" />
       </SidePanelSection>
       <SidePanelSection label="Status">

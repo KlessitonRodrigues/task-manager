@@ -40,11 +40,11 @@ export const handleRepeatAt = (value: EventFormRepeatAtDays[0], arr: EventFormRe
   return arr;
 };
 
-const generateEventDates = (data: CreateEventForm): CalendarEventDate[] => {
+const generateEventDates = (data: CreateEventForm): CalendarEventDay[] => {
   const { repeatUtilDate, repeatAtDays, repeatPeriod, id, dateISO } = data;
   const startDate = moment(dateISO);
   const daysUtilEndDate = startDate.diff(moment(repeatUtilDate), 'days') * -1;
-  const dates: CalendarEventDate[] = [];
+  const dates: CalendarEventDay[] = [];
   console.log(dateISO, repeatUtilDate);
 
   for (let i = 0; dates.length < daysUtilEndDate; i++) {
@@ -54,8 +54,8 @@ const generateEventDates = (data: CreateEventForm): CalendarEventDate[] => {
         id: createUID(),
         eventId: id,
         status: 'todo',
-        dateISO: startDate.toISOString(),
-        dateTime: startDate.unix(),
+        date: { unix: startDate.unix(), iso: startDate.toISOString() },
+        doingTime: 0,
       });
 
     startDate.add(1, repeatPeriod);

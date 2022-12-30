@@ -27,7 +27,7 @@ type IfProps = {
 
 type CalendarTodoProps = {
   calendarEvent?: JoinEventAndDate;
-  onClick?: (calendarEvent: CalendarEventDate) => void;
+  onClick?: (calendarEvent: CalendarEventDay) => void;
 };
 
 type CardProps = {

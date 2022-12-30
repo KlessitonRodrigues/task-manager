@@ -2,7 +2,7 @@ type LocalStorage = {
   updateAt: number;
   data: {
     events: CalendarEvent[];
-    eventsDate: CalendarEventDate[];
+    eventsDate: CalendarEventDay[];
   };
 };
 
@@ -21,7 +21,7 @@ type APIRoutes = {
 
   // event dates
   'event-date/read': (from: number, to: number) => APIResponse<EventsAndDates>;
-  'event-date/create': (data: CalendarEventDate[]) => APIResponse<boolean>;
-  'event-date/update': (data: CalendarEventDate) => APIResponse<boolean>;
-  'event-date/delete': (data: CalendarEventDate) => APIResponse<boolean>;
+  'event-date/create': (data: CalendarEventDay[]) => APIResponse<boolean>;
+  'event-date/update': (data: CalendarEventDay) => APIResponse<boolean>;
+  'event-date/delete': (data: CalendarEventDay) => APIResponse<boolean>;
 };

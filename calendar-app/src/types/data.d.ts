@@ -6,12 +6,12 @@ type CalendarEvent = {
   noteId?: string;
 };
 
-type CalendarEventDate = {
+type CalendarEventDay = {
   id?: string;
   eventId?: string;
   status?: 'cancelled' | 'todo' | 'doing' | 'done';
   date: { unix: number; iso: string };
-  time: { unix: number };
+  doingTime: number;
 };
 
 type _CalendarEventOccurence = {
@@ -32,9 +32,9 @@ type EventFormRepeatPeriod = 'day' | 'month';
 
 type EventFormRepeatAtDays = ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
 
-type EventsAndDates = { events: CalendarEvent[]; dates: CalendarEventDate[] };
+type EventsAndDates = { events: CalendarEvent[]; dates: CalendarEventDay[] };
 
-type JoinEventAndDate = CalendarEventDate & { event: CalendarEvent };
+type JoinEventAndDate = CalendarEventDay & { event: CalendarEvent };
 
 type DayData = {
   dayNumber: number;

@@ -10,11 +10,11 @@ const daysOfWeek = (weekData: EventsAndDates, targetDate: Moment): DayData[] => 
     return {
       dayNumber: targetDate.weekday(i).get('date'),
       dayMonth: targetDate.get('months'),
-      dayEvents: weekData.dates.reduce((arr, date) => {
-        if (targetDate.isSame(date.dateISO, 'date'))
+      dayEvents: weekData.dates.reduce((arr, eventDay) => {
+        if (targetDate.isSame(eventDay.date.iso, 'date'))
           arr.push({
-            ...date,
-            event: weekData.events.find(ev => ev.id === date.eventId),
+            ...eventDay,
+            event: weekData.events.find(ev => ev.id === eventDay.eventId),
           });
         return arr;
       }, []),
