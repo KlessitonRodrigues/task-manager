@@ -6,7 +6,7 @@ export const generateColorsFromBodyClass = () => {
 
   const [isDark, colorA, colorB] = [arr[3] === 'dark', arr[4], arr[5]];
 
-  const newColors = {
+  const colors = {
     main: colorA,
     mainHover: colorA,
     mainBg: colorA,
@@ -16,21 +16,21 @@ export const generateColorsFromBodyClass = () => {
   };
 
   if (isDark) {
-    newColors.main;
-    newColors.mainBg += 'aa';
-    newColors.mainHover += '77';
-    newColors.alternative;
-    newColors.alternativeBg += 'aa';
-    newColors.alternativeHover += '77';
+    colors.main;
+    colors.mainBg += 'aa';
+    colors.mainHover += '77';
+    colors.alternative;
+    colors.alternativeBg += 'aa';
+    colors.alternativeHover += '77';
   } else {
-    newColors.mainHover += 'bb';
-    newColors.alternativeHover += 'bb';
+    colors.mainHover += 'bb';
+    colors.alternativeHover += 'bb';
   }
 
-  console.log('GENERATE', newColors);
+  console.log('GENERATE', colors);
 
   return {
     isDark,
-    colors: newColors,
+    colors,
   };
 };

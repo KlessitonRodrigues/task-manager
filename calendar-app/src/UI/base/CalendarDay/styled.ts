@@ -30,6 +30,10 @@ export const Header = styled.div<{ outOfMonth?: boolean }>`
   box-shadow: ${theme.shadow['0']};
   font-weight: bold;
 
+  :hover {
+    background-color: ${theme.colors.current().mainHover};
+  }
+
   ${p => p.outOfMonth && `background-color: ${theme.colors.gray + '99'};`}
 `;
 

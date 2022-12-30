@@ -10,10 +10,22 @@ type CalendarEventDate = {
   id?: string;
   eventId?: string;
   status?: 'cancelled' | 'todo' | 'doing' | 'done';
-  dateISO?: string;
-  dateTime?: number;
-  startedAt?: number;
-  completedAt?: number;
+  date: { unix: number; iso: string };
+  time: { unix: number };
+};
+
+type _CalendarEventOccurence = {
+  id?: string;
+  date: { unix: number; iso: string };
+  status: 'cancelled' | 'todo' | 'doing' | 'done';
+  time: number;
+};
+
+type _CalendarEvent = {
+  id?: string;
+  name?: string;
+  description?: string;
+  occurrences?: _CalendarEventOccurence[];
 };
 
 type EventFormRepeatPeriod = 'day' | 'month';
