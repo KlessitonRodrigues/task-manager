@@ -1,14 +1,15 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div<{ bg: string }>`
-  background-color: ${props => props.bg || theme.colors.current().bg1};
-  padding: ${theme.size(2)};
-  margin: ${theme.size(2)};
-  border-radius: ${theme.border.radius['1']};
-  border: 1px solid transparent;
+export const Container = styled.div<{ bg: string }>(
+  props => css`
+    background-color: ${props.bg || props.theme.colors.current.bg1};
+    padding: ${props.theme.size(2)};
+    margin: ${props.theme.size(2)};
+    border-radius: ${props.theme.border.radius.small};
+    border: 1px solid transparent;
 
-  :hover {
-    border: ${theme.border.type['1']};
-  }
-`;
+    :hover {
+      border: ${props.theme.border.type.small};
+    }
+  `
+);

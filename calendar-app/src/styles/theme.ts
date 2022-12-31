@@ -1,11 +1,32 @@
-import { getCurrentColors } from './colors';
 import { materialColors } from './lib/palettes';
 import screenSizes from './lib/screenSizes';
 
-export default {
-  size: (n: number, n2?: number) => n * 0.2 + 'rem ' + (n2 ? n2 * 0.2 + 'rem' : ''),
+export const darkBackground: Partial<Theme['colors']['current']> = {
+  bg1: materialColors.black,
+  bg2: materialColors.grey['800'] + '44',
+  bg3: materialColors.grey['700'] + '44',
+  text1: materialColors.grey['400'],
+  text2: materialColors.grey['500'],
+  text3: materialColors.grey['600'],
+};
+
+export const defaulTheme: Theme = {
+  size: (n: number, n2: number) => `${n * 0.2}rem ` + (n2 ? `${n2 * 0.2}rem` : ''),
   colors: {
-    current: () => getCurrentColors(),
+    current: {
+      bg1: materialColors.blueGrey['50'],
+      bg2: materialColors.blueGrey['100'] + '44',
+      bg3: materialColors.blueGrey['200'] + '44',
+      text1: materialColors.grey['800'],
+      text2: materialColors.grey['700'],
+      text3: materialColors.grey['600'],
+      main: '#444444',
+      mainHover: '#444444',
+      mainBg: '#444444',
+      alternative: '#444444',
+      alternativeHover: '#444444',
+      alternativeBg: '#444444',
+    },
     gray: materialColors.grey['600'],
     yellow: materialColors.yellow['600'],
     red: materialColors.red['700'],
@@ -14,17 +35,15 @@ export default {
     black: materialColors.black,
   },
   shadow: {
-    '0': 'none',
-    '1': '1px 1px 4px 0px #0006',
-    '2': '1px 1px 4px 0px #0007',
-    '3': '1px 1px 4px 0px #0009',
-    '4': '1px 1px 4px 0px #000B',
+    low: '1px 1px 4px 0px #0006',
+    medium: '1px 1px 4px 0px #0007',
+    high: '1px 1px 4px 0px #0009',
   },
   border: {
     type: {
-      '0': 'none',
-      '1': '1px solid #2222',
-      '2': '2px solid #2221',
+      small: 'none',
+      medium: '1px solid #2222',
+      large: '2px solid #2221',
     },
     radius: {
       verySmall: '0.2rem',
@@ -32,14 +51,11 @@ export default {
       medium: '0.6rem',
       large: '0.8rem',
       full: '50%',
-      '1': '0.2rem',
-      '2': '0.4rem',
-      '3': '0.6rem',
-      '4': '0.8rem',
     },
   },
   fontSize: {
     body: '1rem',
+    bodySmall: '0.9rem',
     h1: '1.6rem',
     h2: '1.4rem',
     h3: '1.2rem',

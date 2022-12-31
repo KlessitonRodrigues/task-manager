@@ -77,7 +77,7 @@ const CreateEventPanel = (props: CreateEventPanelProps) => {
           ]}
         />
         <If
-          when={taskForm.repeatPeriod === 'day'}
+          true={taskForm.repeatPeriod === 'day'}
           render={
             <CheckboxPanel
               label="At"

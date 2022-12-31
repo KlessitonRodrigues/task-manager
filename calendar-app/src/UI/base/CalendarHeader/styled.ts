@@ -1,64 +1,79 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  padding: ${theme.size(0)} 0;
-`;
+export const Container = styled.div(
+  props => css`
+    padding: ${props.theme.size(0)} 0;
+  `
+);
 
-export const Weekday = styled.div`
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  width: 100%;
-  padding: ${theme.size(2)};
-  color: ${theme.colors.current().main};
-  border-radius: ${theme.border.radius['2']};
-  background-color: ${theme.colors.current().bg2};
-`;
+export const Weekday = styled.div(
+  props => css`
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    padding: ${props.theme.size(2)};
+    color: ${props.theme.colors.current.main};
+    border-radius: ${props.theme.border.radius.medium};
+    background-color: ${props.theme.colors.current.bg2};
+  `
+);
 
-export const WeekdayContainer = styled.div`
-  display: flex;
-  gap: ${theme.size(2)};
-  padding: ${theme.size(1)};
-  margin: ${theme.size(1)} 0 ${theme.size(6)};
-`;
+export const WeekdayContainer = styled.div(
+  props => css`
+    display: flex;
+    gap: ${props.theme.size(2)};
+    padding: ${props.theme.size(1)};
+    margin: ${props.theme.size(1)} 0 ${props.theme.size(6)};
+  `
+);
 
-export const HeaderContainer = styled.div`
-  padding: ${theme.size(2, 1)};
-  display: flex;
-  align-items: center;
-  gap: ${theme.size(8)};
-`;
+export const HeaderContainer = styled.div(
+  props => css`
+    padding: ${props.theme.size(2, 1)};
+    display: flex;
+    align-items: center;
+    gap: ${props.theme.size(8)};
+  `
+);
 
-export const DateContainer = styled.div`
-  padding: ${theme.size(1)} 0;
-  display: flex;
-  align-items: center;
-  gap: ${theme.size(4)};
-`;
+export const DateContainer = styled.div(
+  props => css`
+    padding: ${props.theme.size(1)} 0;
+    display: flex;
+    align-items: center;
+    gap: ${props.theme.size(4)};
+  `
+);
 
-export const DateButton = styled.div`
-  display: flex;
-  padding: ${theme.size(0.75)};
-  font-size: ${theme.size(8)};
-  background-color: ${theme.colors.current().mainBg};
-  box-shadow: ${theme.shadow['0']};
-  color: ${theme.colors.white};
-  border-radius: ${theme.border.radius['2']};
-  cursor: pointer;
-`;
+export const DateButton = styled.div(
+  props => css`
+    display: flex;
+    padding: ${props.theme.size(0.75)};
+    font-size: ${props.theme.size(8)};
+    background-color: ${props.theme.colors.current.mainBg};
+    box-shadow: none;
+    color: ${props.theme.colors.white};
+    border-radius: ${props.theme.border.radius.medium};
+    cursor: pointer;
+  `
+);
 
-export const DateLabel = styled.h1`
-  padding: ${theme.size(1)};
-  min-width: ${theme.size(80)};
-  color: ${theme.colors.current().main};
-  text-transform: uppercase;
-  font-weight: bold;
-  text-align: center;
-`;
+export const DateLabel = styled.h1(
+  props => css`
+    padding: ${props.theme.size(1)};
+    min-width: ${props.theme.size(80)};
+    color: ${props.theme.colors.current.main};
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  `
+);
 
-export const DateNumber = styled.h1`
-  padding: ${theme.size(1)};
-  color: ${theme.colors.current().main};
-  font-weight: bold;
-`;
+export const DateNumber = styled.h1(
+  props => css`
+    padding: ${props.theme.size(1)};
+    color: ${props.theme.colors.current.main};
+    font-weight: bold;
+  `
+);

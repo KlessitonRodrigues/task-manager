@@ -3,7 +3,7 @@ type GlobalState = {
   currentDate: string; // remove
   selectedWeek: string; // remove
   sidePanel: '' | 'settings' | 'tags' | 'newEvent' | 'editEvent';
-  theme: 'cian' | 'cianDark';
+  themeColors: { mode: 'dark' | 'light'; main: string; alter: string };
   database: 'local' | 'remote';
   databaseLastUpdate: number;
 };

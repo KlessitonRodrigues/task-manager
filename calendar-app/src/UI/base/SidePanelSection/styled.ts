@@ -1,15 +1,18 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  margin: ${theme.size(2)} 0 ${theme.size(4)};
-`;
+export const Container = styled.div(
+  props => css`
+    margin: ${props.theme.size(2)} 0 ${props.theme.size(2)};
+  `
+);
 
-export const Label = styled.h5`
-  margin: ${theme.size(2)} 0;
-  border-bottom: 2px solid ${theme.colors.gray + '33'};
-  padding: ${theme.size(1)} 0;
-  color: ${theme.colors.current().text3};
-`;
+export const Label = styled.h5<{ noLine?: boolean }>(
+  props => css`
+    margin: ${props.theme.size(2)} 0;
+    padding: ${props.theme.size(1)} 0;
+    color: ${props.theme.colors.current.text3};
+    ${!props.noLine && `border-bottom: 1px solid ${props.theme.colors.gray + '33'};`}
+  `
+);
 
 export const Content = styled.div``;

@@ -1,9 +1,12 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div<{ color?: string; size: number }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: ${props => theme.size(props.size || 7)};
-`;
+type ContainerProps = { color?: string; size: number };
+
+export const Container = styled.div<ContainerProps>(
+  props => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: ${props.theme.size(props.size || 7)};
+  `
+);

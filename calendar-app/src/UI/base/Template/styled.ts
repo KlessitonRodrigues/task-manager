@@ -1,6 +1,7 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  padding: ${theme.size(5)};
-`;
+export const Container = styled.div(
+  props => css`
+    padding: ${props.theme.size(5)};
+  `
+);

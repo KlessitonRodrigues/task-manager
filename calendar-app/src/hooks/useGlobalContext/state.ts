@@ -3,7 +3,7 @@ export const globalState: GlobalState = {
   currentDate: new Date().toISOString(),
   selectedWeek: 'week1',
   sidePanel: '',
-  theme: 'cian',
+  themeColors: { mode: 'light', main: '#4e42f5', alter: '#ff0000' },
   database: 'local',
   databaseLastUpdate: 0,
 };

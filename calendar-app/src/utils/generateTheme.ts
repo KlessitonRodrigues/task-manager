@@ -1,21 +1,15 @@
-export const generateColorsFromBodyClass = () => {
-  const arr = document.body.className
-    .split(' ')
-    .find(str => str.startsWith('--theme'))
-    .split('-');
-
-  const [isDark, colorA, colorB] = [arr[3] === 'dark', arr[4], arr[5]];
-
+export const generateTheme = (settings: GlobalState['themeColors']) => {
+  const { mode, main, alter } = settings;
   const colors = {
-    main: colorA,
-    mainHover: colorA,
-    mainBg: colorA,
-    alternative: colorB,
-    alternativeHover: colorB,
-    alternativeBg: colorB,
+    main: main,
+    mainHover: main,
+    mainBg: main,
+    alternative: alter,
+    alternativeHover: alter,
+    alternativeBg: alter,
   };
 
-  if (isDark) {
+  if (mode === 'dark') {
     colors.main;
     colors.mainBg += 'aa';
     colors.mainHover += '77';
@@ -27,10 +21,5 @@ export const generateColorsFromBodyClass = () => {
     colors.alternativeHover += 'bb';
   }
 
-  console.log('GENERATE', colors);
-
-  return {
-    isDark,
-    colors,
-  };
+  return colors;
 };

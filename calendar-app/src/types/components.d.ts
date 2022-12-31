@@ -21,7 +21,7 @@ type CalendarWeekProps = {
 };
 
 type IfProps = {
-  when: boolean;
+  true: boolean;
   render: React.ReactElement;
 };
 
@@ -111,6 +111,7 @@ type SidePanelProps = {
 
 type SidePanelSectionProps = {
   label: string;
+  noLine?: boolean;
   children?: React.ReactNode;
 };
 
@@ -118,4 +119,12 @@ type SidePanelTitleProps = {
   label?: string;
   icon?: React.ReactElement;
   onClose?: () => void;
+};
+
+type ColorPickerProps = {
+  picker?: boolean;
+  bg?: string;
+  border?: string;
+  onClick?: (bg: string) => void;
+  onPickColor?: (color: string) => void;
 };

@@ -11,6 +11,7 @@ const CheckboxPanel = (props: CheckboxPanelProps) => {
     const isChecked = values?.includes(cb.value);
     return (
       <Checkbox
+        key={cb.value}
         checked={isChecked}
         iconSize={iconFontSize}
         onClick={() => onChange && onChange(cb.value)}

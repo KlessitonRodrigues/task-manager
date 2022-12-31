@@ -291,7 +291,7 @@ export const materialColors = {
     '800': '#37474f',
     '900': '#263238',
   },
-  black: '#111111',
+  black: '#0F0F05',
   white: '#e5e5e5',
 };
 

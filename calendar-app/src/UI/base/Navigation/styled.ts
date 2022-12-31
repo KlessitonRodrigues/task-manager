@@ -1,7 +1,8 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  display: inline-flex;
-  padding-top: ${theme.size(1)};
-`;
+export const Container = styled.div(
+  props => css`
+    display: inline-flex;
+    padding-top: ${props.theme.size(1)};
+  `
+);

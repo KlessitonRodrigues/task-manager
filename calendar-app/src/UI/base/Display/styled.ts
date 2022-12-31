@@ -1,27 +1,31 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div<{ size?: string }>`
-  display: inline-flex;
-  flex-direction: column;
-  padding: ${theme.size(1)} 0;
-  padding-right: ${theme.size(4)};
+export const Container = styled.div<{ size?: string }>(
+  props => css`
+    display: inline-flex;
+    flex-direction: column;
+    padding: ${props.theme.size(1)} 0;
+    padding-right: ${props.theme.size(4)};
 
-  width: ${p => p.size || 'auto'};
-`;
+    width: ${props.size || 'auto'};
+  `
+);
 
-export const Label = styled.span<{ show?: boolean }>`
-  color: ${theme.colors.current().text3};
-  padding-right: ${theme.size(2)};
-  padding-bottom: ${theme.size(1)};
-  font-size: ${theme.fontSize.h6};
+export const Label = styled.span<{ show?: boolean }>(
+  props => css`
+    color: ${props.theme.colors.current.text3};
+    padding-right: ${props.theme.size(2)};
+    padding-bottom: ${props.theme.size(1)};
+    font-size: ${props.theme.fontSize.h6};
 
-  display: ${p => (p.show ? 'block' : 'none')};
-`;
+    display: ${props.show ? 'block' : 'none'};
+  `
+);
 
-export const Value = styled.span<{ show?: boolean; color?: 'main' | 'none' }>`
-  color: ${theme.colors.current().main};
-
-  display: ${p => (p.show ? 'block' : 'none')};
-  color: ${p => p.color === 'none' && 'unset'};
-`;
+export const Value = styled.span<{ show?: boolean; color?: 'main' | 'none' }>(
+  props => css`
+    color: ${props.theme.colors.current.main};
+    display: ${props.show ? 'block' : 'none'};
+    color: ${props.color === 'none' && 'unset'};
+  `
+);

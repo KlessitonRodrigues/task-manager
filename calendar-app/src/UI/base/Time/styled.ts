@@ -1,7 +1,8 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  font-family: monospace;
-  padding: ${theme.size(2)} 0;
-`;
+export const Container = styled.div(
+  props => css`
+    font-family: monospace;
+    padding: ${props.theme.size(2)} 0;
+  `
+);

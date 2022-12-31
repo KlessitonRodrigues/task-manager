@@ -1,26 +1,31 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  margin: 0 0 ${theme.size(2)};
-  color: ${theme.colors.current().text3};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${theme.size(2)};
-`;
+export const Container = styled.div(
+  props => css`
+    margin: 0 0 ${props.theme.size(2)};
+    color: ${props.theme.colors.current.text3};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: ${props.theme.size(2)};
+  `
+);
 
-export const Title = styled.h2`
-  display: flex;
-  align-items: center;
-  gap: ${theme.size(2)};
-`;
+export const Title = styled.h2(
+  props => css`
+    display: flex;
+    align-items: center;
+    gap: ${props.theme.size(2)};
+  `
+);
 
-export const CloseBtn = styled.div`
-  cursor: pointer;
+export const CloseBtn = styled.div(
+  props => css`
+    cursor: pointer;
 
-  &:hover {
-    color: ${theme.colors.current().main}aa;
-    border-radius: 100px;
-  }
-`;
+    &:hover {
+      color: ${props.theme.colors.current.main}aa;
+      border-radius: 100px;
+    }
+  `
+);

@@ -1,38 +1,45 @@
-import theme from 'src/styles/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  padding: ${theme.size(1)} 0;
-`;
+export const Container = styled.div(
+  props => css`
+    padding: ${props.theme.size(1)} 0;
+  `
+);
 
-export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>`
-  display: flex;
-  align-items: center;
-  gap: ${theme.size(2)};
-  font-size: ${theme.fontSize['h5']};
-  color: ${p => (p.checked ? theme.colors.current().main : theme.colors.current().text2)};
-  cursor: pointer;
-  text-transform: capitalize;
+export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>(
+  props => css`
+    display: flex;
+    align-items: center;
+    gap: ${props.theme.size(2)};
+    font-size: ${props.theme.fontSize['h5']};
+    color: ${props.checked ? props.theme.colors.current.main : props.theme.colors.current.text2};
+    cursor: pointer;
+    text-transform: capitalize;
 
-  & > svg {
-    font-size: ${p => p.iconSize || '1rem'};
-  }
+    & > svg {
+      font-size: ${props.iconSize || '1rem'};
+    }
 
-  &:hover {
-    color: ${theme.colors.current().main}aa;
-  }
-`;
+    &:hover {
+      color: ${props.theme.colors.current.main}aa;
+    }
+  `
+);
 
-export const Label = styled.div<{ display?: boolean }>`
-  padding: ${theme.size(2)} 0;
-  font-size: ${theme.fontSize['h5']};
-  color: ${theme.colors.current().text3};
+export const Label = styled.div<{ display?: boolean }>(
+  props => css`
+    padding: ${props.theme.size(2)} 0;
+    font-size: ${props.theme.fontSize['h5']};
+    color: ${props.theme.colors.current.text3};
 
-  ${p => !p.display && 'display: none;'}
-`;
+    ${!props.display && 'display: none;'}
+  `
+);
 
-export const CheckboxContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: ${theme.size(4)};
-`;
+export const CheckboxContainer = styled.div(
+  props => css`
+    display: flex;
+    flex-wrap: wrap;
+    gap: ${props.theme.size(4)};
+  `
+);

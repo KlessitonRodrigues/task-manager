@@ -45,7 +45,6 @@ const generateEventDates = (data: CreateEventForm): CalendarEventDay[] => {
   const startDate = moment(dateISO);
   const daysUtilEndDate = startDate.diff(moment(repeatUtilDate), 'days') * -1;
   const dates: CalendarEventDay[] = [];
-  console.log(dateISO, repeatUtilDate);
 
   for (let i = 0; dates.length < daysUtilEndDate; i++) {
     const dayOfWeek = startDate.format('dddd').substring(0, 3).toLocaleLowerCase();
@@ -68,7 +67,6 @@ export const handleSaveFrom = async (data: CreateEventForm) => {
   const { id, name, description, tagIds, noteId } = data;
   const CalendarEent: CalendarEvent = { id, name, description, tagIds, noteId };
   const eventDates = generateEventDates(data);
-  console.log('SUBMIT', data, CalendarEent, eventDates);
   await apiRoutes.events.create(CalendarEent);
   await apiRoutes.eventDates.create(eventDates);
 };
