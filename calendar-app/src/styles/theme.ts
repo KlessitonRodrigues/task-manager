@@ -36,8 +36,9 @@ export const defaulTheme: Theme = {
   },
   shadow: {
     low: '1px 1px 4px 0px #0006',
-    medium: '1px 1px 4px 0px #0007',
-    high: '1px 1px 4px 0px #0009',
+    medium: '1px 1px 4px 1px #0007',
+    high: '1px 1px 4px 1px #0009',
+    mediumGray: '1px 1px 4px 1px #777a',
   },
   border: {
     type: {
@@ -46,7 +47,7 @@ export const defaulTheme: Theme = {
       large: '2px solid #2221',
     },
     radius: {
-      verySmall: '0.2rem',
+      verySmall: '0.3rem',
       small: '0.4rem',
       medium: '0.6rem',
       large: '0.8rem',
@@ -55,13 +56,15 @@ export const defaulTheme: Theme = {
   },
   fontSize: {
     body: '1rem',
-    bodySmall: '0.9rem',
+    small: '0.95rem',
+    verySmall: '0.9rem',
+    label: '0.9rem',
     h1: '1.6rem',
     h2: '1.4rem',
     h3: '1.2rem',
     h4: '1.1rem',
-    h5: '0.9rem',
-    h6: '0.8rem',
+    h5: '1.075rem',
+    h6: '1.05rem',
   },
   devices: {
     mobileS: `(max-width: ${screenSizes.mobileS})`,

@@ -6,7 +6,7 @@ export const Container = styled.div(
     margin: ${props.theme.size(1)} 0;
     border: 1px solid ${props.theme.colors.gray + '44'};
     border-left: 5px solid ${props.theme.colors.gray + '99'};
-    border-radius: ${props.theme.border.radius.small};
+    border-radius: ${props.theme.border.radius.verySmall};
     background-color: ${props.theme.colors.current.bg1};
     cursor: pointer;
 
@@ -25,13 +25,14 @@ export const Column = styled.div(
   `
 );
 
-export const Time = styled.h6(
+export const Time = styled.span(
   props => css`
     color: ${props.theme.colors.current.main};
+    font-size: ${props.theme.fontSize.verySmall};
   `
 );
 
-export const Title = styled.h5(
+export const Title = styled.span(
   props => css`
     padding: ${props.theme.size(1)} 0;
     text-transform: capitalize;

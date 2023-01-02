@@ -15,7 +15,7 @@ export const Title = styled.h2(
   props => css`
     display: flex;
     align-items: center;
-    gap: ${props.theme.size(2)};
+    gap: ${props.theme.size(4)};
   `
 );
 

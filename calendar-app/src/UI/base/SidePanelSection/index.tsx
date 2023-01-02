@@ -1,12 +1,19 @@
-import { Container, Content, Label } from './styled';
+import { BsCaretRightFill, BsChevronRight } from 'react-icons/bs';
+
+import { Container, Content, Icon, Label, Row } from './styled';
 
 const SidePanelSection = (props: SidePanelSectionProps) => {
-  const { label, noLine, children } = props;
+  const { label, expanded, onExpand, noLine, children } = props;
 
   return (
     <Container>
-      <Label noLine={noLine}>{label}</Label>
-      <Content>{children}</Content>
+      <Row expanded={expanded} onClick={() => onExpand && onExpand(label)}>
+        <Icon>
+          <BsCaretRightFill />
+        </Icon>
+        <Label>{label || ''}</Label>
+      </Row>
+      <Content expanded={expanded}>{children}</Content>
     </Container>
   );
 };

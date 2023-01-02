@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
   props => css`
-    padding: ${props.theme.size(1)} 0;
+    margin-bottom: ${props.theme.size(4)};
   `
 );
 
@@ -11,7 +11,7 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>(
     display: flex;
     align-items: center;
     gap: ${props.theme.size(2)};
-    font-size: ${props.theme.fontSize['h5']};
+    font-size: ${props.theme.fontSize.label};
     color: ${props.checked ? props.theme.colors.current.main : props.theme.colors.current.text2};
     cursor: pointer;
     text-transform: capitalize;
@@ -29,8 +29,8 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>(
 export const Label = styled.div<{ display?: boolean }>(
   props => css`
     padding: ${props.theme.size(2)} 0;
-    font-size: ${props.theme.fontSize['h5']};
-    color: ${props.theme.colors.current.text3};
+    font-size: ${props.theme.fontSize.label};
+    color: ${props.theme.colors.current.text1};
 
     ${!props.display && 'display: none;'}
   `

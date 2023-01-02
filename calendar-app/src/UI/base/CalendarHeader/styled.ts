@@ -14,8 +14,8 @@ export const Weekday = styled.div(
     width: 100%;
     padding: ${props.theme.size(2)};
     color: ${props.theme.colors.current.main};
-    border-radius: ${props.theme.border.radius.medium};
-    background-color: ${props.theme.colors.current.bg2};
+    border-radius: ${props.theme.border.radius.small};
+    background-color: ${props.theme.colors.current.bg3};
   `
 );
 

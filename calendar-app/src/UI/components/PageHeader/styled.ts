@@ -20,7 +20,7 @@ export const Collapse = styled.div(
     left: 0;
     display: inline-flex;
     align-items: center;
-    background-color: ${props.theme.colors.current.main};
+    background-color: ${props.theme.colors.current.mainBg};
     border-radius: 0 0 ${props.theme.border.radius.large} 0;
     color: ${props.theme.colors.white};
     padding: ${props.theme.size(2)};

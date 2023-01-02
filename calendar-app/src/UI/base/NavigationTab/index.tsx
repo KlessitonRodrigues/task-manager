@@ -1,21 +1,20 @@
-import { Border, BorderBackground, IconContainer, Tab } from './styled';
+import { Border, BorderBackground, Container, IconContainer, Tab } from './styled';
 
 const NavigationTab = (props: NavigationTabProps) => {
   const { label, value, active, icon, onChange } = props;
-  const activeClass = active ? 'active' : '';
 
   return (
-    <>
-      <BorderBackground className={activeClass}>
+    <Container>
+      <BorderBackground active={active}>
         <Border left />
       </BorderBackground>
-      <Tab className={activeClass} onClick={() => onChange && onChange(value)}>
+      <Tab active={active} onClick={() => onChange && onChange(value)}>
         <IconContainer>{icon}</IconContainer>&nbsp;{label}
       </Tab>
-      <BorderBackground className={activeClass}>
+      <BorderBackground active={active}>
         <Border />
       </BorderBackground>
-    </>
+    </Container>
   );
 };
 

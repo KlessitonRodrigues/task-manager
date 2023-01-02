@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import { BsGear, BsMoon, BsMoonFill, BsSun, BsSunFill } from 'react-icons/bs';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import ColorPicker from 'src/UI/base/ColorPicker';
@@ -8,11 +9,20 @@ import useGlobalContext from 'src/hooks/useGlobalContext';
 
 const SettingsPanel = () => {
   const [global, setGlobal] = useGlobalContext();
+  const [expandedSection, setSection] = useState('Theme');
 
   const handleThemeChange = (value: Partial<typeof global.themeColors>) => {
     const newTheme = { ...global.themeColors, ...value };
     setGlobal({ ...global, themeColors: newTheme });
   };
+
+  const handleSextion = useCallback(
+    (label: string) => {
+      if (label == expandedSection) return setSection('');
+      setSection(label);
+    },
+    [expandedSection]
+  );
 
   return (
     <SidePanel show={global.sidePanel === 'settings'}>
@@ -21,9 +31,12 @@ const SettingsPanel = () => {
         icon={<BsGear />}
         onClose={() => setGlobal({ ...global, sidePanel: '' })}
       />
-      <SidePanelSection label="Database"></SidePanelSection>
-      <SidePanelSection label="Layout"></SidePanelSection>
-      <SidePanelSection label="Theme">
+
+      <SidePanelSection
+        label="Theme"
+        expanded={expandedSection === 'Theme'}
+        onExpand={handleSextion}
+      >
         <CheckboxPanel
           label="Mode"
           iconFontSize="1.2rem"
@@ -34,33 +47,35 @@ const SettingsPanel = () => {
           ]}
           onChange={(mode: 'dark' | 'light') => handleThemeChange({ mode })}
         />
-        <SidePanelSection label="Main color" noLine>
-          <ColorPicker bg="#2D6BC8" onClick={main => handleThemeChange({ main })} />
-          <ColorPicker bg="#5E4AE3" onClick={main => handleThemeChange({ main })} />
-          <ColorPicker bg="#845D5C" onClick={main => handleThemeChange({ main })} />
-          <ColorPicker bg="#2C848C" onClick={main => handleThemeChange({ main })} />
-          <ColorPicker bg="#467444" onClick={main => handleThemeChange({ main })} />
-          <ColorPicker bg="#5E4AE3" onClick={main => handleThemeChange({ main })} />
-          <ColorPicker
-            picker
-            border={global.themeColors.main}
-            onPickColor={main => handleThemeChange({ main })}
-          />
-        </SidePanelSection>
-        <SidePanelSection label="Alternative color" noLine>
-          <ColorPicker bg="#2D6BC8" onClick={alter => handleThemeChange({ alter })} />
-          <ColorPicker bg="#5E4AE3" onClick={alter => handleThemeChange({ alter })} />
-          <ColorPicker bg="#845D5C" onClick={alter => handleThemeChange({ alter })} />
-          <ColorPicker bg="#2C848C" onClick={alter => handleThemeChange({ alter })} />
-          <ColorPicker bg="#467444" onClick={alter => handleThemeChange({ alter })} />
-          <ColorPicker bg="#5E4AE3" onClick={alter => handleThemeChange({ alter })} />
-          <ColorPicker
-            picker
-            border={global.themeColors.alter}
-            onPickColor={alter => handleThemeChange({ alter })}
-          />
-        </SidePanelSection>
+        <ColorPicker bg="#0277BD" selected onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#527EB7" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#347383" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#467444" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#0B6F17" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#6E71C4" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#8272E9" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#623DF5" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#7A542E" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#633617" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker bg="#702e8e" onClick={main => handleThemeChange({ main })} />
+        <ColorPicker
+          picker
+          border={global.themeColors.main}
+          onPickColor={main => handleThemeChange({ main })}
+        />
       </SidePanelSection>
+
+      <SidePanelSection
+        label="Database"
+        expanded={expandedSection === 'Database'}
+        onExpand={handleSextion}
+      ></SidePanelSection>
+
+      <SidePanelSection
+        label="Layout"
+        expanded={expandedSection === 'Layout'}
+        onExpand={handleSextion}
+      ></SidePanelSection>
     </SidePanel>
   );
 };

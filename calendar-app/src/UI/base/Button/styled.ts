@@ -16,6 +16,7 @@ export const Container = styled.button<ContainerProps>(
     border-radius: ${props.theme.border.radius.small};
     border: none;
     transition: background-color 0.2s;
+    user-select: none;
 
     &:hover {
       background-color: ${props.theme.colors.current.mainHover};
@@ -39,8 +40,7 @@ export const Container = styled.button<ContainerProps>(
 export const Label = styled.span(
   props => css`
     padding: ${props.theme.size(0.5)} ${props.theme.size(3)} 0;
-    font-size: ${props.theme.fontSize.h5};
-    text-transform: uppercase;
+    font-size: ${props.theme.fontSize.label};
     font-family: monospace;
   `
 );

@@ -10,7 +10,7 @@ export const Container = styled.div<{ show?: boolean }>(
     left: 0;
     z-index: 10;
     opacity: 0;
-    transition: 0.3s opacity;
+    transition: 0.2s opacity ease-out;
 
     ${props.show && 'width: 100vw; opacity: 1'}
   `
@@ -20,16 +20,21 @@ export const SidePanelContainer = styled.div<{ show?: boolean }>(
   props => css`
     background-color: ${props.theme.colors.current.bg1};
     border-top-left-radius: ${props.theme.border.radius.medium};
-    box-shadow: ${props.theme.shadow.high};
+    box-shadow: ${props.theme.shadow.mediumGray};
     position: fixed;
     right: 0;
     bottom: 0;
     height: 90vh;
     width: 0;
-    opacity: 0;
     padding: 0;
-    transition: 0.5s width, 0.5s opacity ease-out;
+    transition: 0.3s width ease-out;
+    user-select: none;
+    ${props.show && `width: ${props.theme.size(150)}; padding: ${props.theme.size(4)};`}
 
-    ${props.show && `width: ${props.theme.size(150)}; padding: ${props.theme.size(4)}; opacity: 1;`}
+    & * {
+      opacity: 0;
+      transition: opacity 0.4s ease-in;
+      ${props.show && `opacity: 1`};
+    }
   `
 );

@@ -26,6 +26,7 @@ type Theme = {
     low: string;
     medium: string;
     high: string;
+    mediumGray: string;
   };
   border: {
     type: {
@@ -34,22 +35,24 @@ type Theme = {
       large: string;
     };
     radius: {
-      verySmall: '0.2rem';
-      small: '0.4rem';
-      medium: '0.6rem';
-      large: '0.8rem';
-      full: '50%';
+      verySmall: string;
+      small: string;
+      medium: string;
+      large: string;
+      full: string;
     };
   };
   fontSize: {
     body: string;
+    label: string;
+    small: string;
+    verySmall: string;
     h1: string;
     h2: string;
     h3: string;
     h4: string;
     h5: string;
     h6: string;
-    bodySmall: string;
   };
   devices: {
     mobileS: string;

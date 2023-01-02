@@ -117,5 +117,19 @@ export default createGlobalStyle(
     .fadeOutDown {
       animation-name: fadeOutDown;
     }
+
+    @keyframes rotate90 {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+      }
+    }
+
+    .rotate90 {
+      animation-name: rotate90;
+    }
   `
 );
