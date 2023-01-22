@@ -1,45 +1,28 @@
+type EventDayStatus = 'cancel' | 'todo' | 'doing' | 'done';
+
+type EventDay = {
+  id?: string;
+  status?: EventDayStatus;
+  doingTime?: number;
+};
+
 type CalendarEvent = {
   id?: string;
   name?: string;
   description?: string;
   tagIds?: string[];
   noteId?: string;
-};
-
-type CalendarEventDay = {
-  id?: string;
-  eventId?: string;
-  status?: 'cancelled' | 'todo' | 'doing' | 'done';
-  date: { unix: number; iso: string };
-  doingTime: number;
-};
-
-type _CalendarEventOccurence = {
-  id?: string;
-  date: { unix: number; iso: string };
-  status: 'cancelled' | 'todo' | 'doing' | 'done';
-  time: number;
-};
-
-type _CalendarEvent = {
-  id?: string;
-  name?: string;
-  description?: string;
-  occurrences?: _CalendarEventOccurence[];
+  events: EventDay[];
 };
 
 type EventFormRepeatPeriod = 'day' | 'month';
 
 type EventFormRepeatAtDays = ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
 
-type EventsAndDates = { events: CalendarEvent[]; dates: CalendarEventDay[] };
-
-type JoinEventAndDate = CalendarEventDay & { event: CalendarEvent };
-
 type DayData = {
   dayNumber: number;
   dayMonth: number;
-  dayEvents: JoinEventAndDate[];
+  dayEvents: EventDay[];
 };
 
 type WeekData = {

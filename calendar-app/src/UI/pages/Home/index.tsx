@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PageConainer from 'src/UI/base/PageContainer';
+import PageContainer from 'src/UI/base/PageContainer';
 import Calendar from 'src/UI/components/Calendar';
 import EventCreatePanel from 'src/UI/components/CreateEventPanel';
 import EventEditPanel from 'src/UI/components/EditEventPanel';
@@ -15,7 +15,7 @@ const HomePage = () => {
   const [pageState, setPageState] = page;
 
   return (
-    <PageConainer>
+    <PageContainer>
       <Calendar page={page} />
       <EventCreatePanel
         show={pageState.sidePanel === 'createEvent'}
@@ -26,7 +26,7 @@ const HomePage = () => {
         show={pageState.sidePanel === 'editEvent'}
         onClose={() => setPageState({ ...pageState, sidePanel: '' })}
       />
-    </PageConainer>
+    </PageContainer>
   );
 };
 

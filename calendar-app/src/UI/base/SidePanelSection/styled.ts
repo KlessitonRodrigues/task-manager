@@ -28,6 +28,7 @@ export const Icon = styled.span(
   props => css`
     position: absolute;
     left: ${props.theme.size(2)};
+    top: ${props.theme.size(2.2)};
   `
 );
 
