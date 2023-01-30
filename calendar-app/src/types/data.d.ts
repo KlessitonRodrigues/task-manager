@@ -4,6 +4,7 @@ type EventDay = {
   id?: string;
   status?: EventDayStatus;
   doingTime?: number;
+  unixDate?: number;
 };
 
 type CalendarEvent = {
@@ -12,7 +13,7 @@ type CalendarEvent = {
   description?: string;
   tagIds?: string[];
   noteId?: string;
-  events: EventDay[];
+  eventDays: EventDay[];
 };
 
 type EventFormRepeatPeriod = 'day' | 'month';
@@ -20,9 +21,8 @@ type EventFormRepeatPeriod = 'day' | 'month';
 type EventFormRepeatAtDays = ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
 
 type DayData = {
-  dayNumber: number;
-  dayMonth: number;
-  dayEvents: EventDay[];
+  day: { date: number; month: number };
+  dayEvents: CalendarEvent[];
 };
 
 type WeekData = {

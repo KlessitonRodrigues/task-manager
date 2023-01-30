@@ -1,7 +1,7 @@
 const dbName = 'calendar_app_data';
 
 export const readData = (): LocalDB => {
-  const data = JSON.parse(window.localStorage.getItem(dbName) || '');
+  const data = JSON.parse(window.localStorage.getItem(dbName) || '{}');
   return data;
 };
 

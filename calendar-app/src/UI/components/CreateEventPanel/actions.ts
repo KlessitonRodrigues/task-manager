@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { apiRoutes } from 'src/services/api';
 import { createUID } from 'src/utils/uid';
 
 export const createEventFormMock = (): CreateEventForm => ({
@@ -40,33 +39,7 @@ export const handleRepeatAt = (value: EventFormRepeatAtDays[0], arr: EventFormRe
   return arr;
 };
 
-const generateEventDates = (data: CreateEventForm): CalendarEventDay[] => {
-  const { repeatUtilDate, repeatAtDays, repeatPeriod, id, dateISO } = data;
-  const startDate = moment(dateISO);
-  const daysUtilEndDate = startDate.diff(moment(repeatUtilDate), 'days') * -1;
-  const dates: CalendarEventDay[] = [];
-
-  for (let i = 0; dates.length < daysUtilEndDate; i++) {
-    const dayOfWeek = startDate.format('dddd').substring(0, 3).toLocaleLowerCase();
-    if (repeatAtDays.includes(dayOfWeek as EventFormRepeatAtDays[0]))
-      dates.push({
-        id: createUID(),
-        eventId: id,
-        status: 'todo',
-        date: { unix: startDate.unix(), iso: startDate.toISOString() },
-        doingTime: 0,
-      });
-
-    startDate.add(1, repeatPeriod);
-  }
-
-  return dates;
-};
-
 export const handleSaveFrom = async (data: CreateEventForm) => {
   const { id, name, description, tagIds, noteId } = data;
-  const CalendarEent: CalendarEvent = { id, name, description, tagIds, noteId };
-  const eventDates = generateEventDates(data);
-  await apiRoutes.events.create(CalendarEent);
-  await apiRoutes.eventDates.create(eventDates);
+  const eventDates = data;
 };

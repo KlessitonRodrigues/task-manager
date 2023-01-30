@@ -1,7 +1,13 @@
-import { createEvent } from './create';
-import { editEvent } from './edit';
+import { createEvent } from './createEvent';
+import { deleteEvent } from './deleteEvent';
+import { fetchEvent } from './fetchEvent';
+import { updateEvent } from './updateEvent';
+import { updateEventDay } from './updateEventDay';
 
 export const eventApi = {
+  fetchEvent,
   createEvent,
-  editEvent,
+  updateEvent,
+  deleteEvent,
+  updateEventDay,
 };
