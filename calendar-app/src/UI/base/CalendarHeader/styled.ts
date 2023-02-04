@@ -13,9 +13,8 @@ export const Weekday = styled.div(
     font-weight: bold;
     width: 100%;
     padding: ${props.theme.size(2)};
-    color: ${props.theme.colors.current.main};
+    color: ${props.theme.colors.current.text2};
     border-radius: ${props.theme.border.radius.small};
-    background-color: ${props.theme.colors.current.bg3};
   `
 );
 
@@ -24,7 +23,7 @@ export const WeekdayContainer = styled.div(
     display: flex;
     gap: ${props.theme.size(2)};
     padding: ${props.theme.size(1)};
-    margin: ${props.theme.size(1)} 0 ${props.theme.size(6)};
+    margin: ${props.theme.size(4)} 0 ${props.theme.size(4)};
   `
 );
 

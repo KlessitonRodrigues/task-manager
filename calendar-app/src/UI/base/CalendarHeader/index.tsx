@@ -1,4 +1,4 @@
-import { BsCalendar2Date, BsCaretLeft, BsCaretRight, BsPlusLg } from 'react-icons/bs';
+import { BsCalendar4, BsCaretLeft, BsCaretRight, BsPlusLg } from 'react-icons/bs';
 import Button from 'src/UI/base/Button';
 
 import * as actions from './actions';
@@ -21,18 +21,6 @@ const CalendarHeader = (props: CalendarHeaderProps) => {
     <Container>
       <HeaderContainer>
         <DateContainer>
-          <Button
-            iconLeft={<BsPlusLg />}
-            label="Add"
-            onClick={() => setPage({ ...pageState, sidePanel: 'createEvent' })}
-          />
-          <Button
-            iconLeft={<BsCalendar2Date />}
-            label="Today"
-            onClick={() =>
-              setPage({ ...pageState, currentDate: actions.handleDateChange(date, 'today') })
-            }
-          />
           <DateButton
             onClick={() =>
               setPage({
@@ -43,7 +31,9 @@ const CalendarHeader = (props: CalendarHeaderProps) => {
           >
             <BsCaretLeft />
           </DateButton>
+
           <DateLabel>{date.toLocaleDateString('en', { month: 'long', year: 'numeric' })}</DateLabel>
+
           <DateButton
             onClick={() =>
               setPage({
@@ -56,15 +46,6 @@ const CalendarHeader = (props: CalendarHeaderProps) => {
           </DateButton>
         </DateContainer>
       </HeaderContainer>
-      <WeekdayContainer>
-        <Weekday>SUN</Weekday>
-        <Weekday>MON</Weekday>
-        <Weekday>TUE</Weekday>
-        <Weekday>WEN</Weekday>
-        <Weekday>TUR</Weekday>
-        <Weekday>FRI</Weekday>
-        <Weekday>SAT</Weekday>
-      </WeekdayContainer>
     </Container>
   );
 };

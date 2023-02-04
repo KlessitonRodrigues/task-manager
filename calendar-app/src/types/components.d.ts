@@ -3,7 +3,7 @@ type ButtonProps = {
   iconLeft?: React.ReactElement;
   iconRight?: React.ReactElement;
   p?: string;
-  variant?: 'outline';
+  variant?: 'base' | 'outline' | 'solid';
   onClick?: () => void;
 };
 
