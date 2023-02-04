@@ -32,7 +32,6 @@ const Router = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalCSS />
-      <PageHeader />
       <Routes location={global.location}>
         <Route path="/board" element={<BoardPage />} />
         <Route path="/notes" element={<NotesPage />} />

@@ -7,13 +7,17 @@ export default createGlobalStyle(
       padding: 0;
       outline: 0;
       box-sizing: border-box;
-      font-weight: normal;
     }
     html {
       font-size: 16px;
     }
     body {
       font-size: ${props.theme.fontSize.body};
+      height: 100vh;
+      width: 100vw;
+      max-height: 100vh;
+      max-width: 100vw;
+      overflow: hidden;
     }
     html,
     body {
@@ -48,6 +52,8 @@ export default createGlobalStyle(
     button {
       cursor: pointer;
       background-color: transparent;
+      border: none;
+      outline: none;
     }
     div::-webkit-scrollbar {
       width: ${props.theme.size(2)};
@@ -61,6 +67,10 @@ export default createGlobalStyle(
     }
     div::-webkit-scrollbar-thumb:hover {
       background: ${props.theme.colors.current.main};
+    }
+    #root {
+      width: 100%;
+      height: 100%;
     }
 
     @keyframes fadeIn {

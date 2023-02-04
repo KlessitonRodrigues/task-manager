@@ -1,9 +1,5 @@
 import moment from 'moment';
 
-export const getWeekOfYear = (dateStr: string) => {
-  const date = new Date(dateStr);
-};
-
 export const zeroLeft = (n: number) => (n < 10 ? '0' + n : '' + n);
 
 export const dateObjFrom = (from?: string) => {

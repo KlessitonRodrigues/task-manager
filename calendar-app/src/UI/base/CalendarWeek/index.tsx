@@ -9,8 +9,8 @@ const CalendarWeek = (props: CalendarWeekProps) => {
 
   return (
     <Container show={expanded} onClick={() => setGlobal({ ...global, selectedWeek: weekIndex })}>
-      <TopLeft show={expanded}>{label}</TopLeft>
-      <DaysContainer show={expanded}>{children}</DaysContainer>
+      <TopLeft>{label}</TopLeft>
+      <DaysContainer>{children}</DaysContainer>
     </Container>
   );
 };

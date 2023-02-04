@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import CalendarContainer from 'src/UI/base/CalendarContainer';
 import CalendarHeader from 'src/UI/base/CalendarHeader';
 
 import * as actions from './actions';
+import { Container, Content } from './styled';
 
 export const Calendar = (props: CalendarProps) => {
   const { page } = props;
@@ -14,14 +14,14 @@ export const Calendar = (props: CalendarProps) => {
       const data = await actions.RenderCalendarData(page);
       setCalendatData(data);
     };
-    fetch().catch(err => console.log(err));
+    fetch().catch(console.error);
   }, [pageState.currentDate]);
 
   return (
-    <CalendarContainer>
+    <Container>
       <CalendarHeader page={page} />
-      {calendarData}
-    </CalendarContainer>
+      <Content>{calendarData}</Content>
+    </Container>
   );
 };
 
