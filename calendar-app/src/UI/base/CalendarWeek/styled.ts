@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import * as CalendarDay from '../CalendarDay/styled';
-
-export const Container = styled.div<{ show?: boolean }>(
+export const Container = styled.div(
   props => css`
     position: relative;
     cursor: pointer;
@@ -12,29 +10,16 @@ export const Container = styled.div<{ show?: boolean }>(
     ::before {
       content: '';
       padding: ${props.theme.size(1)};
-      border-left: 4px solid ${props.theme.colors.current.main}66;
+      border-left: 5px solid ${props.theme.colors.current.main}55;
       position: absolute;
-      left: -${props.theme.size(3)};
+      right: -${props.theme.size(4)};
       top: 0;
-      height: ${props.show ? '99%' : '85%'};
+      height: 85%;
     }
 
     :hover::before {
       border-left-color: ${props.theme.colors.current.main};
     }
-
-    ${props.show &&
-    css`
-      height: 100%;
-
-      ${TopLeft} {
-        opacity: 1;
-      }
-
-      ${CalendarDay.Content} {
-        height: 100%;
-      }
-    `}
   `
 );
 

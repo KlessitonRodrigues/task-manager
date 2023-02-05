@@ -16,7 +16,7 @@ type CalendarDayProps = {
 
 type CalendarWeekProps = {
   children: React.ReactNode;
-  weekIndex: string;
+  onClick?: () => void;
 };
 
 type IfProps = {
@@ -91,14 +91,12 @@ type EditEventPanelProps = {
 
 type CalendarProps = {
   currentDate: string;
-  goNextMonth: () => void;
-  goPrevMonth: () => void;
+  changeMonth: (newDate: string) => void;
 };
 
 type CalendarHeaderProps = {
   currentDate: string;
-  goNextMonth: () => void;
-  goPrevMonth: () => void;
+  changeMonth: (newDate: string) => void;
 };
 
 type NavigationTabProps = {
@@ -136,3 +134,11 @@ type ColorPickerProps = {
   onClick?: (bg: string) => void;
   onPickColor?: (color: string) => void;
 };
+
+type RenderCalendarDataProps = {
+  currentDate?: string;
+  events?: CalendarEvent[];
+  changeWeek?: (index: number) => void;
+};
+
+type ToolBarProps = {};

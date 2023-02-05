@@ -6,7 +6,7 @@ export const Container = styled.div(
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 ${props.theme.size(0.5)};
+    padding: 0 ${props.theme.size(1)};
     border-radius: ${props.theme.border.radius.small};
     overflow: hidden;
     transition: 0.5s padding;
@@ -16,7 +16,6 @@ export const Container = styled.div(
 export const Header = styled.div<{ outOfMonth?: boolean }>(
   props => css`
     padding: ${props.theme.size(2)};
-    margin-bottom: ${props.theme.size(4)};
     border-radius: ${props.theme.border.radius.small};
     color: ${props.theme.colors.white};
     background-color: ${props.theme.colors.current.mainBg};
@@ -36,6 +35,7 @@ export const Content = styled.div(
     background-color: ${props.theme.colors.current.bg2};
     border-radius: ${props.theme.border.radius.medium};
     position: relative;
+    height: 100%;
 
     .icon {
       opacity: 0;

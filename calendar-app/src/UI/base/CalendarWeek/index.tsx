@@ -1,18 +1,10 @@
-import useGlobalContext from 'src/hooks/useGlobalContext/index';
-
 import { Container, DaysContainer } from './styled';
 
 const CalendarWeek = (props: CalendarWeekProps) => {
-  const { children, weekIndex } = props;
-  const [global, setGlobal] = useGlobalContext();
-  const expanded = global.selectedWeek === weekIndex;
-
-  const handlers = {
-    changedWeek: () => setGlobal({ ...global, selectedWeek: weekIndex }),
-  };
+  const { onClick, children } = props;
 
   return (
-    <Container show={expanded} onClick={handlers.changedWeek}>
+    <Container onClick={onClick}>
       <DaysContainer>{children}</DaysContainer>
     </Container>
   );

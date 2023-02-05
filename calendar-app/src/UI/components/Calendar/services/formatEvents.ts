@@ -13,7 +13,7 @@ export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
       daysData.push({
         dayEvents,
         date: {
-          day: startDate.get('day'),
+          day: startDate.get('date'),
           month: startDate.get('month'),
         },
       });

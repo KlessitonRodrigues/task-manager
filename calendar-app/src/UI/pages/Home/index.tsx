@@ -13,17 +13,19 @@ const initialState: CalendarPageState = {
 const HomePage = () => {
   const [page, setPage] = useState(initialState);
 
+  const handlers = {
+    changeMonth: (currentDate: string) => setPage({ ...page, currentDate }),
+    closePanel: () => setPage({ ...page, sidePanel: '' }),
+  };
+
   return (
     <PageContainer>
-      <Calendar currentDate={page.currentDate} goNextMonth={() => {}} goPrevMonth={() => {}} />
-      <EventCreatePanel
-        show={page.sidePanel === 'createEvent'}
-        onClose={() => setPage({ ...page, sidePanel: '' })}
-      />
+      <Calendar currentDate={page.currentDate} changeMonth={handlers.changeMonth} />
+      <EventCreatePanel show={page.sidePanel === 'createEvent'} onClose={handlers.closePanel} />
       <EventEditPanel
         editEvent={page.editingEvent}
         show={page.sidePanel === 'editEvent'}
-        onClose={() => setPage({ ...page, sidePanel: '' })}
+        onClose={handlers.closePanel}
       />
     </PageContainer>
   );
