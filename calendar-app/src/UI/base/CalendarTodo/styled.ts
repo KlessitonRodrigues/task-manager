@@ -19,7 +19,7 @@ export const Container = styled.div(
 );
 
 export const Column = styled.div(
-  props => css`
+  () => css`
     display: flex;
     flex-direction: column;
   `

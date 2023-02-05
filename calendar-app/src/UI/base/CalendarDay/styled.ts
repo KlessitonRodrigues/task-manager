@@ -36,5 +36,18 @@ export const Content = styled.div(
     background-color: ${props.theme.colors.current.bg2};
     border-radius: ${props.theme.border.radius.medium};
     position: relative;
+
+    .icon {
+      opacity: 0;
+      position: absolute;
+      top: ${props.theme.size(2)};
+      left: ${props.theme.size(2)};
+    }
+
+    :hover {
+      .icon {
+        opacity: 1;
+      }
+    }
   `
 );

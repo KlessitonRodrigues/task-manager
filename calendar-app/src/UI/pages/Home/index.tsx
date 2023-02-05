@@ -11,20 +11,19 @@ const initialState: CalendarPageState = {
 };
 
 const HomePage = () => {
-  const page = useState(initialState);
-  const [pageState, setPageState] = page;
+  const [page, setPage] = useState(initialState);
 
   return (
     <PageContainer>
-      <Calendar page={page} />
+      <Calendar currentDate={page.currentDate} goNextMonth={() => {}} goPrevMonth={() => {}} />
       <EventCreatePanel
-        show={pageState.sidePanel === 'createEvent'}
-        onClose={() => setPageState({ ...pageState, sidePanel: '' })}
+        show={page.sidePanel === 'createEvent'}
+        onClose={() => setPage({ ...page, sidePanel: '' })}
       />
       <EventEditPanel
-        editEvent={pageState.editingEvent}
-        show={pageState.sidePanel === 'editEvent'}
-        onClose={() => setPageState({ ...pageState, sidePanel: '' })}
+        editEvent={page.editingEvent}
+        show={page.sidePanel === 'editEvent'}
+        onClose={() => setPage({ ...page, sidePanel: '' })}
       />
     </PageContainer>
   );

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-type ContainerProps = { p?: string; variant?: 'solid' | 'outiline' };
+type ContainerProps = { p?: string; variant?: IconButtonProps['variant'] };
 
 export const Container = styled.button<ContainerProps>(
   props => css`
@@ -15,12 +15,22 @@ export const Container = styled.button<ContainerProps>(
     font-size: ${props.theme.size(8)};
     color: ${props.theme.colors.white};
 
-    svg {
-      fill: ${props.theme.colors.white}CC;
-    }
+    ${props.variant === 'solid' &&
+    css`
+      background-color: ${props.theme.colors.current.main};
 
-    &:hover svg {
-      fill: ${props.theme.colors.white};
-    }
+      svg {
+        fill: ${props.theme.colors.white}CC;
+      }
+
+      :hover svg {
+        fill: ${props.theme.colors.white};
+      }
+    `}
+
+    ${props.variant === 'outiline' &&
+    css`
+      border: 1px solid ${props.theme.colors.current.main};
+    `}
   `
 );

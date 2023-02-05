@@ -16,7 +16,6 @@ type CalendarDayProps = {
 
 type CalendarWeekProps = {
   children: React.ReactNode;
-  label: string;
   weekIndex: string;
 };
 
@@ -47,6 +46,7 @@ type CheckboxPanelProps = {
 
 type IconButtonProps = {
   icon: React.ReactElement;
+  className?: string;
   onClick?: () => void;
   variant?: 'solid' | 'outiline';
 };
@@ -90,11 +90,15 @@ type EditEventPanelProps = {
 };
 
 type CalendarProps = {
-  page: [CalendarPageState, (state: CalendarPageState) => void];
+  currentDate: string;
+  goNextMonth: () => void;
+  goPrevMonth: () => void;
 };
 
 type CalendarHeaderProps = {
-  page: [CalendarPageState, (state: CalendarPageState) => void];
+  currentDate: string;
+  goNextMonth: () => void;
+  goPrevMonth: () => void;
 };
 
 type NavigationTabProps = {

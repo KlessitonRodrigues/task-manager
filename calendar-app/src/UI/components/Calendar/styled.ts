@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
-  () => css`
+  props => css`
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: ${props.theme.size(2)};
+    padding-bottom: ${props.theme.size(4)};
   `
 );
 

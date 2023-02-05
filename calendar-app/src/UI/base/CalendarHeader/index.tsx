@@ -1,38 +1,22 @@
+import { useMemo } from 'react';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 
-import * as actions from './actions';
+import { formatMonthLabel } from './services/monthLabel';
 import { Container, DateButton, DateContainer, DateLabel, HeaderContainer } from './styled';
 
 const CalendarHeader = (props: CalendarHeaderProps) => {
-  const { page } = props;
-  const [pageState, setPage] = page;
-  const date = new Date(pageState.currentDate);
-
-  const handlers = {
-    changeMonth: {
-      next: () =>
-        setPage({
-          ...pageState,
-          currentDate: actions.handleDateChange(date, 'nextMonth'),
-        }),
-      prev: () =>
-        setPage({
-          ...pageState,
-          currentDate: actions.handleDateChange(date, 'prevMonth'),
-        }),
-    },
-    getMonthLabel: () => date.toLocaleDateString('en', { month: 'long', year: 'numeric' }),
-  };
+  const { currentDate, goNextMonth, goPrevMonth } = props;
+  const monthLabel = useMemo(() => formatMonthLabel(currentDate), []);
 
   return (
     <Container>
       <HeaderContainer>
         <DateContainer>
-          <DateButton onClick={handlers.changeMonth.prev}>
+          <DateButton onClick={goNextMonth}>
             <BsCaretLeft />
           </DateButton>
-          <DateLabel>{handlers.getMonthLabel()}</DateLabel>
-          <DateButton onClick={handlers.changeMonth.next}>
+          <DateLabel>{monthLabel}</DateLabel>
+          <DateButton onClick={goPrevMonth}>
             <BsCaretRight />
           </DateButton>
         </DateContainer>

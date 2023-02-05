@@ -15,8 +15,8 @@ export const Container = styled.div<{ show?: boolean }>(
       border-left: 4px solid ${props.theme.colors.current.main}66;
       position: absolute;
       left: -${props.theme.size(3)};
-      top: -${props.theme.size(2)};
-      height: ${props.show ? '98%' : '85%'};
+      top: 0;
+      height: ${props.show ? '99%' : '85%'};
     }
 
     :hover::before {
@@ -33,11 +33,6 @@ export const Container = styled.div<{ show?: boolean }>(
 
       ${CalendarDay.Content} {
         height: 100%;
-      }
-
-      ${CalendarDay.Container} {
-        padding-top: ${props.theme.size(4)};
-        padding-bottom: ${props.theme.size(4)};
       }
     `}
   `

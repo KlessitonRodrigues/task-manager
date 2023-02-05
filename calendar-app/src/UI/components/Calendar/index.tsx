@@ -1,25 +1,20 @@
 import { useEffect, useState } from 'react';
 import CalendarHeader from 'src/UI/base/CalendarHeader';
 
-import * as actions from './actions';
+import { RenderCalendarData } from './services/renderWeeks';
 import { Container, Content } from './styled';
 
 export const Calendar = (props: CalendarProps) => {
-  const { page } = props;
-  const [pageState] = page;
+  const { currentDate } = props;
   const [calendarData, setCalendatData] = useState([]);
 
   useEffect(() => {
-    const fetch = async () => {
-      const data = await actions.RenderCalendarData(page);
-      setCalendatData(data);
-    };
-    fetch().catch(console.error);
-  }, [pageState.currentDate]);
+    RenderCalendarData(currentDate).then(setCalendatData).catch(console.error);
+  }, [currentDate]);
 
   return (
     <Container>
-      <CalendarHeader page={page} />
+      <CalendarHeader {...props} />
       <Content>{calendarData}</Content>
     </Container>
   );
