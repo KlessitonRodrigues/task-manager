@@ -141,4 +141,28 @@ type RenderCalendarDataProps = {
   changeWeek?: (index: number) => void;
 };
 
-type ToolBarProps = {};
+type ToolBarProps = {
+  buttons?: {
+    icon: React.ReactElement;
+    label: string;
+    active: boolean;
+    onClick: () => void;
+    subButtons: {
+      icon: React.ReactElement;
+      label: string;
+      active: boolean;
+      onClick: () => void;
+    }[];
+  }[];
+  panels?: {
+    active: boolean;
+    panelEl: React.ReactElement;
+  }[];
+};
+
+type ToolBarIconProps = {
+  icon?: React.ReactElement;
+  label?: string;
+  variant: 'logo' | 'main' | 'subIcon';
+  active?: boolean;
+};

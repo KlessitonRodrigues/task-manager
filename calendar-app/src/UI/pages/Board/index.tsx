@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import PageConainer from 'src/UI/base/PageContainer/index';
+import PageContainer from 'src/UI/base/PageContainer';
 
 const BoardPage = () => {
   const [open, setopen] = useState(true);
 
   return (
     <div onClick={() => setopen(!open)}>
-      <PageConainer></PageConainer>
+      <PageContainer></PageContainer>
     </div>
   );
 };
