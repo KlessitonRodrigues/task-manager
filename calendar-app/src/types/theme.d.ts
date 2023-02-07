@@ -27,6 +27,7 @@ type Theme = {
     medium: string;
     high: string;
     mediumGray: string;
+    lowRight: string;
   };
   border: {
     type: {

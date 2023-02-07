@@ -35,10 +35,11 @@ export const defaulTheme: Theme = {
     black: materialColors.black,
   },
   shadow: {
-    low: '1px 1px 4px 0px #0006',
-    medium: '1px 1px 4px 1px #0007',
-    high: '1px 1px 4px 1px #0009',
+    low: '1px 1px 4px 0px #0004',
+    medium: '1px 1px 4px 1px #0005',
+    high: '1px 1px 4px 1px #0007',
     mediumGray: '1px 1px 4px 1px #777a',
+    lowRight: '3px 0 4px 0px #0001',
   },
   border: {
     type: {
@@ -58,7 +59,7 @@ export const defaulTheme: Theme = {
     body: '1rem',
     small: '0.95rem',
     verySmall: '0.9rem',
-    label: '0.9rem',
+    label: '0.8rem',
     h1: '1.6rem',
     h2: '1.4rem',
     h3: '1.2rem',

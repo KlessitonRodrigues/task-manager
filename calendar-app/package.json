@@ -4,7 +4,7 @@
   "main": "dist/web/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode=production --node-env=production && neu build",
+    "build": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "lint": "prettier -c -w ./src",
