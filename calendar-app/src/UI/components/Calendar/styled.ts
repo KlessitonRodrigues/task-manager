@@ -7,7 +7,6 @@ export const Container = styled.div(
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: ${props.theme.size(4)};
     padding-top: ${props.theme.size(2)};
   `
 );

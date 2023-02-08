@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div<{ active: boolean; variant: string }>(
   props => css`
     width: 100%;
-    min-height: ${props.theme.size(18)};
+    min-height: ${props.theme.size(16)};
     padding: ${props.theme.size(1)} ${props.theme.size(2)};
     display: flex;
     flex-direction: column;
@@ -12,6 +12,7 @@ export const Container = styled.div<{ active: boolean; variant: string }>(
     cursor: pointer;
     user-select: none;
 
+    // LOGO ICONS
     ${props.variant === 'logo' &&
     css`
       font-size: ${props.theme.fontSize.label};
@@ -22,17 +23,25 @@ export const Container = styled.div<{ active: boolean; variant: string }>(
       }
     `}
 
+    // NAVIGATION ICONS
     ${props.variant === 'main' &&
     css`
       font-size: ${props.theme.fontSize.label};
       color: ${props.theme.colors.white}aa;
       margin-bottom: ${props.theme.size(4)};
-      padding-right: ${props.theme.size(4)};
       border-top-left-radius: ${props.theme.border.radius.large};
       border-bottom-left-radius: ${props.theme.border.radius.large};
+      justify-content: flex-start;
+      flex-direction: row;
+      gap: ${props.theme.size(4)};
 
       ${Icon} {
-        font-size: ${props.theme.size(7)};
+        font-size: ${props.theme.size(9)};
+      }
+
+      ${Label} {
+        width: 0;
+        opacity: 0;
       }
 
       ${props.active &&
@@ -50,11 +59,12 @@ export const Container = styled.div<{ active: boolean; variant: string }>(
       `}
     `}
 
+    // TOOL ICONS
     ${props.variant === 'subIcon' &&
     css`
       font-size: ${props.theme.fontSize.label};
-      margin-bottom: ${props.theme.size(4)};
       color: ${props.theme.colors.current.text1}aa;
+      margin-bottom: ${props.theme.size(4)};
 
       :hover {
         color: ${props.theme.colors.current.text1};
@@ -69,7 +79,12 @@ export const Container = styled.div<{ active: boolean; variant: string }>(
 
 export const Icon = styled.div(() => css``);
 
-export const Label = styled.div(() => css``);
+export const Label = styled.div(
+  () => css`
+    transition: width 0.5s ease-out, opacity 0.5s ease-out;
+    overflow: hidden;
+  `
+);
 
 export const RoundedCorner = styled.div<{ top?: boolean; active: boolean }>(
   props => css`

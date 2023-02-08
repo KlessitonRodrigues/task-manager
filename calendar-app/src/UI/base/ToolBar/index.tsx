@@ -25,7 +25,9 @@ const ToolBar = (props: ToolBarProps) => {
         <ToolBarIcon label="Layout" variant="subIcon" icon={<HiViewGrid />} />
       </ActionBar>
 
-      <Panel>FORM</Panel>
+      {
+        //<Panel>FORM</Panel>
+      }
     </Container>
   );
 };

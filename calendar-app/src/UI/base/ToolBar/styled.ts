@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 
+import * as ToolBarIcon from '../ToolBarIcon/styled';
+
 export const Container = styled.div(
-  props => css`
+  () => css`
     display: flex;
   `
 );
@@ -15,6 +17,13 @@ export const NavigationBar = styled.div(
     padding-left: ${props.theme.size(3)};
     background-color: ${props.theme.colors.current.main};
     color: ${props.theme.colors.white};
+
+    :hover ${ToolBarIcon.Container}.icon-main {
+      ${ToolBarIcon.Label} {
+        width: ${props.theme.size(30)};
+        opacity: 1;
+      }
+    }
   `
 );
 
