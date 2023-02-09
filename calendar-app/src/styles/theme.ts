@@ -39,7 +39,7 @@ export const defaulTheme: Theme = {
     medium: '1px 1px 4px 1px #0005',
     high: '1px 1px 4px 1px #0007',
     mediumGray: '1px 1px 4px 1px #777a',
-    lowRight: '3px 0 4px 0px #0001',
+    lowRight: '3px 0 4px 0px #0002',
   },
   border: {
     type: {

@@ -1,6 +1,5 @@
+import * as ToolBarIcon from 'src/UI/base/ToolBarIcon/styled';
 import styled, { css } from 'styled-components';
-
-import * as ToolBarIcon from '../ToolBarIcon/styled';
 
 export const Container = styled.div(
   () => css`
@@ -36,9 +35,8 @@ export const ActionBar = styled.div(
   `
 );
 
-export const Panel = styled.div(
+export const FormPanel = styled.div(
   props => css`
-    min-width: ${props.theme.size(100)};
     padding: ${props.theme.size(4)};
     height: 100%;
     display: flex;

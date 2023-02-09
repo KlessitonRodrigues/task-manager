@@ -1,33 +1,32 @@
-import { BsCalendar4Week, BsKanban } from 'react-icons/bs';
-import { HiOutlineFilter, HiPlus, HiSearch, HiViewGrid } from 'react-icons/hi';
+import { useMemo, useState } from 'react';
+import { BsKanban } from 'react-icons/bs';
 import ToolBarIcon from 'src/UI/base/ToolBarIcon';
 
-import { ActionBar, Container, NavigationBar, Panel } from './styled';
+import { renderActionBtns, renderForm, renderNavigationBtns } from './services/renderContent';
+import { ActionBar, Container, FormPanel, NavigationBar } from './styled';
 
 const ToolBar = (props: ToolBarProps) => {
-  const { buttons } = props;
+  const { navigationButtons } = props;
+  const [active, setActive] = useState({ nav: 'calendar', action: '' });
+  const renderProps: RenderNavigationBtns = {
+    navigationButtons,
+    active,
+    onClick: setActive,
+  };
+  const NavigationBtns = useMemo(() => renderNavigationBtns(renderProps), [active.nav]);
+  const ActionBtns = useMemo(() => renderActionBtns(renderProps), [active]);
+  const Form = useMemo(() => renderForm(renderProps), [active.action]);
+
   return (
     <Container>
       <NavigationBar>
         <ToolBarIcon label="App" variant="logo" icon={<BsKanban />} />
-        <ToolBarIcon active label="Calendar" variant="main" icon={<BsCalendar4Week />} />
-        <ToolBarIcon label="Calendar" variant="main" icon={<BsCalendar4Week />} />
-        <ToolBarIcon label="Calendar" variant="main" icon={<BsCalendar4Week />} />
-        <ToolBarIcon label="Calendar" variant="main" icon={<BsCalendar4Week />} />
-        <ToolBarIcon label="Calendar" variant="main" icon={<BsCalendar4Week />} />
-        <ToolBarIcon label="Calendar" variant="main" icon={<BsCalendar4Week />} />
+        {NavigationBtns}
       </NavigationBar>
 
-      <ActionBar>
-        <ToolBarIcon label="Add" variant="subIcon" icon={<HiPlus />} />
-        <ToolBarIcon label="Search" variant="subIcon" icon={<HiSearch />} />
-        <ToolBarIcon label="Filter" variant="subIcon" icon={<HiOutlineFilter />} />
-        <ToolBarIcon label="Layout" variant="subIcon" icon={<HiViewGrid />} />
-      </ActionBar>
+      <ActionBar>{ActionBtns}</ActionBar>
 
-      {
-        //<Panel>FORM</Panel>
-      }
+      <FormPanel>{Form}</FormPanel>
     </Container>
   );
 };

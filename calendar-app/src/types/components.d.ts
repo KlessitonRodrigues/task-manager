@@ -142,27 +142,27 @@ type RenderCalendarDataProps = {
 };
 
 type ToolBarProps = {
-  buttons?: {
+  navigationButtons: {
     icon: React.ReactElement;
     label: string;
-    active: boolean;
-    onClick: () => void;
-    subButtons: {
+    actionButtons: {
       icon: React.ReactElement;
       label: string;
-      active: boolean;
-      onClick: () => void;
+      form: React.ReactElement;
     }[];
-  }[];
-  panels?: {
-    active: boolean;
-    panelEl: React.ReactElement;
   }[];
 };
 
+type RenderNavigationBtns = {
+  navigationButtons: ToolBarProps['navigationButtons'];
+  active: { nav: string; action: string };
+  onClick: (action: { nav: string; action: string }) => void;
+};
+
 type ToolBarIconProps = {
+  variant: 'logo' | 'main' | 'subIcon';
   icon?: React.ReactElement;
   label?: string;
-  variant: 'logo' | 'main' | 'subIcon';
   active?: boolean;
+  onClick?: (label: string) => void;
 };

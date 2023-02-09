@@ -10,8 +10,8 @@ import Button from 'src/UI/base/Button/index';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel/index';
 import If from 'src/UI/base/If';
 import Input from 'src/UI/base/Input/index';
+import SidePanelSection from 'src/UI/base/SectionContent/index';
 import SidePanel from 'src/UI/base/SidePanel/index';
-import SidePanelSection from 'src/UI/base/SidePanelSection/index';
 import SidePanelTitle from 'src/UI/base/SidePanelTitle/index';
 
 import * as actions from './actions';

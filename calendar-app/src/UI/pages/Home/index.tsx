@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import PageContainer from 'src/UI/base/PageContainer';
 import Calendar from 'src/UI/components/Calendar';
-import EventCreatePanel from 'src/UI/components/CreateEventPanel';
-import EventEditPanel from 'src/UI/components/EditEventPanel';
+
+// import EventCreatePanel from 'src/UI/components/CreateEventPanel';
+// import EventEditPanel from 'src/UI/components/EditEventPanel';
 
 const initialState: CalendarPageState = {
   sidePanel: '',
@@ -21,12 +22,6 @@ const HomePage = () => {
   return (
     <PageContainer>
       <Calendar currentDate={page.currentDate} changeMonth={handlers.changeMonth} />
-      <EventCreatePanel show={page.sidePanel === 'createEvent'} onClose={handlers.closePanel} />
-      <EventEditPanel
-        editEvent={page.editingEvent}
-        show={page.sidePanel === 'editEvent'}
-        onClose={handlers.closePanel}
-      />
     </PageContainer>
   );
 };

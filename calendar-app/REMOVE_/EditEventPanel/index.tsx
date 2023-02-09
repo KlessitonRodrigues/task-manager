@@ -10,8 +10,8 @@ import {
 import Button from 'src/UI/base/Button';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import Display from 'src/UI/base/Display';
+import SidePanelSection from 'src/UI/base/SectionContent';
 import SidePanel from 'src/UI/base/SidePanel';
-import SidePanelSection from 'src/UI/base/SidePanelSection';
 import SidePanelTitle from 'src/UI/base/SidePanelTitle';
 import Time from 'src/UI/base/Time';
 import useGlobalContext from 'src/hooks/useGlobalContext';

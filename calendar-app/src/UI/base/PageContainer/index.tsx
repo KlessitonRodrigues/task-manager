@@ -1,11 +1,11 @@
 import { PropsWithChildren } from 'react';
+import ToolBarContent from 'src/UI/components/ToolBarContent';
 
-import ToolBar from '../ToolBar';
 import { Page, PageContent } from './styled';
 
 const PageContainer = (props: PropsWithChildren) => (
   <Page>
-    <ToolBar />
+    <ToolBarContent />
     <PageContent>{props.children}</PageContent>
   </Page>
 );

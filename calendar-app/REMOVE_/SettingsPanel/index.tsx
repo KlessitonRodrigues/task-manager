@@ -2,8 +2,8 @@ import { useCallback, useState } from 'react';
 import { BsGear, BsMoon, BsMoonFill, BsSun, BsSunFill } from 'react-icons/bs';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import ColorPicker from 'src/UI/base/ColorPicker';
+import SidePanelSection from 'src/UI/base/SectionContent';
 import SidePanel from 'src/UI/base/SidePanel';
-import SidePanelSection from 'src/UI/base/SidePanelSection';
 import SidePanelTitle from 'src/UI/base/SidePanelTitle';
 import useGlobalContext from 'src/hooks/useGlobalContext';
 

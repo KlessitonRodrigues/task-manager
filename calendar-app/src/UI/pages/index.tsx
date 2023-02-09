@@ -6,8 +6,6 @@ import { darkBackground, defaulTheme } from 'src/styles/theme';
 import { generateTheme } from 'src/utils/generateTheme';
 import { ThemeProvider } from 'styled-components';
 
-import PageHeader from '../components/PageHeader';
-import SettingsPanel from '../components/SettingsPanel';
 import BoardPage from './Board';
 import HomePage from './Home';
 import NotesPage from './Notes';
@@ -37,7 +35,6 @@ const Router = () => {
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
-      <SettingsPanel />
     </ThemeProvider>
   );
 };
