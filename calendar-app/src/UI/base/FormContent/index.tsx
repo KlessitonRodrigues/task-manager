@@ -2,7 +2,7 @@ import { BsCaretRightFill, BsChevronRight } from 'react-icons/bs';
 
 import { Container, Content, Icon, Label, Row } from './styled';
 
-const SidePanelSection = (props: SidePanelSectionProps) => {
+const FormContent = (props: FormContentProps) => {
   const { label, expanded, onExpand, noLine, children } = props;
 
   return (
@@ -18,4 +18,4 @@ const SidePanelSection = (props: SidePanelSectionProps) => {
   );
 };
 
-export default SidePanelSection;
+export default FormContent;

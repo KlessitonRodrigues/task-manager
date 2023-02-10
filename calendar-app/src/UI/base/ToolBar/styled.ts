@@ -17,7 +17,7 @@ export const NavigationBar = styled.div(
     background-color: ${props.theme.colors.current.main};
     color: ${props.theme.colors.white};
 
-    :hover ${ToolBarIcon.Container}.icon-main {
+    :hover ${ToolBarIcon.IconContainer}.icon-main {
       ${ToolBarIcon.Label} {
         width: ${props.theme.size(30)};
         opacity: 1;
@@ -31,13 +31,12 @@ export const ActionBar = styled.div(
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: ${props.theme.size(26)} 0;
+    padding-top: ${props.theme.size(30)};
   `
 );
 
 export const FormPanel = styled.div(
   props => css`
-    padding: ${props.theme.size(4)};
     height: 100%;
     display: flex;
     background-color: ${props.theme.colors.current.bg2};

@@ -16,6 +16,8 @@ export const Content = styled.div<{ week: number }>(
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding-bottom: ${props.theme.size(4)};
+    padding-right: ${props.theme.size(4)};
     gap: ${props.theme.size(3)};
 
     ${weekComponents.Container} {

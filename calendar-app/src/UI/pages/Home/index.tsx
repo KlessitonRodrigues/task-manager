@@ -2,9 +2,6 @@ import { useState } from 'react';
 import PageContainer from 'src/UI/base/PageContainer';
 import Calendar from 'src/UI/components/Calendar';
 
-// import EventCreatePanel from 'src/UI/components/CreateEventPanel';
-// import EventEditPanel from 'src/UI/components/EditEventPanel';
-
 const initialState: CalendarPageState = {
   sidePanel: '',
   selectedWeek: 0,

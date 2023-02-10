@@ -11,7 +11,7 @@ export const darkBackground: Partial<Theme['colors']['current']> = {
 };
 
 export const defaulTheme: Theme = {
-  size: (n: number, n2: number) => `${n * 0.2}rem ` + (n2 ? `${n2 * 0.2}rem` : ''),
+  size: (n: number) => `${n * 0.2}rem`,
   colors: {
     current: {
       bg1: materialColors.blueGrey['50'],
@@ -59,7 +59,7 @@ export const defaulTheme: Theme = {
     body: '1rem',
     small: '0.95rem',
     verySmall: '0.9rem',
-    label: '0.8rem',
+    label: '0.85rem',
     h1: '1.6rem',
     h2: '1.4rem',
     h3: '1.2rem',

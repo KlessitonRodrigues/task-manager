@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
   props => css`
-    padding: ${props.theme.size(1, 2)};
+    padding: ${props.theme.size(1)} ${props.theme.size(2)};
     margin: ${props.theme.size(1)} 0;
     border: 1px solid ${props.theme.colors.gray + '44'};
     border-left: 5px solid ${props.theme.colors.gray + '99'};

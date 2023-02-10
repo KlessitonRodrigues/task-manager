@@ -106,7 +106,7 @@ const CreateEventPanel = (props: CreateEventPanelProps) => {
             label="At"
             values={taskForm.repeatAtDays}
             iconFontSize="1.2rem"
-            onChange={(value: typeof taskForm.repeatAtDays[0]) => {
+            onChange={(value: (typeof taskForm.repeatAtDays)[0]) => {
               const repeatAtDays = actions.handleRepeatAt(value, taskForm.repeatAtDays);
               setTaskForm({ ...taskForm, repeatAtDays });
             }}

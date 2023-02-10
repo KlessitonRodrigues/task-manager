@@ -1,6 +1,18 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
-export const Container = styled.div<{ active: boolean; variant: string }>(
+const slideUp = keyframes`
+  from { transform: translateY(25px);}
+  to { transform: translateY(0px);}
+`;
+
+const fadeIn = keyframes`
+  from { opacity: 0;}
+  to { opacity: 1;}
+`;
+
+export const Container = styled.div(() => css``);
+
+export const IconContainer = styled.div<{ active: boolean; variant: string }>(
   props => css`
     width: 100%;
     min-height: ${props.theme.size(16)};
@@ -38,7 +50,7 @@ export const Container = styled.div<{ active: boolean; variant: string }>(
       gap: ${props.theme.size(4)};
 
       ${Icon} {
-        font-size: ${props.theme.size(8.5)};
+        font-size: ${props.theme.size(9)};
       }
 
       ${Label} {
@@ -50,6 +62,9 @@ export const Container = styled.div<{ active: boolean; variant: string }>(
       css`
         background-color: ${props.theme.colors.current.bg1};
         color: ${props.theme.colors.current.text1};
+        ${Icon} {
+          animation: ${slideUp} 0.5s;
+        }
       `}
 
       ${!props.active &&
@@ -66,6 +81,7 @@ export const Container = styled.div<{ active: boolean; variant: string }>(
       font-size: ${props.theme.fontSize.label};
       color: ${props.theme.colors.current.text1}aa;
       margin-bottom: ${props.theme.size(6)};
+      animation: ${fadeIn} 0.5s;
 
       :hover {
         color: ${props.theme.colors.current.text1};
@@ -93,7 +109,7 @@ export const RoundedCorner = styled.div<{ top?: boolean; active: boolean }>(
     background-color: ${props.theme.colors.current.main};
     border-top-right-radius: ${!props.top && props.theme.border.radius.large};
     border-bottom-right-radius: ${props.top && props.theme.border.radius.large};
-    ${props.active && `height: ${props.theme.size(4)}`};
+    ${props.active && ` height: ${props.theme.size(3)};`};
   `
 );
 

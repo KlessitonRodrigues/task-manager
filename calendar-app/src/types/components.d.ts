@@ -112,7 +112,7 @@ type SidePanelProps = {
   children?: React.ReactNode;
 };
 
-type SidePanelSectionProps = {
+type FormContentProps = {
   label?: string;
   noLine?: boolean;
   expanded?: boolean;
@@ -120,7 +120,7 @@ type SidePanelSectionProps = {
   children?: React.ReactNode;
 };
 
-type SidePanelTitleProps = {
+type FormTitleProps = {
   label?: string;
   icon?: React.ReactElement;
   onClose?: () => void;

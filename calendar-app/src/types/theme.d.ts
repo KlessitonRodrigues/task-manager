@@ -1,5 +1,5 @@
 type Theme = {
-  size: (n: number, n2?: number) => string;
+  size: (n: number) => string;
   colors: {
     current: {
       bg1: string;

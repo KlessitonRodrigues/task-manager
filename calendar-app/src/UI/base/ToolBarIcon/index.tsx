@@ -1,13 +1,13 @@
-import { Container, Icon, Label, RoundedCorner, RoundedCornerBg } from './styled';
+import { Container, Icon, IconContainer, Label, RoundedCorner, RoundedCornerBg } from './styled';
 
 const ToolBarIcon = (props: ToolBarIconProps) => {
   const { icon, label, variant, active, onClick } = props;
   return (
-    <>
+    <Container>
       <RoundedCornerBg>
         <RoundedCorner top active={active} />
       </RoundedCornerBg>
-      <Container
+      <IconContainer
         active={active}
         variant={variant}
         className={`icon-${variant}`}
@@ -15,11 +15,11 @@ const ToolBarIcon = (props: ToolBarIconProps) => {
       >
         <Icon>{icon}</Icon>
         <Label>{label}</Label>
-      </Container>
+      </IconContainer>
       <RoundedCornerBg>
         <RoundedCorner active={active} />
       </RoundedCornerBg>
-    </>
+    </Container>
   );
 };
 

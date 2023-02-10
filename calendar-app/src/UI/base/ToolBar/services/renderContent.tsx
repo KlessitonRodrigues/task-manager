@@ -21,7 +21,10 @@ export const renderActionBtns = (props: RenderNavigationBtns) => {
       key={`${navBtn.label} ${actionBtn.label}`}
       icon={actionBtn.icon}
       label={actionBtn.label}
-      onClick={action => props.onClick({ ...props.active, action })}
+      onClick={label => {
+        const action = label === props.active.action ? '' : label;
+        props.onClick({ ...props.active, action });
+      }}
     />
   ));
 };

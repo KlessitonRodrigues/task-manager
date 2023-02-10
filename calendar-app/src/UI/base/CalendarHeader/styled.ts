@@ -29,7 +29,7 @@ export const WeekdayContainer = styled.div(
 
 export const HeaderContainer = styled.div(
   props => css`
-    padding: ${props.theme.size(2, 1)};
+    padding: ${props.theme.size(2)} ${props.theme.size(1)};
     display: flex;
     align-items: center;
     gap: ${props.theme.size(8)};

@@ -2,7 +2,7 @@ import { BsX } from 'react-icons/bs';
 
 import { CloseBtn, Container, Title } from './styled';
 
-const SidePanelTitle = (props: SidePanelTitleProps) => {
+const FormTitle = (props: FormTitleProps) => {
   const { icon, label, onClose } = props;
 
   return (
@@ -18,4 +18,4 @@ const SidePanelTitle = (props: SidePanelTitleProps) => {
   );
 };
 
-export default SidePanelTitle;
+export default FormTitle;
