@@ -16,7 +16,7 @@ export const Tab = styled.div<{ active?: boolean }>(
     position: relative;
     font-family: monospace;
     color: ${props.theme.colors.current.text1};
-    border-radius: ${props.theme.size(4, 4)} 0 0;
+    border-radius: ${props.theme.size(4)} ${props.theme.size(4)} 0 0;
     transition: color 0.2s, background-color 0.2s;
     user-select: none;
     ${props.active && `background-color: ${props.theme.colors.current.bg1};`}

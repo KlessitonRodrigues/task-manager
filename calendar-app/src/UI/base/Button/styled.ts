@@ -4,13 +4,14 @@ type ContainerProps = { padding?: string; variant: ButtonProps['variant'] };
 
 export const Container = styled.button<ContainerProps>(
   props => css`
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: ${props.theme.size(10)};
     min-width: ${props.theme.size(28)};
     padding: 0 ${props.theme.size(4)};
-    border-radius: ${props.theme.border.radius.medium};
+    margin-right: ${props.theme.size(4)};
+    border-radius: ${props.theme.border.radius.small};
     transition: background-color 0.2s;
     user-select: none;
     border: none;

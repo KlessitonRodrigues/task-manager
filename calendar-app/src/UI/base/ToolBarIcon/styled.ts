@@ -5,14 +5,14 @@ const slideUp = keyframes`
   to { transform: translateY(0px);}
 `;
 
-const fadeIn = keyframes`
+const fadeOutIn = keyframes`
   from { opacity: 0;}
   to { opacity: 1;}
 `;
 
 export const Container = styled.div(() => css``);
 
-export const IconContainer = styled.div<{ active: boolean; variant: string }>(
+export const IconContainer = styled.div<{ active: boolean; variant: string; disabled: boolean }>(
   props => css`
     width: 100%;
     min-height: ${props.theme.size(16)};
@@ -26,7 +26,7 @@ export const IconContainer = styled.div<{ active: boolean; variant: string }>(
     cursor: pointer;
     user-select: none;
 
-    // LOGO ICONS
+    // MAIN ICONS
     ${props.variant === 'logo' &&
     css`
       font-size: ${props.theme.fontSize.label};
@@ -41,7 +41,7 @@ export const IconContainer = styled.div<{ active: boolean; variant: string }>(
     // NAVIGATION ICONS
     ${props.variant === 'main' &&
     css`
-      font-size: ${props.theme.fontSize.label};
+      font-size: ${props.theme.fontSize.h6};
       color: ${props.theme.colors.white}aa;
       border-top-left-radius: ${props.theme.border.radius.large};
       border-bottom-left-radius: ${props.theme.border.radius.large};
@@ -75,13 +75,15 @@ export const IconContainer = styled.div<{ active: boolean; variant: string }>(
       `}
     `}
 
-    // TOOL ICONS
+    // ACTION ICONS
     ${props.variant === 'subIcon' &&
     css`
       font-size: ${props.theme.fontSize.label};
       color: ${props.theme.colors.current.text1}aa;
       margin-bottom: ${props.theme.size(6)};
-      animation: ${fadeIn} 0.5s;
+      animation: ${fadeOutIn} 1s;
+      transition: opacity 0.5s;
+      ${props.disabled && `opacity: 0.3; cursor: default;`};
 
       :hover {
         color: ${props.theme.colors.current.text1};
@@ -106,7 +108,7 @@ export const Label = styled.div(
 
 export const RoundedCorner = styled.div<{ top?: boolean; active: boolean }>(
   props => css`
-    background-color: ${props.theme.colors.current.main};
+    background-color: ${props.theme.colors.current.mainBg};
     border-top-right-radius: ${!props.top && props.theme.border.radius.large};
     border-bottom-right-radius: ${props.top && props.theme.border.radius.large};
     ${props.active && ` height: ${props.theme.size(3)};`};

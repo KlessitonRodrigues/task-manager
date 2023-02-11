@@ -164,5 +164,6 @@ type ToolBarIconProps = {
   icon?: React.ReactElement;
   label?: string;
   active?: boolean;
+  disable?: boolean;
   onClick?: (label: string) => void;
 };

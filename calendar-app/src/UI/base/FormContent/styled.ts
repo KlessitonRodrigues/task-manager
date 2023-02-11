@@ -26,34 +26,31 @@ export const Content = styled.div<{ expanded?: boolean }>(
 
 export const Icon = styled.span(
   props => css`
-    position: absolute;
-    left: ${props.theme.size(2)};
-    top: ${props.theme.size(2.2)};
+    margin-top: ${props.theme.size(1)};
   `
 );
 
 export const Row = styled.div<{ expanded?: boolean }>(
   props => css`
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: ${props.theme.size(1)};
-    padding: ${props.theme.size(2)};
-    padding-left: ${props.theme.size(9)};
+    padding: ${props.theme.size(2)} ${props.theme.size(4)};
     margin-bottom: ${props.theme.size(2)};
-    background-color: ${props.theme.colors.current.bg3};
+    background-color: ${props.theme.colors.current.mainBg};
+    color: ${props.theme.colors.white};
     border-radius: ${props.theme.border.radius.small};
-    border: 1px solid transparent;
-    color: ${props.theme.colors.current.text3};
     text-transform: capitalize;
-    ${props.expanded && `color: ${props.theme.colors.current.main};`}
+    ${props.expanded && `color: ${props.theme.colors.white};`}
 
     :hover {
-      background-color: ${props.theme.colors.current.bg3};
+      color: ${props.theme.colors.white}aa;
     }
 
     ${Icon} {
       transition: transform 0.6s;
-      ${props.expanded && `transform: rotateZ(90deg);`}
+      ${props.expanded && ` transform: rotateZ(90deg);`}
     }
   `
 );

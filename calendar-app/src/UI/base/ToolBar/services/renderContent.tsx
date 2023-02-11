@@ -1,36 +1,47 @@
 import ToolBarIcon from '../../ToolBarIcon';
 
 export const renderNavigationBtns = (props: RenderNavigationBtns) => {
-  return props.navigationButtons.map(navBtn => (
+  const { navigationButtons, active, onClick } = props;
+
+  return navigationButtons.map(navBtn => (
     <ToolBarIcon
       variant="main"
       key={navBtn.label}
-      active={props.active.nav === navBtn.label}
+      active={active.nav === navBtn.label}
       icon={navBtn.icon}
       label={navBtn.label}
-      onClick={nav => props.onClick({ nav, action: '' })}
+      onClick={nav => onClick({ nav, action: '' })}
     />
   ));
 };
 
 export const renderActionBtns = (props: RenderNavigationBtns) => {
-  const navBtn = props.navigationButtons.find(navBtn => navBtn.label === props.active.nav);
-  return navBtn?.actionButtons?.map(actionBtn => (
-    <ToolBarIcon
-      variant="subIcon"
-      key={`${navBtn.label} ${actionBtn.label}`}
-      icon={actionBtn.icon}
-      label={actionBtn.label}
-      onClick={label => {
-        const action = label === props.active.action ? '' : label;
-        props.onClick({ ...props.active, action });
-      }}
-    />
-  ));
+  const { navigationButtons, active, onClick } = props;
+  const navBtn = navigationButtons.find(navBtn => navBtn.label === active.nav);
+
+  return navBtn?.actionButtons?.map(actionBtn => {
+    const isDisabled = active.action != '' && active.action !== actionBtn.label;
+
+    return (
+      <ToolBarIcon
+        variant="subIcon"
+        key={`${navBtn.label} ${actionBtn.label}`}
+        icon={actionBtn.icon}
+        label={actionBtn.label}
+        disable={isDisabled}
+        onClick={label => {
+          const action = label === active.action ? '' : label;
+          !isDisabled && onClick({ ...active, action });
+        }}
+      />
+    );
+  });
 };
 
 export const renderForm = (props: RenderNavigationBtns) => {
-  const nav = props.navigationButtons.find(navBtn => navBtn.label === props.active.nav);
-  const action = nav.actionButtons.find(actionsBtn => actionsBtn.label === props.active.action);
+  const { navigationButtons, active, onClick } = props;
+  const nav = navigationButtons.find(navBtn => navBtn.label === active.nav);
+  const action = nav.actionButtons.find(actionsBtn => actionsBtn.label === active.action);
+
   return action?.form || false;
 };

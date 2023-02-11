@@ -14,7 +14,7 @@ export const NavigationBar = styled.div(
     flex-direction: column;
     padding: ${props.theme.size(2)} 0;
     padding-left: ${props.theme.size(3)};
-    background-color: ${props.theme.colors.current.main};
+    background-color: ${props.theme.colors.current.mainBg};
     color: ${props.theme.colors.white};
 
     :hover ${ToolBarIcon.IconContainer}.icon-main {
@@ -36,9 +36,8 @@ export const ActionBar = styled.div(
 );
 
 export const FormPanel = styled.div(
-  props => css`
+  () => css`
     height: 100%;
     display: flex;
-    background-color: ${props.theme.colors.current.bg2};
   `
 );

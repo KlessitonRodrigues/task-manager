@@ -17,11 +17,11 @@ export const Label = styled.label(
 export const InputField = styled.input(
   props => css`
     width: 100%;
-    padding: ${props.theme.size(1)} 0;
+    padding: ${props.theme.size(2)} 0;
     background-color: transparent;
     border: transparent;
     border-bottom: 1px solid ${props.theme.colors.current.main};
     color: ${props.theme.colors.current.main};
-    font-size: ${props.theme.fontSize.body};
+    font-size: ${props.theme.fontSize.small};
   `
 );

@@ -11,7 +11,7 @@ export const Container = styled.div(
   `
 );
 
-export const Title = styled.h2(
+export const Title = styled.h3(
   props => css`
     display: flex;
     align-items: center;
