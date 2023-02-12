@@ -1,6 +1,6 @@
-import CalendarAddEvent from './Calendar/addEvent';
-import CalendarFilterEvent from './Calendar/filterEvents';
-import CalendarSearchEvent from './Calendar/searchEvents';
+import CalendarAddEvent from './Calendar/AddEvent';
+import CalendarFilterEvent from './Calendar/FilterEvents';
+import CalendarSearchEvent from './Calendar/SearchEvent';
 
 export const Forms = {
   CalendarAddEvent,

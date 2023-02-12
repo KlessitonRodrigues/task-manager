@@ -13,7 +13,7 @@ export const NavigationBar = styled.div(
     display: flex;
     flex-direction: column;
     padding: ${props.theme.size(2)} 0;
-    padding-left: ${props.theme.size(3)};
+    padding-left: ${props.theme.size(1)};
     background-color: ${props.theme.colors.current.mainBg};
     color: ${props.theme.colors.white};
 

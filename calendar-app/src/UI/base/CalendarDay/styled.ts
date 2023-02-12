@@ -16,9 +16,10 @@ export const Container = styled.div(
 export const Header = styled.div<{ outOfMonth?: boolean }>(
   props => css`
     padding: ${props.theme.size(2)};
-    border-radius: ${props.theme.border.radius.small};
-    color: ${props.theme.colors.white};
+    margin-bottom: ${props.theme.size(4)};
+    border-radius: ${props.theme.border.radius.medium};
     background-color: ${props.theme.colors.current.mainBg};
+    color: ${props.theme.colors.white};
     font-weight: bold;
     user-select: none;
 
@@ -36,18 +37,5 @@ export const Content = styled.div(
     border-radius: ${props.theme.border.radius.medium};
     position: relative;
     height: 100%;
-
-    .icon {
-      opacity: 0;
-      position: absolute;
-      top: ${props.theme.size(2)};
-      left: ${props.theme.size(2)};
-    }
-
-    :hover {
-      .icon {
-        opacity: 1;
-      }
-    }
   `
 );

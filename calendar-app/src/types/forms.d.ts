@@ -1,16 +1,11 @@
-type CreateEventForm = {
+type AddEvent = {
   id?: string;
   name?: string;
   description?: string;
-  tagIds?: string[];
-  noteId?: string;
-  dateISO?: string;
-  repeatPeriod?: EventFormRepeatPeriod;
-  repeatAtDays?: EventFormRepeatAtDays;
-  repeatUtilDate?: string;
+  dateUnix?: number;
 };
 
-type EditEventForm = {
+type EditEvent = {
   id?: string;
   name?: string;
   description?: string;

@@ -28,7 +28,8 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>(
 
 export const Label = styled.div<{ display?: boolean }>(
   props => css`
-    padding: ${props.theme.size(2)} 0;
+    padding-top: ${props.theme.size(2)};
+    padding-bottom: ${props.theme.size(4)};
     font-size: ${props.theme.fontSize.label};
     color: ${props.theme.colors.current.text1};
 

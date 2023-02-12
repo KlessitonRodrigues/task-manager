@@ -2,7 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   from { max-width: 0; }
-  to { max-width: 30rem; }
+  to { max-width: 40rem; }
 `;
 
 const fadeBg = keyframes`
@@ -12,7 +12,7 @@ const fadeBg = keyframes`
 
 export const Container = styled.div(
   props => css`
-    width: ${props.theme.size(120)};
+    width: ${props.theme.size(140)};
     padding: ${props.theme.size(4)};
     margin-right: ${props.theme.size(4)};
     animation: ${fadeIn} 0.5s ease-out;

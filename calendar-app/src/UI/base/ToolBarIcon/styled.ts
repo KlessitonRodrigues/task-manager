@@ -18,6 +18,7 @@ export const IconContainer = styled.div<{ active: boolean; variant: string; disa
     min-height: ${props.theme.size(16)};
     min-width: ${props.theme.size(18)};
     padding: ${props.theme.size(1)} ${props.theme.size(2)};
+    padding-left: ${props.theme.size(4)};
     padding-bottom: 0;
     display: flex;
     flex-direction: column;
@@ -62,9 +63,6 @@ export const IconContainer = styled.div<{ active: boolean; variant: string; disa
       css`
         background-color: ${props.theme.colors.current.bg1};
         color: ${props.theme.colors.current.text1};
-        ${Icon} {
-          animation: ${slideUp} 0.5s;
-        }
       `}
 
       ${!props.active &&
