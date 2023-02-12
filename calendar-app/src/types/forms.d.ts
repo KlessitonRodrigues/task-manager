@@ -1,11 +1,11 @@
-type AddEvent = {
+type AddEventForm = {
   id?: string;
   name?: string;
   description?: string;
-  dateUnix?: number;
+  dateISO?: string;
 };
 
-type EditEvent = {
+type EditEventForm = {
   id?: string;
   name?: string;
   description?: string;

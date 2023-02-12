@@ -1,11 +1,11 @@
 import { createEvent } from './createEvent';
 import { deleteEvent } from './deleteEvent';
-import { fetchEvent } from './fetchEvent';
+import { getEvents } from './getEvents';
 import { updateEvent } from './updateEvent';
 import { updateEventDay } from './updateEventDay';
 
 export const eventApi = {
-  fetchEvent,
+  getEvents,
   createEvent,
   updateEvent,
   deleteEvent,

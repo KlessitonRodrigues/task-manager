@@ -5,13 +5,12 @@ import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import FormTitle from 'src/UI/base/FormTitle';
 import Input from 'src/UI/base/Input';
 import ToolBarForm from 'src/UI/base/ToolBarForm';
+import { ISOToDateInput, ISOToTimeInput, dateInputToISO, timeInputToISO } from 'src/utils/date';
 
-import { DateInputToUnix, timeInputToUnix, unixToDateInput } from './services/formatInput';
+import { initialData, submitEventForm } from './services/handleForm';
 
 const AddEventForm = () => {
-  const [form, setForm] = useState<AddEvent>({});
-
-  console.log(form);
+  const [form, setForm] = useState<AddEventForm>(initialData);
 
   return (
     <ToolBarForm>
@@ -31,13 +30,14 @@ const AddEventForm = () => {
       <Input
         label="Date"
         type="date"
-        value={unixToDateInput(form.dateUnix)}
-        onChange={date => setForm({ ...form, dateUnix: DateInputToUnix(date) })}
+        value={ISOToDateInput(form.dateISO)}
+        onChange={date => setForm({ ...form, dateISO: dateInputToISO(date, form.dateISO) })}
       />
       <Input
         label="Time"
         type="time"
-        onChange={time => setForm({ ...form, dateUnix: timeInputToUnix(time) })}
+        value={ISOToTimeInput(form.dateISO)}
+        onChange={time => setForm({ ...form, dateISO: timeInputToISO(time, form.dateISO) })}
       />
 
       <CheckboxPanel
@@ -60,8 +60,7 @@ const AddEventForm = () => {
         ]}
       />
 
-      <Button label="Save" variant="solid" />
-      <Button label="Reset" variant="solid" />
+      <Button label="Save" variant="solid" onClick={() => submitEventForm(form)} />
     </ToolBarForm>
   );
 };

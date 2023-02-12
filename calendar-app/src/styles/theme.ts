@@ -10,6 +10,15 @@ export const darkBackground: Partial<Theme['colors']['current']> = {
   text3: materialColors.grey['600'],
 };
 
+export const solarizedBackground: Partial<Theme['colors']['current']> = {
+  bg1: materialColors.orange['50'],
+  bg2: materialColors.grey['800'] + '44',
+  bg3: materialColors.grey['700'] + '44',
+  text1: materialColors.grey['400'],
+  text2: materialColors.grey['500'],
+  text3: materialColors.grey['600'],
+};
+
 export const defaulTheme: Theme = {
   size: (n: number) => `${n * 0.2}rem`,
   colors: {

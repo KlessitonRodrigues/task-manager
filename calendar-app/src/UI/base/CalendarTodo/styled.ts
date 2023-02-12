@@ -8,6 +8,7 @@ export const Container = styled.div(
     border-left: 5px solid ${props.theme.colors.gray + '99'};
     border-radius: ${props.theme.border.radius.verySmall};
     background-color: ${props.theme.colors.current.bg1};
+    font-size: ${props.theme.fontSize.verySmall};
     cursor: pointer;
 
     &:hover {
@@ -28,7 +29,6 @@ export const Column = styled.div(
 export const Time = styled.span(
   props => css`
     color: ${props.theme.colors.current.main};
-    font-size: ${props.theme.fontSize.verySmall};
   `
 );
 

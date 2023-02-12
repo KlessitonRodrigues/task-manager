@@ -1,4 +1,4 @@
-type FetchEventParams = {
+type getEventParams = {
   db: DBOption;
   fromDate?: number;
   toDate?: number;

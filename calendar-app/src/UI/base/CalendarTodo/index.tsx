@@ -3,13 +3,12 @@ import { Column, Container, Time, Title } from './styled';
 
 const CalendarTodo = (props: CalendarTodoProps) => {
   const { onClick, calendarEvent } = props;
-  const date = new Date(calendarEvent?.date?.iso || '');
 
   return (
     <Container onClick={() => onClick && onClick(calendarEvent)}>
       <Column>
-        <Time>{actions.formatTime(date)}</Time>
-        <Title>{calendarEvent.event.name}</Title>
+        <Time>{actions.formatTime(calendarEvent.eventDays[0].dateISO)}</Time>
+        <Title>{calendarEvent.name}</Title>
       </Column>
     </Container>
   );

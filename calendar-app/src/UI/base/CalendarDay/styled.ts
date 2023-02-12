@@ -6,7 +6,7 @@ export const Container = styled.div(
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 ${props.theme.size(1)};
+    padding: 0 ${props.theme.size(2)};
     border-radius: ${props.theme.border.radius.small};
     overflow: hidden;
     transition: 0.5s padding;

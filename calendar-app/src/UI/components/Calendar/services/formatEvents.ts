@@ -1,4 +1,6 @@
-import moment from 'moment';
+import moment, { Moment } from 'moment';
+
+const isSameDateDay = (date1: string, date2: Moment) => moment(date1).isSame(date2, 'day');
 
 export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
   const startDate = moment(dateStr);
@@ -9,7 +11,7 @@ export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
     const daysData: CalendarDayData[] = [];
 
     for (let j = 0; j < 7; j++) {
-      const dayEvents = events.filter(ev => ev.eventDays[0].unixDate === startDate.unix());
+      const dayEvents = events.filter(ev => isSameDateDay(ev.eventDays[0].dateISO, startDate));
       daysData.push({
         dayEvents,
         date: {
@@ -22,6 +24,8 @@ export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
 
     weeks.push({ weekOfYear, daysData });
   }
+
+  console.log(weeks);
 
   return weeks;
 };

@@ -4,15 +4,13 @@ type EventDay = {
   id?: string;
   status?: EventDayStatus;
   doingTime?: number;
-  unixDate?: number;
+  dateISO?: string;
 };
 
 type CalendarEvent = {
   id?: string;
   name?: string;
   description?: string;
-  tagIds?: string[];
-  noteId?: string;
   eventDays: EventDay[];
 };
 

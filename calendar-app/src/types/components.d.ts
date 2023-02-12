@@ -26,8 +26,8 @@ type IfProps = {
 };
 
 type CalendarTodoProps = {
-  calendarEvent?: JoinEventAndDate;
-  onClick?: (calendarEvent: CalendarEventDay) => void;
+  calendarEvent?: CalendarEvent;
+  onClick?: (calendarEvent: CalendarEvent) => void;
 };
 
 type CardProps = {
@@ -86,7 +86,7 @@ type CreateEventPanelProps = {
 type EditEventPanelProps = {
   show?: boolean;
   onClose?: () => void;
-  editEvent: JoinEventAndDate;
+  editEvent: CalendarEvent;
 };
 
 type CalendarProps = {

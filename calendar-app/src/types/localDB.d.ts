@@ -1,6 +1,6 @@
 type DBOption = 'local' | 'remote';
 
 type LocalDB = {
-  lastUpdate: number;
+  lastUpdate: string;
   events: CalendarEvent[];
 };
