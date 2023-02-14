@@ -1,31 +1,43 @@
 import moment, { Moment } from 'moment';
-
-const isSameDateDay = (date1: string, date2: Moment) => moment(date1).isSame(date2, 'day');
+import { getDayAndMonthNumbers } from 'src/utils/date';
 
 export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
   const startDate = moment(dateStr);
   const weeks: CalendarWeekData[] = [];
+  const flatEvents: (CalendarEvent & { day: number; month: number })[] = [];
 
-  for (let i = 0; i < 5; i++) {
+  events.forEach(ev =>
+    ev.eventDays.forEach(evDay =>
+      flatEvents.push({
+        ...ev,
+        eventDays: [evDay],
+        ...getDayAndMonthNumbers(moment(evDay.dateISO)),
+      })
+    )
+  );
+
+  // Month weeks
+  new Array(5).fill(0).forEach(() => {
     const weekOfYear = startDate.weeks();
     const daysData: CalendarDayData[] = [];
 
-    for (let j = 0; j < 7; j++) {
-      const dayEvents = events.filter(ev => isSameDateDay(ev.eventDays[0].dateISO, startDate));
+    // Week days
+    new Array(7).fill(0).forEach(() => {
+      const current = getDayAndMonthNumbers(startDate);
+      const dayEvents = flatEvents.filter(ev => {
+        return ev.day === current.day && ev.month === current.month;
+      });
+
       daysData.push({
         dayEvents,
-        date: {
-          day: startDate.get('date'),
-          month: startDate.get('month'),
-        },
+        date: current,
       });
+
       startDate.add(1, 'day');
-    }
+    });
 
     weeks.push({ weekOfYear, daysData });
-  }
-
-  console.log(weeks);
+  });
 
   return weeks;
 };

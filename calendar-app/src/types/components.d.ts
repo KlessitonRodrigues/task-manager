@@ -39,7 +39,8 @@ type CheckboxPanelProps = {
   label?: string;
   values?: string[];
   options?: { value: string; icon?: React.ReactElement; checkedIcon?: React.ReactElement }[];
-  onChange?: (values: string) => void;
+  onChangeOne?: (value: string) => void;
+  onChangeAll?: (value: string[]) => void;
   iconFormat?: 'square' | 'circle';
   iconFontSize?: string;
 };

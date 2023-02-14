@@ -11,6 +11,9 @@ type CalendarEvent = {
   id?: string;
   name?: string;
   description?: string;
+  dateISO?: string;
+  repeatBy?: '' | 'week' | '2-week' | 'month';
+  repeatAt?: ('mon' | 'tue' | 'wen' | 'tur' | 'fri' | 'sat' | 'sun')[];
   eventDays: EventDay[];
 };
 

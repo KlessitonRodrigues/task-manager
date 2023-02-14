@@ -3,6 +3,8 @@ type AddEventForm = {
   name?: string;
   description?: string;
   dateISO?: string;
+  repeatBy?: CalendarEvent['repeatBy'];
+  repeatAt?: CalendarEvent['repeatAt'];
 };
 
 type EditEventForm = {

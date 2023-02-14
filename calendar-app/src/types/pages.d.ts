@@ -2,7 +2,7 @@ type CalendarPageState = {
   sidePanel: '' | 'createEvent' | 'editEvent';
   currentDate: string;
   selectedWeek: number;
-  editingEvent?: JoinEventAndDate;
+  editingEvent?: CalendarEvent;
 };
 
 type CalendarPageStateHook = [CalendarPageState, (state: CalendarPageState) => void];

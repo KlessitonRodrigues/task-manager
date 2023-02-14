@@ -1,7 +1,7 @@
 type getEventParams = {
   db: DBOption;
-  fromDate?: number;
-  toDate?: number;
+  fromDate?: string;
+  toDate?: string;
 };
 
 type CreateEventParams = {

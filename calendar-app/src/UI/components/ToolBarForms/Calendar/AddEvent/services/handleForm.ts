@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { eventApi } from 'src/services/api/events';
 import { createUID } from 'src/utils/uid';
 
@@ -6,6 +7,8 @@ export const initialData: AddEventForm = {
   dateISO: new Date().toISOString(),
   name: '',
   description: '',
+  repeatBy: '',
+  repeatAt: [],
 };
 
 export const submitEventForm = (form: AddEventForm) => {

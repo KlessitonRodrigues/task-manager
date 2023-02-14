@@ -1,3 +1,4 @@
+import moment from 'moment';
 import CalendarDay from 'src/UI/base/CalendarDay';
 import CalendarTodo from 'src/UI/base/CalendarTodo';
 import CalendarWeek from 'src/UI/base/CalendarWeek';
@@ -6,7 +7,8 @@ import { formatEvents } from './formatEvents';
 
 export const renderCalendarData = (props: RenderCalendarDataProps) => {
   const { events, currentDate, changeWeek } = props;
-  const weekDataArr = formatEvents(events, currentDate);
+  const firstMonthDay = moment(currentDate).startOf('month').startOf('week').toISOString();
+  const weekDataArr = formatEvents(events, firstMonthDay);
 
   return weekDataArr.map((weekData, i) => {
     const daysToRender = weekData.daysData.map(dayData => {
@@ -17,7 +19,6 @@ export const renderCalendarData = (props: RenderCalendarDataProps) => {
         </CalendarDay>
       );
     });
-
     return <CalendarWeek onClick={() => changeWeek(i)}>{daysToRender}</CalendarWeek>;
   });
 };

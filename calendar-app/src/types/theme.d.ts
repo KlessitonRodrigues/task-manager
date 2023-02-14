@@ -60,9 +60,11 @@ type Theme = {
     mobileM: string;
     mobileL: string;
     tablet: string;
-    laptop: string;
+    laptopS: string;
+    laptopM: string;
     laptopL: string;
-    desktop: string;
+    desktopS: string;
+    desktopM: string;
     desktopL: string;
   };
 };
