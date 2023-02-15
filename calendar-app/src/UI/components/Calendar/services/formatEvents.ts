@@ -1,19 +1,19 @@
-import moment, { Moment } from 'moment';
-import { getDayAndMonthNumbers } from 'src/utils/date';
+import moment from 'moment';
+import { splitDate } from 'src/utils/date';
 
 export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
   const startDate = moment(dateStr);
   const weeks: CalendarWeekData[] = [];
-  const flatEvents: (CalendarEvent & { day: number; month: number })[] = [];
+  const flatEvents: Record<string, CalendarEvent[]> = {};
 
   events.forEach(ev =>
-    ev.eventDays.forEach(evDay =>
-      flatEvents.push({
-        ...ev,
-        eventDays: [evDay],
-        ...getDayAndMonthNumbers(moment(evDay.dateISO)),
-      })
-    )
+    ev.eventDays.forEach(evDay => {
+      const { day, month, year } = splitDate(moment(evDay.dateISO));
+      const key = `${day}-${month}-${year}`;
+
+      if (flatEvents[key]?.length) return flatEvents[key].push({ ...ev, eventDays: [evDay] });
+      else flatEvents[key] = [{ ...ev, eventDays: [evDay] }];
+    })
   );
 
   // Month weeks
@@ -23,14 +23,12 @@ export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
 
     // Week days
     new Array(7).fill(0).forEach(() => {
-      const current = getDayAndMonthNumbers(startDate);
-      const dayEvents = flatEvents.filter(ev => {
-        return ev.day === current.day && ev.month === current.month;
-      });
+      const { day, month, year } = splitDate(startDate);
+      const key = `${day}-${month}-${year}`;
 
       daysData.push({
-        dayEvents,
-        date: current,
+        date: { day, month },
+        dayEvents: flatEvents[key] || [],
       });
 
       startDate.add(1, 'day');

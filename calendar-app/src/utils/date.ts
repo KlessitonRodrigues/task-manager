@@ -42,38 +42,46 @@ export const ISOToTimeInput = (iso: string) => {
   return new Date(iso).toLocaleTimeString('en', { hour12: false, timeStyle: 'short' });
 };
 
-export const getDayAndMonthNumbers = (date: Moment) => ({
+export const splitDate = (date: Moment) => ({
   day: date.get('date'),
   month: date.get('month'),
+  year: date.get('year'),
 });
-
-const generateWeekDates = (evDate: Moment, ev: CalendarEvent) => {
-  evDate.add(1, 'day');
-  const currentWeekDay = weekNumbers[evDate.get('weekday') as keyof typeof weekNumbers];
-  // @ts-ignore
-  if (ev.repeatAt.includes(currentWeekDay)) {
-    ev.eventDays.push({
-      id: createUID(),
-      dateISO: evDate.toISOString(),
-    });
-  }
-};
-
-const generateMonthDates = (evDate: Moment, ev: CalendarEvent) => {
-  evDate.add(1, 'month');
-};
 
 export const generateOccurecies = (events: CalendarEvent[], from: string, to: string) => {
   const newEvents: CalendarEvent[] = [];
-  const toDate = moment(to);
+
+  const generateWeekDates = (evDate: Moment, ev: CalendarEvent) => {
+    // @ts-ignore
+    const currentWeekDay = weekNumbers[evDate.get('weekday')];
+
+    if (ev.repeatAt.includes(currentWeekDay)) {
+      ev.eventDays.push({
+        id: createUID(),
+        dateISO: evDate.toISOString(),
+      });
+    }
+  };
+
+  const generateMonthDates = (evDate: Moment, ev: CalendarEvent) => {
+    evDate.add(1, 'month');
+  };
 
   events.forEach(ev => {
     if (!ev.repeatBy) return newEvents.push(ev);
-    const evDate = moment(ev.dateISO);
+    const fromDate = moment(from);
+    const toDate = moment(to);
 
-    while (evDate.isBefore(toDate)) {
-      if (ev.repeatBy === 'week') generateWeekDates(evDate, ev);
-      if (ev.repeatBy === 'month') generateMonthDates(evDate, ev);
+    while (fromDate.isBefore(toDate)) {
+      if (ev.repeatBy === 'week') {
+        generateWeekDates(fromDate, ev);
+        fromDate.add(1, 'day');
+      }
+
+      if (ev.repeatBy === 'month') {
+        generateMonthDates(fromDate, ev);
+        fromDate.add(1, 'month');
+      }
     }
 
     newEvents.push(ev);

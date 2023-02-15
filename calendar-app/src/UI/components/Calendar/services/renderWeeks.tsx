@@ -7,14 +7,17 @@ import { formatEvents } from './formatEvents';
 
 export const renderCalendarData = (props: RenderCalendarDataProps) => {
   const { events, currentDate, changeWeek } = props;
-  const firstMonthDay = moment(currentDate).startOf('month').startOf('week').toISOString();
-  const weekDataArr = formatEvents(events, firstMonthDay);
+  const date = moment(currentDate);
+  const selectedMonth = date.get('month');
+  const firstCalendarDay = date.startOf('month').startOf('week').toISOString();
+  const weekDataArr = formatEvents(events, firstCalendarDay);
 
   return weekDataArr.map((weekData, i) => {
     const daysToRender = weekData.daysData.map(dayData => {
-      const eventstoRender = dayData.dayEvents.map(ev => <CalendarTodo calendarEvent={ev} />);
+      const { date, dayEvents } = dayData;
+      const eventstoRender = dayEvents.map(ev => <CalendarTodo calendarEvent={ev} />);
       return (
-        <CalendarDay day={dayData.date.day} month={dayData.date.month} selectedMonth={1}>
+        <CalendarDay day={date.day} month={date.month} selectedMonth={selectedMonth}>
           {eventstoRender}
         </CalendarDay>
       );
