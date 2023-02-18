@@ -13,6 +13,5 @@ export const initialData: AddEventForm = {
 
 export const submitEventForm = (form: AddEventForm) => {
   const data: CalendarEvent = { ...form, eventDays: [] };
-  data.eventDays.push({ id: createUID(), dateISO: form.dateISO });
   eventApi.createEvent({ db: 'local', data });
 };

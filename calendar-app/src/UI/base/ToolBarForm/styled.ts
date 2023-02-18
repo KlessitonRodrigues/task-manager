@@ -12,7 +12,7 @@ const fadeBg = keyframes`
 
 export const Container = styled.div(
   props => css`
-    width: ${props.theme.size(140)};
+    width: ${props.theme.size(120)};
     padding: ${props.theme.size(4)};
     margin-right: ${props.theme.size(4)};
     animation: ${fadeIn} 0.5s ease-out;

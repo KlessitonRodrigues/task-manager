@@ -1,11 +1,11 @@
 import moment from 'moment';
-import { splitDate } from 'src/utils/date';
+import { calendarDatesGap, splitDate } from 'src/utils/date';
 
 export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
-  const startDate = moment(dateStr);
-  const weeks: CalendarWeekData[] = [];
-  const flatEvents: Record<string, CalendarEvent[]> = {};
+  const { firstDayObj } = calendarDatesGap(dateStr);
+  const dataIndex = moment(firstDayObj);
 
+  const flatEvents: Record<string, CalendarEvent[]> = {};
   events.forEach(ev =>
     ev.eventDays.forEach(evDay => {
       const { day, month, year } = splitDate(moment(evDay.dateISO));
@@ -16,26 +16,26 @@ export const formatEvents = (events: CalendarEvent[], dateStr: string) => {
     })
   );
 
-  // Month weeks
-  new Array(5).fill(0).forEach(() => {
-    const weekOfYear = startDate.weeks();
-    const daysData: CalendarDayData[] = [];
+  const eventsByWeek = new Array(6).fill(0).map<CalendarWeekData>(() => {
+    const { weekOfYear } = splitDate(dataIndex);
 
-    // Week days
-    new Array(7).fill(0).forEach(() => {
-      const { day, month, year } = splitDate(startDate);
+    const eventsByDate = new Array(7).fill(0).map<CalendarDayData>(() => {
+      const { day, month, year } = splitDate(dataIndex);
       const key = `${day}-${month}-${year}`;
+      dataIndex.add(1, 'day');
+      console.log('LOG');
 
-      daysData.push({
+      return {
         date: { day, month },
         dayEvents: flatEvents[key] || [],
-      });
-
-      startDate.add(1, 'day');
+      };
     });
 
-    weeks.push({ weekOfYear, daysData });
+    return {
+      weekOfYear,
+      daysData: eventsByDate,
+    };
   });
 
-  return weeks;
+  return eventsByWeek;
 };

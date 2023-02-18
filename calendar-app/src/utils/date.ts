@@ -2,7 +2,7 @@ import moment, { Moment } from 'moment';
 
 import { createUID } from './uid';
 
-const weekNumbers = { 0: 'mon', 1: 'tue', 2: 'wen', 3: 'tur', 4: 'fri', 5: 'sat', 6: 'sun' };
+export const weekNumbers = { 0: 'sun', 1: 'mon', 2: 'tue', 3: 'wen', 4: 'tur', 5: 'fri', 6: 'sat' };
 
 export const zeroLeft = (n: number) => (n < 10 ? '0' + n : '' + n);
 
@@ -46,46 +46,17 @@ export const splitDate = (date: Moment) => ({
   day: date.get('date'),
   month: date.get('month'),
   year: date.get('year'),
+  weekOfYear: date.get('weekday'),
 });
 
-export const generateOccurecies = (events: CalendarEvent[], from: string, to: string) => {
-  const newEvents: CalendarEvent[] = [];
+export const calendarDatesGap = (dateStr: string) => {
+  const firstDayObj = moment(dateStr).startOf('month').startOf('week');
+  const lastDayObj = moment(dateStr).endOf('month').endOf('week').add(1, 'week');
 
-  const generateWeekDates = (evDate: Moment, ev: CalendarEvent) => {
-    // @ts-ignore
-    const currentWeekDay = weekNumbers[evDate.get('weekday')];
-
-    if (ev.repeatAt.includes(currentWeekDay)) {
-      ev.eventDays.push({
-        id: createUID(),
-        dateISO: evDate.toISOString(),
-      });
-    }
+  return {
+    firstDayObj,
+    lastDayObj,
+    firstDay: firstDayObj.toString(),
+    lastDay: lastDayObj.toString(),
   };
-
-  const generateMonthDates = (evDate: Moment, ev: CalendarEvent) => {
-    evDate.add(1, 'month');
-  };
-
-  events.forEach(ev => {
-    if (!ev.repeatBy) return newEvents.push(ev);
-    const fromDate = moment(from);
-    const toDate = moment(to);
-
-    while (fromDate.isBefore(toDate)) {
-      if (ev.repeatBy === 'week') {
-        generateWeekDates(fromDate, ev);
-        fromDate.add(1, 'day');
-      }
-
-      if (ev.repeatBy === 'month') {
-        generateMonthDates(fromDate, ev);
-        fromDate.add(1, 'month');
-      }
-    }
-
-    newEvents.push(ev);
-  });
-
-  return newEvents;
 };

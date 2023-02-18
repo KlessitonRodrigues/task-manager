@@ -1,11 +1,9 @@
-import { generateOccurecies } from 'src/utils/date';
 import * as localDb from 'src/utils/localDB';
 
 export const getEvents = async (params: getEventParams) => {
-  const { db, fromDate, toDate } = params;
+  const { db } = params;
 
   if (db === 'local') {
-    const data = localDb.readData().events || [];
-    return generateOccurecies(data, fromDate, toDate);
+    return localDb.readData().events || [];
   }
 };

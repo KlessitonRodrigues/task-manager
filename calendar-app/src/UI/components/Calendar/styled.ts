@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import * as weekComponents from '../../base/CalendarWeek/styled';
+import * as weekStyles from '../../base/CalendarWeek/styled';
 
 export const Container = styled.div(
   props => css`
@@ -20,7 +20,7 @@ export const Content = styled.div<{ week: number }>(
     padding-right: ${props.theme.size(4)};
     gap: ${props.theme.size(3)};
 
-    ${weekComponents.Container} {
+    ${weekStyles.Container} {
       :nth-child(${props.week}) {
         height: 100%;
 

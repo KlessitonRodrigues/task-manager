@@ -15,7 +15,7 @@ export const Calendar = (props: CalendarProps) => {
   );
 
   useEffect(() => {
-    getEvents(currentDate).then(setEvents).catch(console.error);
+    getEvents().then(setEvents).catch(console.error);
   }, [currentDate]);
 
   return (

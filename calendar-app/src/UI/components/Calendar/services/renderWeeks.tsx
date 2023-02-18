@@ -4,20 +4,21 @@ import CalendarTodo from 'src/UI/base/CalendarTodo';
 import CalendarWeek from 'src/UI/base/CalendarWeek';
 
 import { formatEvents } from './formatEvents';
+import { repeatedEvents } from './repeatedEvents';
 
 export const renderCalendarData = (props: RenderCalendarDataProps) => {
   const { events, currentDate, changeWeek } = props;
-  const date = moment(currentDate);
-  const selectedMonth = date.get('month');
-  const firstCalendarDay = date.startOf('month').startOf('week').toISOString();
-  const weekDataArr = formatEvents(events, firstCalendarDay);
+
+  const currentMonth = moment(currentDate).get('month');
+  const eventsData = repeatedEvents(events, currentDate);
+  const weekDataArr = formatEvents(eventsData, currentDate);
 
   return weekDataArr.map((weekData, i) => {
     const daysToRender = weekData.daysData.map(dayData => {
       const { date, dayEvents } = dayData;
       const eventstoRender = dayEvents.map(ev => <CalendarTodo calendarEvent={ev} />);
       return (
-        <CalendarDay day={date.day} month={date.month} selectedMonth={selectedMonth}>
+        <CalendarDay day={date.day} month={date.month} selectedMonth={currentMonth}>
           {eventstoRender}
         </CalendarDay>
       );
