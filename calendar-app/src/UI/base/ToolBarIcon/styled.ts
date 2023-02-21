@@ -104,12 +104,12 @@ export const Label = styled.div(
   `
 );
 
-export const RoundedCorner = styled.div<{ top?: boolean; active: boolean }>(
+export const RoundedCorner = styled.div<{ top?: boolean; active: boolean; variant: string }>(
   props => css`
     background-color: ${props.theme.colors.current.mainBg};
     border-top-right-radius: ${!props.top && props.theme.border.radius.large};
     border-bottom-right-radius: ${props.top && props.theme.border.radius.large};
-    ${props.active && ` height: ${props.theme.size(3)};`};
+    ${props.variant === 'main' && `height: ${props.theme.size(2.5)}`};
   `
 );
 

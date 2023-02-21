@@ -152,10 +152,20 @@ type ToolBarProps = {
       form: React.ReactElement;
     }[];
   }[];
+  footerButtons: {
+    icon: React.ReactElement;
+    label: string;
+    actionButtons: {
+      icon: React.ReactElement;
+      label: string;
+      form: React.ReactElement;
+    }[];
+  }[];
 };
 
 type RenderNavigationBtns = {
   navigationButtons: ToolBarProps['navigationButtons'];
+  footerButtons: ToolBarProps['navigationButtons'];
   active: { nav: string; action: string };
   onClick: (action: { nav: string; action: string }) => void;
 };

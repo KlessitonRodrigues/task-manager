@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { HiLogin, HiPlus } from 'react-icons/hi';
+import {
+  BsCalendarDay,
+  BsCalendarDayFill,
+  BsCalendarMonth,
+  BsCalendarMonthFill,
+  BsCalendarWeek,
+  BsCalendarWeekFill,
+} from 'react-icons/bs';
+import { HiPlus } from 'react-icons/hi';
 import Button from 'src/UI/base/Button';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import FormTitle from 'src/UI/base/FormTitle';
@@ -16,37 +24,32 @@ const AddEventForm = () => {
   return (
     <ToolBarForm>
       <FormTitle icon={<HiPlus />} label="Add event" />
+
       <Input
         label="Name"
         placeHolder="New event"
         value={form.name}
         onChange={name => setForm({ ...form, name })}
       />
+
       <Input
         label="Description"
         placeHolder="Quick description"
         value={form.description}
         onChange={description => setForm({ ...form, description })}
       />
-      <Input
-        label="Date"
-        type="date"
-        value={ISOToDateInput(form.dateISO)}
-        onChange={date => setForm({ ...form, dateISO: dateInputToISO(date, form.dateISO) })}
-      />
-      <Input
-        label="Time"
-        type="time"
-        value={ISOToTimeInput(form.dateISO)}
-        onChange={time => setForm({ ...form, dateISO: timeInputToISO(time, form.dateISO) })}
-      />
 
       <CheckboxPanel
-        label="Repeat by"
+        label="Occurrecy"
         iconFormat="circle"
         values={[form.repeatBy]}
         onChangeOne={(repeatBy: AddEventForm['repeatBy']) => setForm({ ...form, repeatBy })}
-        options={[{ value: 'week' }, { value: '2-week' }, { value: 'month' }]}
+        options={[
+          { value: 'day', icon: <BsCalendarDay />, checkedIcon: <BsCalendarDayFill /> },
+          { value: 'week', icon: <BsCalendarWeek />, checkedIcon: <BsCalendarWeekFill /> },
+          { value: '2-week', icon: <BsCalendarWeek />, checkedIcon: <BsCalendarWeekFill /> },
+          { value: 'month', icon: <BsCalendarMonth />, checkedIcon: <BsCalendarMonthFill /> },
+        ]}
       />
 
       <If true={['week', '2-week'].includes(form.repeatBy)}>
@@ -65,6 +68,23 @@ const AddEventForm = () => {
           ]}
         />
       </If>
+
+      <If true={['day', 'month'].includes(form.repeatBy)}>
+        <Input
+          label="Date"
+          type="date"
+          value={ISOToDateInput(form.dateISO)}
+          onChange={date => setForm({ ...form, dateISO: dateInputToISO(date, form.dateISO) })}
+        />
+      </If>
+
+      <Input
+        label="Time"
+        type="time"
+        value={ISOToTimeInput(form.dateISO)}
+        onChange={time => setForm({ ...form, dateISO: timeInputToISO(time, form.dateISO) })}
+      />
+
       <Button label="Save" variant="solid" onClick={() => submitEventForm(form)} />
     </ToolBarForm>
   );

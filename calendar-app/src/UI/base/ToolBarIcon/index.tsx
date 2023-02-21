@@ -5,7 +5,7 @@ const ToolBarIcon = (props: ToolBarIconProps) => {
   return (
     <Container>
       <RoundedCornerBg>
-        <RoundedCorner top active={active} />
+        <RoundedCorner top active={active} variant={variant} />
       </RoundedCornerBg>
       <IconContainer
         active={active}
@@ -18,7 +18,7 @@ const ToolBarIcon = (props: ToolBarIconProps) => {
         <Label>{label}</Label>
       </IconContainer>
       <RoundedCornerBg>
-        <RoundedCorner active={active} />
+        <RoundedCorner active={active} variant={variant} />
       </RoundedCornerBg>
     </Container>
   );

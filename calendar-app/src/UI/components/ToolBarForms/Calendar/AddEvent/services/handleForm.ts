@@ -7,7 +7,7 @@ export const initialData: AddEventForm = {
   dateISO: new Date().toISOString(),
   name: '',
   description: '',
-  repeatBy: '',
+  repeatBy: 'day',
   repeatAt: [],
 };
 

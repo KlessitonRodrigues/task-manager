@@ -68,7 +68,7 @@ export const defaulTheme: Theme = {
     body: '1rem',
     small: '0.95rem',
     verySmall: '0.9rem',
-    label: '0.85rem',
+    label: '0.9rem',
     h1: '1.6rem',
     h2: '1.4rem',
     h3: '1.2rem',

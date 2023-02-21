@@ -12,8 +12,9 @@ export const NavigationBar = styled.div(
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: ${props.theme.size(2)} 0;
-    padding-left: ${props.theme.size(1)};
+    padding-left: ${props.theme.size(2)};
     background-color: ${props.theme.colors.current.mainBg};
     color: ${props.theme.colors.white};
 
@@ -25,6 +26,14 @@ export const NavigationBar = styled.div(
     }
   `
 );
+
+export const NavIcons = styled.div(
+  props => css`
+    height: 100%;
+  `
+);
+
+export const FooterIcons = styled.div(props => css``);
 
 export const ActionBar = styled.div(
   props => css`

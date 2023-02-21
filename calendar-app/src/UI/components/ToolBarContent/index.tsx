@@ -1,5 +1,5 @@
-import { BsCalendar3Week, BsFileText, BsViewList } from 'react-icons/bs';
-import { HiOutlineFilter, HiPlus, HiSearch, HiViewGrid } from 'react-icons/hi';
+import { BsCalendar3Week, BsFileText, BsGear, BsViewList } from 'react-icons/bs';
+import { HiOutlineFilter, HiPlus, HiSearch } from 'react-icons/hi';
 import ToolBar from 'src/UI/base/ToolBar';
 
 import { Forms } from '../ToolBarForms';
@@ -28,6 +28,13 @@ const TooBarContent = () => {
           label: 'board',
           icon: <BsViewList />,
           actionButtons: [{ label: 'add', icon: <BsCalendar3Week />, form: <div /> }],
+        },
+      ]}
+      footerButtons={[
+        {
+          label: 'settings',
+          icon: <BsGear />,
+          actionButtons: [{ label: 'Theme', icon: <HiPlus />, form: <Forms.CalendarAddEvent /> }],
         },
       ]}
     />

@@ -15,9 +15,25 @@ export const renderNavigationBtns = (props: RenderNavigationBtns) => {
   ));
 };
 
+export const renderFooterBtns = (props: RenderNavigationBtns) => {
+  const { footerButtons, active, onClick } = props;
+
+  return footerButtons.map(navBtn => (
+    <ToolBarIcon
+      variant="main"
+      key={navBtn.label}
+      active={active.nav === navBtn.label}
+      icon={navBtn.icon}
+      label={navBtn.label}
+      onClick={nav => onClick({ nav, action: '' })}
+    />
+  ));
+};
+
 export const renderActionBtns = (props: RenderNavigationBtns) => {
-  const { navigationButtons, active, onClick } = props;
-  const navBtn = navigationButtons.find(navBtn => navBtn.label === active.nav);
+  const { navigationButtons, footerButtons, active, onClick } = props;
+  const buttons = [...navigationButtons, ...footerButtons];
+  const navBtn = buttons.find(navBtn => navBtn.label === active.nav);
 
   return navBtn?.actionButtons?.map(actionBtn => {
     const isDisabled = active.action != '' && active.action !== actionBtn.label;
@@ -39,8 +55,9 @@ export const renderActionBtns = (props: RenderNavigationBtns) => {
 };
 
 export const renderForm = (props: RenderNavigationBtns) => {
-  const { navigationButtons, active, onClick } = props;
-  const nav = navigationButtons.find(navBtn => navBtn.label === active.nav);
+  const { navigationButtons, footerButtons, active } = props;
+  const buttons = [...navigationButtons, ...footerButtons];
+  const nav = buttons.find(navBtn => navBtn.label === active.nav);
   const action = nav.actionButtons.find(actionsBtn => actionsBtn.label === active.action);
 
   return action?.form || false;

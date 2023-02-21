@@ -17,7 +17,7 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>(
     text-transform: capitalize;
 
     & > svg {
-      font-size: ${props.iconSize || '1rem'};
+      font-size: ${props.iconSize || '1.2rem'};
     }
 
     &:hover {
