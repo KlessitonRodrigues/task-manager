@@ -34,6 +34,7 @@ export const Checkbox = styled.div<{
       `;
     }}
     color: ${!props.checked && props.theme.colors.current.text2};
+    transition: color 0.1s;
 
     & > svg {
       font-size: ${props.iconSize || '1.2rem'};

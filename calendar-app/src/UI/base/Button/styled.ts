@@ -10,6 +10,7 @@ export const Container = styled.button<ContainerProps>(
     min-height: ${props.theme.size(10)};
     min-width: ${props.theme.size(28)};
     padding: 0 ${props.theme.size(4)};
+    margin: ${props.theme.size(2)} 0;
     margin-right: ${props.theme.size(4)};
     border-radius: ${props.theme.border.radius.small};
     transition: background-color 0.2s;

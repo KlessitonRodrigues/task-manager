@@ -1,4 +1,4 @@
-import { materialColors } from './lib/palettes';
+import { atlassianColors, materialColors } from './lib/palettes';
 import screenSizes from './lib/screenSizes';
 
 export const darkBackground: Partial<Theme['colors']['current']> = {
@@ -37,9 +37,9 @@ export const defaulTheme: Theme = {
       alternativeBg: '#444444',
     },
     gray: materialColors.grey['600'],
-    yellow: materialColors.amber['900'],
-    red: materialColors.red['700'],
-    green: materialColors.lightGreen['700'],
+    yellow: atlassianColors.yellow['500'],
+    red: atlassianColors.red['800'],
+    green: materialColors.lightGreen['800'],
     white: materialColors.white,
     black: materialColors.black,
   },
