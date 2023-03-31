@@ -1,11 +1,15 @@
 import { PropsWithChildren } from 'react';
 
-import { Container } from './styled';
+import { Background, Container } from './styled';
 
 const ToolBarForm = (props: PropsWithChildren) => {
   const { children } = props;
 
-  return <Container>{children}</Container>;
+  return (
+    <Background>
+      <Container>{children}</Container>
+    </Background>
+  );
 };
 
 export default ToolBarForm;

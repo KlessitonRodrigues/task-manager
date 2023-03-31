@@ -1,27 +1,44 @@
-import { Container, Icon, IconContainer, Label, RoundedCorner, RoundedCornerBg } from './styled';
+import {
+  FormIcon,
+  FormIconContainer,
+  FormIconLabel,
+  LogoIcon,
+  LogoIconContainer,
+  LogoIconLabel,
+  NavIcon,
+  NavIconContainer,
+  NavIconLabel,
+} from './styled';
 
-const ToolBarIcon = (props: ToolBarIconProps) => {
-  const { icon, label, variant, active, disable, onClick } = props;
+export const ToolBarMainIcon = (props: ToolBarIconProps) => {
+  const { icon, label, active, onClick } = props;
+
   return (
-    <Container>
-      <RoundedCornerBg>
-        <RoundedCorner top active={active} variant={variant} />
-      </RoundedCornerBg>
-      <IconContainer
-        active={active}
-        disabled={disable}
-        variant={variant}
-        className={`icon-${variant}`}
-        onClick={() => onClick(label?.toLowerCase())}
-      >
-        <Icon>{icon}</Icon>
-        <Label>{label}</Label>
-      </IconContainer>
-      <RoundedCornerBg>
-        <RoundedCorner active={active} variant={variant} />
-      </RoundedCornerBg>
-    </Container>
+    <NavIconContainer onClick={() => onClick(label)} act={active}>
+      <NavIcon>{icon}</NavIcon>
+      <NavIconLabel>{label}</NavIconLabel>
+    </NavIconContainer>
   );
 };
 
-export default ToolBarIcon;
+export const ToolBarFormIcon = (props: ToolBarIconProps) => {
+  const { icon, label, active, onClick } = props;
+
+  return (
+    <FormIconContainer onClick={() => onClick(label)} act={active}>
+      <FormIcon>{icon}</FormIcon>
+      <FormIconLabel>{label}</FormIconLabel>
+    </FormIconContainer>
+  );
+};
+
+export const ToolBarLogoIcon = (props: ToolBarIconProps) => {
+  const { icon, label, onClick } = props;
+
+  return (
+    <LogoIconContainer onClick={() => onClick(label)}>
+      <LogoIcon>{icon}</LogoIcon>
+      <LogoIconLabel>{label}</LogoIconLabel>
+    </LogoIconContainer>
+  );
+};

@@ -1,120 +1,115 @@
 import styled, { css, keyframes } from 'styled-components';
 
-const slideUp = keyframes`
-  from { transform: translateY(25px);}
-  to { transform: translateY(0px);}
+const navTransition = keyframes`
+  from {transform: translateX(-4rem)}
 `;
 
-const fadeOutIn = keyframes`
-  from { opacity: 0;}
-  to { opacity: 1;}
-`;
+// NAVIGATION ICON
+export const NavIconContainer = styled.div<{ act?: boolean }>(
+  props => css`
+    height: ${props.theme.size(16)};
+    padding: ${props.theme.size(4)};
+    width: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-top-left-radius: ${props.theme.border.radius.medium};
+    border-bottom-left-radius: ${props.theme.border.radius.medium};
+    text-transform: capitalize;
+    overflow: hidden;
 
-export const Container = styled.div(() => css``);
+    ${props.act &&
+    css`
+      background-color: ${props.theme.colors.current.bg1};
+      color: ${props.theme.colors.current.main};
+      :hover {
+        color: ${props.theme.colors.current.main};
+      }
+      ${NavIcon} {
+        animation: ${navTransition} 0.5s;
+      }
+    `}
+  `
+);
 
-export const IconContainer = styled.div<{ active: boolean; variant: string; disabled: boolean }>(
+export const NavIcon = styled.div(
+  props => css`
+    font-size: ${props.theme.size(8)};
+    margin-top: ${props.theme.size(1)};
+    margin-right: ${props.theme.size(4)};
+  `
+);
+
+export const NavIconLabel = styled.div(
   props => css`
     width: 100%;
-    min-height: ${props.theme.size(16)};
-    min-width: ${props.theme.size(18)};
-    padding: ${props.theme.size(1)} ${props.theme.size(2)};
-    padding-left: ${props.theme.size(4)};
-    padding-bottom: 0;
+    overflow: hidden;
+    transition: width 0.3s ease-out;
+    font-size: ${props.theme.fontSize.label};
+  `
+);
+
+// FORM ICON
+export const FormIconContainer = styled.div<{ act?: boolean }>(
+  props => css`
+    height: ${props.theme.size(16)};
+    width: ${props.theme.size(16)};
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: ${props.theme.colors.current.text3};
     cursor: pointer;
-    user-select: none;
+    :hover {
+      color: ${props.theme.colors.current.main};
+      ${FormIconLabel} {
+        width: 100%;
+        max-width: ${props.theme.size(20)};
+      }
+    }
 
-    // MAIN ICONS
-    ${props.variant === 'logo' &&
+    ${props.act &&
     css`
-      font-size: ${props.theme.fontSize.label};
-      margin-bottom: ${props.theme.size(8)};
-      padding-right: ${props.theme.size(4)};
-
-      ${Icon} {
-        font-size: ${props.theme.size(10)};
-      }
-    `}
-
-    // NAVIGATION ICONS
-    ${props.variant === 'main' &&
-    css`
-      font-size: ${props.theme.fontSize.h6};
-      color: ${props.theme.colors.white}aa;
-      border-top-left-radius: ${props.theme.border.radius.large};
-      border-bottom-left-radius: ${props.theme.border.radius.large};
-      justify-content: flex-start;
-      flex-direction: row;
-      gap: ${props.theme.size(4)};
-
-      ${Icon} {
-        font-size: ${props.theme.size(9)};
-      }
-
-      ${Label} {
-        width: 0;
-        opacity: 0;
-      }
-
-      ${props.active &&
-      css`
-        background-color: ${props.theme.colors.current.bg1};
-        color: ${props.theme.colors.current.text1};
-      `}
-
-      ${!props.active &&
-      css`
-        :hover {
-          color: ${props.theme.colors.white};
-        }
-      `}
-    `}
-
-    // ACTION ICONS
-    ${props.variant === 'subIcon' &&
-    css`
-      font-size: ${props.theme.fontSize.label};
-      color: ${props.theme.colors.current.text1}aa;
-      margin-bottom: ${props.theme.size(6)};
-      animation: ${fadeOutIn} 1s;
-      transition: opacity 0.5s;
-      ${props.disabled && `opacity: 0.3; cursor: default;`};
-
-      :hover {
-        color: ${props.theme.colors.current.text1};
-      }
-
-      ${Icon} {
-        font-size: ${props.theme.size(8)};
-      }
+      color: ${props.theme.colors.current.main};
     `}
   `
 );
 
-export const Icon = styled.div(() => css``);
+export const FormIcon = styled.div(
+  props => css`
+    font-size: ${props.theme.size(7)};
+  `
+);
 
-export const Label = styled.div(
-  () => css`
-    transition: width 0.5s ease-out, opacity 0.5s ease-out;
+export const FormIconLabel = styled.div(
+  props => css`
+    width: 0;
     overflow: hidden;
-    text-transform: capitalize;
+    transition: width 0.75s ease-out;
+    text-align: center;
+    font-size: ${props.theme.fontSize.label};
   `
 );
 
-export const RoundedCorner = styled.div<{ top?: boolean; active: boolean; variant: string }>(
+// LOGO ICON
+export const LogoIconContainer = styled.div(
   props => css`
-    background-color: ${props.theme.colors.current.mainBg};
-    border-top-right-radius: ${!props.top && props.theme.border.radius.large};
-    border-bottom-right-radius: ${props.top && props.theme.border.radius.large};
-    ${props.variant === 'main' && `height: ${props.theme.size(2.5)}`};
+    margin-bottom: ${props.theme.size(14)};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   `
 );
 
-export const RoundedCornerBg = styled.div(
+export const LogoIcon = styled.div(
   props => css`
-    background-color: ${props.theme.colors.current.bg1};
+    font-size: ${props.theme.size(10)};
+  `
+);
+
+export const LogoIconLabel = styled.div(
+  props => css`
+    color: ${props.theme.colors.white};
   `
 );

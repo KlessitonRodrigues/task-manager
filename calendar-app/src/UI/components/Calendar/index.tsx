@@ -1,27 +1,30 @@
 import { useEffect, useMemo, useState } from 'react';
 import CalendarHeader from 'src/UI/base/CalendarHeader';
+import useGlobalContext from 'src/hooks/useGlobalContext';
 
 import { getEvents } from './services/getEvents';
 import { renderCalendarData } from './services/renderWeeks';
 import { Container, Content } from './styled';
 
-export const Calendar = (props: CalendarProps) => {
-  const { currentDate } = props;
+export const Calendar = () => {
+  const [global] = useGlobalContext();
   const [events, setEvents] = useState<CalendarEvent[]>([]);
-  const [week, setWeek] = useState(0);
-  const weeksToRender = useMemo(
-    () => renderCalendarData({ events, currentDate, changeWeek: setWeek }),
-    [events]
-  );
+  const [expandedWeek, setWeek] = useState(0);
+  const renderProps: RenderCalendarDataProps = {
+    events,
+    currentDate: global.currentDate,
+    onExpandWeek: setWeek,
+  };
+  const weeksToRender = useMemo(() => renderCalendarData(renderProps), [events]);
 
   useEffect(() => {
     getEvents().then(setEvents).catch(console.error);
-  }, [currentDate]);
+  }, [global.currentDate]);
 
   return (
     <Container>
-      <CalendarHeader {...props} />
-      <Content week={week + 1}>{weeksToRender}</Content>
+      <CalendarHeader />
+      <Content week={expandedWeek + 1}>{weeksToRender}</Content>
     </Container>
   );
 };

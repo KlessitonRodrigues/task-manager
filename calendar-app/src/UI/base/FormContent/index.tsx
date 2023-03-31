@@ -1,17 +1,17 @@
-import { BsCaretRightFill, BsChevronRight } from 'react-icons/bs';
+import { HiChevronRight } from 'react-icons/hi';
 
 import { Container, Content, Icon, Label, Row } from './styled';
 
 const FormContent = (props: FormContentProps) => {
-  const { label, expanded, onExpand, noLine, children } = props;
+  const { label, expanded, onExpand, children } = props;
 
   return (
     <Container>
       <Row expanded={expanded} onClick={() => onExpand && onExpand(label)}>
-        <Label>{label || ''}</Label>
         <Icon>
-          <BsCaretRightFill />
+          <HiChevronRight />
         </Icon>
+        <Label>{label || ''}</Label>
       </Row>
       <Content expanded={expanded}>{children}</Content>
     </Container>

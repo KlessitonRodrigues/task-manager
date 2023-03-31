@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PageContainer from 'src/UI/base/PageContainer';
+import PageContainer from 'src/UI/components/PageContainer';
 
 const NotesPage = () => {
   const [open, setopen] = useState(true);

@@ -1,5 +1,4 @@
-import moment from 'moment';
-import { eventApi } from 'src/services/api/events';
+import { routes } from 'src/services/api/routes';
 import { createUID } from 'src/utils/uid';
 
 export const initialData: AddEventForm = {
@@ -12,6 +11,6 @@ export const initialData: AddEventForm = {
 };
 
 export const submitEventForm = (form: AddEventForm) => {
-  const data: CalendarEvent = { ...form, eventDays: [] };
-  eventApi.createEvent({ db: 'local', data });
+  const data: CalendarEvent = { ...form, todos: [] };
+  routes.events.createEvent({ data });
 };

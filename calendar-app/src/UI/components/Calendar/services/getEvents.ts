@@ -1,7 +1,5 @@
-import { eventApi } from 'src/services/api/events';
+import { routes } from 'src/services/api/routes';
 
 export const getEvents = async () => {
-  return await eventApi.getEvents({
-    db: 'local',
-  });
+  return await routes.events.fetchEvents();
 };

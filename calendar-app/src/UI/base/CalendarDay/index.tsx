@@ -7,7 +7,7 @@ const CalendarDay = (props: CalendarDayProps) => {
 
   return (
     <Container>
-      <Header outOfMonth={selectedMonth !== month}>{zeroLeft(day)}</Header>
+      <Header outOfMonth={selectedMonth !== month}>{zeroLeft(Number(day))}</Header>
       <Content>{children}</Content>
     </Container>
   );

@@ -1,18 +1,21 @@
-type getEventParams = {
-  db: DBOption;
-};
+type getEventParams = {};
 
 type CreateEventParams = {
-  db: DBOption;
   data: CalendarEvent;
 };
 
 type UpdateEventParams = {
-  db: DBOption;
   data: CalendarEvent;
 };
 
 type DeleteEventParams = {
-  db: DBOption;
   eventId: string;
+};
+
+type UpdateSettingsParams = {
+  data: LocalDB['settings'];
+};
+
+type UpdateTodoParams = {
+  data: CalendarEvent;
 };

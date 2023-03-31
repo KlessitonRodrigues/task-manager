@@ -1,14 +1,32 @@
-type EventDayStatus = 'cancel' | 'todo' | 'doing' | 'done';
+type EventDayStatus = 'canceled' | 'todo' | 'doing' | 'done';
 
 type EventFormRepeatPeriod = 'day' | 'week' | '2-week' | 'month';
 
 type EventFormRepeatAtDays = ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
 
-type EventDay = {
+type SplitedDate = {
+  day: number;
+  month: number;
+  year: number;
+  weekDay: number;
+  weekDayName: string;
+  weekOfYear: number;
+  sec: number;
+  min: number;
+  hour: number;
+  unix: number;
+  dateKey: string;
+  weekKey: string;
+  timeKey: string;
+  key: string;
+};
+
+type CalendarTodo = {
   id?: string;
   status?: EventDayStatus;
   doingTime?: number;
   dateISO?: string;
+  notes?: string;
 };
 
 type CalendarEvent = {
@@ -18,17 +36,23 @@ type CalendarEvent = {
   dateISO?: string;
   repeatBy?: EventFormRepeatPeriod;
   repeatAt?: EventFormRepeatAtDays;
-  eventDays: EventDay[];
+  todos: CalendarTodo[];
 };
 
-type CalendarDayData = {
-  date: { day: number; month: number };
-  dayEvents: CalendarEvent[];
+type CalendarDayEvent = CalendarEvent & {
+  todos: undefined;
+  todoAmount: number;
+  currentTodo: CalendarTodo;
+  currentTodoOcurrence: number;
+  currentTodoDateSplited: SplitedDate;
 };
 
 type CalendarWeekData = {
-  weekOfYear: number;
-  daysData: CalendarDayData[];
+  date: { day: string; weekDay: string; month: string };
+  dateData: CalendarDayEvent[];
 };
 
-type CalendarData = CalendarWeekData[];
+type CalendarData = {
+  weekOfYear: string;
+  weekData: CalendarWeekData[];
+};

@@ -1,8 +1,7 @@
 export const globalState: GlobalState = {
-  location: '/',
+  path: '/',
   currentDate: new Date().toISOString(),
-  sidePanel: '',
-  themeColors: { mode: 'dark', main: '#0373fc', alter: '#ff0000' },
-  database: 'local',
+  settings: { dbLocation: 'local', theme: { mode: 'light', main: '#402a87', alter: '#ff0000' } },
   databaseLastUpdate: 0,
+  dispatchPanel: undefined,
 };

@@ -21,6 +21,7 @@ export const Container = styled.button<ContainerProps>(
     css`
       background-color: ${props.theme.colors.current.mainBg};
       color: ${props.theme.colors.white};
+      box-shadow: ${props.theme.shadow.low};
 
       &:hover {
         background-color: ${props.theme.colors.current.mainHover};
@@ -43,8 +44,9 @@ export const Container = styled.button<ContainerProps>(
 
 export const Label = styled.span(
   props => css`
-    padding: ${props.theme.size(0.5)} ${props.theme.size(3)} 0;
+    padding: ${props.theme.size(0.5)} ${props.theme.size(3)};
     font-size: ${props.theme.fontSize.label};
+    letter-spacing: 1px;
   `
 );
 

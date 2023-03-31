@@ -9,9 +9,9 @@ type ButtonProps = {
 
 type CalendarDayProps = {
   children?: React.ReactNode;
-  month: number;
-  day: number;
-  selectedMonth: number;
+  month: string;
+  day: string;
+  selectedMonth: string;
 };
 
 type CalendarWeekProps = {
@@ -26,36 +26,22 @@ type IfProps = {
 };
 
 type CalendarTodoProps = {
-  calendarEvent?: CalendarEvent;
-  onClick?: (calendarEvent: CalendarEvent) => void;
-};
-
-type CardProps = {
-  bgColor?: string;
-  children: React.ReactNode;
+  calendarEvent?: CalendarDayEvent;
 };
 
 type CheckboxPanelProps = {
   label?: string;
   values?: string[];
-  options?: { value: string; icon?: React.ReactElement; checkedIcon?: React.ReactElement }[];
+  options?: {
+    value: string;
+    icon?: React.ReactElement;
+    checkedIcon?: React.ReactElement;
+    color?: 'red' | 'yellow' | 'green';
+  }[];
   onChangeOne?: (value: string) => void;
   onChangeAll?: (value: string[]) => void;
   iconFormat?: 'square' | 'circle';
   iconFontSize?: string;
-};
-
-type IconButtonProps = {
-  icon: React.ReactElement;
-  className?: string;
-  onClick?: () => void;
-  variant?: 'solid' | 'outiline';
-};
-
-type IconContainerProps = {
-  color?: string;
-  size?: number;
-  icon: React.ReactElement;
 };
 
 type InputProps = {
@@ -73,12 +59,6 @@ type DisplayProps = {
   size?: '25%' | '33%' | '50%' | '75%' | '100%';
 };
 
-type TimeProps = {
-  update?: boolean;
-  startTime?: number;
-  endTime?: number;
-};
-
 type CreateEventPanelProps = {
   show?: boolean;
   onClose?: () => void;
@@ -90,32 +70,12 @@ type EditEventPanelProps = {
   editEvent: CalendarEvent;
 };
 
-type CalendarProps = {
-  currentDate: string;
-  changeMonth: (newDate: string) => void;
-};
+type CalendarProps = {};
 
-type CalendarHeaderProps = {
-  currentDate: string;
-  changeMonth: (newDate: string) => void;
-};
-
-type NavigationTabProps = {
-  icon?: React.ReactElement;
-  label: string;
-  value: string;
-  active?: boolean;
-  onChange?: (value: string) => void;
-};
-
-type SidePanelProps = {
-  show?: boolean;
-  children?: React.ReactNode;
-};
+type CalendarHeaderProps = {};
 
 type FormContentProps = {
   label?: string;
-  noLine?: boolean;
   expanded?: boolean;
   onExpand?: (label: string) => void;
   children?: React.ReactNode;
@@ -123,7 +83,6 @@ type FormContentProps = {
 
 type FormTitleProps = {
   label?: string;
-  icon?: React.ReactElement;
   onClose?: () => void;
 };
 
@@ -139,7 +98,7 @@ type ColorPickerProps = {
 type RenderCalendarDataProps = {
   currentDate?: string;
   events?: CalendarEvent[];
-  changeWeek?: (index: number) => void;
+  onExpandWeek?: (index: number) => void;
 };
 
 type ToolBarProps = {
@@ -149,23 +108,19 @@ type ToolBarProps = {
     actionButtons: {
       icon: React.ReactElement;
       label: string;
-      form: React.ReactElement;
+      form: (data?: any) => React.ReactElement;
     }[];
   }[];
   footerButtons: {
     icon: React.ReactElement;
     label: string;
-    actionButtons: {
-      icon: React.ReactElement;
-      label: string;
-      form: React.ReactElement;
-    }[];
+    form: (data?: any) => React.ReactElement;
   }[];
 };
 
 type RenderNavigationBtns = {
   navigationButtons: ToolBarProps['navigationButtons'];
-  footerButtons: ToolBarProps['navigationButtons'];
+  footerButtons: ToolBarProps['footerButtons'];
   active: { nav: string; action: string };
   onClick: (action: { nav: string; action: string }) => void;
 };
@@ -177,4 +132,15 @@ type ToolBarIconProps = {
   active?: boolean;
   disable?: boolean;
   onClick?: (label: string) => void;
+};
+
+type EditEventFormProps = {
+  data?: CalendarDayEvent;
+};
+
+type TextAreaProps = {
+  label?: string;
+  placeHolder?: string;
+  value?: string;
+  onChange?: (value: string) => void;
 };

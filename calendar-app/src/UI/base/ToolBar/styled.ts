@@ -1,4 +1,3 @@
-import * as ToolBarIcon from 'src/UI/base/ToolBarIcon/styled';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
@@ -17,36 +16,31 @@ export const NavigationBar = styled.div(
     padding-left: ${props.theme.size(2)};
     background-color: ${props.theme.colors.current.mainBg};
     color: ${props.theme.colors.white};
+    width: ${props.theme.size(20)};
+    transition: width 1s;
+    overflow: hidden;
 
-    :hover ${ToolBarIcon.IconContainer}.icon-main {
-      ${ToolBarIcon.Label} {
-        width: ${props.theme.size(30)};
-        opacity: 1;
-      }
+    :hover {
+      width: ${props.theme.size(45)};
     }
   `
 );
 
 export const NavIcons = styled.div(
-  props => css`
+  () => css`
     height: 100%;
   `
 );
 
-export const FooterIcons = styled.div(props => css``);
+export const FooterIcons = styled.div(() => css``);
 
 export const ActionBar = styled.div(
   props => css`
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: ${props.theme.size(30)};
+    padding-top: ${props.theme.size(38)};
   `
 );
 
-export const FormPanel = styled.div(
-  () => css`
-    height: 100%;
-    display: flex;
-  `
-);
+export const FormPanel = styled.div(() => css``);

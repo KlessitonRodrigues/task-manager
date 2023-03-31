@@ -37,9 +37,9 @@ export const defaulTheme: Theme = {
       alternativeBg: '#444444',
     },
     gray: materialColors.grey['600'],
-    yellow: materialColors.yellow['600'],
+    yellow: materialColors.amber['900'],
     red: materialColors.red['700'],
-    green: materialColors.lightGreen['500'],
+    green: materialColors.lightGreen['700'],
     white: materialColors.white,
     black: materialColors.black,
   },
@@ -49,12 +49,13 @@ export const defaulTheme: Theme = {
     high: '1px 1px 4px 1px #0007',
     mediumGray: '1px 1px 4px 1px #777a',
     lowRight: '3px 0 4px 0px #0002',
+    mediumLeft: '-4px 0 4px 0px #0006',
   },
   border: {
     type: {
       small: 'none',
-      medium: '1px solid #2222',
-      large: '2px solid #2221',
+      medium: '1px solid #aaa4',
+      large: '2px solid #aaa8',
     },
     radius: {
       verySmall: '0.3rem',

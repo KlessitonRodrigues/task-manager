@@ -7,7 +7,6 @@ import {
   BsCalendarWeek,
   BsCalendarWeekFill,
 } from 'react-icons/bs';
-import { HiPlus } from 'react-icons/hi';
 import Button from 'src/UI/base/Button';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import FormTitle from 'src/UI/base/FormTitle';
@@ -23,7 +22,7 @@ const AddEventForm = () => {
 
   return (
     <ToolBarForm>
-      <FormTitle icon={<HiPlus />} label="Add event" />
+      <FormTitle label="Add event" />
 
       <Input
         label="Name"
@@ -85,7 +84,7 @@ const AddEventForm = () => {
         onChange={time => setForm({ ...form, dateISO: timeInputToISO(time, form.dateISO) })}
       />
 
-      <Button label="Save" variant="solid" onClick={() => submitEventForm(form)} />
+      <Button label="Create" variant="solid" onClick={() => submitEventForm(form)} />
     </ToolBarForm>
   );
 };

@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BsKanban } from 'react-icons/bs';
-import ToolBarIcon from 'src/UI/base/ToolBarIcon';
+import { ToolBarLogoIcon } from 'src/UI/base/ToolBarIcon';
+import useGlobalContext from 'src/hooks/useGlobalContext';
 
 import {
   renderActionBtns,
@@ -11,6 +12,7 @@ import {
 import { ActionBar, Container, FooterIcons, FormPanel, NavIcons, NavigationBar } from './styled';
 
 const ToolBar = (props: ToolBarProps) => {
+  const [global] = useGlobalContext();
   const [active, setActive] = useState({ nav: 'calendar', action: '' });
 
   const renderProps: RenderNavigationBtns = {
@@ -24,17 +26,21 @@ const ToolBar = (props: ToolBarProps) => {
   const ActionBtns = useMemo(() => renderActionBtns(renderProps), [active]);
   const Form = useMemo(() => renderForm(renderProps), [active.action]);
 
+  useEffect(() => {
+    if (global.dispatchPanel) setActive(global.dispatchPanel);
+  }, [global.dispatchPanel]);
+
   return (
     <Container>
       <NavigationBar>
-        <ToolBarIcon label="App" variant="logo" icon={<BsKanban />} />
+        <ToolBarLogoIcon label="App" variant="logo" icon={<BsKanban />} />
         <NavIcons>{NavigationBtns}</NavIcons>
         <FooterIcons>{FooterBtns}</FooterIcons>
       </NavigationBar>
 
       <ActionBar>{ActionBtns}</ActionBar>
 
-      <FormPanel>{Form}</FormPanel>
+      <FormPanel>{Form && <Form data={(global.dispatchPanel || {})?.data} />}</FormPanel>
     </Container>
   );
 };

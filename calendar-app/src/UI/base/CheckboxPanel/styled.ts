@@ -6,22 +6,37 @@ export const Container = styled.div(
   `
 );
 
-export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>(
+export const Checkbox = styled.div<{
+  checked?: boolean;
+  iconSize?: string;
+  color?: CheckboxPanelProps['options'][0]['color'];
+}>(
   props => css`
     display: flex;
     align-items: center;
     gap: ${props.theme.size(2)};
     font-size: ${props.theme.fontSize.label};
-    color: ${props.checked ? props.theme.colors.current.main : props.theme.colors.current.text2};
     cursor: pointer;
     text-transform: capitalize;
+    ${() => {
+      const color = {
+        red: props.theme.colors.red,
+        yellow: props.theme.colors.yellow,
+        green: props.theme.colors.green,
+        main: props.theme.colors.current.main,
+      };
+
+      return css`
+        color: ${color[props.color || 'main']};
+        &:hover {
+          color: ${color[props.color || 'main']}aa;
+        }
+      `;
+    }}
+    color: ${!props.checked && props.theme.colors.current.text2};
 
     & > svg {
       font-size: ${props.iconSize || '1.2rem'};
-    }
-
-    &:hover {
-      color: ${props.theme.colors.current.main}aa;
     }
   `
 );
@@ -29,7 +44,7 @@ export const Checkbox = styled.div<{ checked?: boolean; iconSize?: string }>(
 export const Label = styled.div<{ display?: boolean }>(
   props => css`
     padding-top: ${props.theme.size(2)};
-    padding-bottom: ${props.theme.size(4)};
+    padding-bottom: ${props.theme.size(2)};
     font-size: ${props.theme.fontSize.label};
     color: ${props.theme.colors.current.text1};
 

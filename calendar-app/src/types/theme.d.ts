@@ -28,6 +28,7 @@ type Theme = {
     high: string;
     mediumGray: string;
     lowRight: string;
+    mediumLeft: string;
   };
   border: {
     type: {
