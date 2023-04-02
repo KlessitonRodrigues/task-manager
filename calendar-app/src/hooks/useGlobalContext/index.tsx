@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { globalState } from './state';
+import { initialGlobalState } from './state';
 
 type GlobalContext = [GlobalState, React.Dispatch<React.SetStateAction<GlobalState>>];
 
-const globalContext = React.createContext<GlobalContext>([globalState, () => {}]);
+const globalContext = React.createContext<GlobalContext>([initialGlobalState, () => {}]);
 
 export const GlobalProvider = (props: React.PropsWithChildren) => {
-  const state = React.useState(globalState);
+  const state = React.useState(initialGlobalState);
   return <globalContext.Provider value={state}>{props.children}</globalContext.Provider>;
 };
 

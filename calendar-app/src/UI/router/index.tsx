@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import useGlobalContext from 'src/hooks/useGlobalContext/index';
+import { api } from 'src/services/api/routes';
 import GlobalCSS from 'src/styles/globalCSS';
 import { darkBackground, defaulTheme } from 'src/styles/theme';
 import { generateTheme } from 'src/utils/theme';
 import { ThemeProvider } from 'styled-components';
 
-import BoardPage from './Board';
-import HomePage from './Home';
-import NotesPage from './Notes';
+import { pages } from '../pages';
 
 const Router = () => {
-  const [global] = useGlobalContext();
+  const [global, setGlobal] = useGlobalContext();
   const [theme, setTheme] = useState(defaulTheme);
 
   useEffect(() => {
@@ -28,13 +27,20 @@ const Router = () => {
     setTheme({ ...theme, colors });
   }, [global.settings.theme]);
 
+  useEffect(() => {
+    api.settings
+      .fetchSettings()
+      .then(settings => setGlobal({ ...global, settings }))
+      .catch(console.error);
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalCSS />
       <Routes location={global.path}>
-        <Route path="/board" element={<BoardPage />} />
-        <Route path="/notes" element={<NotesPage />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/board" element={<pages.Board />} />
+        <Route path="/notes" element={<pages.Notes />} />
+        <Route path="/" element={<pages.Home />} />
       </Routes>
     </ThemeProvider>
   );

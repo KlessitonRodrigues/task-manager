@@ -8,7 +8,6 @@ import ToolBarForm from 'src/UI/base/ToolBarForm';
 import useGlobalContext from 'src/hooks/useGlobalContext';
 
 const SettingsForm = () => {
-  const [form, setForm] = useState({});
   const [expanded, setExpanded] = useState('');
   const [global, setGlobal] = useGlobalContext();
 

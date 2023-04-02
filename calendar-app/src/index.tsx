@@ -1,6 +1,6 @@
 import reactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import Router from 'src/UI/pages/routes';
+import Router from 'src/UI/router';
 import { GlobalProvider } from 'src/hooks/useGlobalContext';
 
 const App = () => (

@@ -1,7 +1,7 @@
-export const globalState: GlobalState = {
+export const initialGlobalState: GlobalState = {
   path: '/',
   currentDate: new Date().toISOString(),
-  settings: { dbLocation: 'local', theme: { mode: 'dark', main: '#4d8f5f', alter: '#ff0000' } },
+  settings: { dbLocation: 'local', theme: { mode: 'dark', main: '#3260a8', alter: '#ff0000' } },
   databaseLastUpdate: 0,
   dispatchPanel: undefined,
 };

@@ -2,7 +2,7 @@ const dbName = 'calendar_app_data';
 
 export const initialLocalDB: LocalDB = {
   lastUpdate: '',
-  settings: { dbLocation: 'local', theme: { mode: 'light', main: '#402a87', alter: '#ff0000' } },
+  settings: { dbLocation: 'local', theme: { mode: 'dark', main: '#3260a8', alter: '#ff0000' } },
   events: [],
 };
 

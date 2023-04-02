@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { useState } from 'react';
 import {
   HiCheckCircle,
@@ -16,6 +15,7 @@ import Display from 'src/UI/base/Display';
 import FormTitle from 'src/UI/base/FormTitle';
 import TextArea from 'src/UI/base/TextArea';
 import ToolBarForm from 'src/UI/base/ToolBarForm';
+import { api } from 'src/services/api/routes';
 
 const EditEventForm = (props: EditEventFormProps) => {
   const { data } = props;
@@ -26,18 +26,19 @@ const EditEventForm = (props: EditEventFormProps) => {
     <ToolBarForm>
       <FormTitle label="Edit Event" />
 
-      <Display size="50%" label="Event" value={name} />
+      <Display size="33%" label="Name" value={name} />
+      <Display size="66%" label="Description" value={description} />
+
+      <Display size="33%" label="Doing time" value={currentTodo?.doingTime || '0'} />
       <Display
-        size="25%"
+        size="66%"
         label="Occurency"
         value={`${currentTodoOcurrence + 1} of ${todoAmount}`}
       />
-      <Display size="50%" label="Description" value={description} />
-      <Display size="100%" label="Doing time" value={currentTodo?.doingTime || '0'} />
 
       <CheckboxPanel
         label="State"
-        iconFontSize="2.2rem"
+        iconFontSize="2rem"
         values={[form.currentTodo.status || 'todo']}
         onChangeOne={(status: EventDayStatus) =>
           setForm({ ...form, currentTodo: { ...form.currentTodo, status } })
@@ -67,7 +68,7 @@ const EditEventForm = (props: EditEventFormProps) => {
         onChange={notes => setForm({ ...form, currentTodo: { ...form.currentTodo, notes } })}
       />
 
-      <Button label="Update" variant="solid" />
+      <Button label="Update" variant="solid" onClick={() => api.todos.updateTodo({ data: form })} />
     </ToolBarForm>
   );
 };

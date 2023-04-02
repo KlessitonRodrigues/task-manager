@@ -17,5 +17,5 @@ type UpdateSettingsParams = {
 };
 
 type UpdateTodoParams = {
-  data: CalendarEvent;
+  data: CalendarDayEvent;
 };

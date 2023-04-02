@@ -56,7 +56,7 @@ type DisplayProps = {
   label?: string;
   value?: any;
   color?: 'main' | 'none';
-  size?: '25%' | '33%' | '50%' | '75%' | '100%';
+  size?: '25%' | '33%' | '50%' | '66%' | '75%' | '100%';
 };
 
 type CreateEventPanelProps = {
