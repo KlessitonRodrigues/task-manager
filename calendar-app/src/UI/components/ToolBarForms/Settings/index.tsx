@@ -7,14 +7,13 @@ import FormTitle from 'src/UI/base/FormTitle';
 import ToolBarForm from 'src/UI/base/ToolBarForm';
 import useGlobalContext from 'src/hooks/useGlobalContext';
 
-const SettingsForm = () => {
-  const [expanded, setExpanded] = useState('');
-  const [global, setGlobal] = useGlobalContext();
+import { handleTheme } from './Services/handleTheme';
 
-  const handleThemeChange = (value: Partial<SettingsDB['theme']>) => {
-    const newTheme = { ...global.settings.theme, ...value };
-    setGlobal({ ...global, settings: { ...global.settings, theme: newTheme } });
-  };
+const SettingsForm = () => {
+  const [global, setGlobal] = useGlobalContext();
+  const [expanded, setExpanded] = useState('theme');
+
+  const themeState = handleTheme(global, setGlobal);
 
   return (
     <ToolBarForm>
@@ -27,24 +26,18 @@ const SettingsForm = () => {
             { value: 'light', icon: <BsSun />, checkedIcon: <BsSunFill /> },
             { value: 'dark', icon: <BsMoon />, checkedIcon: <BsMoonFill /> },
           ]}
-          onChangeOne={(mode: 'dark' | 'light') => handleThemeChange({ mode })}
+          onChangeOne={themeState.setMode}
         />
-        <ColorPicker bg="#0277BD" selected onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#347383" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#467444" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#0B6F17" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#6E71C4" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#8272E9" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#623DF5" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#8a7407" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#702e8e" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#7A542E" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker bg="#633617" onClick={main => handleThemeChange({ main })} />
-        <ColorPicker
-          picker
-          border={global.settings.theme.main}
-          onPickColor={main => handleThemeChange({ main })}
-        />
+        <ColorPicker bg="#3d3d3d" onClick={themeState.setMain} />
+        <ColorPicker bg="#485270" onClick={themeState.setMain} />
+        <ColorPicker bg="#2a66de" selected onClick={themeState.setMain} />
+        <ColorPicker bg="#2074b0" onClick={themeState.setMain} />
+        <ColorPicker bg="#175e4b" onClick={themeState.setMain} />
+        <ColorPicker bg="#684885" onClick={themeState.setMain} />
+        <ColorPicker bg="#491f9c" onClick={themeState.setMain} />
+        <ColorPicker bg="#611335" onClick={themeState.setMain} />
+        <ColorPicker bg="#613a00" onClick={themeState.setMain} />
+        <ColorPicker picker border={global.settings.theme.main} onPickColor={themeState.setMain} />
       </FormContent>
 
       <FormContent label="general" expanded={expanded === 'general'} onExpand={setExpanded}>
