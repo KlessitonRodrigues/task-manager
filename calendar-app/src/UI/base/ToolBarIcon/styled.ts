@@ -21,10 +21,7 @@ export const NavIconContainer = styled.div<{ act?: boolean }>(
     ${props.act &&
     css`
       background-color: ${props.theme.colors.current.bg1};
-      color: ${props.theme.colors.current.main};
-      :hover {
-        color: ${props.theme.colors.current.main};
-      }
+      color: ${props.theme.colors.current.text1};
       ${NavIcon} {
         animation: ${navTransition} 0.5s;
       }
@@ -58,7 +55,7 @@ export const FormIconContainer = styled.div<{ act?: boolean }>(
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: ${props.theme.colors.current.text3};
+    color: ${props.theme.colors.current.text2};
     cursor: pointer;
     :hover {
       color: ${props.theme.colors.current.main};

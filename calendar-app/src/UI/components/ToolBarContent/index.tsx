@@ -33,7 +33,7 @@ const TooBarContent = () => {
       ]}
       footerButtons={[
         {
-          label: 'settings2',
+          label: 'settings',
           icon: <BsGear />,
           form: Forms.SettingsForm,
         },
