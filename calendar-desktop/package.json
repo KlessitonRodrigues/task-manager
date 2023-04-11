@@ -1,9 +1,0 @@
-{
-  "name": "calendar-desktop",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "@neutralinojs/neu": "^9.3.1"
-  }
-}
