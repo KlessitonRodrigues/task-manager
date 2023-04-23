@@ -7,7 +7,7 @@ import { updateSettings } from './settings/update';
 import { deleteTodo } from './todos/delete';
 import { updateTodo } from './todos/update';
 
-export const api = {
+export const routes = {
   events: {
     createEvent,
     deleteEvent,

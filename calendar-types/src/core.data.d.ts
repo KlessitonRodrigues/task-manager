@@ -2,8 +2,6 @@ type EventDayStatus = 'canceled' | 'todo' | 'doing' | 'done';
 
 type EventFormRepeatPeriod = 'day' | 'week' | '2-week' | 'month';
 
-type EventFormRepeatAtDays = ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
-
 type SplitedDate = {
   day: number;
   month: number;
@@ -35,7 +33,7 @@ type CalendarEvent = {
   description?: string;
   dateISO?: string;
   repeatBy?: EventFormRepeatPeriod;
-  repeatAt?: EventFormRepeatAtDays;
+  repeatAt?: WeekDayName[];
   todos: CalendarTodo[];
 };
 
