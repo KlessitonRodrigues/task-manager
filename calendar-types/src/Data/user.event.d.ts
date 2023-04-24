@@ -7,7 +7,7 @@ type UserEventTodo = {
   note: string;
 };
 
-type UserEvents = {
+type UserEvent = {
   id: string;
   name: string;
   description: string;

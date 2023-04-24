@@ -13,5 +13,5 @@ type UserSettings = {
 type User = {
   information: UserInformation;
   settings: UserSettings;
-  events: UserEvents[];
+  events: UserEvent[];
 };

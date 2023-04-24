@@ -1,0 +1,3 @@
+type LocalDataBase = {
+  user: User;
+};
