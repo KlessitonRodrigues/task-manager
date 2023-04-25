@@ -1,9 +1,7 @@
-import { database } from './controllers';
+import { controllers } from './controllers';
+import { services } from './services';
 
-export const apiClientInit = (initApiClient: ClientConfig) => {
-  console.log('initApiClient', initApiClient);
-
-  return {
-    database,
-  };
-};
+export const apiClientInit = (config: ClientConfig) => ({
+  controllers: controllers(config),
+  services: services(config),
+});

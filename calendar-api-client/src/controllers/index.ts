@@ -1,7 +1,9 @@
 import { createEvent } from './events/create';
 import { readEvents } from './events/read';
 
-export const database = {
-  createEvent,
-  readEvents,
-};
+export const controllers = (config: ClientConfig) => ({
+  event: {
+    create: createEvent(config),
+    read: readEvents(config),
+  },
+});

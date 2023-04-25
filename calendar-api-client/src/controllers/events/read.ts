@@ -1,4 +1,6 @@
-export const readEvents = (config: ClientConfig, newEv: UserEvent) => {
-  const localData = config.localStorage.onReading();
+export const readEvents = (config: ClientConfig) => () => {
+  const { onReading } = config.localStorage;
+
+  const localData = onReading();
   return localData.user.events;
 };

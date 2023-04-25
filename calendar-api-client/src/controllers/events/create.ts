@@ -1,6 +1,8 @@
-export const createEvent = (config: ClientConfig, newEv: UserEvent) => {
-  const localData = config.localStorage.onReading();
+export const createEvent = (config: ClientConfig) => (newEv: UserEvent) => {
+  const { onReading, onSaving } = config.localStorage;
+  const localData = onReading();
+
   localData.user.events.push(newEv);
-  config.localStorage.onSaving(localData);
+  onSaving(localData);
   return localData.user.events;
 };
