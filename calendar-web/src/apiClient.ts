@@ -1,10 +1,9 @@
-import { apiClientInit } from './@client/src';
+import { apiClientInit } from 'src/@client/src';
+import { storageHandlers } from 'src/utils/localStorage/handlers';
 
-export const apiClient = apiClientInit({
+export const client = apiClientInit({
   platform: 'web',
+  apiUrl: '',
   dataSync: false,
-  localStorage: {
-    onReading: () => localStorage.getItem('CALENDAR_APP'),
-    onSaving: data => localStorage.setItem('CALENDAR_APP', data),
-  },
+  local: storageHandlers('APP_DATA'),
 });

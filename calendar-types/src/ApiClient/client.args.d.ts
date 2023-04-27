@@ -1,8 +1,9 @@
 type ClientConfig = {
   platform: 'web' | 'mobile';
-  dataSync: false;
-  localStorage: {
-    onSaving: (data: LocalDataBase) => void;
-    onReading: () => LocalDataBase;
+  apiUrl: string;
+  dataSync: boolean;
+  local: {
+    write: (data: LocalDataBase) => LocalDataBase;
+    read: () => LocalDataBase;
   };
 };

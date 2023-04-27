@@ -14,4 +14,5 @@ type User = {
   information: UserInformation;
   settings: UserSettings;
   events: UserEvent[];
+  todos: UserEventTodo[];
 };
