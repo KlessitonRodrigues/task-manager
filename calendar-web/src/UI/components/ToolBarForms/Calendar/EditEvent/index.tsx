@@ -15,7 +15,6 @@ import Display from 'src/UI/base/Display';
 import FormTitle from 'src/UI/base/FormTitle';
 import TextArea from 'src/UI/base/TextArea';
 import ToolBarForm from 'src/UI/base/ToolBarForm';
-import { api } from 'src/services/api/routes';
 
 const EditEventForm = (props: EditEventFormProps) => {
   const { data } = props;
@@ -68,7 +67,7 @@ const EditEventForm = (props: EditEventFormProps) => {
         onChange={notes => setForm({ ...form, currentTodo: { ...form.currentTodo, notes } })}
       />
 
-      <Button label="Update" variant="solid" onClick={() => api.todos.updateTodo({ data: form })} />
+      <Button label="Update" variant="solid" onClick={() => {}} />
     </ToolBarForm>
   );
 };

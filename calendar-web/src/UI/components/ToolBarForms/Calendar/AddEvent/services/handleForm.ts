@@ -1,4 +1,3 @@
-import { api } from 'src/services/api/routes';
 import { createUID } from 'src/utils/uid';
 
 export const initialData: AddEventForm = {
@@ -12,5 +11,4 @@ export const initialData: AddEventForm = {
 
 export const submitEventForm = (form: AddEventForm) => {
   const data: CalendarEvent = { ...form, todos: [] };
-  api.events.createEvent({ data });
 };

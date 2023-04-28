@@ -4,8 +4,15 @@ import CalendarWeek from 'src/UI/base/CalendarWeek';
 import { client } from 'src/apiClient';
 
 export const renderWeeks = () => {
-  const events = client.controllers.event.read({ month: '01/01/2023' });
-  const weeksToRender = [];
+  const { monthWeeks } = client.calendar.monthDates(new Date().toISOString());
 
-  events.map(() => {});
+  return monthWeeks.map(week => (
+    <CalendarWeek>
+      {week.map((day: any) => (
+        <CalendarDay day="1" month="2" selectedMonth="2">
+          a
+        </CalendarDay>
+      ))}
+    </CalendarWeek>
+  ));
 };

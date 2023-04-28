@@ -5,11 +5,10 @@ import { formatMonthLabel } from './services/monthLabel';
 import { Container, DateButton, DateContainer, DateLabel, HeaderContainer } from './styled';
 
 const CalendarHeader = (props: CalendarHeaderProps) => {
-  const { currentDateState } = props;
-  const [currentDate, setDate] = currentDateState;
+  const { currentDate, onNext, onPrev } = props;
   const monthLabel = formatMonthLabel(currentDate);
-  const prevMonth = () => setDate(monthDate.prev(currentDate));
-  const nextMonth = () => setDate(monthDate.next(currentDate));
+  const prevMonth = () => onPrev(monthDate.prev(currentDate));
+  const nextMonth = () => onNext(monthDate.next(currentDate));
 
   return (
     <Container>

@@ -26,7 +26,7 @@ const SettingsForm = () => {
             { value: 'light', icon: <BsSun />, checkedIcon: <BsSunFill /> },
             { value: 'dark', icon: <BsMoon />, checkedIcon: <BsMoonFill /> },
           ]}
-          onChangeOne={themeState.setMode}
+          //onChangeOne={themeState.setMode}
         />
         <ColorPicker bg="#3d3d3d" onClick={themeState.setMain} />
         <ColorPicker bg="#485270" onClick={themeState.setMain} />

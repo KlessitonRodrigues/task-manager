@@ -35,9 +35,9 @@ export const renderActionBtns = (props: RenderNavigationBtns) => {
 
   if (active.tab === '') return false;
 
-  const navBtn = navigationButtons.find(navBtn => navBtn.label === active.nav);
+  const navBtn = navigationButtons.find(navBtn => navBtn.label === active.panel);
   return navBtn?.actionButtons?.map(actionBtn => {
-    const isDisabled = active.tab != '' && active.panel !== actionBtn.label;
+    const isDisabled = active.tab != 'CALENDAR' && active.panel !== actionBtn.label;
     return (
       <ToolBarFormIcon
         variant="subIcon"
@@ -47,7 +47,7 @@ export const renderActionBtns = (props: RenderNavigationBtns) => {
         disable={isDisabled}
         onClick={label => {
           const action = label === active.tab ? '' : label;
-          !isDisabled && setActive({ ...active, action });
+          !isDisabled && setActive({ ...active });
         }}
       />
     );
