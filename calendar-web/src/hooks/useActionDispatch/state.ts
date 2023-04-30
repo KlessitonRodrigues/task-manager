@@ -1,3 +1,3 @@
 export const initialState: ActionState = {
-  action: null,
+  action: { to: '', type: '', data: null },
 };

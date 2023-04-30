@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV == 'production';
 const config = {
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'dist', 'bundle'),
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   devServer: {

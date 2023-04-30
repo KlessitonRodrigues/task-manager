@@ -6,9 +6,9 @@ import { darkBackground, defaulTheme } from 'src/styles/theme';
 import { generateTheme } from 'src/utils/theme';
 import { ThemeProvider } from 'styled-components';
 
-import BoardPage from './Board';
-import HomePage from './Home';
-import NotesPage from './Notes';
+import BoardPage from '../UI/pages/Board';
+import HomePage from '../UI/pages/Home';
+import NotesPage from '../UI/pages/Notes';
 
 const Router = () => {
   const [global] = useGlobalContext();

@@ -61,6 +61,6 @@ export const renderForm = (props: RenderNavigationBtns) => {
     return footerButtons.find(navBtn => navBtn.label === active.panel)?.form;
 
   const nav = navigationButtons.find(navBtn => navBtn.label === active.panel);
-  const action = nav.actionButtons.find(actionsBtn => actionsBtn.label === active.panel);
+  const action = nav?.actionButtons.find(actionsBtn => actionsBtn.label === active.panel);
   return action?.form || false;
 };

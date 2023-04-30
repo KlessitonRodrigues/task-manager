@@ -28,9 +28,7 @@ const ToolBar = (props: ToolBarProps) => {
 
   useEffect(() => {
     const { to, type } = dispatch.action;
-    if (to === 'EDIT_PANEL') {
-      if (type === 'EDIT') setActive({ tab: 'CALENDAR', panel: 'EDIT' });
-    }
+    if (to === 'EDIT_PANEL' && type === 'EDIT') setActive({ tab: 'CALENDAR', panel: 'EDIT' });
   }, [dispatch.action]);
 
   return (

@@ -18,8 +18,8 @@ export const Background = styled.div(
     position: absolute;
     z-index: 2;
     display: flex;
-    animation: ${fadeBg} 0.6s ease-out;
     backdrop-filter: blur(4px);
+    animation: ${fadeBg} 0.4s ease-out;
   `
 );
 
@@ -31,10 +31,10 @@ export const Container = styled.div(
     padding: ${props.theme.size(4)};
     margin-top: ${props.theme.size(10)};
     margin-left: ${props.theme.size(10)};
-    animation: ${fadeIn} 0.6s ease-out;
     background-color: ${props.theme.colors.current.bg1};
     border-radius: ${props.theme.border.radius.medium};
     box-shadow: ${props.theme.shadow.low};
     border: ${props.theme.border.type.medium};
+    animation: ${fadeIn} 0.4s ease-out;
   `
 );
