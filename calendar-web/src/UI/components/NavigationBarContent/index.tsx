@@ -4,6 +4,7 @@ import {
   BsBook,
   BsCalendar3,
   BsChat,
+  BsGear,
   BsPencil,
   BsPlusLg,
   BsSearch,
@@ -14,7 +15,6 @@ const NavigationBarContent = () => {
   const [active, setActive] = useState<NavigationBarProps['active']>({
     nav: 'home',
     action: '',
-    panel: '',
   });
 
   return (
@@ -22,7 +22,7 @@ const NavigationBarContent = () => {
       active={active}
       onNavChange={nav => setActive({ ...active, nav })}
       onActionChange={action => setActive({ ...active, action })}
-      onPanelChange={panel => setActive({ ...active, panel })}
+      onClosePanelChange={() => setActive({ ...active, action: '' })}
       navigation={[
         { label: 'home', icon: <BsCalendar3 /> },
         { label: 'events', icon: <BsChat /> },
@@ -48,13 +48,25 @@ const NavigationBarContent = () => {
       ]}
       panels={[
         {
-          label: 'create',
+          label: 'Create event',
           nav: 'home',
           action: 'create',
           render: () => <div>TEST</div>,
         },
+        {
+          label: 'Edit event',
+          nav: 'home',
+          action: 'edit',
+          render: () => <div>TEST 2</div>,
+        },
+        {
+          label: 'Search event',
+          nav: 'home',
+          action: 'search',
+          render: () => <div>TEST 3</div>,
+        },
       ]}
-      footerButtons={[]}
+      footer={[{ label: 'Settings', icon: <BsGear /> }]}
     />
   );
 };

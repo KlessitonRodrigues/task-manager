@@ -7,6 +7,7 @@ type GlobalContext = [GlobalState, React.Dispatch<React.SetStateAction<GlobalSta
 
 type ActionState = {
   action:
+    | { to: ''; type: ''; data: null }
     | { to: 'EDIT_PANEL'; type: 'EDIT'; data: CalendarEvent }
     | { to: 'EDIT_PANEL'; type: 'EDIT'; data: CalendarEvent };
 };

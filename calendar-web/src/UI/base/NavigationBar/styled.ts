@@ -1,13 +1,22 @@
 import styled, { css, keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
-  from { transform: translateY(-40rem); opacity: 0.6; }
-  to { transform: translateY(0); opacity: 1; }
+  from { transform: translateY(-30rem); }
+  to { transform: translateY(0); }
+`;
+
+const fadeTopLeft = keyframes`
+  from { width: 0%; height: 0%; border-bottom-right-radius: 100%; }
+  to { width: 100%; height: 100%; }
 `;
 
 const fadeBg = keyframes`
   from { background-color: #0000; }
-  to { background-color: #0008; }
+  to { background-color: #0006; }
+`;
+
+const iconSlide = keyframes`
+  from {transform: translateX(-4rem); opacity: 0;}
 `;
 
 export const Container = styled.div(
@@ -17,6 +26,7 @@ export const Container = styled.div(
     text-transform: capitalize;
     position: relative;
     margin-right: ${props.theme.size(4)};
+    user-select: none;
   `
 );
 
@@ -32,30 +42,45 @@ export const NavigationContainer = styled.div(
     padding-top: ${props.theme.size(5)};
 
     :hover {
-      ${NavigationLabel} {
-        display: block;
-      }
-      & ~ ${ActionContainer} ${ActionLabel} {
-        display: block;
+      ${NavigationLabel}, & ~ ${ActionContainer} ${ActionLabel} {
+        width: ${props.theme.size(25)};
+        opacity: 1;
       }
     }
   `
 );
 
-export const NavigationItem = styled.div(
+export const NavigationDivisor = styled.div(
+  () => css`
+    height: 100%;
+  `
+);
+
+export const NavigationItem = styled.div<{ active: boolean }>(
   props => css`
     width: 100%;
     display: flex;
     align-items: center;
     gap: ${props.theme.size(3)};
     padding: ${props.theme.size(2)} ${props.theme.size(5)};
+    padding-right: ${props.theme.size(3)};
     border-radius: ${props.theme.border.radius.medium};
     cursor: pointer;
     transition: 0.1s;
+    opacity: ${props.active ? 1 : 0.5};
+    border: 2px solid transparent;
+
+    ${props.active &&
+    css`
+      ${NavigationIcon} {
+        animation: ${iconSlide} 0.3s;
+        opacity: 1;
+      }
+    `}
 
     :hover {
-      background-color: ${props.theme.colors.white};
-      color: ${props.theme.colors.current.main};
+      border: 2px solid ${props.theme.colors.white};
+      opacity: 0.8;
     }
   `
 );
@@ -69,7 +94,10 @@ export const NavigationIcon = styled.div(
 
 export const NavigationLabel = styled.div(
   props => css`
-    display: none;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: 0.3s ease-out;
   `
 );
 
@@ -78,27 +106,31 @@ export const ActionContainer = styled.div(
   props => css`
     padding: ${props.theme.size(1)};
     background-color: ${props.theme.colors.current.bg2};
-    padding-top: ${props.theme.size(5)};
+    padding-top: ${props.theme.size(5.5)};
 
     :hover {
       ${ActionLabel} {
-        display: block;
+        opacity: 1;
+        width: ${props.theme.size(25)};
       }
     }
   `
 );
 
-export const ActionItem = styled.div(
+export const ActionItem = styled.div<{ active: boolean }>(
   props => css`
     width: 100%;
     display: flex;
     align-items: center;
     cursor: pointer;
     transition: 0.1s;
-    gap: ${props.theme.size(3)};
-    padding: ${props.theme.size(2)} ${props.theme.size(5)};
+    gap: ${props.theme.size(2)};
+    padding: ${props.theme.size(3)} ${props.theme.size(5)};
+    padding-right: ${props.theme.size(3)};
     margin-bottom: ${props.theme.size(2)};
     border-radius: ${props.theme.border.radius.medium};
+
+    ${props.active && `color: ${props.theme.colors.current.main};`}
 
     :hover {
       background-color: ${props.theme.colors.current.bg3};
@@ -115,7 +147,10 @@ export const ActionIcon = styled.div(
 
 export const ActionLabel = styled.div(
   props => css`
-    display: none;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: 0.3s ease-out;
   `
 );
 
@@ -124,10 +159,10 @@ export const PanelContainer = styled.div<{ active: boolean }>(
   props => css`
     height: 100%;
     left: 100%;
-    width: 90vw;
+    width: 100vw;
     position: absolute;
-    background-color: #0008;
-    animation: ${fadeBg} 0.6s ease-out;
+    background-color: #0006;
+    animation: ${fadeBg} 0.3s ease-out;
     display: ${props.active ? 'block' : 'none'};
   `
 );
@@ -144,6 +179,33 @@ export const Panel = styled.div(
     background-color: ${props.theme.colors.current.bg1};
     border-radius: ${props.theme.border.radius.medium};
     box-shadow: ${props.theme.shadow.medium};
-    animation: ${fadeIn} 0.6s ease-out;
+    border: ${props.theme.border.type.medium};
+    animation: ${fadeTopLeft} 0.8s;
+  `
+);
+
+export const PanelHeader = styled.div(
+  () => css`
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  `
+);
+
+export const PanelTitle = styled.div(
+  props => css`
+    font-size: ${props.theme.fontSize.h2};
+    margin-bottom: ${props.theme.size(10)};
+  `
+);
+
+export const PanelCloseBtn = styled.div(
+  props => css`
+    font-size: ${props.theme.size(6)};
+    cursor: pointer;
+
+    :hover {
+      color: ${props.theme.colors.current.main};
+    }
   `
 );

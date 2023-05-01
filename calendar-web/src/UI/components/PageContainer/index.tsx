@@ -1,5 +1,4 @@
 import { PropsWithChildren } from 'react';
-import ToolBarContent from 'src/UI/components/ToolBarContent';
 
 import NavigationBarContent from '../NavigationBarContent';
 import { Page, PageContent } from './styled';

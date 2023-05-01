@@ -8,8 +8,8 @@ import { deleteEvent } from './events/delete';
 
 export const controllers = (config: ClientConfig) => ({
   calendar: {
-    monthDates: monthDates(config),
-    splitDate: splitDate(config),
+    monthDates,
+    splitDate,
   },
 
   event: {

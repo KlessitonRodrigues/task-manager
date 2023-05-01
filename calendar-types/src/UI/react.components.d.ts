@@ -73,7 +73,9 @@ type EditEventPanelProps = {
 type CalendarProps = {};
 
 type CalendarHeaderProps = {
-  currentDateState: [string, (date: string) => void];
+  currentDate: string;
+  onNext: (date: string) => void;
+  onPrev: (date: string) => void;
 };
 
 type FormContentProps = {
@@ -101,6 +103,32 @@ type RenderCalendarDataProps = {
   currentDate?: string;
   events?: CalendarEvent[];
   onExpandWeek?: (index: number) => void;
+};
+
+type NavigationBarProps = {
+  active: { nav: string; action: string };
+  onNavChange: (label) => void;
+  onActionChange: (label) => void;
+  onClosePanelChange: () => void;
+  navigation: {
+    label: string;
+    icon: React.ReactElement;
+  }[];
+  actions: {
+    label: string;
+    nav: string;
+    icon: React.ReactElement;
+  }[];
+  panels: {
+    label: string;
+    nav: string;
+    action: string;
+    render: (data?: any) => React.ReactElement;
+  }[];
+  footer: {
+    label: string;
+    icon: React.ReactElement;
+  }[];
 };
 
 type ToolBarProps = {
