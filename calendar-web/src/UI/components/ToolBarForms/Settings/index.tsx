@@ -16,8 +16,7 @@ const SettingsForm = () => {
   const themeState = handleTheme(global, setGlobal);
 
   return (
-    <ToolBarForm>
-      <FormTitle label="Settings" />
+    <>
       <FormContent label="theme" expanded={expanded === 'theme'} onExpand={setExpanded}>
         <CheckboxPanel
           iconFontSize="1.2rem"
@@ -51,7 +50,7 @@ const SettingsForm = () => {
       <FormContent label="database" expanded={expanded === 'database'} onExpand={setExpanded}>
         HELLO
       </FormContent>
-    </ToolBarForm>
+    </>
   );
 };
 

@@ -54,7 +54,7 @@ export const DateButton = styled.div(
     background-color: ${props.theme.colors.current.mainBg};
     box-shadow: none;
     color: ${props.theme.colors.white};
-    border-radius: ${props.theme.border.radius.medium};
+    border-radius: ${props.theme.border.radius.small};
     cursor: pointer;
   `
 );

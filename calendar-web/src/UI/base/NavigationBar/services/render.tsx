@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import { BsXLg } from 'react-icons/bs';
-import useAnimateClass from 'src/hooks/useAnimationRef';
 
 import {
   ActionContainer,
@@ -68,17 +66,11 @@ export const RenderActionButtons = (props: NavigationBarProps) => {
 export const RenderPanels = (props: NavigationBarProps) => {
   const { nav, action } = props.active;
   const panel = props.panels.find(p => p.nav === nav && p.action === action);
-  const animate = useAnimateClass();
-
-  useEffect(() => {
-    animate.addAnimtateIn();
-    return () => animate.addAnimtateOut();
-  }, [action]);
 
   if (!panel) return false;
 
   return (
-    <PanelContainer active={!!panel} ref={animate.getReactRef}>
+    <PanelContainer active={!!panel}>
       <Panel>
         <PanelHeader>
           <PanelTitle>{panel.label}</PanelTitle>

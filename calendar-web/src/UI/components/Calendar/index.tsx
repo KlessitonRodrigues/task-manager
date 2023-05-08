@@ -1,18 +1,19 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
+import CalendarGrid from 'src/UI/base/CalendarGrid';
 import CalendarHeader from 'src/UI/base/CalendarHeader';
 
-import { renderWeeks } from './services/renderWeeks';
-import { Container, Content } from './styled';
+import { getContent } from './services/getContent';
+import { Container } from './styled';
 
 export const Calendar = () => {
   const [expandedWeek, setWeek] = useState(0);
-  const [currentDate, setDate] = useState('');
-  const weeksToRender = renderWeeks();
+  const [currentDate, setDate] = useState(new Date().toISOString());
+  const dates = useMemo(() => getContent(currentDate), [currentDate]);
 
   return (
     <Container>
-      <CalendarHeader currentDate={currentDate} onNext={() => {}} onPrev={() => {}} />
-      <Content week={expandedWeek + 1}>{weeksToRender}</Content>
+      <CalendarHeader currentDate={currentDate} onNext={setDate} onPrev={setDate} />
+      <CalendarGrid dates={dates} week={expandedWeek} onChangeWeek={setWeek} />
     </Container>
   );
 };

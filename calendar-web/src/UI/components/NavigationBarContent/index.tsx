@@ -11,6 +11,8 @@ import {
 } from 'react-icons/bs';
 import NavigationBar from 'src/UI/base/NavigationBar';
 
+import SettingsForm from '../ToolBarForms/Settings';
+
 const NavigationBarContent = () => {
   const [active, setActive] = useState<NavigationBarProps['active']>({
     nav: 'home',
@@ -20,7 +22,7 @@ const NavigationBarContent = () => {
   return (
     <NavigationBar
       active={active}
-      onNavChange={nav => setActive({ ...active, nav })}
+      onNavChange={nav => setActive({ ...active, nav, action: '' })}
       onActionChange={action => setActive({ ...active, action })}
       onClosePanelChange={() => setActive({ ...active, action: '' })}
       navigation={[
@@ -64,6 +66,12 @@ const NavigationBarContent = () => {
           nav: 'home',
           action: 'search',
           render: () => <div>TEST 3</div>,
+        },
+        {
+          label: 'Settings',
+          nav: 'Settings',
+          action: '',
+          render: SettingsForm,
         },
       ]}
       footer={[{ label: 'Settings', icon: <BsGear /> }]}

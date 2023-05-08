@@ -1,10 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 
-const fadeIn = keyframes`
-  from { transform: translateY(-30rem); }
-  to { transform: translateY(0); }
-`;
-
 const fadeTopLeft = keyframes`
   from { width: 0%; height: 0%; border-bottom-right-radius: 100%; }
   to { width: 100%; height: 100%; }
@@ -161,6 +156,7 @@ export const PanelContainer = styled.div<{ active: boolean }>(
     left: 100%;
     width: 100vw;
     position: absolute;
+    z-index: 1;
     background-color: #0006;
     animation: ${fadeBg} 0.3s ease-out;
     display: ${props.active ? 'block' : 'none'};
