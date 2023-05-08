@@ -11,7 +11,7 @@ import {
 } from 'react-icons/bs';
 import NavigationBar from 'src/UI/base/NavigationBar';
 
-import SettingsForm from '../ToolBarForms/Settings';
+import SettingsForm from '../NavigationBarPanels/Settings';
 
 const NavigationBarContent = () => {
   const [active, setActive] = useState<NavigationBarProps['active']>({

@@ -30,11 +30,11 @@ export const WeekContainer = styled.div(
     ::before {
       content: '';
       padding: ${props.theme.size(1)};
-      border-left: 5px solid ${props.theme.colors.current.main}55;
+      border-left: 6px solid ${props.theme.colors.current.main}55;
       position: absolute;
       right: -${props.theme.size(4)};
       top: 0;
-      height: 85%;
+      height: 95%;
     }
 
     :hover::before {
