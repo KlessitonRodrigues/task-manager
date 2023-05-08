@@ -1,7 +1,8 @@
 import moment, { Moment } from 'moment';
-import { weekName } from '../../utils/date/weekNames';
 
-export const splitDate = (date: string | Moment) => {
+import { weekName } from '../../../../utils/date/weekNames';
+
+export const splitDate = (date: string | Moment): DateInfo => {
   const dateObj = moment(date);
 
   const splited = {

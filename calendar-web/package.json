@@ -7,7 +7,7 @@
     "build": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "start": "http-server dist/bundle",
+    "start": "http-server dist/",
     "lint-format": "prettier -c -w ./src"
   },
   "dependencies": {

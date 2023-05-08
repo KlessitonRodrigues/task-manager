@@ -1,15 +1,19 @@
-import { monthDates } from './calendar/monthDates';
-import { splitDate } from './calendar/splitDate';
-
+import { dates } from './calendar/dates';
+import { datesByColumns } from './calendar/datesByColumns';
+import { resetLocalData } from './database/resetLocalData';
 import { createEvent } from './events/create';
+import { deleteEvent } from './events/delete';
 import { readEvents } from './events/read';
 import { updateEvent } from './events/update';
-import { deleteEvent } from './events/delete';
 
 export const controllers = (config: ClientConfig) => ({
   calendar: {
-    monthDates,
-    splitDate,
+    dates,
+    datesByColumns,
+  },
+
+  database: {
+    resetLocalData,
   },
 
   event: {

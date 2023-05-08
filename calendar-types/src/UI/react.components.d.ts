@@ -7,6 +7,12 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
+type CalendarGridProps = {
+  monthWeeks: DateInfo[][];
+  expandedWeek: number;
+  onChangeWeek: (index: number) => void;
+};
+
 type CalendarDayProps = {
   children?: React.ReactNode;
   month: string;
@@ -107,8 +113,8 @@ type RenderCalendarDataProps = {
 
 type NavigationBarProps = {
   active: { nav: string; action: string };
-  onNavChange: (label) => void;
-  onActionChange: (label) => void;
+  onNavChange: (label: string) => void;
+  onActionChange: (label: string) => void;
   onClosePanelChange: () => void;
   navigation: {
     label: string;

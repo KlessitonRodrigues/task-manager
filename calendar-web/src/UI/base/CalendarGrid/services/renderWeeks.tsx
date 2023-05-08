@@ -1,11 +1,10 @@
 import { DayContainer, DayContent, DayHeader, WeekContainer, WeekContent } from '../styled';
-import { splitArr } from './splitArr';
 
 export const renderWeeks = (props: CalendarGridProps) => {
-  const weeks = splitArr(props.dates, 7);
+  const { monthWeeks, onChangeWeek } = props;
 
-  return weeks.map((week, i) => (
-    <WeekContainer onClick={() => props.onChangeWeek(i)}>
+  return monthWeeks.map((week, i) => (
+    <WeekContainer onClick={() => onChangeWeek(i)}>
       <WeekContent>
         {week.map(day => (
           <DayContainer>

@@ -4,9 +4,10 @@ import { renderWeeks } from './services/renderWeeks';
 import { Container } from './styled';
 
 const CalendarGrid = (props: CalendarGridProps) => {
-  const WeeksToRender = useMemo(() => renderWeeks(props), props.dates);
+  const { monthWeeks, expandedWeek } = props;
+  const WeeksToRender = useMemo(() => renderWeeks(props), monthWeeks);
 
-  return <Container week={props.week}>{WeeksToRender}</Container>;
+  return <Container week={expandedWeek}>{WeeksToRender}</Container>;
 };
 
 export default CalendarGrid;

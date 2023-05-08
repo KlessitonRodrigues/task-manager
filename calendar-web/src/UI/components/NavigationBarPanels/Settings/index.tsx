@@ -3,8 +3,6 @@ import { BsMoon, BsMoonFill, BsSun, BsSunFill } from 'react-icons/bs';
 import CheckboxPanel from 'src/UI/base/CheckboxPanel';
 import ColorPicker from 'src/UI/base/ColorPicker';
 import FormContent from 'src/UI/base/FormContent';
-import FormTitle from 'src/UI/base/FormTitle';
-import ToolBarForm from 'src/UI/base/ToolBarForm';
 import useGlobalContext from 'src/hooks/useGlobalContext';
 
 import { handleTheme } from './Services/handleTheme';

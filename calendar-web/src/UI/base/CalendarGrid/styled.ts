@@ -30,7 +30,7 @@ export const WeekContainer = styled.div(
     ::before {
       content: '';
       padding: ${props.theme.size(1)};
-      border-left: 6px solid ${props.theme.colors.current.main}55;
+      border-left: 5px solid ${props.theme.colors.current.main}55;
       position: absolute;
       right: -${props.theme.size(4)};
       top: 0;
@@ -69,13 +69,14 @@ export const DayHeader = styled.div<{ outOfMonth?: boolean }>(
     padding: ${props.theme.size(2)};
     margin-bottom: ${props.theme.size(4)};
     border-radius: ${props.theme.border.radius.small};
-    background-color: ${props.theme.colors.current.mainBg};
+    background-color: ${props.theme.colors.current.main};
     color: ${props.theme.colors.white};
+    border: 1px solid transparent;
     font-weight: bold;
     user-select: none;
 
     :hover {
-      background-color: ${props.theme.colors.current.mainHover};
+      border-color: ${props.theme.colors.current.main};
     }
 
     ${props.outOfMonth && `background-color: ${props.theme.colors.gray}99;`}

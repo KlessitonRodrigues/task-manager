@@ -1,6 +1,6 @@
-import { UserTestData } from '../../data/user';
+import { UserTestData } from '../../../data/user';
 
-export const initLocalData = (config: ClientConfig) => () => {
+export const resetLocalData = (config: ClientConfig) => () => {
   const localData = config.local.read();
 
   if (localData.lastUpdate) return;
