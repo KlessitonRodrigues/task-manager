@@ -1,6 +1,6 @@
 import { UserTestData } from '../../../data/user';
 
-export const resetLocalData = (config: ClientConfig) => () => {
+export const initLocalData = (config: ClientConfig) => () => {
   const localData = config.local.read();
 
   if (localData.lastUpdate) return;

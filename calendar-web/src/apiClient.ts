@@ -7,3 +7,5 @@ export const client = apiClientInit({
   dataSync: false,
   local: storageHandlers('APP_DATA'),
 });
+
+client.database.initLocalData();

@@ -9,6 +9,7 @@ type ButtonProps = {
 
 type CalendarGridProps = {
   monthWeeks: DateInfo[][];
+  eventsByWeek: Record<WeekDayName, UserEvent[]>;
   expandedWeek: number;
   onChangeWeek: (index: number) => void;
 };

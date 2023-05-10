@@ -99,7 +99,6 @@ export const NavigationLabel = styled.div(
 // Action Bar
 export const ActionContainer = styled.div(
   props => css`
-    padding: ${props.theme.size(1)};
     background-color: ${props.theme.colors.current.bg2};
     padding-top: ${props.theme.size(5.5)};
 
@@ -120,8 +119,8 @@ export const ActionItem = styled.div<{ active: boolean }>(
     cursor: pointer;
     transition: 0.1s;
     gap: ${props.theme.size(2)};
-    padding: ${props.theme.size(3)} ${props.theme.size(5)};
-    padding-right: ${props.theme.size(3)};
+    padding: ${props.theme.size(3)} ${props.theme.size(7)};
+    padding-right: ${props.theme.size(5)};
     margin-bottom: ${props.theme.size(2)};
     border-radius: ${props.theme.border.radius.medium};
 
