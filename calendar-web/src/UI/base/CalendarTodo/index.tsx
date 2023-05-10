@@ -4,17 +4,17 @@ import { formatTime } from './services/formatTime';
 import { Column, Container, Time, Title } from './styled';
 
 const CalendarTodo = (props: CalendarTodoProps) => {
-  const { calendarEvent } = props;
+  const { userEvent } = props;
   const [action, setAction] = useActionDispatch();
 
-  const openEditForm = () =>
-    setAction({ action: { to: 'EDIT_PANEL', type: 'EDIT', data: calendarEvent } });
+  //const openEditForm = () =>
+  //  setAction({ action: { to: 'EDIT_PANEL', type: 'EDIT', data:  } });
 
   return (
-    <Container onClick={openEditForm}>
+    <Container>
       <Column>
-        <Time>{formatTime(calendarEvent.currentTodo.dateISO)}</Time>
-        <Title>{calendarEvent.name}</Title>
+        <Time>{userEvent.dateTime}</Time>
+        <Title>{userEvent.name}</Title>
       </Column>
     </Container>
   );

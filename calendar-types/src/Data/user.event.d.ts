@@ -13,4 +13,5 @@ type UserEvent = {
   name: string;
   description: string;
   weekDays: WeekDayName[];
+  dateTime: string;
 };

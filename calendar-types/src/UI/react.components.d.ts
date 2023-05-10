@@ -33,7 +33,7 @@ type IfProps = {
 };
 
 type CalendarTodoProps = {
-  calendarEvent?: CalendarDayEvent;
+  userEvent?: UserEvent;
 };
 
 type CheckboxPanelProps = {

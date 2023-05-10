@@ -10,7 +10,7 @@ export const splitDate = (date: string | Moment): DateInfo => {
     month: dateObj.get('month'),
     year: dateObj.get('year'),
     weekDay: dateObj.get('weekday'),
-    weekDayName: weekName[dateObj.get('weekday') as keyof typeof weekName],
+    weekDayName: weekName[dateObj.get('weekday') as keyof typeof weekName] as WeekDayName,
     weekOfYear: dateObj.get('weeks'),
     sec: dateObj.get('second'),
     min: dateObj.get('minute'),

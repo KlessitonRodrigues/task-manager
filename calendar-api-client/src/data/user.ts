@@ -15,12 +15,14 @@ export const UserTestData: User = {
       name: 'testing name',
       description: 'testing description',
       weekDays: ['sun', 'mon', 'tue', 'fri', 'thu', 'fri', 'sat'],
+      dateTime: '07:10',
     },
     {
       id: '000000000002',
       name: 'testing name2',
       description: 'testing description2',
       weekDays: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+      dateTime: '07:10',
     },
   ],
   todos: [

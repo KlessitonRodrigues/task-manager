@@ -5,7 +5,7 @@ type DateInfo = {
   month: number;
   year: number;
   weekDay: number;
-  weekDayName: string;
+  weekDayName: WeekDayName;
   weekOfYear: number;
   sec: number;
   min: number;
