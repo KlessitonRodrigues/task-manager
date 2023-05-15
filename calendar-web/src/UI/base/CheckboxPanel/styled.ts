@@ -48,6 +48,9 @@ export const Label = styled.div<{ display?: boolean }>(
     padding-bottom: ${props.theme.size(2)};
     font-size: ${props.theme.fontSize.label};
     color: ${props.theme.colors.current.text1};
+    display: flex;
+    align-items: center;
+    gap: ${props.theme.size(2)};
 
     ${!props.display && 'display: none;'}
   `

@@ -1,5 +1,6 @@
 import { BsXLg } from 'react-icons/bs';
 
+import If from '../../If';
 import {
   ActionContainer,
   ActionIcon,
@@ -14,6 +15,7 @@ import {
   PanelCloseBtn,
   PanelContainer,
   PanelHeader,
+  PanelIcon,
   PanelTitle,
 } from '../styled';
 
@@ -22,8 +24,9 @@ export const RenderNavigationButtons = (props: NavigationBarProps) => {
     <NavigationContainer>
       {props.navigation.map(nav => (
         <NavigationItem
+          key={nav.label}
           active={nav.label === props.active.nav}
-          onClick={() => props.onNavChange(nav.label)}
+          onClick={() => props.onChangeNav(nav.label)}
         >
           <NavigationIcon>{nav.icon}</NavigationIcon>
           <NavigationLabel>{nav.label}</NavigationLabel>
@@ -34,8 +37,9 @@ export const RenderNavigationButtons = (props: NavigationBarProps) => {
 
       {props.footer.map(nav => (
         <NavigationItem
+          key={nav.label}
           active={nav.label === props.active.nav}
-          onClick={() => props.onNavChange(nav.label)}
+          onClick={() => props.onChangeNav(nav.label)}
         >
           <NavigationIcon>{nav.icon}</NavigationIcon>
           <NavigationLabel>{nav.label}</NavigationLabel>
@@ -52,8 +56,9 @@ export const RenderActionButtons = (props: NavigationBarProps) => {
         .filter(a => a.nav === props.active.nav)
         .map(action => (
           <ActionItem
+            key={action.label}
             active={action.label === props.active.action}
-            onClick={() => props.onActionChange(action.label)}
+            onClick={() => props.onChangeAction(action.label)}
           >
             <ActionIcon>{action.icon}</ActionIcon>
             <ActionLabel>{action.label}</ActionLabel>
@@ -73,12 +78,17 @@ export const RenderPanels = (props: NavigationBarProps) => {
     <PanelContainer active={!!panel}>
       <Panel>
         <PanelHeader>
-          <PanelTitle>{panel.label}</PanelTitle>
-          <PanelCloseBtn onClick={() => props.onClosePanelChange()}>
-            <BsXLg />
-          </PanelCloseBtn>
+          <PanelTitle>
+            <PanelIcon>{panel.icon}</PanelIcon>
+            {panel.label}
+          </PanelTitle>
+          <If check={!!action}>
+            <PanelCloseBtn onClick={() => props.onClosePanel()}>
+              <BsXLg />
+            </PanelCloseBtn>
+          </If>
         </PanelHeader>
-        {panel.render()}
+        {panel.render}
       </Panel>
     </PanelContainer>
   );

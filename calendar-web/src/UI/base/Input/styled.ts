@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
   props => css`
-    margin: ${props.theme.size(2)} 0 ${props.theme.size(4)};
+    margin: ${props.theme.size(1)} 0 ${props.theme.size(4)};
   `
 );
 
@@ -11,6 +11,9 @@ export const Label = styled.label(
     padding: ${props.theme.size(2)} 0 0;
     font-size: ${props.theme.fontSize.label};
     color: ${props.theme.colors.current.text1};
+    display: flex;
+    align-items: center;
+    gap: ${props.theme.size(2)};
   `
 );
 

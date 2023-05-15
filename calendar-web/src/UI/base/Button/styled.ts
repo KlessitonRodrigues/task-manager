@@ -47,6 +47,7 @@ export const Label = styled.span(
   props => css`
     padding: ${props.theme.size(0.5)} ${props.theme.size(3)};
     font-size: ${props.theme.fontSize.label};
+    font-weight: bold;
     letter-spacing: 1px;
   `
 );

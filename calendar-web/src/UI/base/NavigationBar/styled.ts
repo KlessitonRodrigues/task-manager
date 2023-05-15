@@ -5,6 +5,12 @@ const fadeTopLeft = keyframes`
   to { width: 100%; height: 100%; }
 `;
 
+const fadeContent = keyframes`
+  from { opacity: 0; }
+  50% { opacity: 0; }
+  to { opacity: 1; }
+`;
+
 const fadeBg = keyframes`
   from { background-color: #0000; }
   to { background-color: #0006; }
@@ -17,7 +23,7 @@ const iconSlide = keyframes`
 export const Container = styled.div(
   props => css`
     display: flex;
-    font-size: ${props.theme.fontSize.label};
+    font-size: ${props.theme.fontSize.body};
     text-transform: capitalize;
     position: relative;
     margin-right: ${props.theme.size(4)};
@@ -62,7 +68,7 @@ export const NavigationItem = styled.div<{ active: boolean }>(
     border-radius: ${props.theme.border.radius.medium};
     cursor: pointer;
     transition: 0.1s;
-    opacity: ${props.active ? 1 : 0.5};
+    opacity: ${props.active ? 1 : 0.6};
     border: 2px solid transparent;
 
     ${props.active &&
@@ -75,7 +81,7 @@ export const NavigationItem = styled.div<{ active: boolean }>(
 
     :hover {
       border: 2px solid ${props.theme.colors.white};
-      opacity: 0.8;
+      opacity: 1;
     }
   `
 );
@@ -176,6 +182,10 @@ export const Panel = styled.div(
     box-shadow: ${props.theme.shadow.medium};
     border: ${props.theme.border.type.medium};
     animation: ${fadeTopLeft} 0.8s;
+
+    & > * {
+      animation: ${fadeContent} 0.6s ease-out;
+    }
   `
 );
 
@@ -189,8 +199,18 @@ export const PanelHeader = styled.div(
 
 export const PanelTitle = styled.div(
   props => css`
-    font-size: ${props.theme.fontSize.h2};
-    margin-bottom: ${props.theme.size(10)};
+    display: flex;
+    align-items: center;
+    gap: ${props.theme.size(4)};
+    font-size: ${props.theme.fontSize.h3};
+    margin-bottom: ${props.theme.size(4)};
+  `
+);
+
+export const PanelIcon = styled.div(
+  props => css`
+    padding-top: ${props.theme.size(1)};
+    font-size: ${props.theme.size(6)};
   `
 );
 

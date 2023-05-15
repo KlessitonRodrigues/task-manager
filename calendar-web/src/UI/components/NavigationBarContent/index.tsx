@@ -11,6 +11,7 @@ import {
 } from 'react-icons/bs';
 import NavigationBar from 'src/UI/base/NavigationBar';
 
+import AddEventForm from '../NavigationBarPanels/AddEvent';
 import SettingsForm from '../NavigationBarPanels/Settings';
 
 const NavigationBarContent = () => {
@@ -22,9 +23,9 @@ const NavigationBarContent = () => {
   return (
     <NavigationBar
       active={active}
-      onNavChange={nav => setActive({ ...active, nav, action: '' })}
-      onActionChange={action => setActive({ ...active, action })}
-      onClosePanelChange={() => setActive({ ...active, action: '' })}
+      onChangeNav={nav => setActive({ ...active, nav, action: '' })}
+      onChangeAction={action => setActive({ ...active, action })}
+      onClosePanel={() => setActive({ ...active, action: '' })}
       navigation={[
         { label: 'home', icon: <BsCalendar3 /> },
         { label: 'events', icon: <BsChat /> },
@@ -34,7 +35,7 @@ const NavigationBarContent = () => {
       actions={[
         {
           nav: 'home',
-          label: 'create',
+          label: 'add',
           icon: <BsPlusLg />,
         },
         {
@@ -50,28 +51,32 @@ const NavigationBarContent = () => {
       ]}
       panels={[
         {
-          label: 'Create event',
+          label: 'Add event',
           nav: 'home',
-          action: 'create',
-          render: () => <div>TEST</div>,
+          action: 'add',
+          icon: <BsPlusLg />,
+          render: <AddEventForm />,
         },
         {
           label: 'Edit event',
           nav: 'home',
           action: 'edit',
-          render: () => <div>TEST 2</div>,
+          icon: <BsPencil />,
+          render: <div>TEST 2</div>,
         },
         {
           label: 'Search event',
           nav: 'home',
           action: 'search',
-          render: () => <div>TEST 3</div>,
+          icon: <BsSearch />,
+          render: <div>TEST 3</div>,
         },
         {
           label: 'Settings',
           nav: 'Settings',
           action: '',
-          render: SettingsForm,
+          icon: <BsGear />,
+          render: <SettingsForm />,
         },
       ]}
       footer={[{ label: 'Settings', icon: <BsGear /> }]}

@@ -1,10 +1,15 @@
+import { useMemo } from 'react';
+
 import { RenderActionButtons, RenderNavigationButtons, RenderPanels } from './services/render';
 import { Container } from './styled';
 
 const NavigationBar = (props: NavigationBarProps) => {
-  const navigationBar = RenderNavigationButtons(props);
-  const actionsBar = RenderActionButtons(props);
-  const panel = RenderPanels(props);
+  const { active } = props;
+  const { nav, action } = active;
+
+  const navigationBar = useMemo(() => RenderNavigationButtons(props), [nav]);
+  const actionsBar = useMemo(() => RenderActionButtons(props), [nav, action]);
+  const panel = useMemo(() => RenderPanels(props), [nav, action]);
 
   return (
     <Container>

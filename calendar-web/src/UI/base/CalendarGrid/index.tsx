@@ -5,7 +5,7 @@ import { Container } from './styled';
 
 const CalendarGrid = (props: CalendarGridProps) => {
   const { monthWeeks, expandedWeek } = props;
-  const WeeksToRender = useMemo(() => renderWeeks(props), monthWeeks);
+  const WeeksToRender = useMemo(() => renderWeeks(props), [monthWeeks]);
 
   return <Container week={expandedWeek}>{WeeksToRender}</Container>;
 };

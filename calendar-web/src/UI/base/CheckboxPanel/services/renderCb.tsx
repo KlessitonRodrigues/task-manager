@@ -3,7 +3,7 @@ import { BsCheckCircle, BsCheckSquare, BsCircle, BsSquare } from 'react-icons/bs
 import { Checkbox } from '../styled';
 
 export const renderCheckboxMap = (props: CheckboxPanelProps) => {
-  const { iconFontSize, iconFormat, onChangeOne, onChangeAll, options, values } = props;
+  const { iconFontSize, iconFormat, onChangeOne, onChangeAll, options, values = [] } = props;
   const checkIcon = iconFormat === 'circle' ? <BsCircle /> : <BsSquare />;
   const checkedIcon = iconFormat === 'circle' ? <BsCheckCircle /> : <BsCheckSquare />;
 
@@ -19,7 +19,7 @@ export const renderCheckboxMap = (props: CheckboxPanelProps) => {
         onClick={() => {
           if (onChangeOne) onChangeOne(checkbox.value);
           if (onChangeAll) {
-            if (isChecked) onChangeAll([...values.filter((v, i) => i != checkedIndex)]);
+            if (isChecked) onChangeAll([...values?.filter((v, i) => i != checkedIndex)]);
             else onChangeAll([...values, checkbox.value]);
           }
         }}

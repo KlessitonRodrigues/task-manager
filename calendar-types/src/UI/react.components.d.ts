@@ -27,8 +27,9 @@ type CalendarWeekProps = {
 };
 
 type IfProps = {
-  true: boolean;
-  render?: React.ReactElement;
+  check: boolean;
+  true?: React.ReactElement;
+  false?: React.ReactElement;
   children?: React.ReactElement;
 };
 
@@ -49,6 +50,8 @@ type CheckboxPanelProps = {
   onChangeAll?: (value: string[]) => void;
   iconFormat?: 'square' | 'circle';
   iconFontSize?: string;
+  required?: boolean;
+  description?: string;
 };
 
 type InputProps = {
@@ -56,6 +59,8 @@ type InputProps = {
   type?: string;
   value?: string | number;
   placeHolder?: string;
+  required?: boolean;
+  description?: string;
   onChange?: (value: string) => void;
 };
 
@@ -114,9 +119,9 @@ type RenderCalendarDataProps = {
 
 type NavigationBarProps = {
   active: { nav: string; action: string };
-  onNavChange: (label: string) => void;
-  onActionChange: (label: string) => void;
-  onClosePanelChange: () => void;
+  onChangeNav: (label: string) => void;
+  onChangeAction: (label: string) => void;
+  onClosePanel: () => void;
   navigation: {
     label: string;
     icon: React.ReactElement;
@@ -130,7 +135,8 @@ type NavigationBarProps = {
     label: string;
     nav: string;
     action: string;
-    render: (data?: any) => React.ReactElement;
+    icon: React.ReactElement;
+    render: React.ReactElement;
   }[];
   footer: {
     label: string;
@@ -187,4 +193,10 @@ type TextAreaProps = {
   placeHolder?: string;
   value?: string;
   onChange?: (value: string) => void;
+};
+
+type InfoTagProps = {
+  required?: boolean;
+  description?: string;
+  expandTo?: 'top' | 'right';
 };

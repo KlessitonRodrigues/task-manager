@@ -13,7 +13,7 @@ const ColorPicker = (props: ColorPickerProps) => {
       selected={selected}
       onClick={() => !picker && onClick && onClick(bg)}
     >
-      <If true={picker}>
+      <If check={picker}>
         <InputContainer>
           <BsEyedropper />
           <Input type="color" onBlur={ev => onPickColor && onPickColor(ev.target.value)} />

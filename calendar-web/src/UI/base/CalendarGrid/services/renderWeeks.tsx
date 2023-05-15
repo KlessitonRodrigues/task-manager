@@ -1,16 +1,16 @@
 import CalendarTodo from '../../CalendarTodo';
 import { DayContainer, DayContent, DayHeader, WeekContainer, WeekContent } from '../styled';
 
-const renderDay = (props: CalendarGridProps, day: DateInfo) => {
+const renderDayContent = (props: CalendarGridProps, day: DateInfo) => {
   const { eventsByWeek } = props;
   const dayEvents = eventsByWeek[day.weekDayName] || [];
 
   return (
-    <DayContainer>
+    <DayContainer key={day.dateKey}>
       <DayHeader>{day.day}</DayHeader>
       <DayContent>
         {dayEvents.map(event => (
-          <CalendarTodo userEvent={event} />
+          <CalendarTodo key={event.id} userEvent={event} />
         ))}
       </DayContent>
     </DayContainer>
@@ -19,11 +19,10 @@ const renderDay = (props: CalendarGridProps, day: DateInfo) => {
 
 export const renderWeeks = (props: CalendarGridProps) => {
   const { monthWeeks, onChangeWeek } = props;
-  console.log(props.eventsByWeek);
 
   return monthWeeks.map((week, i) => (
-    <WeekContainer onClick={() => onChangeWeek(i)}>
-      <WeekContent>{week.map(day => renderDay(props, day))}</WeekContent>
+    <WeekContainer key={week[0].dateKey} onClick={() => onChangeWeek(i)}>
+      <WeekContent>{week.map(day => renderDayContent(props, day))}</WeekContent>
     </WeekContainer>
   ));
 };
