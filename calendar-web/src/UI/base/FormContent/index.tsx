@@ -8,10 +8,10 @@ const FormContent = (props: FormContentProps) => {
   return (
     <Container>
       <Row expanded={expanded} onClick={() => onExpand && onExpand(label)}>
+        <Label>{label || ''}</Label>
         <Icon>
           <HiChevronRight />
         </Icon>
-        <Label>{label || ''}</Label>
       </Row>
       <Content expanded={expanded}>{children}</Content>
     </Container>

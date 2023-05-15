@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
   props => css`
-    margin: ${props.theme.size(4)} 0 ${props.theme.size(4)};
+    margin: ${props.theme.size(1)} 0 ${props.theme.size(1)};
     position: relative;
     cursor: pointer;
   `
@@ -12,13 +12,15 @@ export const Row = styled.div<{ expanded?: boolean }>(
   props => css`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: ${props.theme.size(2)};
-    padding: ${props.theme.size(1)} ${props.theme.size(2)};
+    padding: ${props.theme.size(1)} ${props.theme.size(4)};
     margin-bottom: ${props.theme.size(4)};
     background-color: ${props.theme.colors.current.bg3};
     border-radius: ${props.theme.border.radius.small};
-    color: ${props.theme.colors.current.text2};
+    color: ${props.theme.colors.current.text1};
     text-transform: capitalize;
+    transition: background-color 0.2s;
 
     ${props.expanded &&
     css`
@@ -36,6 +38,7 @@ export const Row = styled.div<{ expanded?: boolean }>(
 export const Icon = styled.span(
   props => css`
     margin-top: ${props.theme.size(1)};
+    font-size: ${props.theme.fontSize.h3};
   `
 );
 
@@ -48,12 +51,13 @@ export const Label = styled.label(
 export const Content = styled.div<{ expanded?: boolean }>(
   props => css`
     overflow: hidden;
+    max-height: 0rem;
+    height: 100%;
     transition: max-height 0.6s ease-out;
-    max-height: 0;
-    padding: 0 ${props.theme.size(1)};
-    padding-left: ${props.theme.size(4)};
-    margin-left: ${props.theme.size(2)};
-    border-left: ${props.theme.border.type.large};
-    ${props.expanded && `max-height: 200px`}
+
+    ${props.expanded &&
+    css`
+      max-height: 100rem;
+    `}
   `
 );

@@ -31,6 +31,7 @@ export const Expanded = styled.div(
     width: max-content;
     max-width: ${props.theme.size(150)};
     padding: ${props.theme.size(1)};
+    padding-left: ${props.theme.size(2)};
     background-color: ${props.theme.colors.current.bg1};
     color: ${props.theme.colors.current.text1};
     border-radius: ${props.theme.border.radius.verySmall};

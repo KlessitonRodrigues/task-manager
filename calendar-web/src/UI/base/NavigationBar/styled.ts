@@ -7,7 +7,7 @@ const fadeTopLeft = keyframes`
 
 const fadeContent = keyframes`
   from { opacity: 0; }
-  50% { opacity: 0; }
+  50% { opacity: 0; transform: translateY(1rem); }
   to { opacity: 1; }
 `;
 
@@ -184,7 +184,7 @@ export const Panel = styled.div(
     animation: ${fadeTopLeft} 0.8s;
 
     & > * {
-      animation: ${fadeContent} 0.6s ease-out;
+      animation: ${fadeContent} 0.5s ease-out;
     }
   `
 );

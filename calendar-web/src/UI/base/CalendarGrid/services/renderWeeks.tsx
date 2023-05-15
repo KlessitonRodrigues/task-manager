@@ -21,7 +21,7 @@ export const renderWeeks = (props: CalendarGridProps) => {
   const { monthWeeks, onChangeWeek } = props;
 
   return monthWeeks.map((week, i) => (
-    <WeekContainer key={week[0].dateKey} onClick={() => onChangeWeek(i)}>
+    <WeekContainer key={week[i].dateKey} onClick={() => onChangeWeek(i)}>
       <WeekContent>{week.map(day => renderDayContent(props, day))}</WeekContent>
     </WeekContainer>
   ));
