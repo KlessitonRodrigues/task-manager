@@ -6,7 +6,7 @@ export const readByWeekDay = (config: ClientConfig) => (args: ReadEventByWeekDay
   const verifyWeekDay = (weekDay: WeekDayName) =>
     ocurrencyEvents.filter(ev => ev.weekDays.indexOf(weekDay) >= 0);
 
-  const eventsByWeek: Record<WeekDayName, UserEvent[]> = {
+  const eventsByWeek: EventsByWeek = {
     sun: verifyWeekDay('sun'),
     mon: verifyWeekDay('mon'),
     tue: verifyWeekDay('tue'),

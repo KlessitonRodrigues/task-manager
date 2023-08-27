@@ -1,9 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
-
-const fade = keyframes`
-  from {opacity: 0; transform: translateY(1rem);}
-  to {opacity: 1;}
-`;
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div<{ week: number }>(
   props => css`
@@ -31,7 +26,6 @@ export const WeekContainer = styled.div(
     cursor: pointer;
     transition: 0.5s height;
     height: ${props.theme.size(12)};
-    animation: ${fade} 0.4s ease-out;
 
     ::before {
       content: '';

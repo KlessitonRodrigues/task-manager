@@ -2,12 +2,12 @@ import CalendarTodo from '../../CalendarTodo';
 import { DayContainer, DayContent, DayHeader, WeekContainer, WeekContent } from '../styled';
 
 const renderDayContent = (props: CalendarGridProps, day: DateInfo) => {
-  const { eventsByWeek } = props;
+  const { eventsByWeek, dateNow } = props;
   const dayEvents = eventsByWeek[day.weekDayName] || [];
 
   return (
     <DayContainer key={day.dateKey}>
-      <DayHeader>{day.day}</DayHeader>
+      <DayHeader outOfMonth={day.month !== dateNow.month}>{day.day}</DayHeader>
       <DayContent>
         {dayEvents.map(event => (
           <CalendarTodo key={event.id} userEvent={event} />

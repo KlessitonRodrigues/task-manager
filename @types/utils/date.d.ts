@@ -15,3 +15,5 @@ type DateInfo = {
   timeKey: string;
   key: string;
 };
+
+type EventsByWeek = Record<WeekDayName, UserEvent[]>;

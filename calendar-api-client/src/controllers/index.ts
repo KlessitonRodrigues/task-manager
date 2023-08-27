@@ -1,4 +1,5 @@
 import { dates } from './calendar/dates';
+import { dateNow } from './calendar/dateNow';
 import { datesByColumns } from './calendar/datesByColumns';
 import { initLocalData } from './database/initLocalData';
 import { createEvent } from './events/create';
@@ -9,6 +10,7 @@ import { updateEvent } from './events/update';
 
 export const controllers = (config: ClientConfig) => ({
   calendar: {
+    dateNow,
     dates,
     datesByColumns,
   },

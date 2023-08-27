@@ -1,3 +1,7 @@
+type CalendarDateInfoArgs = {
+  currentDate: string;
+};
+
 type CalendarDatesArgs = {
   currentDate: string;
 };

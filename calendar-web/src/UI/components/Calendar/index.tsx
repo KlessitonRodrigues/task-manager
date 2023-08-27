@@ -15,6 +15,7 @@ export const Calendar = () => {
     <Container>
       <CalendarHeader currentDate={currentDate} onNext={setDate} onPrev={setDate} />
       <CalendarGrid
+        dateNow={calendarData.dateNow}
         monthWeeks={calendarData.monthWeeks}
         eventsByWeek={calendarData.eventsByWeek}
         expandedWeek={expandedWeek}

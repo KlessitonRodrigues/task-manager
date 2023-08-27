@@ -1,0 +1,14 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:KlessitonRodrigues/task-manager.git",
+  "author": "klessiton <klessitom@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "calendar-api",
+    "calendar-api-client",
+    "calendar-web"
+  ]
+}
